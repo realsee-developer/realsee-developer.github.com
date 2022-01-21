@@ -14,7 +14,7 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/3d-space/intro">
+          <Link className="button button--secondary button--lg" to="/docs/front/3d-space/intro">
             快速开始 - 15min ⏱️
           </Link>
         </div>

@@ -13,21 +13,21 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 
-module.exports = {
+const spaceSidebar = {
   '三维空间': [
-    '3d-space/intro',
-
+    'front/3d-space/intro',
+    
     {
       type: 'category',
       label: '开始上手',
       collapsed: false,
       items: [
-        "3d-space/getting-started/install", //folder_name/file_name
-        "3d-space/getting-started/configure",
-        "3d-space/getting-started/experience",
-        '3d-space/getting-started/terminology',
-        "3d-space/getting-started/playground",
-        "3d-space/getting-started/typescript-support",
+        "front/3d-space/getting-started/install", //folder_name/file_name
+        "front/3d-space/getting-started/configure",
+        "front/3d-space/getting-started/experience",
+        'front/3d-space/getting-started/terminology',
+        "front/3d-space/getting-started/playground",
+        "front/3d-space/getting-started/typescript-support",
       ],
     },
     {
@@ -41,12 +41,12 @@ module.exports = {
           label: '无框架使用',
           collapsed: true,
           items: [
-            "3d-space/usage/no-framework/getting-started",
-            "3d-space/usage/no-framework/displaying-work",
-            "3d-space/usage/no-framework/knowing-state",
-            "3d-space/usage/no-framework/recording-state",
-            "3d-space/usage/no-framework/points-in-3d",
-            "3d-space/usage/no-framework/tagging",
+            "front/3d-space/usage/no-framework/getting-started",
+            "front/3d-space/usage/no-framework/displaying-work",
+            "front/3d-space/usage/no-framework/knowing-state",
+            "front/3d-space/usage/no-framework/recording-state",
+            "front/3d-space/usage/no-framework/points-in-3d",
+            "front/3d-space/usage/no-framework/tagging",
           ]
         },
         {
@@ -54,12 +54,12 @@ module.exports = {
           label: 'React HOC 模式开发',
           collapsed: true,
           items: [
-            "3d-space/usage/react-hoc/getting-started",
-            "3d-space/usage/react-hoc/displaying-work",
-            "3d-space/usage/react-hoc/knowing-state",
-            "3d-space/usage/react-hoc/recording-state",
-            "3d-space/usage/react-hoc/points-in-3d",
-            "3d-space/usage/react-hoc/tagging",
+            "front/3d-space/usage/react-hoc/getting-started",
+            "front/3d-space/usage/react-hoc/displaying-work",
+            "front/3d-space/usage/react-hoc/knowing-state",
+            "front/3d-space/usage/react-hoc/recording-state",
+            "front/3d-space/usage/react-hoc/points-in-3d",
+            "front/3d-space/usage/react-hoc/tagging",
           ]
         },
         {
@@ -67,12 +67,12 @@ module.exports = {
           label: 'React Hooks 模式开发',
           collapsed: true,
           items: [
-            "3d-space/usage/react-hooks/getting-started",
-            "3d-space/usage/react-hooks/displaying-work",
-            "3d-space/usage/react-hooks/knowing-state",
-            "3d-space/usage/react-hooks/recording-state",
-            "3d-space/usage/react-hooks/points-in-3d",
-            "3d-space/usage/react-hooks/tagging",
+            "front/3d-space/usage/react-hooks/getting-started",
+            "front/3d-space/usage/react-hooks/displaying-work",
+            "front/3d-space/usage/react-hooks/knowing-state",
+            "front/3d-space/usage/react-hooks/recording-state",
+            "front/3d-space/usage/react-hooks/points-in-3d",
+            "front/3d-space/usage/react-hooks/tagging",
           ]
         },
       ],
@@ -82,7 +82,7 @@ module.exports = {
       label: '进阶指南',
       collapsed: true,
       items: [
-        "3d-space/advanced/dnalogel/PanoFloorplanRadarPlugin", //folder_name/file_name
+        "front/3d-space/advanced/dnalogel/PanoFloorplanRadarPlugin", //folder_name/file_name
       ],
     },
     {
@@ -90,31 +90,40 @@ module.exports = {
       label: '应用示例',
       collapsed: true,
       items: [
-        "3d-space/examples/vr-house", //folder_name/file_name
-
+        "front/3d-space/examples/vr-house", //folder_name/file_name
+      
       ],
     }
-  ],
+  ]
+}
+
+const liveSidebar = {
+  '如视带看': [
+  
+  ]
+}
+
+const vreoSidebar = {
   '空间导览': [
-    'space-navigation/intro',
+    'front/space-navigation/intro',
     {
       type: 'category',
       label: '快速开始',
       collapsed: false,
       items: [
-        'space-navigation/getting-started/install',
-        'space-navigation/getting-started/experience',
-        'space-navigation/getting-started/react-support',
+        'front/space-navigation/getting-started/install',
+        'front/space-navigation/getting-started/experience',
+        'front/space-navigation/getting-started/react-support',
       ],
     },
-    'space-navigation/structure',
+    'front/space-navigation/structure',
     {
       type: 'category',
       label: '剧本关键帧',
       collapsed: false,
       items: [
-        'space-navigation/keyframes/camera-movement',
-        'space-navigation/keyframes/prompter',
+        'front/space-navigation/keyframes/camera-movement',
+        'front/space-navigation/keyframes/prompter',
       ],
     },
     {
@@ -122,8 +131,8 @@ module.exports = {
       label: '高阶指南',
       collapsed: false,
       items: [
-        'space-navigation/advanced/custom-keyframe-action',
-        'space-navigation/advanced/custom-keyframe',
+        'front/space-navigation/advanced/custom-keyframe-action',
+        'front/space-navigation/advanced/custom-keyframe',
       ],
     },
     {
@@ -131,16 +140,22 @@ module.exports = {
       label: '应用示例',
       collapsed: false,
       items: [
-        'space-navigation/examples/midea',
+        'front/space-navigation/examples/midea',
       ],
     },
     {
       type: 'category',
-      label: '答疑解惑',
+      label: '常见问题',
       collapsed: false,
       items: [
-        'space-navigation/faq/wechat-browser',
+        'front/space-navigation/faq/wechat-browser',
       ],
     },
   ]
+}
+
+module.exports = {
+  ...spaceSidebar,
+  ...liveSidebar,
+  ...vreoSidebar
 };

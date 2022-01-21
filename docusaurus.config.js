@@ -53,18 +53,18 @@ const config = {
           {
             type: 'doc',
             label: '三维空间',
-            docId: '3d-space/intro',
+            docId: 'front/3d-space/intro',
             position: 'left',
           },
           {
             type: 'doc',
-            docId: 'space-navigation/intro',
+            docId: 'front/space-navigation/intro',
             position: 'left',
             label: '空间导览',
           },
           {
             type: 'doc',
-            docId: 'live/getting-started',
+            docId: 'front/live/getting-started',
             position: 'left',
             label: '线上带看',
           },
@@ -84,15 +84,15 @@ const config = {
             items: [
               {
                 label: '三维空间',
-                to: '/docs/3d-space/intro',
+                to: '/docs/front/3d-space/intro',
               },
               {
                 label: '空间导览',
-                to: '/docs/space-navigation/intro',
+                to: '/docs/front/space-navigation/intro',
               },
               {
                 label: '线上带看',
-                to: '/docs/live/getting-started',
+                to: '/docs/front/live/getting-started',
               },
             ],
           },
