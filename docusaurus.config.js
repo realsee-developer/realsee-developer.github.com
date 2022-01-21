@@ -70,6 +70,11 @@ const config = {
           },
           { to: '/blog', label: '博客', position: 'left' },
           {
+            href: '/examples',
+            position: 'left',
+            label: '最佳示例',
+          },
+          {
             href: 'https://github.com/realsee-developer',
             label: 'GitHub',
             position: 'right',
