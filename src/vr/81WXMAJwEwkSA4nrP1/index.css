@@ -1,0 +1,13 @@
+html,
+body,
+#__docusaurus {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.phone-panel {
+  width: 175px;
+  height: 368px;
+}

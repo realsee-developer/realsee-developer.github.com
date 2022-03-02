@@ -1,0 +1,13 @@
+.five-PanoFloorplanRadarPlugin {
+    max-width: 200px;
+    max-height: 240px;
+    width: 30vw;
+    height: 40vw;
+
+    position: fixed;
+    right: 20px;
+    top: 30px;
+
+    background: linear-gradient(180deg, rgb(0 0 0 / 20%), rgb(0 0 0 / 68%));
+    border-radius: 2px 2px;
+}
