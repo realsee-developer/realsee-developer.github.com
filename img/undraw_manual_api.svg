@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120px" height="120px" viewBox="0 0 120 120" version="1.1">
+    <title>icon-design</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="41.3194444%" x2="0%" y2="58.6805556%" id="linearGradient-1">
+            <stop stop-color="#FBFCFD" offset="0%"></stop>
+            <stop stop-color="#DBEFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="41.3223798%" y1="0%" x2="58.6776202%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FBFCFD" offset="0%"></stop>
+            <stop stop-color="#DBEFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="41.3194444%" y1="0%" x2="58.6805556%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FBFCFD" offset="0%"></stop>
+            <stop stop-color="#DBEFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="19.11.19--icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-492.000000, -714.000000)">
+            <g id="标尺" transform="translate(157.000000, 217.000000)"></g>
+            <g id="icon_home3" transform="translate(492.000000, 714.000000)">
+                <polygon id="3" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" transform="translate(59.593750, 60.000000) rotate(90.000000) translate(-59.593750, -60.000000) " points="58.78125 4.34375 58.78125 115.65625 60.40625 115.65625 60.40625 4.34375"></polygon>
+                <polygon id="3" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="59.1875 4.75 59.1875 116.0625 60.8125 116.0625 60.8125 4.75"></polygon>
+                <path d="M60,3.83210678 L3.83210678,60 L60,116.167893 L116.167893,60 L60,3.83210678 Z" id="3" stroke-opacity="0.5" stroke="#FBFCFD"></path>
+                <g id="2" transform="translate(60.000000, 69.053571) scale(1, -1) translate(-60.000000, -69.053571) translate(30.750000, 43.982143)">
+                    <polygon id="路径-16" fill="#3A32DC" points="29.25 0 0 49.8214286 58.5 49.8214286"></polygon>
+                    <polygon id="路径-16" fill="#4740F0" points="29.25 0 0 49.8214286 29.25 32.248213"></polygon>
+                    <polygon id="路径-16" fill="#2923BE" transform="translate(43.875000, 24.910714) scale(-1, 1) translate(-43.875000, -24.910714) " points="58.5 0 29.25 49.8214286 58.5 32.248213"></polygon>
+                </g>
+                <path d="M4.75,60 L43.75,43.75" id="1" stroke="url(#linearGradient-1)" stroke-linecap="round"></path>
+                <path d="M76.25,76.25 L115.25,60" id="1" stroke="url(#linearGradient-1)" stroke-linecap="round" transform="translate(95.750000, 68.125000) scale(-1, -1) translate(-95.750000, -68.125000) "></path>
+                <path d="M60,115.256596 L43.75,76.25" id="1" stroke="url(#linearGradient-2)" stroke-linecap="round"></path>
+                <path d="M76.25,43.75 L60,4.75" id="1" stroke="url(#linearGradient-3)" stroke-linecap="round" transform="translate(68.125000, 24.250000) scale(-1, -1) translate(-68.125000, -24.250000) "></path>
+                <path d="M60.3535534,36.6856602 C60.1582912,36.490398 59.8417088,36.490398 59.6464466,36.6856602 L36.6856602,59.6464466 C36.490398,59.8417088 36.490398,60.1582912 36.6856602,60.3535534 L59.6464466,83.3143398 C59.8417088,83.509602 60.1582912,83.509602 60.3535534,83.3143398 L83.3143398,60.3535534 C83.509602,60.1582912 83.509602,59.8417088 83.3143398,59.6464466 L60.3535534,36.6856602 Z" id="1" stroke="#FFFFFF" transform="translate(60.000000, 60.000000) rotate(45.000000) translate(-60.000000, -60.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

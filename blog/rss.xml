@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Realsee JavaScript Manual Blog</title>
+        <link>https://realsee.js.org/blog</link>
+        <description>Realsee JavaScript Manual Blog</description>
+        <lastBuildDate>Wed, 23 Feb 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[如视 3D 空间能力快速 "尝鲜"]]></title>
+            <link>https://realsee.js.org/blog/quick-start-with-api</link>
+            <guid>quick-start-with-api</guid>
+            <pubDate>Wed, 23 Feb 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[服务端使用 如视3D空间 API 访问和管理空间数据，客户端使用 如视3D空间 SDK 搭配空间数据开发自己的3D空间VR应用]]></description>
+            <content:encoded><![CDATA[<p>服务端使用 <a href="https://developers.realsee.com/docs/#/docs/five/server/README">如视3D空间 API</a> 访问和管理空间数据，客户端使用 <a href="../docs/front/3d-space/container/app/desc">如视3D空间 SDK</a> 搭配空间数据开发自己的3D空间VR应用</p><h2>个人尝鲜</h2><p><strong>3分钟跑通采集预览（Node版）</strong></p><p>该项目会请求开发者中心API接口，使用SDK展示最新一条处理完成的VR。</p><h3>操作前提</h3><ul><li>您的机器已安装 <a href="https://nodejs.org/en/">Node 和 npm</a></li><li>您方便操作的苹果手机（用于快速拍摄VR）</li></ul><h3>操作步骤</h3><p><strong>第一步</strong>：注册/登录<a href="https://developers.realsee.com/console">如视开发者中心控制台</a> ，点击<code>申请密钥</code>，获取您的<code>Application Id</code> 和 <code>Application Secret</code>
+，此凭证将用于访问API接口获取空间数据</p><p><strong>第二步</strong>：手机应用商店搜索<code>如视VR</code>，安装并登录<strong>第一步</strong>中注册/登录的账号</p><p>继续在App内操作</p><ul><li><code>我的</code> - <code>身份选择</code> - <code>个人</code>（默认）</li><li>点击底部<code>加号按钮</code>创建项目 - <code>手机拍</code>（暂时仅支持iOS） - 点击<code>创建项目</code></li><li>按照App操作指引完成拍摄并上传，等待VR项目处理完成（此过程大致需要几分钟）</li></ul><p><strong>第三步</strong>：<code>git clone</code> 或 <code>download zip</code> <a href="https://github.com/realsee-developer/five-sdk-starter-with-api">five-sdk-starter-with-api</a></p><p>进入仓库目录 打开<code>index.js</code>，搜索<code>Your-App-Key</code>字符串替换成第一步中申请的<code>Application Id</code>，搜索<code>Your-App-Secret</code>字符串替换成第一步中申请的<code>Application Secret</code></p><pre><code class="language-shell">cd five-sdk-starter-with-api
+npm i
+npm run start
+# 您会看到控制台输出，浏览器打开下面的链接，建议使用Chrome浏览器保证最佳体验
+&gt; node index.js
+&gt; serve at http://127.0.0.1:3000
+</code></pre><h2>企业级接入</h2><h3>实景VR</h3><p><a href="https://realsee.cn/website/product/hardware">如视VR扫描设备</a> 采集生成实景3D空间 --&gt; <strong>如视开发者中心 API SDK</strong> 展示</p><h3>虚拟VR</h3><p><a href="https://business.realsee.com/">如视3D设计工具</a> 创建虚拟3D空间 --&gt; <strong>如视开发者中心 API SDK</strong> 展示</p><blockquote><p>企业级实景空间采集、虚拟空间设计、加工服务请联系<a href="https://realsee.com/website/business">如视官网商务合作</a></p></blockquote>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
