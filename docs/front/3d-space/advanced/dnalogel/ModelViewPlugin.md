@@ -8,11 +8,9 @@ title: 模型"小窗"
 
 ## 示例效果
 
-```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="/dnalogelExamples/ModelviewPluginExample"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogelExamples/ModelviewPluginExample/"></iframe>
 </div>
-```
 
 ## 安装引用
 

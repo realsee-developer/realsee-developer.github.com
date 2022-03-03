@@ -13,7 +13,7 @@ title: 📦 俯视模型户型图
 
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="/dnalogelExamples/TopviewFloorplanPluginExample"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogelExamples/TopviewFloorplanPluginExample/"></iframe>
 </div>
 ```
 
