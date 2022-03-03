@@ -9,8 +9,8 @@ title: DEMO体验
 
 ```mdx-code-block
 <div className='docs-live-demo'>
-    <iframe className="docs-live-iframe" src="https://developers.realsee.com/docs/_media/live-demo/dist/?userRole=anchor"></iframe>
-    <iframe className="docs-live-iframe" src="https://developers.realsee.com/docs/_media/live-demo/dist/?userRole=audience"></iframe>
+    <iframe className="docs-live-iframe" src="/live-demo/index.html?userRole=anchor"></iframe>
+    <iframe className="docs-live-iframe" src="/live-demo/index.html?userRole=audience"></iframe>
 </div>
 ```
 
