@@ -1,0 +1,473 @@
+{
+  "request_id": "50cc6acc-03b7-47f2-bcda-642555710520",
+  "trace_id": "20211111183649-10271061-936cdea535d68bed8bcb27d59a3c7b34",
+  "business_code": "",
+  "osi_request_id": "",
+  "code": 0,
+  "status": "success",
+  "data": {
+    "base_url": "https://vrlab-public.ljcdn.com/release/ue4/a2b0b51a31d995cf6aebc48675d3ab15/ue4_result/",
+    "create_time": "2021-11-01T16:32:07+08:00",
+    "initial": {
+      "flag_position": [
+        1.335268945562904,
+        -1.3062977724701446,
+        -1.0665643952029673
+      ],
+      "fov": 95,
+      "heading": 0,
+      "latitude": 0,
+      "longitude": 3.646291596192839,
+      "pano": 1,
+      "pano_index": 1
+    },
+    "model": {
+      "file_url": "https://vrlab-public.ljcdn.com/vrframework/release/ue4_decoration_plan/46V08m24qf2EyM8Z/vrproc-ue4/render/model.at3d",
+      "material_base_url": "https://vrlab-public.ljcdn.com/release/ue4/e40ad2b5fed683a6293780a409840dfb/at3d_results/",
+      "material_textures": [
+        "texture_0.jpg",
+        "texture_1.jpg",
+        "texture_2.jpg",
+        "texture_3.jpg",
+        "texture_4.jpg",
+        "texture_5.jpg",
+        "texture_6.jpg",
+        "texture_7.jpg",
+        "texture_8.jpg",
+        "texture_9.jpg",
+        "texture_10.jpg",
+        "texture_11.jpg"
+      ],
+      "modify_time": "2021-11-01T16:32:07+08:00",
+      "type": 0
+    },
+    "observers": [
+      {
+        "accessible_nodes": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          9
+        ],
+        "floor_index": 0,
+        "index": 0,
+        "offset_point_count": 1438,
+        "position": [
+          -0.6533139944076538,
+          1.3141485333358582,
+          -1.2635899782180786
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -0.6533139944076538,
+          0.0011568039282912057,
+          -1.2635899782180786
+        ],
+        "visible_nodes": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          2,
+          3,
+          4,
+          8,
+          9
+        ],
+        "floor_index": 0,
+        "index": 1,
+        "offset_point_count": 1244,
+        "position": [
+          -0.7097569704055786,
+          1.3292625329373118,
+          -2.9791200160980225
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -0.7097569704055786,
+          0.0012687610385373471,
+          -2.9791200160980225
+        ],
+        "visible_nodes": [
+          0,
+          2,
+          3,
+          4,
+          8,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        "floor_index": 0,
+        "index": 2,
+        "offset_point_count": 803,
+        "position": [
+          -1.2997900247573853,
+          1.317703133161151,
+          -3.3957700729370117
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -1.2997900247573853,
+          0.0012350993458680737,
+          -3.3957700729370117
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "accessible_nodes": [
+          1,
+          2
+        ],
+        "floor_index": 0,
+        "index": 3,
+        "offset_point_count": 2459,
+        "position": [
+          -1.8919199705123901,
+          1.2926321334121462,
+          -3.401700019836426
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -1.8919199705123901,
+          0.0011714246048268873,
+          -3.401700019836426
+        ],
+        "visible_nodes": [
+          1,
+          2
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          2,
+          5,
+          8,
+          9
+        ],
+        "floor_index": 0,
+        "index": 4,
+        "offset_point_count": 1154,
+        "position": [
+          -0.7556399703025818,
+          1.3240870336917874,
+          -4.121679782867432
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -0.7556399703025818,
+          0,
+          -4.121679782867432
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          2,
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          2,
+          4
+        ],
+        "floor_index": 0,
+        "index": 5,
+        "offset_point_count": 1872,
+        "position": [
+          -0.00586313009262085,
+          1.311424053451949,
+          -4.243080139160156
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -0.00586313009262085,
+          0.0009023872185314197,
+          -4.243080139160156
+        ],
+        "visible_nodes": [
+          2,
+          4
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          7
+        ],
+        "floor_index": 0,
+        "index": 6,
+        "offset_point_count": 5156,
+        "position": [
+          -1.830489993095398,
+          1.3215693334964749,
+          -1.165179967880249
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -1.830489993095398,
+          0.0010155972292429372,
+          -1.165179967880249
+        ],
+        "visible_nodes": [
+          0,
+          7
+        ]
+      },
+      {
+        "accessible_nodes": [
+          6
+        ],
+        "floor_index": 0,
+        "index": 7,
+        "offset_point_count": 143,
+        "position": [
+          -2.9689700603485107,
+          1.322172433781409,
+          0.3495450019836426
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -2.9689700603485107,
+          0.0007722089234609708,
+          0.3495450019836426
+        ],
+        "visible_nodes": [
+          6
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "floor_index": 0,
+        "index": 8,
+        "offset_point_count": 1731,
+        "position": [
+          -0.6395059823989868,
+          1.3204638331113097,
+          0.31013399362564087
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -0.6395059823989868,
+          0.0010474116405281286,
+          0.31013399362564087
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          4,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          4,
+          8
+        ],
+        "floor_index": 0,
+        "index": 9,
+        "offset_point_count": 20,
+        "position": [
+          -0.228752002120018,
+          1.3211896332828041,
+          2.3066999912261963
+        ],
+        "quaternion": {
+          "w": 0.7071067811865475,
+          "x": 0,
+          "y": 0.7071067811865475,
+          "z": 0
+        },
+        "standing_position": [
+          -0.228752002120018,
+          0.0009561229067154287,
+          2.3066999912261963
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          4,
+          8
+        ]
+      }
+    ],
+    "panorama": {
+      "count": 10,
+      "list": [
+        {
+          "back": "0/0_b.jpg",
+          "down": "0/0_d.jpg",
+          "front": "0/0_f.jpg",
+          "index": 0,
+          "left": "0/0_l.jpg",
+          "right": "0/0_r.jpg",
+          "up": "0/0_u.jpg"
+        },
+        {
+          "back": "1/1_b.jpg",
+          "down": "1/1_d.jpg",
+          "front": "1/1_f.jpg",
+          "index": 1,
+          "left": "1/1_l.jpg",
+          "right": "1/1_r.jpg",
+          "up": "1/1_u.jpg"
+        },
+        {
+          "back": "2/2_b.jpg",
+          "down": "2/2_d.jpg",
+          "front": "2/2_f.jpg",
+          "index": 2,
+          "left": "2/2_l.jpg",
+          "right": "2/2_r.jpg",
+          "up": "2/2_u.jpg"
+        },
+        {
+          "back": "3/3_b.jpg",
+          "down": "3/3_d.jpg",
+          "front": "3/3_f.jpg",
+          "index": 3,
+          "left": "3/3_l.jpg",
+          "right": "3/3_r.jpg",
+          "up": "3/3_u.jpg"
+        },
+        {
+          "back": "4/4_b.jpg",
+          "down": "4/4_d.jpg",
+          "front": "4/4_f.jpg",
+          "index": 4,
+          "left": "4/4_l.jpg",
+          "right": "4/4_r.jpg",
+          "up": "4/4_u.jpg"
+        },
+        {
+          "back": "5/5_b.jpg",
+          "down": "5/5_d.jpg",
+          "front": "5/5_f.jpg",
+          "index": 5,
+          "left": "5/5_l.jpg",
+          "right": "5/5_r.jpg",
+          "up": "5/5_u.jpg"
+        },
+        {
+          "back": "6/6_b.jpg",
+          "down": "6/6_d.jpg",
+          "front": "6/6_f.jpg",
+          "index": 6,
+          "left": "6/6_l.jpg",
+          "right": "6/6_r.jpg",
+          "up": "6/6_u.jpg"
+        },
+        {
+          "back": "7/7_b.jpg",
+          "down": "7/7_d.jpg",
+          "front": "7/7_f.jpg",
+          "index": 7,
+          "left": "7/7_l.jpg",
+          "right": "7/7_r.jpg",
+          "up": "7/7_u.jpg"
+        },
+        {
+          "back": "8/8_b.jpg",
+          "down": "8/8_d.jpg",
+          "front": "8/8_f.jpg",
+          "index": 8,
+          "left": "8/8_l.jpg",
+          "right": "8/8_r.jpg",
+          "up": "8/8_u.jpg"
+        },
+        {
+          "back": "9/9_b.jpg",
+          "down": "9/9_d.jpg",
+          "front": "9/9_f.jpg",
+          "index": 9,
+          "left": "9/9_l.jpg",
+          "right": "9/9_r.jpg",
+          "up": "9/9_u.jpg"
+        }
+      ]
+    },
+    "picture_url": "https://vrlab-public.ljcdn.com/vrframework/release/ue4_decoration_plan/46V08m24qf2EyM8Z/vrproc-ue4/render/picture.jpg",
+    "title_picture_url": "",
+    "vr_code": "80loPeDpeQQvV34LX1",
+    "vr_type": "reality"
+  },
+  "cost": 12
+}

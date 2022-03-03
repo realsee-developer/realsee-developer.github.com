@@ -1,0 +1,468 @@
+{
+  "request_id": "f65be197-8ffe-46d0-aaf0-9298b8c3f99d",
+  "trace_id": "20211111184427-10271061-8dda46235a5a2982824389e9eab86134",
+  "business_code": "",
+  "osi_request_id": "",
+  "code": 0,
+  "status": "success",
+  "data": {
+    "base_url": "https://vrlab-public.ljcdn.com/release/auto3dhd/c97e327d1879a5a4694f4bfa3a97f878/",
+    "create_time": "2020-09-02T18:10:53+08:00",
+    "initial": {
+      "flag_position": [
+        1.335268945562904,
+        -1.3062977724701446,
+        -1.0665643952029673
+      ],
+      "fov": 95,
+      "heading": 0,
+      "latitude": 0,
+      "longitude": 3.646291596192839,
+      "pano": 1,
+      "pano_index": 1
+    },
+    "model": {
+      "file_url": "model/auto3d-veHfuXlLCLbgDvuaSXgBAj.at3d",
+      "material_base_url": "materials/",
+      "material_textures": [
+        "texture_0.jpg",
+        "texture_1.jpg",
+        "texture_2.jpg",
+        "texture_3.jpg",
+        "texture_4.jpg",
+        "texture_5.jpg",
+        "texture_6.jpg"
+      ],
+      "modify_time": "2020-09-02T18:34:27+08:00",
+      "type": 0
+    },
+    "observers": [
+      {
+        "accessible_nodes": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          9
+        ],
+        "floor_index": 0,
+        "index": 0,
+        "offset_point_count": 1438,
+        "position": [
+          -0.6533139944076538,
+          0.0065819998271763325,
+          -1.2635899782180786
+        ],
+        "quaternion": {
+          "w": 0.8367846537374927,
+          "x": 0.005790887931509313,
+          "y": -0.5474915775212988,
+          "z": -0.0032984480750653388
+        },
+        "standing_position": [
+          -0.6533139944076538,
+          -1.3064097295803907,
+          -1.2635899782180786
+        ],
+        "visible_nodes": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          2,
+          3,
+          4,
+          8,
+          9
+        ],
+        "floor_index": 0,
+        "index": 1,
+        "offset_point_count": 1244,
+        "position": [
+          -0.7097569704055786,
+          0.021695999428629875,
+          -2.9791200160980225
+        ],
+        "quaternion": {
+          "w": -0.9233847475555995,
+          "x": -0.0070712164789901435,
+          "y": 0.3838012701219474,
+          "z": 0.002682626996652388
+        },
+        "standing_position": [
+          -0.7097569704055786,
+          -1.3062977724701446,
+          -2.9791200160980225
+        ],
+        "visible_nodes": [
+          0,
+          2,
+          3,
+          4,
+          8,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        "floor_index": 0,
+        "index": 2,
+        "offset_point_count": 803,
+        "position": [
+          -1.2997900247573853,
+          0.010136599652469158,
+          -3.3957700729370117
+        ],
+        "quaternion": {
+          "w": -0.9767606991864627,
+          "x": 0.009007686644901895,
+          "y": -0.21309655943651354,
+          "z": -0.021148510250998877
+        },
+        "standing_position": [
+          -1.2997900247573853,
+          -1.3063314341628138,
+          -3.3957700729370117
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "accessible_nodes": [
+          1,
+          2
+        ],
+        "floor_index": 0,
+        "index": 3,
+        "offset_point_count": 2459,
+        "position": [
+          -1.8919199705123901,
+          -0.014934400096535683,
+          -3.401700019836426
+        ],
+        "quaternion": {
+          "w": -0.9970908018093644,
+          "x": -0.0024896300645298876,
+          "y": 0.07588398915187722,
+          "z": -0.006734690479640223
+        },
+        "standing_position": [
+          -1.8919199705123901,
+          -1.306395108903855,
+          -3.401700019836426
+        ],
+        "visible_nodes": [
+          1,
+          2
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          2,
+          5,
+          8,
+          9
+        ],
+        "floor_index": 0,
+        "index": 4,
+        "offset_point_count": 1154,
+        "position": [
+          -0.7556399703025818,
+          0.01652050018310547,
+          -4.121679782867432
+        ],
+        "quaternion": {
+          "w": 0.5965513064362943,
+          "x": -0.006710873224362884,
+          "y": -0.8025247016934586,
+          "z": 0.00596757491716302
+        },
+        "standing_position": [
+          -0.7556399703025818,
+          -1.307566533508682,
+          -4.121679782867432
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          2,
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          2,
+          4
+        ],
+        "floor_index": 0,
+        "index": 5,
+        "offset_point_count": 1872,
+        "position": [
+          -0.00586313009262085,
+          0.003857519943267107,
+          -4.243080139160156
+        ],
+        "quaternion": {
+          "w": 0.3011752712129584,
+          "x": -0.0074716204203078606,
+          "y": -0.9534827248954244,
+          "z": -0.010407814788835065
+        },
+        "standing_position": [
+          -0.00586313009262085,
+          -1.3066641462901505,
+          -4.243080139160156
+        ],
+        "visible_nodes": [
+          2,
+          4
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          7
+        ],
+        "floor_index": 0,
+        "index": 6,
+        "offset_point_count": 5156,
+        "position": [
+          -1.830489993095398,
+          0.014002799987792969,
+          -1.165179967880249
+        ],
+        "quaternion": {
+          "w": -0.9968919585169675,
+          "x": -0.004260604394977782,
+          "y": 0.0783835839215459,
+          "z": 0.006653503093509708
+        },
+        "standing_position": [
+          -1.830489993095398,
+          -1.306550936279439,
+          -1.165179967880249
+        ],
+        "visible_nodes": [
+          0,
+          7
+        ]
+      },
+      {
+        "accessible_nodes": [
+          6
+        ],
+        "floor_index": 0,
+        "index": 7,
+        "offset_point_count": 143,
+        "position": [
+          -2.9689700603485107,
+          0.014605900272727013,
+          0.3495450019836426
+        ],
+        "quaternion": {
+          "w": -0.8974556575117567,
+          "x": -0.0021651984820355227,
+          "y": 0.4409952300196791,
+          "z": 0.009585151051302893
+        },
+        "standing_position": [
+          -2.9689700603485107,
+          -1.306794324585221,
+          0.3495450019836426
+        ],
+        "visible_nodes": [
+          6
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "floor_index": 0,
+        "index": 8,
+        "offset_point_count": 1731,
+        "position": [
+          -0.6395059823989868,
+          0.012897299602627754,
+          0.31013399362564087
+        ],
+        "quaternion": {
+          "w": -0.9760058914855877,
+          "x": -0.0012247969999381004,
+          "y": 0.21762735159177635,
+          "z": 0.00702383143409609
+        },
+        "standing_position": [
+          -0.6395059823989868,
+          -1.3065191218681538,
+          0.31013399362564087
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          4,
+          9
+        ]
+      },
+      {
+        "accessible_nodes": [
+          0,
+          1,
+          4,
+          8
+        ],
+        "floor_index": 0,
+        "index": 9,
+        "offset_point_count": 20,
+        "position": [
+          -0.228752002120018,
+          0.013623099774122238,
+          2.3066999912261963
+        ],
+        "quaternion": {
+          "w": -0.9877297064850311,
+          "x": 0.004212949679704556,
+          "y": -0.15586526007327528,
+          "z": 0.008848166767399858
+        },
+        "standing_position": [
+          -0.228752002120018,
+          -1.3066104106019665,
+          2.3066999912261963
+        ],
+        "visible_nodes": [
+          0,
+          1,
+          4,
+          8
+        ]
+      }
+    ],
+    "panorama": {
+      "count": 10,
+      "list": [
+        {
+          "back": "images/cube_2048/0/4b6b698e40323a1234cb0ce733a3d91e/0_b.jpg",
+          "down": "images/cube_2048/0/4b6b698e40323a1234cb0ce733a3d91e/0_d.jpg",
+          "front": "images/cube_2048/0/4b6b698e40323a1234cb0ce733a3d91e/0_f.jpg",
+          "index": 0,
+          "left": "images/cube_2048/0/4b6b698e40323a1234cb0ce733a3d91e/0_l.jpg",
+          "right": "images/cube_2048/0/4b6b698e40323a1234cb0ce733a3d91e/0_r.jpg",
+          "up": "images/cube_2048/0/4b6b698e40323a1234cb0ce733a3d91e/0_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/1/03b463e1d30445bc8e61b90045c00cc8/1_b.jpg",
+          "down": "images/cube_2048/1/03b463e1d30445bc8e61b90045c00cc8/1_d.jpg",
+          "front": "images/cube_2048/1/03b463e1d30445bc8e61b90045c00cc8/1_f.jpg",
+          "index": 1,
+          "left": "images/cube_2048/1/03b463e1d30445bc8e61b90045c00cc8/1_l.jpg",
+          "right": "images/cube_2048/1/03b463e1d30445bc8e61b90045c00cc8/1_r.jpg",
+          "up": "images/cube_2048/1/03b463e1d30445bc8e61b90045c00cc8/1_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/2/2d29a85453afc856db64910990dcacb5/2_b.jpg",
+          "down": "images/cube_2048/2/2d29a85453afc856db64910990dcacb5/2_d.jpg",
+          "front": "images/cube_2048/2/2d29a85453afc856db64910990dcacb5/2_f.jpg",
+          "index": 2,
+          "left": "images/cube_2048/2/2d29a85453afc856db64910990dcacb5/2_l.jpg",
+          "right": "images/cube_2048/2/2d29a85453afc856db64910990dcacb5/2_r.jpg",
+          "up": "images/cube_2048/2/2d29a85453afc856db64910990dcacb5/2_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/3/364b817c7e91210a10312f30556329dd/3_b.jpg",
+          "down": "images/cube_2048/3/364b817c7e91210a10312f30556329dd/3_d.jpg",
+          "front": "images/cube_2048/3/364b817c7e91210a10312f30556329dd/3_f.jpg",
+          "index": 3,
+          "left": "images/cube_2048/3/364b817c7e91210a10312f30556329dd/3_l.jpg",
+          "right": "images/cube_2048/3/364b817c7e91210a10312f30556329dd/3_r.jpg",
+          "up": "images/cube_2048/3/364b817c7e91210a10312f30556329dd/3_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/4/6bc76345ef89fee925c7d69fb1b256cd/4_b.jpg",
+          "down": "images/cube_2048/4/6bc76345ef89fee925c7d69fb1b256cd/4_d.jpg",
+          "front": "images/cube_2048/4/6bc76345ef89fee925c7d69fb1b256cd/4_f.jpg",
+          "index": 4,
+          "left": "images/cube_2048/4/6bc76345ef89fee925c7d69fb1b256cd/4_l.jpg",
+          "right": "images/cube_2048/4/6bc76345ef89fee925c7d69fb1b256cd/4_r.jpg",
+          "up": "images/cube_2048/4/6bc76345ef89fee925c7d69fb1b256cd/4_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/5/0be157f565a1fbd033b3f633e9fc7330/5_b.jpg",
+          "down": "images/cube_2048/5/0be157f565a1fbd033b3f633e9fc7330/5_d.jpg",
+          "front": "images/cube_2048/5/0be157f565a1fbd033b3f633e9fc7330/5_f.jpg",
+          "index": 5,
+          "left": "images/cube_2048/5/0be157f565a1fbd033b3f633e9fc7330/5_l.jpg",
+          "right": "images/cube_2048/5/0be157f565a1fbd033b3f633e9fc7330/5_r.jpg",
+          "up": "images/cube_2048/5/0be157f565a1fbd033b3f633e9fc7330/5_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/6/adf552106a123d20da5a8b734e709baa/6_b.jpg",
+          "down": "images/cube_2048/6/adf552106a123d20da5a8b734e709baa/6_d.jpg",
+          "front": "images/cube_2048/6/adf552106a123d20da5a8b734e709baa/6_f.jpg",
+          "index": 6,
+          "left": "images/cube_2048/6/adf552106a123d20da5a8b734e709baa/6_l.jpg",
+          "right": "images/cube_2048/6/adf552106a123d20da5a8b734e709baa/6_r.jpg",
+          "up": "images/cube_2048/6/adf552106a123d20da5a8b734e709baa/6_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/7/08750e51e155e6671e8ee8c8054ffad6/7_b.jpg",
+          "down": "images/cube_2048/7/08750e51e155e6671e8ee8c8054ffad6/7_d.jpg",
+          "front": "images/cube_2048/7/08750e51e155e6671e8ee8c8054ffad6/7_f.jpg",
+          "index": 7,
+          "left": "images/cube_2048/7/08750e51e155e6671e8ee8c8054ffad6/7_l.jpg",
+          "right": "images/cube_2048/7/08750e51e155e6671e8ee8c8054ffad6/7_r.jpg",
+          "up": "images/cube_2048/7/08750e51e155e6671e8ee8c8054ffad6/7_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/8/c4646f3c20a6c9d3ad6c91f3898dcf3a/8_b.jpg",
+          "down": "images/cube_2048/8/c4646f3c20a6c9d3ad6c91f3898dcf3a/8_d.jpg",
+          "front": "images/cube_2048/8/c4646f3c20a6c9d3ad6c91f3898dcf3a/8_f.jpg",
+          "index": 8,
+          "left": "images/cube_2048/8/c4646f3c20a6c9d3ad6c91f3898dcf3a/8_l.jpg",
+          "right": "images/cube_2048/8/c4646f3c20a6c9d3ad6c91f3898dcf3a/8_r.jpg",
+          "up": "images/cube_2048/8/c4646f3c20a6c9d3ad6c91f3898dcf3a/8_u.jpg"
+        },
+        {
+          "back": "images/cube_2048/9/f5f5a07200cf41df992ae276309eee77/9_b.jpg",
+          "down": "images/cube_2048/9/f5f5a07200cf41df992ae276309eee77/9_d.jpg",
+          "front": "images/cube_2048/9/f5f5a07200cf41df992ae276309eee77/9_f.jpg",
+          "index": 9,
+          "left": "images/cube_2048/9/f5f5a07200cf41df992ae276309eee77/9_l.jpg",
+          "right": "images/cube_2048/9/f5f5a07200cf41df992ae276309eee77/9_r.jpg",
+          "up": "images/cube_2048/9/f5f5a07200cf41df992ae276309eee77/9_u.jpg"
+        }
+      ]
+    },
+    "picture_url": "https://vrlab-public.ljcdn.com/release/auto3dhd/c97e327d1879a5a4694f4bfa3a97f878/screenshot/1599035661_1/pc0_UPjmnwHAC.jpg",
+    "title_picture_url": "https://vrlab-public.ljcdn.com/release/auto3dhd/c97e327d1879a5a4694f4bfa3a97f878/screenshot/1599035661_1/pc1_opplsBWuY_1.jpg",
+    "vr_code": "806gyq3vdAGla97JO1",
+    "vr_type": "reality"
+  },
+  "cost": 17
+}

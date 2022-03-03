@@ -159,23 +159,6 @@ const config = {
               },
             ],
           },
-          // {
-          //   title: 'Community',
-          //   items: [
-          //     // {
-          //     //   label: 'Stack Overflow',
-          //     //   href: 'https://stackoverflow.com/questions/tagged/r',
-          //     // },
-          //     {
-          //       label: 'Discord',
-          //       href: 'https://discordapp.com/invite/docusaurus',
-          //     },
-          //     {
-          //       label: 'Twitter',
-          //       href: 'https://twitter.com/docusaurus',
-          //     },
-          //   ],
-          // },
           {
             title: '相关链接',
             items: [
