@@ -155,7 +155,7 @@ const config = {
               // },
               {
                 label: '线上带看',
-                to: '/docs/front/live/get-started',
+                to: '/docs/front/live/intro',
               },
             ],
           },
