@@ -10,10 +10,9 @@ title: 📦 全景户型雷达图
 ## 示例效果
 
 
-
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="/dnalogelExamples/PanoFloorplanRadarPluginExample"></iframe>
+  <iframe className="docs-vr-iframe" src="https://stackblitz.com/edit/panofloorplanradarplugin?embed=1&file=index.tsx&hideExplorer=1&hideNavigation=1&view=preview"></iframe>
 </div>
 ```
 
