@@ -205,6 +205,13 @@ const vreoSidebar = {
       items: [
         'front/space-navigation/keyframes/camera-movement',
         'front/space-navigation/keyframes/prompter',
+        'front/space-navigation/keyframes/panotext',
+        'front/space-navigation/keyframes/infopanel',
+        'front/space-navigation/keyframes/panotag',
+        'front/space-navigation/keyframes/panoeffect',
+        'front/space-navigation/keyframes/updatevr',
+        'front/space-navigation/keyframes/model-video',
+        'front/space-navigation/keyframes/video-effect',
       ],
     },
     {
