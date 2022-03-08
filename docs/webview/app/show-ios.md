@@ -22,15 +22,15 @@ title: iOS 端展示 SDK 集成
 
 > 1、在项目Target的General下的Frameworks里添加RSVRSDK.framework
 
-![add_vrlib_step1](../../../../assets/ios/add_vrlib_step1.png)
+<!-- ![add_vrlib_step1](../../../../assets/ios/add_vrlib_step1.png) -->
 
 > 2、设置Embed为 Do Not Embed
 
-![add_vrlib_step2](../../../../assets/ios/add_vrlib_step2.png)
+<!-- ![add_vrlib_step2](../../../../assets/ios/add_vrlib_step2.png) -->
 
 > 3、引入RSVRSDK所需要的资源文件 RSVRSDK.bundle
 
-![add_vrlib_step3](../../../../assets/ios/add_vrlib_step3.png)
+<!-- ![add_vrlib_step3](../../../../assets/ios/add_vrlib_step3.png) -->
 
 
 
@@ -38,7 +38,7 @@ title: iOS 端展示 SDK 集成
 
 添加SDK对系统Framework的依赖（Photos、libz、SceneKit、WebKit）
 
-![add_vrlib_step4](../../../../assets/ios/add_vrlib_step4.png)
+<!-- ![add_vrlib_step4](../../../../assets/ios/add_vrlib_step4.png) -->
 
 
 

@@ -12,8 +12,8 @@ const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived).splice(
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Realsee JavaScript Manual',
-  tagline: '如视开发者中心前端技术手册',
+  title: '如视・开发手册',
+  tagline: '快速集成丰富多彩的三维空间能力，为您的项目添砖加瓦。', // 制作丰富多彩的三维空间应用
   url: 'https://realsee.js.org',
   baseUrl: '/',
   onBrokenLinks: 'warn',
@@ -41,13 +41,13 @@ const config = {
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
           // Please change this to your repo.
-          editUrl: 'https://github.com/realsee-developer/realsee-developer.github.com',
-          lastVersion: 'current',
-          versions: {
-            current: {
-              label: 'BETA 📖',
-            },
-          },
+          // editUrl: 'https://github.com/realsee-developer/realsee-developer.github.com',
+          // lastVersion: 'current',
+          // versions: {
+          //   current: {
+          //     label: 'BETA 📖',
+          //   },
+          // },
         },
         blog: {
           showReadingTime: true,
@@ -77,7 +77,7 @@ const config = {
       // },
       hideableSidebar: true,
       navbar: {
-        // title: '@realsee',
+        // title: 'REALSEE',
         logo: {
           alt: '如视・如你所视',
           src: '//vrlab-public.ljcdn.com/common/file/web/964553a2-142f-4514-a8d1-301bf1640764.png\n',
@@ -101,49 +101,43 @@ const config = {
             position: 'left',
             label: '线上带看',
           },
-          // { to: '/blog', label: '博客', position: 'right' },
           // {
           //   href: '/examples',
           //   position: 'left',
           //   label: '最佳实践',
           // },
           {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownActiveClassDisabled: true,
-            // dropdownItemsAfter: [
-            //   ...ArchivedVersionsDropdownItems.map(
-            //       ([versionName, versionUrl]) => ({
-            //         label: versionName,
-            //         href: versionUrl,
-            //       }),
-            //   ),
-              // {
-              //   href: 'https://v0.0.0-beta.1.realsee.js.org',
-              //   label: 'beta',
-              // },
-              // {
-              //   to: '/versions',
-              //   label: 'All versions',
-              // },
-            // ],
+            type: 'doc',
+            docId: 'webview/intro',
+            position: 'left',
+            label: '容器集成',
           },
+          {
+            type: 'doc',
+            docId: 'end/api/intro',
+            position: 'left',
+            label: '如视 API',
+          },
+          // { to: '/blog', label: '博客', position: 'right' },
+
+          // {
+          //   type: 'docsVersionDropdown',
+          //   position: 'right',
+          //   dropdownActiveClassDisabled: true,
+ 
+          // },
           {
             href: 'https://github.com/realsee-developer',
             label: 'GitHub',
             position: 'right'
           },
-          // {
-          //   type: 'localeDropdown',
-          //   position: 'right'
-          // }
         ],
       },
       footer: {
         style: 'dark',
         links: [
           {
-            title: '文档中心',
+            title: '开发手册',
             items: [
               {
                 label: '三维空间',
@@ -156,6 +150,14 @@ const config = {
               {
                 label: '线上带看',
                 to: '/docs/front/live/intro',
+              },
+              {
+                label: '容器集成',
+                to: '/docs/webview/intro',
+              },
+              {
+                label: '如视 API',
+                to: '/docs/end/api/intro',
               },
             ],
           },
@@ -200,7 +202,7 @@ const config = {
         // theme: darkCodeTheme,
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['java', 'groovy', 'properties', 'ruby']
+        additionalLanguages: ['java', 'groovy', 'properties', 'ruby', 'typescript']
       },
     }),
   

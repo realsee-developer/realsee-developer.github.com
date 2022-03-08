@@ -7,7 +7,7 @@ Android 语音的集成文档仅针对 Android 客户端开发人员。其他端
 :::
 
 :::caution
-开始前请确保您已经集成了 `Android 展示 SDK`，若您还没有集成 `Android 展示 SDK`，请跳转至 [**Android 展示 SDK 集成**](../../../3d-space/container/app/show-android.md) 文档，进行集成。
+开始前请确保您已经集成了 `Android 展示 SDK`，若您还没有集成 `Android 展示 SDK`，请跳转至 **Android 展示 SDK 集成** 文档，进行集成。
 :::
 
 
