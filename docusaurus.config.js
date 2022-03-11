@@ -89,12 +89,12 @@ const config = {
             docId: 'front/3d-space/intro',
             position: 'left',
           },
-          // {
-          //   type: 'doc',
-          //   docId: 'front/space-navigation/intro',
-          //   position: 'left',
-          //   label: '空间导览',
-          // },
+          {
+            type: 'doc',
+            docId: 'front/space-navigation/intro',
+            position: 'left',
+            label: '空间导览',
+          },
           {
             type: 'doc',
             docId: 'front/live/intro',
