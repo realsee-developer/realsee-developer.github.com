@@ -4,10 +4,10 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const VersionsArchived = require('./versionsArchived.json')
-
+const webpackPlugin = require('./docusaurus-plugins/webpack-plugin')
 const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived).splice(
-    0,
-    5,
+  0,
+  5,
 );
 
 /** @type {import('@docusaurus/types').Config} */
@@ -38,7 +38,7 @@ const config = {
           showLastUpdateAuthor: true,
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [
-            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+            [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
           ],
           // Please change this to your repo.
           // editUrl: 'https://github.com/realsee-developer/realsee-developer.github.com',
@@ -77,10 +77,10 @@ const config = {
       // },
       hideableSidebar: true,
       navbar: {
-        // title: 'REALSEE',
+        // title: 'Realsee',
         logo: {
-          alt: '如视・如你所视',
-          src: '//vrlab-public.ljcdn.com/common/file/web/964553a2-142f-4514-a8d1-301bf1640764.png\n',
+          alt: '如视',
+          src: '//vrlab-static.ljcdn.com/release/web/RealseeLogo.3087aeb4.jpg',
         },
         items: [
           {
@@ -113,19 +113,11 @@ const config = {
             label: '容器集成',
           },
           {
-            type: 'doc',
-            docId: 'end/api/intro',
+            to: '/open/api',
             position: 'left',
-            label: '如视 API',
+            label: '开放 API',
           },
-          // { to: '/blog', label: '博客', position: 'right' },
-
-          // {
-          //   type: 'docsVersionDropdown',
-          //   position: 'right',
-          //   dropdownActiveClassDisabled: true,
- 
-          // },
+          { to: '/blog', label: '博客', position: 'right' },
           {
             href: 'https://github.com/realsee-developer',
             label: 'GitHub',
@@ -156,8 +148,8 @@ const config = {
                 to: '/docs/webview/intro',
               },
               {
-                label: '如视 API',
-                to: '/docs/end/api/intro',
+                label: '开放 API',
+                to: '/open/api',
               },
             ],
           },
@@ -205,7 +197,9 @@ const config = {
         additionalLanguages: ['java', 'groovy', 'properties', 'ruby', 'typescript']
       },
     }),
-  
+  plugins: [
+    webpackPlugin,
+  ]
 };
 
 module.exports = config;

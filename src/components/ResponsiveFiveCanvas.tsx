@@ -21,17 +21,16 @@ export function ResponsiveFiveCanvas() {
       height: ref.current.offsetHeight,
     })
 
-    const updateState = debounce(({ width, height }) => setSize({ width, height }))
+    const updateState = debounce(({ width, height }) => {
+      setSize({ width, height })
+      console.log('updateState')
+    })
     const observer = new ResizeObserver((entries) => {
 
       const entry = entries[0]
       const width = entry.contentRect.width
-      let height = size.height
-      // 临时方案
-      const node = document.getElementsByTagName('html')[0]
-      if (node) {
-        height = node.clientHeight
-      }
+      const height = entry.contentRect.height
+ 
       updateState({ width, height })
     })
 
@@ -52,6 +51,9 @@ export function ResponsiveFiveCanvas() {
         width: '100%',
         height: '100%',
         position: 'absolute',
+        left: 0,
+        right: 0,
+        zIndex: 1,
         opacity: size.width === 0 || size.height === 0 ? 0 : 1,
       }}
     >
