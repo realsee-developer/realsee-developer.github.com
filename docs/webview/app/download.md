@@ -5,7 +5,7 @@ title: SDK 下载
 ## 基础版下载
 
 :::info 基础版描述
-提供基础的全屏浏览VR的容器，支持打开VR页面时的背景loading图片和logo定制；若您只需要浏览VR功能，推荐您集成此版本。
+提供基础的全屏浏览VR的容器，支持打开VR页面时的背景 loading 图片和 logo 定制；若您只需要浏览VR功能，推荐您集成此版本。
 :::
 
 <table align="center">
@@ -13,12 +13,12 @@ title: SDK 下载
 	    <th>版本</th>
 	    <th>所属平台</th>
 	    <th>SDK</th>  
-      	<th>Demo源码</th>
-        <th>Demo安装包</th>
+      	<th>Demo 源码</th>
+        <th>Demo 安装包</th>
       	<th>安装包增量</th>
 	</tr >
   <tr align="center">
-	    <td rowspan="2">VRSDK基础版</td>
+	    <td rowspan="2">VRSDK 基础版</td>
 	    <td>Android</td>
 	    <td><a href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvr-31000018-20211129.aar" target="_blank">download</a></td>
         <td><a href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/demo_external_lite.zip" target="_blank">download</a></td>

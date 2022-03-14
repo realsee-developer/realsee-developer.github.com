@@ -11,7 +11,7 @@ title: iOS 端展示 SDK 集成
 ## 申请SDK接入密钥
 
 :::caution
-请向开发者中心申请接入密钥，包含**app_id**和**app_secret**。
+如果您还没有申请过 ak/sk ，请向开发者中心申请接入密钥，包含 **app_id** 和 **app_secret** 。
 :::
 
 ## 集成步骤

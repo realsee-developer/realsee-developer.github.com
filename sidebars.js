@@ -241,7 +241,7 @@ const webviewSidebar = {
     {
       type: 'category',
       label: '客户端容器',
-      collapsed: true,
+      collapsed: false,
       items: [
         "webview/app/desc",
         "webview/app/download",
@@ -253,7 +253,7 @@ const webviewSidebar = {
     {
       type: 'category',
       label: '小程序容器',
-      collapsed: true,
+      collapsed: false,
       items: [
         "webview/miniProgram/wechat"
       ]
@@ -261,7 +261,7 @@ const webviewSidebar = {
     {
       type: 'category',
       label: '"桥" 协议',
-      collapsed: true,
+      collapsed: false,
       items: [
         "webview/jsbridge/intro",
         "webview/jsbridge/built-in",
