@@ -7888,7 +7888,7 @@ input {
   --color-canvas-pure: #fff;
   --color-canvas-tint: rgba(245, 247, 250, 0.5);
   --color-canvas-50: #f5f7fa;
-  --color-canvas-100: #ebeef5;
+  --color-canvas-100: white;
   --color-canvas-200: #e0e6f0;
   --color-canvas-300: #d5ddeb;
   --color-canvas-400: #cbd5e7;

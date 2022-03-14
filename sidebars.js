@@ -243,11 +243,12 @@ const webviewSidebar = {
       label: '客户端容器',
       collapsed: true,
       items: [
-        "webview/app/desc",
-        "webview/app/download",
-        "webview/app/demo",
-        "webview/app/show-android",
-        "webview/app/show-ios",
+        "webview/app/iOS",
+        "webview/app/Android",
+        // "webview/app/download",
+        // "webview/app/demo",
+        // "webview/app/show-android",
+        // "webview/app/show-ios",
       ]
     },
     {
