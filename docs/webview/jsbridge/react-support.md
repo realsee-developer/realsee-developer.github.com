@@ -9,7 +9,7 @@ title: React 支持
 从 `@realsee/jsbridge-x` 中分别 import 客户端以及微信小程序的 bridge 类。
 
 :::tip
-如果您在浏览器端也需要使用 `@realsee/jsbridge-x` ，则需要先按照 `@realsee/jsbridge-x` 的 bridge 协议，实现 browser "桥"。
+如果您在浏览器端也需要使用 `@realsee/jsbridge-x` ，则需要先按照 `@realsee/jsbridge-x` 的 jsBridge 协议，实现 browser "桥"。
 假设您自行开发的浏览器"桥"类文件名为 `JSBridgeBrowser.ts`
 :::
 
@@ -23,7 +23,7 @@ import { isApp, isMiniprogram } from './utils/deviceDetect'
 
 let bridgeInstance
 
-// 根据端的类型初始化 bridge 实例
+// 根据端的类型初始化 jsBridge 实例
 if (isApp) bridgeInstance = new JSBridgeApp()
 else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram()
 else bridgeInstance = new JSBridgeBrowser()
@@ -45,7 +45,7 @@ import { isApp, isMiniprogram } from './utils/deviceDetect'
 
 let bridgeInstance
 
-// 根据端的类型初始化 bridge 实例
+// 根据端的类型初始化 jsBridge 实例
 if (isApp) bridgeInstance = new JSBridgeApp()
 else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram()
 else bridgeInstance = new JSBridgeBrowser()

@@ -22,5 +22,5 @@ const success = await jsBridge.callAndBackfeed<boolean>('/PlayVoiceMsg?msg={待�
 
 
 :::info
-更多详细信息说明请参考 **[iOS 自定义支持](../app/show-ios.md#自定义支持)** 或 **[Android 自定义支持](../app/show-android.md#自定义支持)** 文档说明。
+更多详细信息说明请参考 **[iOS 自定义协议](../app/iOS.md#callandbackfeed)** 或 **[Android 自定义协议](../app/Android.md#callandbackfeed)** 文档说明。
 :::

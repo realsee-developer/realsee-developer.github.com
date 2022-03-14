@@ -113,7 +113,7 @@ const config = {
             label: '容器集成',
           },
           {
-            to: '/open/api',
+            to: '/open/api/',
             position: 'left',
             label: '开放 API',
           },
