@@ -80,7 +80,7 @@ const config = {
         // title: 'Realsee',
         logo: {
           alt: '如视',
-          src: '//vrlab-static.ljcdn.com/release/web/RealseeLogo.3087aeb4.jpg',
+          src: '//vrlab-public.ljcdn.com/common/file/web/ea031fa5-ad82-46b3-86c8-7b20ec1e635a.jpg',
         },
         items: [
           {
@@ -183,7 +183,7 @@ const config = {
         ],
         logo: {
           alt: 'Realsee open platform Logo',
-          src: '/img/logo.png',
+          src: '//vrlab-public.ljcdn.com/common/file/web/3d1933d3-739a-4c2d-8350-53c0cca6a9e4.png\n',
           href: 'https://realsee.js.org',
           width: 70,
           height: 31,
