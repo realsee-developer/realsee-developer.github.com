@@ -215,7 +215,7 @@ const vreoSidebar = {
       items: [
         'front/space-navigation/get-started/install',
         'front/space-navigation/get-started/experience',
-        'front/space-navigation/get-started/react-support',
+        'front/space-navigation/get-started/demo',
       ],
     },
     'front/space-navigation/structure',
@@ -235,23 +235,23 @@ const vreoSidebar = {
         'front/space-navigation/keyframes/video-effect',
       ],
     },
-    {
-      type: 'category',
-      label: '高阶指南',
-      collapsed: true,
-      items: [
-        'front/space-navigation/advanced/custom-keyframe-action',
-        'front/space-navigation/advanced/custom-keyframe',
-      ],
-    },
-    {
-      type: 'category',
-      label: '应用示例',
-      collapsed: true,
-      items: [
-        'front/space-navigation/examples/midea',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: '高阶指南',
+    //   collapsed: true,
+    //   items: [
+    //     'front/space-navigation/advanced/custom-keyframe-action',
+    //     'front/space-navigation/advanced/custom-keyframe',
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: '应用示例',
+    //   collapsed: true,
+    //   items: [
+    //     'front/space-navigation/examples/midea',
+    //   ],
+    // },
     {
       type: 'category',
       label: '常见问题',
