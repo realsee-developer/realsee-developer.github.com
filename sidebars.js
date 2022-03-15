@@ -269,6 +269,7 @@ const webviewSidebar = {
         "webview/jsbridge/event",
         "webview/jsbridge/custom",
         "webview/jsbridge/react-support",
+        "webview/jsbridge/browser-jsbridge"
       ]
     },
   ]

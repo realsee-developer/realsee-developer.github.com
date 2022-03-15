@@ -7,7 +7,7 @@ title: iOS 端
 :::
 
 :::caution
-本文档尚未完成，内容仅供参考。
+本文档尚未完善，内容仅供参考。
 :::
 
 ## 下载地址
@@ -95,11 +95,6 @@ pod 'YYCache'
 pod 'YYModel'
 pod 'Masonry'
 ```
-
-:::warning 注意：
-网络库 AFNetworking 需要使用 3.x 版本，4.x 以后的版本接口存在兼容问题，请务必使用 3.x 版本。
-:::
-
 
 ### 申请相关权限
 
