@@ -19,6 +19,16 @@ title: 简介
     - HTTP
     - WebSocket
 
-![带看服务架构图](../../assets/live/live_infra.png)
+<figure>
+  <div style={{display: 'flex',     background: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',}}>
+    <div style={{flex:1}}><img style={{width:'100%'}} src="//vrlab-public.ljcdn.com/common/file/web/b8e0ccf8-a022-401c-a094-23f2f6058c2a.png
+" /></div>
+  </div>
+  <figcaption>图一：带看服务架构</figcaption>
+</figure>
+
+
 
 

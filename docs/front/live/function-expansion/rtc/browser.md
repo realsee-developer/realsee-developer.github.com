@@ -23,7 +23,7 @@ Live 通过 jsbridge-x 与 集成了容器 SDK 的客户端应用或微信小程
 npm install @realsee/jsbridge-x
 ```
 
-## react 示例
+## React 示例
 
 ### 初始化 rtc 实例
 

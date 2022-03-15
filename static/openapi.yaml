@@ -1,0 +1,198 @@
+openapi: 3.0.1
+info:
+  title: 'Open API'
+  description: |
+    如视（[realsee.com](https://realsee.com)）依托成熟的三维重建、深度检测、WebGL渲染等技术，
+    利用标准、易用的 SDK 及配套 OpenAPI 来实现空间的线上化以及沉浸式的用户体验。
+
+    由于用户终端的实现基于浏览器/WebView组件，因此跨平台特性得天独厚。现如今，我们将这些能力以开放平台的形式对外输出，便于行业从业者能够快速搭建一整套生动、有趣的 3D/VR 应用。
+
+    ## 交互流程
+
+    核心模式如下图所示，其中*标注的并非必要：
+
+    ![交互流程](https://files.readme.io/45593d8-Screen_Shot_2022-03-07_at_12.29.42_AM.png)
+
+    ## 为谁准备
+
+    服务端工程师(又称后端/服务器工程师，包括NodeJS Stack)。
+  version: v1
+servers:
+- url: https://app-gateway.realsee.com
+tags:
+- name: 鉴权
+  description: 获取`access_token`即临时凭据，用于后续鉴权。
+- name: 核心实体
+  externalDocs:
+    description: Find out more
+    url: https://realsee.js.org
+- name: 扩展实体
+  description: 平面图、封面图。
+- name: 直播服务
+  description: 如视开放平台提供的一项**全双工通信能力**的标准服务。
+- name: 转储服务
+  description: 转储服务。
+paths:
+  /auth/access_token:
+    post:
+      tags:
+      - 鉴权
+      summary: |
+        获取`access_token`
+      description: |
+        ### 为什么签名
+        为保证数据的安全性，如视开放平台 API 要求接入时加入鉴权流程。当前支持的鉴权流程有两种：
+        - **参数签名**：即通过特定的算法将请求参数(Header/Body)进行编码，其中包含 Unix 时间戳作为随机因子(RANDOM FACTORS)，以增加数据抓取的难度，保障数据安全。但当前由于算法实现较为复杂，为方便快速接入/应用先临时废弃，待后面全语言 SDK 均支持时，再重新开放。已接入的业务方不受影响。
+        - **`access_token`机制**：即发起任意 API 调用时，先获取临时 `access_token`（默认5 分钟），后续请求均携带。业务方可以考虑设置约3min的缓存，以减少整体服务端 API 的响应时长。
+      responses:
+        400:
+          description: Invalid ID supplied
+          content: {}
+        404:
+          description: Pet not found
+          content: {}
+        405:
+          description: Validation exception
+          content: {}
+  /open/v1/entity/vr/list:
+    get:
+      tags:
+      - 核心实体
+      summary: 列表数据
+      description: |
+        获取当前应用(Application)所属的VR列表。
+        > 仅发布成功的项目才能从该接口获取，即拍摄中、编辑中的项目均不予外露。
+      responses:
+        200:
+          description: successful operation
+  
+  /open/v1/entity/vr:
+    get:
+      tags:
+      - 核心实体
+      summary: 基础数据
+      description: |
+        获取当前VR编码(vr_code)的基础元数据。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/entity/floorplan:
+    get:
+      tags:
+      - 扩展实体
+      summary: 平面图
+      description: |
+        如视自研的结构化平面图数据，以`JSON`形式序列化。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/entity/roompicture:
+    get:
+      tags:
+      - 扩展实体
+      summary: 分间图
+      description: |
+        如视自研的结构化平面图数据，以`JSON`形式序列化。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/entity/tag/list:
+    get:
+      tags:
+      - 扩展实体
+      summary: 标签列表
+      description: |
+        标签。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/live/entrance.json:
+    post:
+      tags:
+      - 直播服务
+      summary: 创建房间
+      description: |
+        标签。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/live/apply/ticket.json:
+    post:
+      tags:
+      - 直播服务
+      summary: 加入房间
+      description: |
+        标签。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/live/voice/sign.json:
+    post:
+      tags:
+      - 直播服务
+      summary: 语音签名
+      description: |
+        标签。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/live/room/detail.json:
+    get:
+      tags:
+      - 直播服务
+      summary: 房间详情
+      description: |
+        标签。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/work/download:
+    get:
+      tags:
+      - 转储服务
+      summary: 获取下载地址
+      description: |
+        标签。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}
+  /open/v1/work/sign:
+    post:
+      tags:
+      - 转储服务
+      summary: 元数据签名
+      description: |
+        标签。
+      responses:
+        200:
+          description: successful operation
+        400:
+          description: Invalid tag value
+          content: {}

@@ -1,6 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
-import styles from './HomepageFeatures.module.css';
+import './HomepageFeatures.css';
 
 type FeatureItem = {
   title: string;
@@ -12,7 +11,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: '核心 SDK',
-    image: '/img/undraw_manual_sdk.svg',
+    image: '//vrlab-static.ljcdn.com/release/web/sdk.9f767fa0.svg',
     url: '/docs/front/3d-space/intro',
     description: (
       <>
@@ -22,8 +21,8 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: '容器集成',
-    image: '/img/undraw_manual_container.svg',
-    url: '/docs/front/3d-space/container/app/desc',
+    image: '//vrlab-static.ljcdn.com/release/web/webview.c1fbdaa7.svg',
+    url: '/docs/webview/intro',
     description: (
       <>
         集成如视容器，让您的三维空间跨平台完美演绎。
@@ -31,12 +30,12 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: '如视 API',
-    image: '/img/undraw_manual_api.svg',
-    url: 'https://developers.realsee.com/docs/#/docs/five/server/README',
+    title: '开放 API',
+    image: '//vrlab-static.ljcdn.com/release/web/api.f7d732ad.svg',
+    url: '/docs/end/api/intro',
     description: (
       <>
-        连通如视 API，丝滑接入如视服务，为您的三维空间表达保驾护航。
+        连通开放 API，丝滑接入如视云服务，为您的三维空间数据表达保驾护航。
       </>
     ),
   },
@@ -48,11 +47,11 @@ function Feature({title, image, url, description}: FeatureItem) {
   }
 
   return (
-    <div className={clsx('col col--4')} onClick={handleClick} style={{cursor: 'pointer'}}>
+    <div className="col col--4" onClick={handleClick} style={{cursor: 'pointer'}}>
       <div className="text--center">
-        <img className={styles.featureSvg} alt={title} src={image} style={{height: '100px'}}/>
+        <img className="feature" alt={title} src={image} style={{height: '80px'}}/>
       </div>
-      <div className="text--center padding-horiz--md" style={{marginTop: '30px'}}>
+      <div className="text--center padding-horiz--md" style={{marginTop: '40px'}}>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
@@ -62,7 +61,7 @@ function Feature({title, image, url, description}: FeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
+    <section className="features">
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (

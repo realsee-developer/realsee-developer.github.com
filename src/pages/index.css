@@ -1,0 +1,57 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.hero {
+  background: rgb(255 255 255 / 0%);
+  position: relative;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  pointer-events: all;
+}
+
+.button--entry {
+  border: none;
+}
+
+.button--entry:not(.button--outline) {
+  --ifm-button-background-color: #68bfe9;
+  transition: all 1.25s;
+}
+
+.button--entry:not(.button--outline):hover {
+  --ifm-button-background-color: #3249fe;
+}
+
+
+.cover__header_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: all;
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 0%), rgb(0 0 0 / 50%));
+}
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+html[data-theme='dark'] .container {
+  color: white;
+}
