@@ -2064,10 +2064,10 @@
     protobufjs "^6.8.8"
     tslib "^2.3.0"
 
-"@realsee/open-works@^0.1.0-alpha.3":
-  version "0.1.0-alpha.3"
-  resolved "https://registry.npmjs.org/@realsee/open-works/-/open-works-0.1.0-alpha.3.tgz#cf8dbff75923691fa926f4a2f740574db12ae02f"
-  integrity sha512-h2gIRnYMCAI7obNrSsBT9f1vsVs04zZBYR4mDYptlqCEdyNFlT9WY2Cuga7pmmt2vFLUHqpoDv9Wa/FIebWr8w==
+"@realsee/open-works@^0.1.0-alpha.4":
+  version "0.1.0-alpha.4"
+  resolved "https://registry.npmjs.org/@realsee/open-works/-/open-works-0.1.0-alpha.4.tgz#04c773ccd407c07aaa60835ffc9cb96a69b490e5"
+  integrity sha512-Pc4qdUP4nnPXYar94IDskIXlm6Yy/NPwOMXQ+eXQAnHMju8AXWq4z7BvfY3DS45oFm61sPokJi2rB6rHE/NB3Q==
 
 "@rehooks/component-size@^1.0.3":
   version "1.0.3"

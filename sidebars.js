@@ -215,15 +215,15 @@ const vreoSidebar = {
         'front/space-navigation/keyframes/video-effect',
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: '高阶指南',
-    //   collapsed: true,
-    //   items: [
-    //     'front/space-navigation/advanced/custom-keyframe-action',
-    //     'front/space-navigation/advanced/custom-keyframe',
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: '进阶指南',
+      collapsed: true,
+      items: [
+        'front/space-navigation/advanced/custom-keyframe-action',
+        'front/space-navigation/advanced/custom-keyframe',
+      ],
+    },
     // {
     //   type: 'category',
     //   label: '应用示例',
@@ -237,6 +237,7 @@ const vreoSidebar = {
       label: '常见问题',
       collapsed: true,
       items: [
+        'front/space-navigation/faq/performance-boost',
         'front/space-navigation/faq/wechat-browser',
       ],
     },
