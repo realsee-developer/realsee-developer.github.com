@@ -3,7 +3,7 @@ title: 剧本结构
 ---
 
 :::info
-如视 3D 空间剧本播放器是对剧本数据的播放与演绎，`VreoUnit` 则是剧本数据结构的最小单元，用以描述音视频、剧本帧序列等信息。
+如视三维空间剧本播放器是对剧本数据的播放与演绎，`VreoUnit` 则是剧本数据结构的最小单元，用以描述音视频、剧本帧序列等信息。
 :::
 
 ## 结构组成
@@ -25,24 +25,24 @@ export interface VreoUnit {
 ```
 
 :::caution
-视频素材必须是绿幕背景。
+视频素材必须是 **绿幕背景**。
 :::
 
 :::tip
-[点击查看详细的剧本结构文档](https://unpkg.com/@realsee/vreo@0.2.0-alpha.10/docs/interfaces/Player.VreoUnit.html) 。
+详细的剧本结构定义： **[点击查看](https://unpkg.com/@realsee/vreo@0.2.0-alpha.10/docs/interfaces/Player.VreoUnit.html)** 。
 :::
 
-## 剧本帧
+## 剧本关键帧
 
 **Vreo** 剧本行为是按照剧本关键帧来执行的，即根据音视频播放的时间序列命中剧本帧后，按照剧本帧的类型执行相机运镜、全景标签、模型特效等动作。
 
 剧本帧需严格遵从剧本帧结构声明，才能被播放器正确识别。
 
 :::info
-目前支持十种类型剧本关键帧，后续会不断完善及添加新的剧本关键帧类型以涵盖更多行为。
+目前支持多种类型剧本关键帧，后续会不断完善及添加新的剧本关键帧类型以涵盖更多行为。
 :::
 
-Vreo 内置了每一个剧本关键帧的 UI 及动作行为，通过 `vreoplayer.on()` 可监听到相应的剧本关键帧的命中时机，并按需添加业务逻辑。
+**Vreo** 内置了每一个剧本关键帧的 UI 及动作行为，通过 `vreoplayer.on()` 可监听到相应的剧本关键帧的命中时机，并按需添加业务逻辑。
 
 
 ```ts title="剧本帧结构声明"
@@ -57,7 +57,7 @@ export interface VreoKeyframe {
 ```
 
 :::tip
-[点击查看详细的剧本帧文档](https://unpkg.com/@realsee/vreo@0.2.0-alpha.10/docs/interfaces/Player.VreoKeyframe.html) 。
+详细的剧本帧结构定义： **[点击查看](https://unpkg.com/@realsee/vreo@0.2.0-alpha.10/docs/interfaces/Player.VreoKeyframe.html)** 。
 :::
 
 ## 示例数据
@@ -88,10 +88,8 @@ export interface VreoKeyframe {
         },
         "fontSize": 16
       }
-    }]
+    }
+  // ... 
+  ]
 }
 ```
-
-:::tip
-下一章开始，将为您详细讲解每一种类型剧本帧的效果、作用以及数据结构。
-:::
