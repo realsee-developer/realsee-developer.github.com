@@ -193,8 +193,9 @@ const vreoSidebar = {
       collapsed: true,
       items: [
         'front/space-navigation/get-started/install',
-        'front/space-navigation/get-started/experience',
+        'front/space-navigation/get-started/quick_start',
         'front/space-navigation/get-started/demo',
+        'front/space-navigation/get-started/react-support',
       ],
     },
     'front/space-navigation/structure',
