@@ -55,14 +55,13 @@ export interface VreoKeyframe {
   data: Record<string, any> // 当前帧类别数据依赖
 }
 ```
-
 :::tip
 详细的剧本帧结构定义： **[点击查看](https://unpkg.com/@realsee/vreo@0.2.0-alpha.10/docs/interfaces/Player.VreoKeyframe.html)** 。
 :::
 
 ## 示例数据
 
-```json title="剧本结构示例"
+```json title="VreoUnit数据样例"
 {
   "categoryId": "257ac7a8-b00a-4a1b-88b8-76f93362c0dc",
   "categoryText": "讲房源户型",

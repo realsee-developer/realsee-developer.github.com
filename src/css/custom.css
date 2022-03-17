@@ -37,10 +37,12 @@
 }
 
 blockquote {
-  padding: 16px 0 16px 16px;
+  /*padding: 16px 0 16px 16px;*/
   color: #7f8fa4;
-  font-size: 18px;
-  border-left: 3px solid #eaeaea;
+  font-size: 16px;
+  border-left: 3px solid var(--ifm-color-primary);
+  /*background-color: rgb(230, 248, 250);*/
+  background-color: #eef9fd;
 }
 
 code {

@@ -6,7 +6,7 @@ title: 性能提升
 
 ## 降低图片分辨率
 
-可以设置 `five.imageOptions.size` 来降低渲染引擎的贴图尺寸，这样下载速度会变快且内存占用也会降低。 你也可以配置 `Vreo` 参数来达到类似的效果：
+可以设置 `five.imageOptions.size` 来降低渲染引擎的贴图尺寸，这样下载速度会变快且内存占用也会降低。 您也可以配置 `Vreo` 参数来达到类似的效果：
 
 ```ts
 const vreoplayer = new Player(five, { imageOptions: { size: 1024 } })

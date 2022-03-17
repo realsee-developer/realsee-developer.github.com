@@ -65,7 +65,7 @@ document.getElementById('root')
 
 ## 使用"桥"
 
-接下来，您可以在任何被 `JSBridgeContext.Provider` 包裹的组件里使用"桥"提供的相关方法。
+接下来，您可以在任何被 `JSBridgeContext.Provider` 包裹的组件里使用 "桥" 提供的相关方法。
 
 比如，获取 "刘海" \ "挖孔" 占用屏幕的高度：
 

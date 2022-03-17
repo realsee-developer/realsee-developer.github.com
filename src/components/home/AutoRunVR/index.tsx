@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Five, FiveInitArgs, parseWork } from '@realsee/five'
 import { createFiveProvider, unsafe__useFiveInstance, useFiveEventCallback } from '@realsee/five/react'
 
-import work from '@realsee/open-works/virtual/816lPVZQkQDF5XOpPo/work.json'
+import work from '@realsee/open-works/virtual/81980RNawnbCVaLz0a/work.json'
 
 import { ResponsiveFiveCanvas } from '../../ResponsiveFiveCanvas'
 import CameraMovementPlugin from '@realsee/dnalogel/plugins/CameraMovementPlugin'
@@ -93,7 +93,7 @@ export function AutoRunVR() {
     <FiveProvider
       initialWork={parseWork(work)}
       initialState={{
-        panoIndex: 4,
+        panoIndex: 7,
         fov: 90,
         // latitude: 0.08537924222344828,
         // longitude: 2.692752190220825,

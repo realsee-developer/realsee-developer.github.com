@@ -1,3 +1,10 @@
+:root {
+  --color-text-primary: var(--ifm-link-color);
+  /*--color-canvas-50: #eef9fd;*/
+  /*--color-on-primary: var(--ifm-color-primary);*/
+  --color-highlight: rgb(227, 17, 108);
+}
+
 .sl-flex.sl-items-center.sl-mb-5.sl-ml-4 {
   display: none;
 }
@@ -12,8 +19,11 @@ a.sl-flex.sl-items-center.sl-px-4.sl-py-3.sl-border-t {
 }
 
 .sl-truncate {
+  padding: 6px 16px;
   font-size: 16px;
   color: var(--ifm-menu-color);
+  font-family: var(--ifm-font-family-base);
+  font-weight: var(--ifm-font-weight-semibold);
   justify-content: space-between;
   line-height: 1.5;
 }
@@ -40,6 +50,14 @@ a.sl-flex.sl-items-center.sl-px-4.sl-py-3.sl-border-t {
   border-left-width: 4px;
 }
 
+.sl-bg-canvas-50 {
+  background-color: #eef9fd;
+}
+
+html[data-theme='dark'] .sl-bg-canvas-50 {
+  background-color: rgba(0, 0, 0, .6);
+}
+
 blockquote > :last-child {
   margin-bottom: 0;
   padding: 0;
@@ -51,4 +69,35 @@ blockquote > :last-child {
 
 .sl-mt-px {
   display: none;
+}
+
+.sl-text-on-code {
+  border: none;
+  border-radius: 2px;
+  color: var(--color-highlight);
+}
+
+.sl-input > input {
+  color: var(--color-highlight);
+}
+
+/*blockquote.sl-bg-primary {*/
+/*  background-color: #eef9fd;*/
+/*}*/
+
+/*blockquote > .sl-bg-canvas-pure {*/
+/*  background: transparent;*/
+/*}*/
+
+.sl-prose thead td, .sl-prose thead th {
+  font-size: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+html[data-theme='dark'] .sl-bg-canvas-100 {
+  background-color: #18191a;
+}
+
+html[data-theme='dark'] .sl-bg-canvas {
+  background-color: #18191a;
 }
