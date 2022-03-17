@@ -8,9 +8,9 @@ title: 简介
 ## 产品架构
 
 - **浏览器 SDK**
-    - [@realsee/five 渲染引擎](../3d-space/get-started/00.rendering-engine.md)
-    - [@realsee/live 带看控制器](./preparation/3.live-controller.md)
-    - [@realsee/jsbridge-x "桥"协议](../../webview/jsbridge/intro.md)
+    - [@realsee/five](../3d-space/get-started/00.rendering-engine.md) 渲染引擎
+    - [@realsee/live](./preparation/3.live-controller.md) 带看控制器
+    - [@realsee/jsbridge-x](../../webview/jsbridge/intro.md) "桥"协议
 - **客户端容器 SDK** (cross-platform container)
     - for iOS
     - for Android

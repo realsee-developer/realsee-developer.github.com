@@ -4,39 +4,36 @@ info:
   description: |
     # 准备开发
 
-    ## 简介
-    > 欢迎 WELCOME
-
     ### 背景
 
-    **如视(REALSEE)**依托成熟的**三维重建/深度预测/WebGL**等技术，利用标准、易用的 SDK 及配套 OpenAPI，来实现空间的线上化以及沉浸式的用户体验。由于用户终端的实现采用`HTML5`，因此跨平台特性得天独厚。现如今，我们将这些能力以开放平台的形式对外输出，便于行业从业者能够快速搭建一整套生动、有趣的 3D/VR 应用流
+    **如视 (REALSEE)** 依托成熟的**三维重建** / **深度预测** / **WebGL** 等技术，利用标准、易用的 SDK 及配套 OpenAPI，来实现空间的线上化以及沉浸式的用户体验。由于用户终端的实现采用`HTML5`，因此跨平台特性得天独厚。现如今，我们将这些能力以开放平台的形式对外输出，便于行业从业者能够快速搭建一整套生动、有趣的 3D / VR 应用流。
 
     ### 需知
 
     #### 交互流程
-    核心模式如下图所示，其中`*`标注的并非必要
+    核心模式如下图所示，其中 `*` 标注的并非必要
 
     ![交互流程](https://files.readme.io/45593d8-Screen_Shot_2022-03-07_at_12.29.42_AM.png)
 
     #### 为谁准备
-    **服务端工程师**(又称后端/服务器工程师，包括NodeJS Stack)
+    **服务端工程师**(又称后端/服务器工程师，包括 NodeJS Stack)
 
-    因此当前文档为**API Explorer**的形式。客户端及 JavaScript SDK 请[**移步此处**](https://developers.realsee.com/docs/#/docs/five/web/quickstart)
+    因此当前文档为 **API Explorer** 的形式。客户端及 JavaScript SDK 请[**移步此处**](https://developers.realsee.com/docs/#/docs/five/web/quickstart)
 
     ## 快速开始
 
-    > 请务必按照文中顺序执行，否则会有不可预知的问题。其中“开发前须知”中的1-2步骤非常重要，是构建测试数据的核心环节
+    > 请务必按照文中顺序执行，否则会有不可预知的问题。其中**开发前须知**中的1-2步骤非常重要，是构建测试数据的核心环节
 
     ### 开发前须知
 
-    | 序号    | 注意事项                                                                                                                                                                                                                                                           | 说明                                                                                    |
+    |   序号   | 注意事项                                                                                                                                                                                                                                                         | 说明                                                                                    |
     | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-    | 1       | 下载**如视 VR**采集应用，[iOS 戳此下载](https://apps.apple.com/cn/app/%E5%A6%82%E8%A7%86vr-%E6%89%8B%E6%9C%BA%E6%8B%8Dvr%E5%85%A8%E6%99%AF%E6%A8%A1%E5%9E%8B/id1502262095)/[Android 戳此下载](https://a.app.qq.com/o/simple.jsp?pkgname=com.realsee.dimensionplus) | -                                                                                       |
+    | 1       | 下载**如视 VR**采集应用，[iOS 点击此处下载](https://apps.apple.com/cn/app/%E5%A6%82%E8%A7%86vr-%E6%89%8B%E6%9C%BA%E6%8B%8Dvr%E5%85%A8%E6%99%AF%E6%A8%A1%E5%9E%8B/id1502262095) / [Android 点击此处下载](https://a.app.qq.com/o/simple.jsp?pkgname=com.realsee.dimensionplus) | -                                                                                       |
     | 2       | 按照操作引导进行拍摄                                                                                                                                                                                                                                               | -                                                                                       |
     | 3       | **使用相同手机号**登录[开发者中心官网-右上角-控制台](https://developers.realsee.com/console)                                                                                                                                                                   | 未登录会自动跳转                                                                        |
-    | 4       | 找到`Application Id(AK)/Application Secret(SK)` 并妥善保管                                                                                                                                                                                                         | -                                                                                       |
-    | **5-1** | 调用获取`access_token`接口                                                                                                                                                                                                                                         | [获取 access_token](https://realsee.readme.io/reference/%E8%8E%B7%E5%8F%96access_token) |
-    | **5-2** | 按本文[API 调用方式](https://realsee.readme.io/reference/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B#api-%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F)进行对应 API 的调用，建议使用[**列表数据**](https://realsee.readme.io/reference/v1entityvrlist) 进行初体验                  | -                                                                                       |
+    | 4       | 找到 `Application Id(AK)/Application Secret(SK)` 并妥善保管                                                                                                                                                                                                         | -                                                                                       |
+    | **5-1** | 调用获取 `access_token` 接口                                                                                                                                                                                                                                         | [获取 access_token](https://realsee.readme.io/reference/%E8%8E%B7%E5%8F%96access_token) |
+    | **5-2** | 按本文[API 调用方式](https://realsee.readme.io/reference/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B#api-%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F)进行对应 API 的调用，建议使用 [**列表数据**](https://realsee.readme.io/reference/v1entityvrlist) 进行初体验                  | -                                                                                       |
 
     ### API 调用流程
 
@@ -44,11 +41,11 @@ info:
 
     ![准备工作](https://files.readme.io/808c84c-8793c330d081798e93f3bd03865a263e_vlQYWpsY5S.png)
 
-    1. 申请 API 调用所需要的权限
+    1、 申请 API 调用所需要的权限
 
     **当前为方便用户使用，暂时开放除`转储服务`外的几乎全部API，后面权限验证的加入另行通知**
 
-    2. 获取 API 调用所需要的凭证
+    2、 获取 API 调用所需要的凭证
 
     API 调用时需要将凭证放入 Header 中，使用语法 `Authorization: <credentials>`进行调用。凭证的获取和使用请参考 [**获取 access_token**](https://realsee.readme.io/reference/%E8%8E%B7%E5%8F%96access_token)
 
@@ -105,7 +102,7 @@ info:
 
     #### VR 编码
 
-    即**vr_code**，VR 发布之后，生成的唯一全局编码 。VR 编码即 vr_code 是与如视开放平台交互的核心入参，可以说80%的 API 交互均基于此参数
+    即 **vr_code**，VR 发布之后，生成的唯一全局编码 。VR 编码即 vr_code 是与如视开放平台交互的核心入参，可以说80%的 API 交互均基于此参数
 
     #### 项目
 
@@ -167,18 +164,17 @@ paths:
       tags:
         - 鉴权
       summary: |
-        获取access_token
+        获取 access_token
       description: |
         # 为什么签名
 
-        与绝大多数 API 一样，为保证数据的安全性，如视开放平台 API 要求接入时加入鉴权流程。当前支持的鉴权流程包含两种
-
+        与绝大多数 API 一样，为保证数据的安全性，如视开放平台 API 要求接入时加入鉴权流程。当前支持的鉴权流程包含两种：
         - 1 ~~参数签名~~。即通过特定的算法将请求参数(`Header/Body`)进行编码，其中包含 Unix 时间戳作为随机因子(**RANDOM FACTORS**)，以增加数据抓取的难度，保障数据安全。但当前由于算法实现较为复杂，为方便快速接入/应用先临时废弃，待后面全语言 SDK 均支持时，再重新开放。**已接入的业务方不受影响**
         - 2 **access_token 机制**。即发起任意 API 调用时，先获取临时 access_token（默认**5 分钟**），后续请求均携带。业务方可以考虑设置约`3min`的缓存，以减少整体服务端 API 的响应时长
 
-        > 下面演示的AK/SK均为测试、演示专用，真实调试时请使用申请时的AK、SK
+        > 下面演示的 AK / SK 均为测试、演示专用，真实调试时请使用申请时的 AK / SK
 
-        access_token默认有效期**5min**，建议调用前统一先**从业务端的缓存中获取，而非每次获取**，以减少服务端网络交互
+        access_token 默认有效期 **5min** ，建议调用前统一先**从业务端的缓存中获取，而非每次获取**，以减少服务端网络交互。
 
         #### 返回字段说明
         |名称|示例|类型|描述|必有|
@@ -188,7 +184,7 @@ paths:
 
       responses:
         200:
-          description: 获取access_token即临时凭据，用于后续鉴权
+          description: 获取 access_token 即临时凭据，用于后续鉴权
           content:
             application/json:
               schema:
@@ -202,13 +198,13 @@ paths:
                     description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
                   code:
                     type: integer
-                    description: "错误码，请求成功时默认为0"
+                    description: "错误码，请求成功时默认为 0"
                   status:
                     type: string
-                    description: "错误信息，请求成功是默认为success"
+                    description: "错误信息，请求成功是默认为 success"
                   cost:
                     type: integer
-                    description: "服务端计算耗时，单位ms"
+                    description: "服务端计算耗时，单位 ms"
                   data:
                     $ref: "#/components/schemas/AuthAccessToken"
   /open/v1/entity/vr/list:
@@ -231,21 +227,21 @@ paths:
         ##### VR
         |名称|示例|类型|描述|必有|
         |-|-|-|-|-|
-        |vr_code|`80yAJrMWbqLBeDlvV1`|`string`|VR编码|YES|
+        |vr_code|`80yAJrMWbqLBeDlvV1`|`string`|VR 编码|YES|
         |create_time|`2021-07-13 11:27:10`|`string`|创建时间|YES|
-        |name|`我的空间`|`string`|VR名称|YES|
+        |name|`我的空间`|`string`|VR 名称|YES|
 
       parameters:
         - name: access_token
-          in: header
-          description: 鉴权获取的access_token
+          in: query
+          description: 鉴权获取的 access_token
           required: true
           schema:
             type: string
             default: your_access_token
         - name: page_size
           in: query
-          description: "页面容量，默认为10"
+          description: "页面容量，默认为 10"
           schema:
             type: integer
             default: 10
@@ -292,13 +288,13 @@ paths:
       description: |
         > 基础元数据提供至渲染SDK，即可轻松完成基础VR漫游功能
 
-        对应前端快速上手[**移步至此**](https://developers.realsee.com/docs/#/docs/five/web/quickstart)，`服务端工程师`跑通DEMO**亦并非难事**
+        对应前端快速上手[**移步至此**](https://realsee.js.org/docs/front/3d-space/intro)，`服务端工程师`跑通 DEMO **亦并非难事**
 
-        当前API数据字段较多，且几乎无需理解**直接透传**至SDK即可
+        当前 API 数据字段较多，且几乎无需理解**直接透传**至 SDK 即可
       parameters:
         - name: access_token
-          in: header
-          description: 鉴权获取的access_token
+          in: query
+          description: 鉴权获取的 access_token
           required: true
           schema:
             type: string
@@ -344,15 +340,15 @@ paths:
         |名称|示例|类型|描述|必有|
         |-|-|-|-|-|
         |computed_data|`80yAJrMWbqLBeDlvV1`|`object`|计算得出的平面图数据|NO|
-        |outlines|`[]`|`array of outline`|outline框线图列表，包含SVG和JPEG|YES|
+        |outlines|`[]`|`array of outline`|outline框线图列表，包含 SVG 和 JPEG|YES|
 
         ##### outline框线图
         |名称|示例|类型|描述|必有|
         |-|-|-|-|-|
         |checksum|-|`string`|校验和|YES|
         |index|`0`|`integer`|点位索引|YES|
-        |svg_url|-|`string`|SVG公网地址|YES|
-        |url|-|`string`|JPEG公网地址|YES|
+        |svg_url|-|`string`|SVG 公网地址|YES|
+        |url|-|`string`|JPEG 公网地址|YES|
       parameters:
         - name: access_token
           in: header
@@ -380,16 +376,16 @@ paths:
                     description: "标识唯一一次请求"
                   trace_id:
                     type: string
-                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                    description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
                   code:
                     type: integer
-                    description: "错误码，请求成功时默认为0"
+                    description: "错误码，请求成功时默认为 0"
                   status:
                     type: string
-                    description: "错误信息，请求成功是默认为success"
+                    description: "错误信息，请求成功是默认为 success"
                   cost:
                     type: integer
-                    description: "服务端计算耗时，单位ms"
+                    description: "服务端计算耗时，单位 ms"
                   data:
                     $ref: "#/components/schemas/V1EntityFloorplan"
   /open/v1/entity/roompicture:
@@ -435,16 +431,16 @@ paths:
                     description: "标识唯一一次请求"
                   trace_id:
                     type: string
-                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                    description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
                   code:
                     type: integer
-                    description: "错误码，请求成功时默认为0"
+                    description: "错误码，请求成功时默认为 0"
                   status:
                     type: string
-                    description: "错误信息，请求成功是默认为success"
+                    description: "错误信息，请求成功是默认为 success"
                   cost:
                     type: integer
-                    description: "服务端计算耗时，单位ms"
+                    description: "服务端计算耗时，单位 ms"
                   data:
                     $ref: "#/components/schemas/V1EntityRoompicture"
   /open/v1/entity/tag/list:
@@ -464,8 +460,8 @@ paths:
         |target_url|`1080`|`integer`|跳转类型标签下的超链|NO|
       parameters:
         - name: access_token
-          in: header
-          description: 鉴权获取的access_token
+          in: query
+          description: 鉴权获取的 access_token
           required: true
           schema:
             type: string
@@ -478,7 +474,7 @@ paths:
             default: "80drj5DRZejY2Dq8Oe"
       responses:
         200:
-          description: VR/3D空间中的结构化标签，包含多种类型，当前API一次性返回全部标签
+          description: VR / 3D 空间中的结构化标签，包含多种类型，当前 API 一次性返回全部标签
           content:
             application/json:
               schema:
@@ -489,16 +485,16 @@ paths:
                     description: "标识唯一一次请求"
                   trace_id:
                     type: string
-                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                    description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
                   code:
                     type: integer
-                    description: "错误码，请求成功时默认为0"
+                    description: "错误码，请求成功时默认为 0"
                   status:
                     type: string
-                    description: "错误信息，请求成功是默认为success"
+                    description: "错误信息，请求成功是默认为 success"
                   cost:
                     type: integer
-                    description: "服务端计算耗时，单位ms"
+                    description: "服务端计算耗时，单位 ms"
                   data:
                     $ref: "#/components/schemas/V1EntityTagList"
   /open/v1/live/entrance:
@@ -804,13 +800,13 @@ components:
           description: "临时凭据"
         expire_at:
           type: integer
-          description: "过期时间戳，默认5min"
+          description: "过期时间戳，默认 5min"
     V1EntityVRList:
       type: object
       properties:
         list:
           type: array
-          description: "VR列表"
+          description: "VR 列表"
           items:
             type: object
             properties:
@@ -819,7 +815,7 @@ components:
                 description: "创建时间"
               name:
                 type: string
-                description: "VR名称"
+                description: "VR 名称"
               vr_code:
                 type: string
                 description: "VR编码"
@@ -852,7 +848,7 @@ components:
           description: "Work创建时间"
         expire_at:
           type: string
-          description: "过期时间，格式为Unix时间戳"
+          description: "过期时间，格式为 Unix 时间戳"
         floor_plan_type:
           type: integer
           description: "平面图类型"
@@ -984,7 +980,7 @@ components:
           description: "VR编码"
         vr_type:
           type: string
-          description: "VR类型: 80实景/81虚拟"
+          description: "VR 类型: 80 实景 / 81 虚拟"
     V1EntityFloorplan:
       type: object
       properties:
