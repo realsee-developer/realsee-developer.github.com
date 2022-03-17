@@ -93,7 +93,7 @@ export function AutoRunVR() {
     <FiveProvider
       initialWork={parseWork(work)}
       initialState={{
-        panoIndex: 4,
+        panoIndex: 7,
         fov: 90,
         // latitude: 0.08537924222344828,
         // longitude: 2.692752190220825,
