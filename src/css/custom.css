@@ -109,7 +109,7 @@ figcaption {
 /* viewport-normal */
 .docs-vr-normal {
   width: 100%;
-  height: 400px;
+  height: 560px;
   position: relative;
   /* border-radius: var(--ifm-global-radius); */
   overflow: hidden;
@@ -117,7 +117,7 @@ figcaption {
 
 .docs-vr-normal .docs-vr-iframe {
   width: 100%;
-  height: 400px;
+  height: 560px;
   position: absolute;
   left: 0;
   top: 0;

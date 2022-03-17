@@ -193,8 +193,9 @@ const vreoSidebar = {
       collapsed: true,
       items: [
         'front/space-navigation/get-started/install',
-        'front/space-navigation/get-started/experience',
+        'front/space-navigation/get-started/quick_start',
         'front/space-navigation/get-started/demo',
+        'front/space-navigation/get-started/react-support',
       ],
     },
     'front/space-navigation/structure',
@@ -214,15 +215,15 @@ const vreoSidebar = {
         'front/space-navigation/keyframes/video-effect',
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: '高阶指南',
-    //   collapsed: true,
-    //   items: [
-    //     'front/space-navigation/advanced/custom-keyframe-action',
-    //     'front/space-navigation/advanced/custom-keyframe',
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: '进阶指南',
+      collapsed: true,
+      items: [
+        'front/space-navigation/advanced/custom-keyframe-action',
+        'front/space-navigation/advanced/custom-keyframe',
+      ],
+    },
     // {
     //   type: 'category',
     //   label: '应用示例',
@@ -236,6 +237,7 @@ const vreoSidebar = {
       label: '常见问题',
       collapsed: true,
       items: [
+        'front/space-navigation/faq/performance-boost',
         'front/space-navigation/faq/wechat-browser',
       ],
     },
