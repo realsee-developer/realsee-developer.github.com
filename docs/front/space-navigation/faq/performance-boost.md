@@ -6,7 +6,7 @@ title: 性能提升
 
 ## 降低图片分辨率
 
-可以设置 `five.imageOptions.size` 来降低渲染引擎的贴图尺寸，这样下载速度会变快且内存占用也会降低。 您也可以配置 `Vreo` 参数来达到类似的效果：
+您可以通过 `five.imageOptions.size` 设置较低的图片尺寸，以此降低渲染引擎的贴图尺寸，这样贴图的下载速度会变快且内存占用也会降低。 您也可以通过配置 `Vreo` 参数来达到类似的效果：
 
 ```ts
 const vreoplayer = new Player(five, { imageOptions: { size: 1024 } })
@@ -14,7 +14,7 @@ const vreoplayer = new Player(five, { imageOptions: { size: 1024 } })
 
 ## 自动预载
 
-如果网络不稳定，可以提前预载静态资源，这样播放过程中不会卡顿：
+如果网络不稳定，可以设置 `autoPreload` 参数为 `true` ，达到预载静态资源的目的，规避播放过程中的卡顿问题：
 
 ```ts
 // 全局预载
