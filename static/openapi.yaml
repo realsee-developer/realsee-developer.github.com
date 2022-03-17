@@ -173,8 +173,8 @@ paths:
 
         与绝大多数 API 一样，为保证数据的安全性，如视开放平台 API 要求接入时加入鉴权流程。当前支持的鉴权流程包含两种
 
-        1. ~~参数签名~~。即通过特定的算法将请求参数(`Header/Body`)进行编码，其中包含 Unix 时间戳作为随机因子(**RANDOM FACTORS**)，以增加数据抓取的难度，保障数据安全。但当前由于算法实现较为复杂，为方便快速接入/应用先临时废弃，待后面全语言 SDK 均支持时，再重新开放。**已接入的业务方不受影响**
-        2. **access_token 机制**。即发起任意 API 调用时，先获取临时 access_token（默认**5 分钟**），后续请求均携带。业务方可以考虑设置约`3min`的缓存，以减少整体服务端 API 的响应时长
+        - 1 ~~参数签名~~。即通过特定的算法将请求参数(`Header/Body`)进行编码，其中包含 Unix 时间戳作为随机因子(**RANDOM FACTORS**)，以增加数据抓取的难度，保障数据安全。但当前由于算法实现较为复杂，为方便快速接入/应用先临时废弃，待后面全语言 SDK 均支持时，再重新开放。**已接入的业务方不受影响**
+        - 2 **access_token 机制**。即发起任意 API 调用时，先获取临时 access_token（默认**5 分钟**），后续请求均携带。业务方可以考虑设置约`3min`的缓存，以减少整体服务端 API 的响应时长
 
         > 下面演示的AK/SK均为测试、演示专用，真实调试时请使用申请时的AK、SK
 
@@ -237,7 +237,7 @@ paths:
 
       parameters:
         - name: access_token
-          in: query
+          in: header
           description: 鉴权获取的access_token
           required: true
           schema:
@@ -297,7 +297,7 @@ paths:
         当前API数据字段较多，且几乎无需理解**直接透传**至SDK即可
       parameters:
         - name: access_token
-          in: query
+          in: header
           description: 鉴权获取的access_token
           required: true
           schema:
@@ -355,7 +355,7 @@ paths:
         |url|-|`string`|JPEG公网地址|YES|
       parameters:
         - name: access_token
-          in: query
+          in: header
           description: 鉴权获取的access_token
           required: true
           schema:
@@ -410,7 +410,7 @@ paths:
         |width|`1440`|`integer`|图片宽度|YES|
       parameters:
         - name: access_token
-          in: query
+          in: header
           description: 鉴权获取的access_token
           required: true
           schema:
@@ -464,7 +464,7 @@ paths:
         |target_url|`1080`|`integer`|跳转类型标签下的超链|NO|
       parameters:
         - name: access_token
-          in: query
+          in: header
           description: 鉴权获取的access_token
           required: true
           schema:
@@ -501,6 +501,298 @@ paths:
                     description: "服务端计算耗时，单位ms"
                   data:
                     $ref: "#/components/schemas/V1EntityTagList"
+  /open/v1/live/entrance:
+    post:
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              required:
+                ["app_id", "create_user_id", "create_user_role", "members"]
+              properties:
+                app_id:
+                  description: 控制台中的Application Id
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                create_user_id:
+                  description: 创建直播房间的用户ID，传入业务系统用户的唯一标识即可，用于区分不同用户
+                  type: string
+                  default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+                create_user_role:
+                  description: 创建直播房间用户的角色，此角色必须在您在后台所创建的角色列表之中
+                  type: string
+                  default: "audience"
+                members:
+                  description: JSON序列化之后的列表，房间内的用户列表(member)，不传时，默认直播房间内只有创建人一个人
+                  type: string
+                  default: "[]"
+                additive:
+                  description: JSON序列化之后的对象，创建房间是的扩展信息各种事件消息的回调，会携带着一部分的扩展信息
+                  type: string
+                  default: "{}"
+      tags:
+        - 直播服务
+      summary: 创建房间
+      description: |
+        # 什么是直播
+
+        直播服务是如视开放平台提供的一项**全双工通信能力**的标准服务，与[**腾讯云TRTC**](https://cloud.tencent.com/product/trtc)类似但却能够与如视基础SDK整合紧密的长链接信道，用户能够非常方便的构建多种创新性的应用：
+
+        - VR实时弹幕
+        - VR漫游同步
+        - VR语音聊天室
+
+        对应前端开发手册[**请移步至此**](https://developers.realsee.com/docs/#/docs/live/client/core/README)
+
+        #### 请求字段说明
+        ##### member(`members`字段内嵌的数据结构)
+        |名称|示例|类型|描述|必传|
+        |-|-|-|-|-|
+        |user_id|`7e7b5a43f74142b7bab2021bb54c6d3e`|`string`|业务系统的用户ID|YES|
+        |user_role|`audience`|`string`|用户角色|YES|
+        |extension|`{}`|`object`|用户的扩展信息，进入直播房间后，会推送此信息|YES|
+
+        #### 返回字段说明
+
+        |名称|示例|类型|描述|必有|
+        |-|-|-|-|-|
+        |room_code|`R3LzwQmEb9OQxdJl`|`string`|直播房间号|YES|
+        |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
+
+      parameters:
+        - name: access_token
+          in: header
+          description: 鉴权获取的access_token
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+      responses:
+        200:
+          description: 创建直播房间
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "标识唯一一次请求"
+                  trace_id:
+                    type: string
+                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为0"
+                  status:
+                    type: string
+                    description: "错误信息，请求成功是默认为success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveRoomDetail"
+  /open/v1/live/apply/ticket:
+    post:
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              required: ["app_id", "user_id", "user_role", "room_code"]
+              properties:
+                app_id:
+                  description: 控制台中的Application Id
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                user_id:
+                  description: 加入直播房间的用户ID，传入业务系统用户的唯一标识即可，用于区分不同用户
+                  type: string
+                  default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+                user_role:
+                  description: 加入直播房间用户的角色，此角色必须在您在后台所创建的角色列表之中
+                  type: string
+                  default: "audience"
+                room_code:
+                  description: 要加入的房间ID
+                  type: string
+                  default: "yw7Pz65mrX68A4oa"
+                extension:
+                  description: JSON序列化之后的对象，用于存储用户的扩展信息
+                  type: string
+                  default: "{}"
+      tags:
+        - 直播服务
+      summary: 加入房间
+      description: |
+        #### 返回字段说明
+
+        |名称|示例|类型|描述|必有|
+        |-|-|-|-|-|
+        |ticket|`99317955e49e0221d593f0330150b9df `|`string`|**服务端签发的通行证, 五分钟内有效, 一旦被使用, 立即失效**|YES|
+        |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
+      parameters:
+        - name: access_token
+          in: header
+          description: 鉴权获取的access_token
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+      responses:
+        200:
+          description: 申请进入房间通行证
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "标识唯一一次请求"
+                  trace_id:
+                    type: string
+                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为0"
+                  status:
+                    type: string
+                    description: "错误信息，请求成功是默认为success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveApplyTicket"
+  /open/v1/live/voice/sign:
+    post:
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              required: ["app_id", "user_identifier", "user_role", "room_code"]
+              properties:
+                app_id:
+                  description: 控制台中的Application Id
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                user_identifier:
+                  description: 用户标识，设置为用户唯一ID即可
+                  type: string
+                  default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+                room_code:
+                  description: 要加入的房间ID
+                  type: string
+                  default: "yw7Pz65mrX68A4oa"
+                voice_id:
+                  description: 语音房间号
+                  type: string
+                  default: ""
+      tags:
+        - 直播服务
+      summary: 语音签名
+      description: |
+        #### 返回字段说明
+
+        |名称|示例|类型|描述|必有|
+        |-|-|-|-|-|
+        |voice_app_id|`1024`|`string`|语音房间AppID，供SDK使用|YES|
+        |user_identifier|`7e7b5a43f74142b7bab2021bb54c6d3e`|`string`|用户标识，设置为用户唯一ID即可|YES|
+        |sign|`bar`|`string`|对应语音供应商的签名数据，供SDK使用|YES|
+      parameters:
+        - name: access_token
+          in: header
+          description: 鉴权获取的access_token
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+      responses:
+        200:
+          description: 获取语音房间签名，相当于语音房间支线的"加入房间"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "标识唯一一次请求"
+                  trace_id:
+                    type: string
+                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为0"
+                  status:
+                    type: string
+                    description: "错误信息，请求成功是默认为success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveVoiceSign"
+  /open/v1/live/room/detail:
+    get:
+      tags:
+        - 直播服务
+      summary: 房间详情
+      description: |
+        #### 返回字段说明
+
+        |名称|示例|类型|描述|必有|
+        |-|-|-|-|-|
+        |room_code|`R3LzwQmEb9OQxdJl`|`string`|直播房间号|YES|
+        |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
+      parameters:
+        - name: access_token
+          in: header
+          description: 鉴权获取的access_token
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: app_id
+          in: query
+          description: 控制台中的Application Id
+          required: true
+          schema:
+            type: string
+            default: "KmAknx7zqqVNpWg8"
+        - name: room_code
+          in: query
+          description: 查询的房间编码
+          required: true
+          schema:
+            type: string
+            default: "yw7Pz65mrX68A4oa"
+      responses:
+        200:
+          description: 查询直播房间数据
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "标识唯一一次请求"
+                  trace_id:
+                    type: string
+                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为0"
+                  status:
+                    type: string
+                    description: "错误信息，请求成功是默认为success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveRoomDetail"
 
 components:
   schemas:
@@ -698,6 +990,7 @@ components:
       properties:
         computed_data:
           type: object
+          description: "计算得出的平面图数据"
           properties:
             bounding:
               type: object
@@ -850,41 +1143,52 @@ components:
                         type: number
         format_data:
           type: object
+          description: "格式化得出的平面图数据，依据`computed_data`"
           properties:
             bounding:
               type: object
+              description: "边界数据"
               properties:
                 max:
                   type: object
                   properties:
                     x:
                       type: number
+                      description: "最大x坐标"
                     "y":
                       type: number
+                      description: "最大y坐标"
                 min:
                   type: object
                   properties:
                     x:
                       type: number
+                      description: "最小x坐标"
                     "y":
                       type: number
+                      description: "最小y坐标"
                 origin:
                   type: object
                   properties:
                     x:
                       type: integer
+                      description: "原点x坐标"
                     "y":
                       type: integer
+                      description: "原点y坐标"
             entrance:
               type: string
               nullable: true
+              description: "入口点"
             floor_names:
               type: array
+              description: "楼层名称"
               items:
                 type: string
                 nullable: true
             room_labels:
               type: array
+              description: "房间标签"
               items:
                 type: array
                 items:
@@ -892,33 +1196,46 @@ components:
                   properties:
                     id:
                       type: string
+                      description: "房间标签id"
                     name:
                       type: string
+                      description: "房间名称"
                     room_id:
                       type: string
+                      description: "房间id"
                     size:
                       type: number
+                      description: "房间大小"
                     x:
                       type: number
+                      description: "房间x坐标"
                     "y":
                       type: integer
+                      description: "房间y坐标"
             room_observers:
               type: array
+              description: "房间观察点"
               items:
                 type: object
                 properties:
                   id:
                     type: string
+                    description: "房间观察点id"
                   name:
                     type: string
+                    description: "房间观察点名称"
                   pano_index:
                     type: integer
+                    description: "全景索引"
                   room_id:
                     type: string
+                    description: "房间id"
                   size:
                     type: number
+                    description: "房间大小"
             rooms:
               type: array
+              description: "房间"
               items:
                 type: array
                 items:
@@ -926,32 +1243,43 @@ components:
                   properties:
                     floor_type:
                       type: integer
+                      description: "楼层类型"
                     id:
                       type: string
+                      description: "房间id"
                     path:
                       type: array
+                      description: "房间路径"
                       items:
                         type: object
                         properties:
                           x:
                             type: number
+                            description: "房间x坐标"
                           "y":
                             type: number
+                            description: "房间y坐标"
                     room_type:
                       type: string
+                      description: "房间类型"
         outlines:
           type: array
+          description: "outline框线图列表，包含SVG和JPEG"
           items:
             type: object
             properties:
               checksum:
                 type: string
+                description: "房间线框校验和"
               index:
                 type: integer
+                description: "房间线框索引"
               svg_url:
                 type: string
+                description: "房间线框svg地址"
               url:
                 type: string
+                description: "房间线框图片地址"
     V1EntityRoompicture:
       type: array
       items:
@@ -959,72 +1287,140 @@ components:
         properties:
           capture_data:
             type: object
+            description: "截图结构化数据"
             properties:
               derived_id:
                 type: integer
+                description: "全景全局唯一索引，依据时间戳"
               filter:
                 type: integer
+                description: "滤镜"
               fov:
                 type: integer
+                description: "视角"
               fromFE:
                 type: boolean
+                description: "是否来自FE(前端)"
               latitude:
                 type: integer
+                description: "纬度"
               longitude:
                 type: number
+                description: "经度"
               original_image_checksum:
                 type: string
+                description: "原图校验和"
               original_image_url:
                 type: string
+                description: "原图地址"
               pano_index:
                 type: integer
+                description: "全景索引"
               sizes:
                 type: array
+                description: "截图尺寸"
                 items:
                   type: object
                   properties:
                     height:
                       type: integer
+                      description: "高度"
                     width:
                       type: integer
+                      description: "宽度"
           cell_name:
             type: string
+            description: "房间名称"
           cell_name_type:
             type: integer
+            description: "房间名称类型"
           cell_type:
             type: integer
+            description: "房间类型"
           checksum:
             type: string
+            description: "截图校验和"
           height:
             type: integer
+            description: "截图高度"
           url:
             type: string
+            description: "截图地址"
           width:
             type: integer
+            description: "截图宽度"
     V1EntityTagList:
       type: array
+      description: "标签列表"
       items:
         type: object
         properties:
           description:
             type: string
+            description: "标签描述"
           id:
             type: integer
+            description: "标签id"
           media_data:
             type: string
             nullable: true
+            description: "标签多媒体类型"
           name:
             type: string
+            description: "标签名称"
           position:
             type: array
+            description: "标签坐标"
             items:
               type: number
+              description: "标签坐标类型"
           target_url:
             type: string
+            description: "标签链接"
           type:
             type: string
+            description: "标签类型"
           typed_target_url:
             type: string
+            description: "标签类型链接"
+    V1LiveRoomDetail:
+      type: object
+      properties:
+        room_code:
+          type: string
+          description: "直播房间号"
+          default: "R3LzwQmEb9OQxdJl"
+        room_link:
+          type: string
+          description: "直播房间的长链接(WebSocket)地址"
+          default: "wss://sandbox-ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121"
+    V1LiveApplyTicket:
+      type: object
+      properties:
+        ticket:
+          type: string
+          description: "服务端签发的通行证, 五分钟内有效, 一旦被使用, 立即失效"
+          default: "99317955e49e0221d593f0330150b9df"
+        room_link:
+          type: string
+          description: "直播房间的长链接(WebSocket)地址"
+          default: "wss://sandbox-ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121"
+    V1LiveVoiceSign:
+      type: object
+      properties:
+        voice_app_id:
+          type: string
+          description: "语音房间AppID，供SDK使用"
+          default: "1024"
+        user_identifier:
+          type: string
+          description: "用户标识，设置为用户唯一ID即可"
+          default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+        sign:
+          type: string
+          description: "对应语音供应商的签名数据，供SDK使用"
+          default: "bar"
+
   securitySchemes:
     api_key:
       type: http
