@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Five, FiveInitArgs, parseWork } from '@realsee/five'
 import { createFiveProvider, unsafe__useFiveInstance, useFiveEventCallback } from '@realsee/five/react'
 
-import work from '@realsee/open-works/virtual/816lPVZQkQDF5XOpPo/work.json'
+import work from '@realsee/open-works/virtual/81980RNawnbCVaLz0a/work.json'
 
 import { ResponsiveFiveCanvas } from '../../ResponsiveFiveCanvas'
 import CameraMovementPlugin from '@realsee/dnalogel/plugins/CameraMovementPlugin'
