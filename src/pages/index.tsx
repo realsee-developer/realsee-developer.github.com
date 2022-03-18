@@ -1,20 +1,30 @@
 import React from 'react'
-import clsx from 'clsx'
+import BrowserOnly from '@docusaurus/BrowserOnly'
 import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import HomepageFeatures from '../components/HomepageFeatures'
 import { debounce } from '@mui/material'
-import { AutoRunVR } from '../components/home/AutoRunVR'
-
+import { createAutoRunVR } from '../components/home/AutoRunVR'
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment'
 import './index.css'
 
+const AutoRunVR = createAutoRunVR()
+
+const getWindowInnerHeight = () => {
+  if (ExecutionEnvironment.canUseDOM) {
+    return window.innerHeight
+  }
+
+  return 720
+}
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
-  const [height, setHeight] = React.useState(window.innerHeight - 60)
+  const [height, setHeight] = React.useState(getWindowInnerHeight() - 60)
 
   React.useEffect(() => {
+    if (!ExecutionEnvironment.canUseDOM) return
     const listener = debounce(() => {
       setHeight(window.innerHeight - 60)
     })
@@ -27,16 +37,13 @@ function HomepageHeader() {
   }, [])
 
   return (
-    <header
-      className="hero hero--primary cover__header"
-      style={{ height: height + 'px' }}
-    >
+    <header className="hero hero--primary cover__header" style={{ height: height + 'px' }}>
       <AutoRunVR />
       <div className="cover__header_mask"></div>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div >
+        <div>
           <Link className="button button--secondary button--lg button--entry" to="/docs/front/3d-space/intro">
             进入阅读
           </Link>
@@ -50,10 +57,17 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext()
   return (
     <Layout title={`${siteConfig.title}`} description="开放共建三维生态，互联大千世界">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
+      <BrowserOnly>
+        {() => (
+          <>
+            <HomepageHeader />
+            <main>
+              <HomepageFeatures />
+            </main>
+          </>
+        )}
+      </BrowserOnly>
+
     </Layout>
   )
 }

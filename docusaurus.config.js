@@ -5,10 +5,6 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const VersionsArchived = require('./versionsArchived.json')
 const webpackPlugin = require('./docusaurus-plugins/webpack-plugin')
-const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived).splice(
-  0,
-  5,
-);
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -21,12 +17,12 @@ const config = {
   favicon: '//realsee.com/favicon.ico',
   organizationName: 'realsee-developer', // Usually your GitHub org/user name.
   projectName: 'realsee-developer.github.com', // Usually your repo name.
-  // i18n: {
-  //   defaultLocale: 'zh-CN',
-  //   // eslint-disable-next-line no-nested-ternary
-  //   locales: ['zh-CN']
-  //   // locales: ['en', 'zh-CN', 'fr', 'pt-BR', 'ko']
-  // },
+  i18n: {
+    defaultLocale: 'zh-CN',
+    // eslint-disable-next-line no-nested-ternary
+    locales: ['zh-CN']
+    // locales: ['en', 'zh-CN', 'fr', 'pt-BR', 'ko']
+  },
 
   presets: [
     [
