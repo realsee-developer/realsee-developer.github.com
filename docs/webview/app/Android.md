@@ -7,7 +7,7 @@ title: Android 端
 :::
 
 :::caution
-本文档尚未完成，内容仅供参考。
+本文档尚未完善，内容仅供参考。
 :::
 
 ## 下载地址
@@ -26,14 +26,14 @@ title: Android 端
 	</tr >
   <tr align="center">
 	  <td rowspan="1">基础版本</td>
-	  <td><a target="_blank">待添加</a></td>
-    <td><a target="_blank">待添加</a></td>
+	  <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
+    <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
     <td>约1.2M</td>
 	</tr>
   <tr align="center">
 	  <td rowspan="1">带看版本</td>
-	  <td><a target="_blank">待添加</a></td>
-    <td><a target="_blank">待添加</a></td>
+	  <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
+    <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
     <td>约10M</td>
    </tr>
 </table>

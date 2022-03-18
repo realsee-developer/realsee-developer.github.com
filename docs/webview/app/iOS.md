@@ -26,14 +26,14 @@ title: iOS 端
 	</tr >
   <tr align="center">
 	  <td rowspan="1">基础版本</td>
-	  <td><a target="_blank">待添加</a></td>
-    <td><a target="_blank">待添加</a></td>
+	  <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
+    <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
     <td>约4M</td>
 	</tr>
   <tr align="center">
 	  <td rowspan="1">带看版本</td>
-	  <td><a target="_blank">待添加</a></td>
-    <td><a target="_blank">待添加</a></td>
+	  <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
+    <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
     <td>约18M</td>
    </tr>
 </table>
