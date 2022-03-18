@@ -42,7 +42,7 @@ blockquote {
   font-size: 16px;
   border-left: 3px solid var(--ifm-color-primary);
   /*background-color: rgb(230, 248, 250);*/
-  background-color: #eef9fd;
+  /*background-color: #eef9fd;*/
 }
 
 code {
