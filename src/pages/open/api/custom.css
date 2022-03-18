@@ -19,7 +19,7 @@ a.sl-flex.sl-items-center.sl-px-4.sl-py-3.sl-border-t {
 }
 
 .sl-truncate {
-  padding: 6px 16px;
+  padding: 6px 10px;
   font-size: 16px;
   color: var(--ifm-menu-color);
   font-family: var(--ifm-font-family-base);
@@ -100,4 +100,9 @@ html[data-theme='dark'] .sl-bg-canvas-100 {
 
 html[data-theme='dark'] .sl-bg-canvas {
   background-color: #18191a;
+}
+
+.sl-flex-1.sl-text-lg {
+  padding: 6px 0;
+  color: var(--color-highlight);
 }
