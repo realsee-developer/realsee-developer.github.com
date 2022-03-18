@@ -1,41 +1,128 @@
 ---
 slug: quick-start-with-api
-title: 如视 3D 空间能力快速 "尝鲜"
+title: 如视三维空间能力快速 "尝鲜"
 authors: [Angry-Sparrow]
-tags: [realsee, 3d, vr]
+tags: [realsee, 3d, vr, ]
 ---
-
-# 如视3D空间开发者工具
-
-服务端使用 [如视3D空间 API](https://developers.realsee.com/docs/#/docs/five/server/README) 访问和管理空间数据，客户端使用 [如视3D空间 SDK](../docs/front/3d-space/container/app/desc) 搭配空间数据开发自己的3D空间VR应用
 
 ## 个人尝鲜
 
-**3分钟跑通采集预览（Node版）**
+[**如视VR**](https://apps.apple.com/cn/app/id1502262095) 是如视官方提供的一款全景模型拍摄神器——您可以通过手机按照指导进行简单拍摄，拍摄处理后会生成 VR 实景数据。
 
-该项目会请求开发者中心API接口，使用SDK展示最新一条处理完成的VR。
+生成的 VR 数据您可以通过如视开放平台的 [**开放 API**](/open/api/#/) 来获取，然后利用 [**渲染引擎 Five**](/docs/front/3d-space/get-started/rendering-engine) 就可以打造您自己的三维空间应用。
 
-### 操作前提
+那么跟随本文，快速“尝鲜”如视的三维空间能力吧。
 
-- 您的机器已安装 [Node 和 npm](https://nodejs.org/en/)
-- 您方便操作的苹果手机（用于快速拍摄VR）
+## 30分钟跑通采集预览
 
-### 操作步骤
+:::tip 提示
+我们假设你对 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) 语言、[Node.js](https://nodejs.org/en/docs/) 及 [npm](https://docs.npmjs.com/) 等知识已有基本的了解。
+如果您之前没接触过，建议阅读本文前简单了解下。
+:::
 
-**第一步**：注册/登录[如视开发者中心控制台](https://developers.realsee.com/console) ，点击`申请密钥`，获取您的`Application Id` 和 `Application Secret`
-，此凭证将用于访问API接口获取空间数据
+### 准备工作
 
-**第二步**：手机应用商店搜索`如视VR`，安装并登录**第一步**中注册/登录的账号
+- 您的机器已安装 [Node](https://nodejs.org/en/) 环境。
+- 您方便操作的苹果手机——用于拍摄，采集 VR 数据。
 
-继续在App内操作
+### 拍摄采集
 
-- `我的` - `身份选择` - `个人`（默认）
-- 点击底部`加号按钮`创建项目 - `手机拍`（暂时仅支持iOS） - 点击`创建项目`
-- 按照App操作指引完成拍摄并上传，等待VR项目处理完成（此过程大致需要几分钟）
+首先，你需要从苹果应用商店下载 [**如视VR**](https://apps.apple.com/cn/app/id1502262095) ——在应用商店搜索 **"如视VR"**。按照指引注册帐号、登录后，继续在 App 内操作：
 
-**第三步**：`git clone` 或 `download zip` [five-sdk-starter-with-api](https://github.com/realsee-developer/five-sdk-starter-with-api)
+- 执行 **"我的"** ➜ **"身份选择"** ➜ **"个人"**（默认）。
+- 点击底部栏 **"+"** 加号按钮 ➜ 选择 **"手机拍"**（暂时仅支持iOS）。
+- 填写项目名称后，点击 **"创建项目"** 即可进入采集流程。
 
-进入仓库目录 打开`index.js`，搜索`Your-App-Key`字符串替换成第一步中申请的`Application Id`，搜索`Your-App-Secret`字符串替换成第一步中申请的`Application Secret`
+按照 App 操作指引完成拍摄并上传，等待 VR 项目处理完成（此过程大致需要几分钟）。
+
+:::tip 提示
+建议您选择光线好的室内场景，比如选择在白天拍摄自己的小卧室。
+:::
+
+具体的拍摄过程可参考视频教程：
+
+<video style={{width: '100%'}} controls type="video/mp4" src="//vrlab-public.ljcdn.com//release//vrorion/___2adb9edde32b9818c91e7475265aef17.MP4"></video>
+
+### 获取数据
+
+完成拍摄并上传之后，你可以通过如视 [开放 API](/open/api) 获取数据。在请求数据之前，您需要登录[如视开放平台控制台](https://developers.realsee.com/console)——帐号就是您刚刚登录 App 注册的。
+
+然后点击 **"申请密钥"**，获取您的 `Application Id` 和 `Application Secret`，此凭证将用于访问 API 接口获取空间数据。
+
+涉及的 API 有：
+
+- 鉴权：`/auth/access_token`。
+- 列表数据：`/open/v1/entity/vr/list`。
+- 基础数据：`/open/v1/entity/vr`。
+
+:::tip 提示
+发起任意 API 调用时，先获取临时 `access_token`（默认五分钟），后续请求均携带。业务方可以考虑设置约三分钟的缓存，以减少整体服务端 API 的响应时长。
+
+<details>
+  <summary>签名示例：Node 版本</summary>
+
+```js
+const http = require("http")
+const https = require("https")
+const crc32 = require("crc32")
+const crypto = require("crypto")
+
+const ApplicationId = "" // 替换您的 ApplicationId
+const ApplicationSecret = "" // 替换您的 ApplicationSecret
+
+function sha256(token, salt) {
+  return crypto.createHmac('SHA256', salt).update(token).digest('hex')
+}
+
+function md5(token) {
+  return crypto.createHash('md5').update(token).digest("hex")
+}
+
+async function request(api, paramString) {
+  const bodyCrc32 = Number('0x' + crc32(paramString))
+  const stringToSign = `body_crc32=${bodyCrc32}method=GETurl=${api}`
+  const timestamp = (Date.now() / 1000).toFixed()
+  const salt = md5(
+    ApplicationId + ApplicationSecret + timestamp
+  ).toUpperCase()
+  const signature = sha256(stringToSign, salt).toUpperCase()
+  const authorization = Buffer.from(
+    ApplicationId +":" + signature + ":" + timestamp
+  ).toString("base64")
+  const headers = { Authorization: authorization }
+  return new Promise((resolve, reject) => {
+    const req = https.get(
+      `https://app-gateway.realsee.com${api}?${paramString}`,
+      { headers },
+      (res) => {
+        const buffers = []
+        res.on("error", () => {
+          reject(new Error(`request api(${api}) error.`))
+        })
+        res.on("data", buffer => buffers.push(buffer))
+        res.on("end", () => {
+          const contents = Buffer.concat(buffers)
+          resolve(JSON.parse(contents.toString("utf8")))
+        })
+      }
+    )
+    req.on('error', (e) => {
+      reject(new Error(`request api${api} error.`))
+    })
+  })
+}
+```
+
+</details>
+:::
+
+### 渲染 VR
+
+为节约您创建开发脚手架的成本，你也可以 `git clone` 或 `download zip` [five-sdk-starter-with-api](https://github.com/realsee-developer/five-sdk-starter-with-api)。
+
+进入仓库目录打开 `index.js`，搜索`Your-App-Key` 字符串替换成申请的`Application Id`，搜索 `Your-App-Secret` 字符串替换成申请的 `Application Secret`。
+
+最后，开启您的终端：
 
 ```shell
 cd five-sdk-starter-with-api
@@ -46,14 +133,22 @@ npm run start
 > serve at http://127.0.0.1:3000
 ```
 
-## 企业级接入
+至此，访问 [127.0.0.1:3000](http://127.0.0.1:3000) 就可以体验您自己拍摄的 VR 空间啦~
 
-### 实景VR
+:::tip 提示
+如果您想更深度地去定制自己的 VR 空间应用，访问 [**渲染引擎 Five**](/docs/front/3d-space/get-started/rendering-engine) 了解更多。
+:::
 
-[如视VR扫描设备](https://realsee.cn/website/product/hardware) 采集生成实景3D空间 --> **如视开发者中心 API SDK** 展示
+## 其他补充
 
-### 虚拟VR
+### 开放数据集
 
-[如视3D设计工具](https://business.realsee.com/) 创建虚拟3D空间 --> **如视开发者中心 API SDK** 展示
+如果您不想进行拍摄操作，我们也面向开源社区公开 [**open-works**](https://github.com/realsee-developer/open-works) 数据集供开发、调试和研究。
 
-> 企业级实景空间采集、虚拟空间设计、加工服务请联系[如视官网商务合作](https://realsee.com/website/business)
+您可以越过拍摄、调用开放 API 流程，[**点击此处快速体验**](docs/front/3d-space/get-started/usage/00.3d-space#效果展示) 如视三维空间的渲染能力。
+
+### 企业级接入
+
+除了 [**如视VR**](https://apps.apple.com/cn/app/id1502262095) 之外，如视还提供强大的 [**VR 扫描设备**](https://realsee.cn/website/product/hardware) 采集生成实景三维空间和 [三维设计工具](https://business.realsee.com/) 创建虚拟三维空间。
+
+企业级实景空间采集、虚拟空间设计、加工服务请联系：[developer@realsee.com](developer@realsee.com)。

@@ -18,7 +18,7 @@
 
   --ifm-color-primary: #0072f5;
   --ifm-color-primary-dark: #0357ed;
-  --ifm-color-primary-darker: #472dca;
+  --ifm-color-primary-darker: #0018ec;
   --ifm-color-primary-darkest: rgb(26, 136, 112);
   --ifm-color-primary-light: rgb(70, 203, 174);
   --ifm-color-primary-lighter: rgb(102, 212, 189);
@@ -27,15 +27,22 @@
   /*--ifm-code-font-size: 95%;*/
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .row .col.col--6 {
   --ifm-col-width: 100%;
 }
 
 blockquote {
-  padding: 16px 0 16px 16px;
+  /*padding: 16px 0 16px 16px;*/
   color: #7f8fa4;
-  font-size: 18px;
-  border-left: 3px solid #eaeaea;
+  font-size: 16px;
+  border-left: 3px solid var(--ifm-color-primary);
+  /*background-color: rgb(230, 248, 250);*/
+  /*background-color: #eef9fd;*/
 }
 
 code {
@@ -46,10 +53,6 @@ code {
 
 .button.button--secondary {
   color: white;
-}
-
-.button--secondary:not(.button--outline) {
-  --ifm-button-background-color: coral;
 }
 
 .docusaurus-highlight-code-line {
@@ -107,16 +110,17 @@ figcaption {
 
 /* viewport-normal */
 .docs-vr-normal {
+  margin: 20px 0;
   width: 100%;
-  height: 400px;
+  height: 560px;
   position: relative;
-  border-radius: var(--ifm-global-radius);
+  /* border-radius: var(--ifm-global-radius); */
   overflow: hidden;
 }
 
 .docs-vr-normal .docs-vr-iframe {
   width: 100%;
-  height: 400px;
+  height: 560px;
   position: absolute;
   left: 0;
   top: 0;
@@ -139,51 +143,3 @@ figcaption {
   min-width: 350px;
   border-radius: var(--ifm-global-radius);
 }
-
-.codeBlockLines_node_modules-\@docusaurus-theme-classic-lib-next-theme-CodeBlock-styles-module {
-  /* font-size: 13px !important; */
-  /* font-family: monospace !important; */
-}
-
-/*blockquote {*/
-/*  border-color: var(--ifm-blockquote-border-color);*/
-/*}*/
-/*blockquote > :last-child {*/
-/*  font-size: 18px;*/
-/*  font-weight: 300;*/
-/*  padding: 12px 0;*/
-/*}*/
-
-
-.cover__header {
-  background: url('http://vrlab-public.ljcdn.com/common/file/web/5f028f99-e726-47eb-92e9-79082ed4f571.gif') center no-repeat #000;
-  background-size: cover;
-  min-height: 600px;
-}
-
-.cover__mask {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,.6);
-}
-
-.cover__header>.container {
-  /*color: var(--ifm-color-primary);*/
-  text-shadow: 0 0 0.2rem rgba(255, 255, 255, 0.8);
-  z-index: 1;
-}
-
-html[data-theme='dark'] .cover__header>.container {
-  color: white;
-}
-
-
-.footer {
-  font-size: 13px;
-  line-height: 1;
-}
-

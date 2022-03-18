@@ -31,7 +31,7 @@ const spaceSidebar = {
         "front/3d-space/get-started/usage/conversion-coordinates",
         "front/3d-space/get-started/usage/add-three-mesh",
         "front/3d-space/get-started/usage/collision-detection",
-   
+
       ],
     },
     // "front/3d-space/get-started/typescript-support",
@@ -104,28 +104,7 @@ const spaceSidebar = {
         "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin"
       ]
     },
-    {
-      type: 'category',
-      label: '容器集成',
-      collapsed: true,
-      items: [
-        {
-          type: 'category',
-          label: '客户端',
-          collapsed: true,
-          items: [
-            "front/3d-space/container/app/desc",
-            "front/3d-space/container/app/download",
-            "front/3d-space/container/app/demo",
-            // "front/3d-space/container/app/collection-android",
-            "front/3d-space/container/app/show-android",
-            // "front/3d-space/container/app/collection-ios",
-            "front/3d-space/container/app/show-ios",
-          ]
-        },
-        "front/3d-space/container/wx"
-      ]
-    },
+
     // {
     //   type: 'category',
     //   label: '应用示例',
@@ -211,10 +190,11 @@ const vreoSidebar = {
     {
       type: 'category',
       label: '快速开始',
-      collapsed: true,
+      collapsed: false,
       items: [
         'front/space-navigation/get-started/install',
-        'front/space-navigation/get-started/experience',
+        'front/space-navigation/get-started/quick_start',
+        'front/space-navigation/get-started/demo',
         'front/space-navigation/get-started/react-support',
       ],
     },
@@ -222,36 +202,143 @@ const vreoSidebar = {
     {
       type: 'category',
       label: '剧本关键帧',
-      collapsed: true,
+      collapsed: false,
       items: [
         'front/space-navigation/keyframes/camera-movement',
         'front/space-navigation/keyframes/prompter',
+        'front/space-navigation/keyframes/panotext',
+        'front/space-navigation/keyframes/infopanel',
+        'front/space-navigation/keyframes/panotag',
+        'front/space-navigation/keyframes/panoeffect',
+        'front/space-navigation/keyframes/updatevr',
+        'front/space-navigation/keyframes/model-video',
+        'front/space-navigation/keyframes/video-effect',
       ],
     },
     {
       type: 'category',
-      label: '高阶指南',
+      label: '进阶指南',
       collapsed: true,
       items: [
         'front/space-navigation/advanced/custom-keyframe-action',
         'front/space-navigation/advanced/custom-keyframe',
       ],
     },
-    {
-      type: 'category',
-      label: '应用示例',
-      collapsed: true,
-      items: [
-        'front/space-navigation/examples/midea',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: '应用示例',
+    //   collapsed: true,
+    //   items: [
+    //     'front/space-navigation/examples/midea',
+    //   ],
+    // },
     {
       type: 'category',
       label: '常见问题',
       collapsed: true,
       items: [
+        'front/space-navigation/faq/performance-boost',
         'front/space-navigation/faq/wechat-browser',
       ],
+    },
+  ]
+}
+
+const webviewSidebar = {
+  '容器集成': [
+    'webview/intro',
+    {
+      type: 'category',
+      label: '客户端容器',
+      collapsed: false,
+      items: [
+        "webview/app/iOS",
+        "webview/app/Android",
+        // "webview/app/download",
+        // "webview/app/demo",
+        // "webview/app/show-android",
+        // "webview/app/show-ios",
+      ]
+    },
+    {
+      type: 'category',
+      label: '小程序容器',
+      collapsed: false,
+      items: [
+        "webview/miniProgram/wechat"
+      ]
+    },
+    {
+      type: 'category',
+      label: '"桥" 协议',
+      collapsed: false,
+      items: [
+        "webview/jsbridge/intro",
+        "webview/jsbridge/built-in",
+        "webview/jsbridge/event",
+        "webview/jsbridge/custom",
+        "webview/jsbridge/react-support",
+        "webview/jsbridge/browser-jsbridge"
+      ]
+    },
+  ]
+}
+
+const openAPISidebar = {
+  "如视 API": [
+    "end/api/intro",
+    "end/api/quick_start",
+    "end/api/terminology",
+    "end/api/error_handling",
+    {
+      type: 'category',
+      label: '鉴权',
+      collapsed: false,
+      items: [
+        "end/api/auth/why",
+        "end/api/auth/access_token",
+      ]
+    },
+    {
+      type: 'category',
+      label: '核心实体',
+      collapsed: true,
+      items: [
+        "end/api/core/list_data",
+        "end/api/core/base_data",
+      ]
+    },
+    {
+      type: 'category',
+      label: '扩展实体',
+      collapsed: true,
+      items: [
+        "end/api/expand/floorplan",
+        "end/api/expand/rooms",
+        "end/api/expand/tags",
+      ]
+    },
+    {
+      type: 'category',
+      label: '直播服务',
+      collapsed: true,
+      items: [
+        "end/api/live/what",
+        "end/api/live/error_handling",
+        "end/api/live/create",
+        "end/api/live/join",
+        "end/api/live/signature",
+        "end/api/live/detail",
+      ]
+    },
+    {
+      type: 'category',
+      label: '转存服务',
+      collapsed: true,
+      items: [
+        "end/api/dump/downloadlink",
+        "end/api/dump/signature",
+      ]
     },
   ]
 }
@@ -259,5 +346,7 @@ const vreoSidebar = {
 module.exports = {
   ...spaceSidebar,
   ...liveSidebar,
-  ...vreoSidebar
+  ...vreoSidebar,
+  ...webviewSidebar,
+  ...openAPISidebar,
 };

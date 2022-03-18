@@ -26,7 +26,7 @@ title: 微信小程序语音
 - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
 - 小程序推拉流标签使用权限暂时只开放给有限[类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
 - 符合类目要求的小程序，需要在【微信公众平台】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
-  ![check](../../../../assets/wx/check.png)
+  <!-- ![check](../../../../assets/wx/check.png) -->
 
 ### 2、申请SDK接入密钥
 

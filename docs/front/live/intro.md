@@ -8,9 +8,9 @@ title: 简介
 ## 产品架构
 
 - **浏览器 SDK**
-    - @realsee/five 渲染引擎
-    - @realsee/live 带看控制器
-    - @realsee/jsbridge-x "桥"协议
+    - [@realsee/five](../3d-space/get-started/00.rendering-engine.md) 渲染引擎
+    - [@realsee/live](./preparation/3.live-controller.md) 带看控制器
+    - [@realsee/jsbridge-x](../../webview/jsbridge/intro.md) "桥"协议
 - **客户端容器 SDK** (cross-platform container)
     - for iOS
     - for Android
@@ -19,6 +19,16 @@ title: 简介
     - HTTP
     - WebSocket
 
-![带看服务架构图](../../assets/live/live_infra.png)
+<figure>
+  <div style={{display: 'flex',     background: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',}}>
+    <div style={{flex:1}}><img style={{width:'100%'}} src="//vrlab-public.ljcdn.com/common/file/web/b8e0ccf8-a022-401c-a094-23f2f6058c2a.png
+" /></div>
+  </div>
+  <figcaption>图一：带看服务架构</figcaption>
+</figure>
+
+
 
 
