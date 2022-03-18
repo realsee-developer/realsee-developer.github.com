@@ -7,29 +7,29 @@ info:
     **如视 (REALSEE)** 依托成熟的**三维重建** / **深度预测** / **WebGL** 等技术，利用标准、易用的 SDK 及配套 OpenAPI，来实现空间的线上化以及沉浸式的用户体验。由于用户终端的实现采用`HTML5`，因此跨平台特性得天独厚。现如今，我们将这些能力以开放平台的形式对外输出，便于行业从业者能够快速搭建一整套生动、有趣的 3D / VR 应用流。
 
     ## 交互流程
-    核心模式如下图所示，其中 `*` 标注的并非必要
+    核心模式如下图所示，其中 `*` 标注的并非必要。
 
     ![交互流程](https://files.readme.io/45593d8-Screen_Shot_2022-03-07_at_12.29.42_AM.png)
 
     ## 为谁准备
-    **服务端工程师**(又称后端/服务器工程师，包括 NodeJS Stack)
+    **服务端工程师**(又称后端/服务器工程师，包括 NodeJS Stack)。
 
-    因此当前文档为 **API Explorer** 的形式。客户端及 JavaScript SDK 请[**移步此处**](https://realsee.js.org/docs/front/3d-space/intro)
+    因此当前文档为 **API Explorer** 的形式。客户端及 JavaScript SDK 请[**移步此处**](https://realsee.js.org/docs/front/3d-space/intro) 。
 
     # 快速开始
 
-    > 请务必按照文中顺序执行，否则会有不可预知的问题。其中**开发前须知**中的1-2步骤非常重要，是构建测试数据的核心环节
+    > 请务必按照文中顺序执行，否则会有不可预知的问题。其中**开发前须知**中的1-2步骤非常重要，是构建测试数据的核心环节。
 
     ## 开发前须知
 
     |   序号   | 注意事项                                                                                                                                                                                                                                                         | 说明                                                                                    |
     | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-    | 1       | 下载**如视 VR**采集应用，[iOS 点击此处下载](https://apps.apple.com/cn/app/%E5%A6%82%E8%A7%86vr-%E6%89%8B%E6%9C%BA%E6%8B%8Dvr%E5%85%A8%E6%99%AF%E6%A8%A1%E5%9E%8B/id1502262095) / [Android 点击此处下载](https://a.app.qq.com/o/simple.jsp?pkgname=com.realsee.dimensionplus) | -                                                                                       |
-    | 2       | 按照操作引导进行拍摄                                                                                                                                                                                                                                               | -                                                                                       |
-    | 3       | **使用相同手机号**登录[开发者中心官网-右上角-控制台](https://developers.realsee.com/console)                                                                                                                                                                   | 未登录会自动跳转                                                                        |
-    | 4       | 找到 `Application Id(AK)/Application Secret(SK)` 并妥善保管                                                                                                                                                                                                         | -                                                                                       |
-    | **5-1** | 调用获取 `access_token` 接口                                                                                                                                                                                                                                         | [获取 access_token](https://realsee.readme.io/reference/%E8%8E%B7%E5%8F%96access_token) |
-    | **5-2** | 按本文[API 调用方式](https://realsee.readme.io/reference/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B#api-%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F)进行对应 API 的调用，建议使用 [**列表数据**](https://realsee.readme.io/reference/v1entityvrlist) 进行初体验                  | -                                                                                       |
+    | 1       | 下载**如视 VR**采集应用，[iOS 点击此处下载](https://apps.apple.com/cn/app/%E5%A6%82%E8%A7%86vr-%E6%89%8B%E6%9C%BA%E6%8B%8Dvr%E5%85%A8%E6%99%AF%E6%A8%A1%E5%9E%8B/id1502262095) / [Android 点击此处下载](https://a.app.qq.com/o/simple.jsp?pkgname=com.realsee.dimensionplus)。 | -                                                                                       |
+    | 2       | 按照操作引导进行拍摄。                                                                                                                                                                                                                                               | -                                                                                       |
+    | 3       | **使用相同手机号**登录[开发者中心官网-右上角-控制台](https://developers.realsee.com/console)。                                                                                                                                                                   | 未登录会自动跳转                                                                        |
+    | 4       | 找到 `Application Id(AK)/Application Secret(SK)` 并妥善保管。                                                                                                                                                                                                         | -                                                                                       |
+    | **5-1** | 调用获取 `access_token` 接口。                                                                                                                                                                                                                                        | [获取 access_token](/paths/auth-access_token/post) |
+    | **5-2** | 按本文API 调用方式进行对应 API 的调用，建议使用 [**列表数据**](/paths/open-v1-entity-vr-list/get) 进行初体验。                  | -                                                                                       |
 
     ## API 调用流程
 
@@ -43,11 +43,11 @@ info:
 
     2、 获取 API 调用所需要的凭证
 
-    API 调用时需要将凭证放入 Header 中，使用语法 `Authorization: <credentials>`进行调用。凭证的获取和使用请参考 [**获取 access_token**](https://realsee.readme.io/reference/%E8%8E%B7%E5%8F%96access_token) 。
+    API 调用时需要将凭证放入 Header 中，使用语法 `Authorization: <credentials>`进行调用。凭证的获取和使用请参考 [**获取 access_token**](/paths/auth-access_token/post) 。
 
     ## API 调用方式
 
-    调用服务端接口时，需要使用 HTTPS 协议、JSON 数据格式、UTF8 编码。请求需要把访问凭证 **access_token** 放到 Header 的 Authorization 中
+    调用服务端接口时，需要使用 HTTPS 协议、JSON 数据格式、UTF8 编码。请求需要把访问凭证 **access_token** 放到 Header 的 Authorization 中。
 
     示例 ：
 
@@ -57,9 +57,9 @@ info:
 
     ## API 响应结果说明
 
-    绝大多数 API 的响应体结构包括 **code**、**status**、**data** 三个部分
+    绝大多数 API 的响应体结构包括 `code`、`status`、`data` 三个部分。
 
-    code 为错误码，status 为错误信息，data 为 API 的调用结果。默认请求成功时，code 为 0，status 为 `success`。data 在一些操作类 API 的返回中可能不存在
+    code 为错误码，status 为错误信息，data 为 API 的调用结果。默认请求成功时，code 为 0，status 为 `success`。data 在一些操作类 API 的返回中可能不存在。
 
     例如：
 
@@ -81,12 +81,11 @@ info:
     }
     ```
 
-    > 注意：请求失败时可以根据 code 的值到[**错误处理**](https://realsee.readme.io/reference/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86)章节进行查阅，status 是错误的简要信息，请不要依据 status 来判定一个请求是否失败。请求返回的 Body 中，通过 request_id 来标识唯一一次请求，你可以使用这个值来反馈遇到的 API 调用问题
+    > **注意**：请求失败时可以根据 code 的值到本章错误处理段落进行查阅，status 是错误的简要信息，请不要依据 status 来判定一个请求是否失败。请求返回的 Body 中，通过 request_id 来标识唯一一次请求，你可以使用这个值来反馈遇到的 API 调用问题。
 
     ## 频率控制
 
-    如视服务器开启频率限制来保障我们的 API 是高可用、高性能的，同时保障数据安全。为此当前我们的 OpenAPI 设置了两种默认策略
-
+    如视服务器开启频率限制来保障我们的 API 是高可用、高性能的，同时保障数据安全。为此当前我们的 OpenAPI 设置了两种默认策略：
     - 单个 API Key 每分钟 **256** 次
     - 单个 IP 每分钟 **500** 次
 
@@ -94,17 +93,9 @@ info:
 
     ## 核心名词
 
-    - VR 编码
-
-    即 **vr_code**，VR 发布之后，生成的唯一全局编码 。VR 编码即 vr_code 是与如视开放平台交互的核心入参，可以说80%的 API 交互均基于此参数
-
-    - 项目
-
-    即**project**，VR 拍摄之初生成的实体，在**重建成功之前**的唯一标识
-
-    - Work
-
-    **重建之后**的唯一标识，前端 JS/TS SDK 中使用的最小单元。多数情况下，VR/Work 是等价概念，即**vr_code**即 Work 的唯一全局编码
+    - **VR 编码**：即 **vr_code**，VR 发布之后，生成的唯一全局编码 。VR 编码即 vr_code 是与如视开放平台交互的核心入参，可以说80%的 API 交互均基于此参数。
+    - **项目**：即**project**，VR 拍摄之初生成的实体，在**重建成功之前**的唯一标识。
+    - **Work**：**重建之后**的唯一标识，前端 JS/TS SDK 中使用的最小单元。多数情况下，VR/Work 是等价概念，即**vr_code**即 Work 的唯一全局编码。
 
     ## 扩展名词
 
@@ -115,7 +106,7 @@ info:
 
     # 错误处理
 
-    > 错误码汇总及快速排查指南，具体错误的业务流程需要自行设计
+    > 错误码汇总及快速排查指南，具体错误的业务流程需要自行设计。
 
     | 错误码 | 说明         | 排查建议                   |
     | ------ | ------------ | -------------------------- |
@@ -163,10 +154,10 @@ paths:
         # 为什么签名
 
         与绝大多数 API 一样，为保证数据的安全性，如视开放平台 API 要求接入时加入鉴权流程。当前支持的鉴权流程包含两种：
-        - 1 ~~参数签名~~。即通过特定的算法将请求参数(`Header/Body`)进行编码，其中包含 Unix 时间戳作为随机因子(**RANDOM FACTORS**)，以增加数据抓取的难度，保障数据安全。但当前由于算法实现较为复杂，为方便快速接入/应用先临时废弃，待后面全语言 SDK 均支持时，再重新开放。**已接入的业务方不受影响**
-        - 2 **access_token 机制**。即发起任意 API 调用时，先获取临时 access_token（默认**5 分钟**），后续请求均携带。业务方可以考虑设置约`3min`的缓存，以减少整体服务端 API 的响应时长
+        - 1 ~~参数签名~~。即通过特定的算法将请求参数(`Header/Body`)进行编码，其中包含 Unix 时间戳作为随机因子(**RANDOM FACTORS**)，以增加数据抓取的难度，保障数据安全。但当前由于算法实现较为复杂，为方便快速接入/应用先临时废弃，待后面全语言 SDK 均支持时，再重新开放。**已接入的业务方不受影响**。
+        - 2 **access_token 机制**。即发起任意 API 调用时，先获取临时 access_token（默认**5 分钟**），后续请求均携带。业务方可以考虑设置约`3min`的缓存，以减少整体服务端 API 的响应时长。
 
-        > 下面演示的 AK / SK 均为测试、演示专用，真实调试时请使用申请时的 AK / SK
+        > 下面演示的 AK / SK 均为测试、演示专用，真实调试时请使用申请时的 AK / SK。
 
         access_token 默认有效期 **5min** ，建议调用前统一先**从业务端的缓存中获取，而非每次获取**，以减少服务端网络交互。
 
@@ -207,7 +198,7 @@ paths:
         - 核心实体
       summary: 列表数据
       description: |
-        > 仅发布成功的项目才能从该接口获取，即拍摄中、编辑中的项目均不予外露
+        > 仅发布成功的项目才能从该接口获取，即拍摄中、编辑中的项目均不予外露。
 
         #### 返回字段说明
 
@@ -280,11 +271,11 @@ paths:
         - 核心实体
       summary: 基础数据
       description: |
-        > 基础元数据提供至渲染SDK，即可轻松完成基础VR漫游功能
+        > 基础元数据提供至渲染SDK，即可轻松完成基础VR漫游功能。
 
-        对应前端快速上手[**移步至此**](https://realsee.js.org/docs/front/3d-space/intro)，`服务端工程师`跑通 DEMO **亦并非难事**
+        对应前端快速上手[**移步至此**](https://realsee.js.org/docs/front/3d-space/intro)，`服务端工程师`跑通 DEMO **亦并非难事**。
 
-        当前 API 数据字段较多，且几乎无需理解**直接透传**至 SDK 即可
+        当前 API 数据字段较多，且几乎无需理解**直接透传**至 SDK 即可。
       parameters:
         - name: access_token
           in: query
@@ -414,7 +405,7 @@ paths:
             default: "80drj5DRZejY2Dq8Oe"
       responses:
         200:
-          description: 分间，即基于户型图判定的单个房间，该房间的全景模式截图即分间图
+          description: 分间，即基于户型图判定的单个房间，该房间的全景模式截图即分间图。
           content:
             application/json:
               schema:
@@ -468,7 +459,7 @@ paths:
             default: "80drj5DRZejY2Dq8Oe"
       responses:
         200:
-          description: VR / 3D 空间中的结构化标签，包含多种类型，当前 API 一次性返回全部标签
+          description: VR / 3D 空间中的结构化标签，包含多种类型，当前 API 一次性返回全部标签。
           content:
             application/json:
               schema:
@@ -533,7 +524,7 @@ paths:
         - VR漫游同步
         - VR语音聊天室
 
-        对应前端开发手册[**请移步至此**](https://developers.realsee.com/docs/#/docs/live/client/core/README)
+        对应前端开发手册[**请移步至此**](https://realsee.js.org/docs/front/3d-space/intro) 。
 
         #### 请求字段说明
         ##### member(`members`字段内嵌的数据结构)

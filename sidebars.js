@@ -190,7 +190,7 @@ const vreoSidebar = {
     {
       type: 'category',
       label: '快速开始',
-      collapsed: true,
+      collapsed: false,
       items: [
         'front/space-navigation/get-started/install',
         'front/space-navigation/get-started/quick_start',
@@ -202,7 +202,7 @@ const vreoSidebar = {
     {
       type: 'category',
       label: '剧本关键帧',
-      collapsed: true,
+      collapsed: false,
       items: [
         'front/space-navigation/keyframes/camera-movement',
         'front/space-navigation/keyframes/prompter',
