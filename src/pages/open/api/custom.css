@@ -106,3 +106,12 @@ html[data-theme='dark'] .sl-bg-canvas {
   padding: 6px 0;
   color: var(--color-highlight);
 }
+
+.hover\:sl--translate-y-2:hover {
+  --shadow-md: white !important;
+}
+
+.sl-duration-300 img{
+  max-width: 640px;
+  width: 100%;
+}
