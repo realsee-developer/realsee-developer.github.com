@@ -1,6 +1,10 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const DEVELOPER_PLATFORM = 'developer'
+const env = process.env
+const isDeveloper = env.developer === DEVELOPER_PLATFORM
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const VersionsArchived = require('./versionsArchived.json')
@@ -10,10 +14,11 @@ const webpackPlugin = require('./docusaurus-plugins/webpack-plugin')
 const config = {
   title: '如视・开发手册',
   tagline: '快速集成丰富多彩的三维空间能力，为您的项目添砖加瓦。', // 制作丰富多彩的三维空间应用
-  url: 'https://realsee.js.org',
-  baseUrl: '/',
+  url: isDeveloper ? 'https://open-platform.realsee.com' : 'https://realsee.js.org',
+  baseUrl: isDeveloper ? '/developer' : '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: true,
   favicon: '//realsee.com/favicon.ico',
   organizationName: 'realsee-developer', // Usually your GitHub org/user name.
   projectName: 'realsee-developer.github.com', // Usually your repo name.
