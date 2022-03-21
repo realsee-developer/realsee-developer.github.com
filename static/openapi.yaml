@@ -217,8 +217,8 @@ paths:
         |name|`我的空间`|`string`|VR 名称|YES|
 
       parameters:
-        - name: access_token
-          in: query
+        - name: Authorization
+          in: header
           description: 鉴权获取的 access_token
           required: true
           schema:
@@ -277,8 +277,8 @@ paths:
 
         当前 API 数据字段较多，且几乎无需理解**直接透传**至 SDK 即可。
       parameters:
-        - name: access_token
-          in: query
+        - name: Authorization
+          in: header
           description: 鉴权获取的 access_token
           required: true
           schema:
@@ -335,7 +335,7 @@ paths:
         |svg_url|-|`string`|SVG 公网地址|YES|
         |url|-|`string`|JPEG 公网地址|YES|
       parameters:
-        - name: access_token
+        - name: Authorization
           in: header
           description: 鉴权获取的access_token
           required: true
@@ -390,7 +390,7 @@ paths:
         |height|`1080`|`integer`|图片宽度|YES|
         |width|`1440`|`integer`|图片宽度|YES|
       parameters:
-        - name: access_token
+        - name: Authorization
           in: header
           description: 鉴权获取的access_token
           required: true
@@ -444,8 +444,8 @@ paths:
         |position|-|`array`|三维坐标|YES|
         |target_url|`1080`|`integer`|跳转类型标签下的超链|NO|
       parameters:
-        - name: access_token
-          in: query
+        - name: Authorization
+          in: header
           description: 鉴权获取的 access_token
           required: true
           schema:
@@ -542,7 +542,7 @@ paths:
         |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
 
       parameters:
-        - name: access_token
+        - name: Authorization
           in: header
           description: 鉴权获取的access_token
           required: true
@@ -614,7 +614,7 @@ paths:
         |ticket|`99317955e49e0221d593f0330150b9df `|`string`|**服务端签发的通行证, 五分钟内有效, 一旦被使用, 立即失效**|YES|
         |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
       parameters:
-        - name: access_token
+        - name: Authorization
           in: header
           description: 鉴权获取的access_token
           required: true
@@ -683,7 +683,7 @@ paths:
         |user_identifier|`7e7b5a43f74142b7bab2021bb54c6d3e`|`string`|用户标识，设置为用户唯一ID即可|YES|
         |sign|`bar`|`string`|对应语音供应商的签名数据，供SDK使用|YES|
       parameters:
-        - name: access_token
+        - name: Authorization
           in: header
           description: 鉴权获取的access_token
           required: true
@@ -728,7 +728,7 @@ paths:
         |room_code|`R3LzwQmEb9OQxdJl`|`string`|直播房间号|YES|
         |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
       parameters:
-        - name: access_token
+        - name: Authorization
           in: header
           description: 鉴权获取的access_token
           required: true
