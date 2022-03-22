@@ -57,68 +57,12 @@ tags: [realsee, 3d, vr, ]
 
 :::tip 提示
 发起任意 API 调用时，先获取临时 `access_token`（默认五分钟），后续请求均携带。业务方可以考虑设置约三分钟的缓存，以减少整体服务端 API 的响应时长。
-
-<details>
-  <summary>签名示例：Node 版本</summary>
-
-```js
-const http = require("http")
-const https = require("https")
-const crc32 = require("crc32")
-const crypto = require("crypto")
-
-const ApplicationId = "" // 替换您的 ApplicationId
-const ApplicationSecret = "" // 替换您的 ApplicationSecret
-
-function sha256(token, salt) {
-  return crypto.createHmac('SHA256', salt).update(token).digest('hex')
-}
-
-function md5(token) {
-  return crypto.createHash('md5').update(token).digest("hex")
-}
-
-async function request(api, paramString) {
-  const bodyCrc32 = Number('0x' + crc32(paramString))
-  const stringToSign = `body_crc32=${bodyCrc32}method=GETurl=${api}`
-  const timestamp = (Date.now() / 1000).toFixed()
-  const salt = md5(
-    ApplicationId + ApplicationSecret + timestamp
-  ).toUpperCase()
-  const signature = sha256(stringToSign, salt).toUpperCase()
-  const authorization = Buffer.from(
-    ApplicationId +":" + signature + ":" + timestamp
-  ).toString("base64")
-  const headers = { Authorization: authorization }
-  return new Promise((resolve, reject) => {
-    const req = https.get(
-      `https://app-gateway.realsee.com${api}?${paramString}`,
-      { headers },
-      (res) => {
-        const buffers = []
-        res.on("error", () => {
-          reject(new Error(`request api(${api}) error.`))
-        })
-        res.on("data", buffer => buffers.push(buffer))
-        res.on("end", () => {
-          const contents = Buffer.concat(buffers)
-          resolve(JSON.parse(contents.toString("utf8")))
-        })
-      }
-    )
-    req.on('error', (e) => {
-      reject(new Error(`request api${api} error.`))
-    })
-  })
-}
-```
-
-</details>
+具体发起流程可参考源码 [five-sdk-starter-with-api](https://github.com/realsee-developer/five-sdk-starter-with-api) 。
 :::
 
 ### 渲染 VR
 
-为节约您创建开发脚手架的成本，你也可以 `git clone` 或 `download zip` [five-sdk-starter-with-api](https://github.com/realsee-developer/five-sdk-starter-with-api)。
+为节约您创建开发脚手架的成本，你也可以 `git clone` [five-sdk-starter-with-api](https://github.com/realsee-developer/five-sdk-starter-with-api) 。
 
 进入仓库目录打开 `index.js`，搜索`Your-App-Key` 字符串替换成申请的`Application Id`，搜索 `Your-App-Secret` 字符串替换成申请的 `Application Secret`。
 
@@ -151,4 +95,4 @@ npm run start
 
 除了 [**如视VR**](https://apps.apple.com/cn/app/id1502262095) 之外，如视还提供强大的 [**VR 扫描设备**](https://realsee.cn/website/product/hardware) 采集生成实景三维空间和 [三维设计工具](https://business.realsee.com/) 创建虚拟三维空间。
 
-企业级实景空间采集、虚拟空间设计、加工服务请联系：[developer@realsee.com](developer@realsee.com)。
+企业级实景空间采集、虚拟空间设计、加工服务请联系：[developer@realsee.com](mailto:developer@realsee.com)。
