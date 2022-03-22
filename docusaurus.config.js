@@ -3,7 +3,7 @@
 
 const DEVELOPER_PLATFORM = 'developer'
 const env = process.env
-const isDeveloper = env.developer === DEVELOPER_PLATFORM
+const isDeveloper = env.build_target === DEVELOPER_PLATFORM
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
@@ -15,7 +15,7 @@ const config = {
   title: '如视・开发手册',
   tagline: '快速集成丰富多彩的三维空间能力，为您的项目添砖加瓦。', // 制作丰富多彩的三维空间应用
   url: isDeveloper ? 'https://open-platform.realsee.com' : 'https://realsee.js.org',
-  baseUrl: isDeveloper ? '/developer' : '/',
+  baseUrl: isDeveloper ? '/developer/' : '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   trailingSlash: true,
@@ -69,13 +69,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // TODO 需要申请我们自己的 ID 和 Key
-      // algolia: {
-      //   appId: 'X1Z85QJPUV',
-      //   apiKey: 'bf7211c161e8205da2f933a02534105a',
-      //   indexName: 'docusaurus-2',
-      //   contextualSearch: true,
-      // },
+      algolia: {
+        appId: '3M8ABTK96K',
+        apiKey: '88046e8f423091470680353892de0cde',
+        indexName: 'realseejs',
+        contextualSearch: true,
+      },
       hideableSidebar: true,
       navbar: {
         // title: 'Realsee',
