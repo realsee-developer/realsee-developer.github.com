@@ -69,13 +69,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // TODO 需要申请我们自己的 ID 和 Key
-      // algolia: {
-      //   appId: 'X1Z85QJPUV',
-      //   apiKey: 'bf7211c161e8205da2f933a02534105a',
-      //   indexName: 'docusaurus-2',
-      //   contextualSearch: true,
-      // },
+      algolia: {
+        appId: '3M8ABTK96K',
+        apiKey: '88046e8f423091470680353892de0cde',
+        indexName: 'realseejs',
+        contextualSearch: true,
+      },
       hideableSidebar: true,
       navbar: {
         // title: 'Realsee',
