@@ -9,7 +9,7 @@ servers:
 paths:
   /open/v1/url/space:
     get:
-      summary: 平面图
+      summary: VR漫游链接
       description: |
         #### 返回字段说明
         |名称|示例|类型|描述|必有|
