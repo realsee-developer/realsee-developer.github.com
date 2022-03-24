@@ -115,6 +115,11 @@ const spaceSidebar = {
     //   ],
     // },
     'front/3d-space/get-started/terminology',
+    {
+      type: 'link',
+      label: '详细 API 文档',
+      href: 'https://unpkg.com/@realsee/five/docs/index.html'
+    }
     // {
     //   type: 'category',
     //   label: '常见问题',
@@ -171,6 +176,11 @@ const liveSidebar = {
         },
         "front/live/function-expansion/rtc/wx",
       ]
+    },
+    {
+      type: 'link',
+      label: '详细 API 文档',
+      href: 'https://unpkg.com/@realsee/live/docs/index.html'
     },
     {
       type: 'category',
@@ -233,6 +243,11 @@ const vreoSidebar = {
     //   ],
     // },
     {
+      type: 'link',
+      label: '详细 API 文档',
+      href: 'https://realsee.js.org/vreo/index.html'
+    },
+    {
       type: 'category',
       label: '常见问题',
       collapsed: true,
@@ -278,7 +293,12 @@ const webviewSidebar = {
         "webview/jsbridge/event",
         "webview/jsbridge/custom",
         "webview/jsbridge/react-support",
-        "webview/jsbridge/browser-jsbridge"
+        "webview/jsbridge/browser-jsbridge",
+        {
+          type: 'link',
+          label: '详细 API 文档',
+          href: 'https://unpkg.com/@realsee/jsbridge-x/docs/index.html'
+        }
       ]
     },
   ]
