@@ -14,7 +14,7 @@ paths:
         #### 返回字段说明
         |名称|示例|类型|描述|必有|
         |-|-|-|-|-|
-        |url|`https://space.center.realsee.com/80yAJrMWbqLBeDlvV1?ticket=Gxbh+toULWS9tWnvnGtBTKonmPtmon7tf1lMP8r5XfM%3D`|`string`|VR漫游(VR看房)链接|YES|
+        |url|`https://space.center.realsee.com/80yAJrMWbqLBeDlvV1?ticket=Gxbh%2BtoULWS9tWnvnGtBTKonmPtmon7tf1lMP8r5XfM%3D`|`string`|VR漫游(VR看房)链接|YES|
         |expire|`1648097248`|`integer`|链接失效时间（Unix时间戳）|YES|
 
       parameters:
