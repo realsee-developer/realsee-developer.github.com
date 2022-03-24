@@ -72,6 +72,9 @@ components:
         url:
           type: string
           description: "VR漫游(VR看房)链接"
+        expire:
+          type: integer
+          description: "链接失效时间（Unix时间戳）"
 
   securitySchemes:
     api_key:
