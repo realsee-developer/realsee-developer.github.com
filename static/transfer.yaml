@@ -1,0 +1,66 @@
+openapi: 3.0.2
+info:
+  title: "转储服务"
+  description: |
+
+  version: v1
+servers:
+  - url: https://app-gateway.realsee.com
+paths:
+  /open/v1/trigger/package:
+    get:
+      summary: 触发指定VR编码的打包
+      description: |
+        #### 返回字段说明
+        |名称|示例|类型|描述|必有|
+        |-|-|-|-|-|
+        |url|`https://space.center.realsee.com/80yAJrMWbqLBeDlvV1?ticket=VE9LRU5fVjJHeGJoK3RvVUxXUzl0V252bkd0QlRLb25tUHRtb243dGYxbE1QOHI1WGZNPQ`|`string`|VR漫游(VR看房)链接|YES|
+        |expire|`1648097248`|`integer`|链接失效时间（Unix时间戳）|YES|
+
+      parameters:
+        - name: Authorization
+          in: header
+          description: 鉴权获取的access_token
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: vr_code
+          in: query
+          description: "VR 编码"
+          required: true
+          schema:
+            type: string
+            default: "80drj5DRZejY2Dq8Oe"
+      responses:
+        200:
+          description: V1URLSpace
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "标识唯一一次请求"
+                  trace_id:
+                    type: string
+                    description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为 0"
+                  status:
+                    type: string
+                    description: "错误信息，请求成功是默认为 success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位 ms"
+
+components:
+  schemas:
+
+  securitySchemes:
+    api_key:
+      type: http
+      scheme: bearer
+      bearerFormat: jwt
