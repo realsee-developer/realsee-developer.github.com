@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  title: "转储服务"
+  title: "异步任务"
   description: |
 
   version: v1
@@ -9,9 +9,9 @@ servers:
 paths:
   /open/v1/shepherd/task/create:
     post:
-      summary: 异步任务创建
+      summary: 任务创建
       description: |
-        #### 支持的离线任务
+        #### 支持的任务类型
         |名称|描述|备注|
         |-|-|-|
         |vr_compress|触发指定VR编码的转存打包离线任务，当任务完成之后会回调至配置的`ENDPOINT`之上|-|
@@ -37,7 +37,7 @@ paths:
                   type: string
                   default: "80drj5DRZejY2Dq8Oe"
                 task_type:
-                  description: "任务类型: `vr_compress` - 转存打包"
+                  description: "异步任务类型"
                   type: string
                   enum: ["vr_compress"]
       responses:
