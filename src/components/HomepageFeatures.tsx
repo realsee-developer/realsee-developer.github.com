@@ -12,7 +12,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: '核心 SDK',
     image: '//vrlab-static.ljcdn.com/release/web/sdk.9f767fa0.svg',
-    url: '/docs/front/3d-space/intro',
+    url: 'https://open-platform.realsee.com/developer/docs/front/3d-space/intro/',
     description: (
       <>
           解剖三维重建能力，为您重建三维空间提供无限可能。
@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: '容器集成',
     image: '//vrlab-static.ljcdn.com/release/web/webview.c1fbdaa7.svg',
-    url: '/docs/webview/intro',
+    url: 'https://open-platform.realsee.com/developer/docs/webview/intro/',
     description: (
       <>
         集成如视容器，让您的三维空间跨平台完美演绎。
@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: '开放 API',
     image: '//vrlab-static.ljcdn.com/release/web/api.f7d732ad.svg',
-    url: '/docs/end/api/intro',
+    url: 'https://open-platform.realsee.com/developer/open/api/#/',
     description: (
       <>
         连通开放 API，丝滑接入如视云服务，为您的三维空间数据表达保驾护航。
