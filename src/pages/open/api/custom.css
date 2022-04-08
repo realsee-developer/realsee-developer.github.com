@@ -58,7 +58,7 @@ html[data-theme='dark'] .sl-bg-canvas-50 {
   background-color: rgba(0, 0, 0, .6);
 }
 
-blockquote > :last-child {
+.sl-prose>blockquote > :last-child {
   margin-bottom: 0;
   padding: 0;
 }
