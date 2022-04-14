@@ -26,14 +26,14 @@ title: iOS 端
 	</tr >
   <tr align="center">
 	  <td rowspan="1">基础版本</td>
-	  <td><a target="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk_lite-1.0.16.zip">rsvrsdk_lite-1.0.16</a></td>
-    <td><a target="[_blank](https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/vrdemo.zip)">vrdemo</a></td>
+	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk_lite-1.0.16.zip">rsvrsdk_lite-1.0.16</a></td>
+    <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/vrdemo.zip">demo</a></td>
     <td>约4M</td>
 	</tr>
   <tr align="center">
 	  <td rowspan="1">带看版本</td>
-    <td><a target="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk-1.0.16.zip">rsvrsdk-1.0.16</a></td>
-	  <td><a target="[_blank](https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/vrdemo.zip)">vrdemo</a></td>
+    <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk-1.0.16.zip">rsvrsdk-1.0.16</a></td>
+	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/vrdemo.zip">demo</a></td>
     <td>约18M</td>
    </tr>
 </table>
