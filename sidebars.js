@@ -87,6 +87,7 @@ const spaceSidebar = {
       label: '进阶指南',
       collapsed: true,
       items: [
+        "front/3d-space/advanced/plugin-dev",
         "front/3d-space/advanced/dnalogel/ModelViewPlugin",
         {
           type: 'category',
