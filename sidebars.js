@@ -101,7 +101,8 @@ const spaceSidebar = {
             "front/3d-space/advanced/dnalogel/floorplan/TopviewFloorplanPlugin", //folder_name/file_name
           ]
         },
-        "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin"
+        "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin",
+        "front/3d-space/advanced/dnalogel/PanoRulerPlugin"
       ]
     },
 
