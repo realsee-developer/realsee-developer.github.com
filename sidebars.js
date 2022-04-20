@@ -103,7 +103,8 @@ const spaceSidebar = {
           ]
         },
         "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin",
-        "front/3d-space/advanced/dnalogel/PanoRulerPlugin"
+        "front/3d-space/advanced/dnalogel/PanoRulerPlugin",
+        "front/3d-space/advanced/dnalogel/PanoCompassPlugin",
       ]
     },
 

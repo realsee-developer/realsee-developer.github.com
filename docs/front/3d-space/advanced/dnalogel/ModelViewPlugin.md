@@ -9,13 +9,13 @@ title: 模型"小窗"
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogelExamples/ModelviewPluginExample/"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelViewPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用
 
 ```tsx
-import ModelViewPlugin from "@realsee/dnalogel/plugins/floorplan/ModelViewPlugin"
+import {  ModelViewPlugin } from "@realsee/dnalogel"
 ```
 
 ## 开发指南
@@ -32,7 +32,7 @@ const five = new Five({
     plugins: [
         [
             ModelViewPlugin,
-            'modelView', // 自定义插件名称
+            'modelViewPlugin', // 自定义插件名称
             {
                 // 参数配置
             }
@@ -41,7 +41,7 @@ const five = new Five({
 })
 ```
 
-> 方法2：在创建 `FiveProvider` 时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
+> 方法2：在创建 `FiveProvider` 时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
 
 ```ts
 import { ModelViewPlugin } from "@realsee/dnalogel";
@@ -51,7 +51,7 @@ const FiveProvider = createFiveProvider({
     plugins: [
         [
             ModelViewPlugin,
-            'modelView', // 自定义插件名称
+            'modelViewPlugin', // 自定义插件名称
             {
                 // 参数配置
             }
@@ -62,7 +62,7 @@ const FiveProvider = createFiveProvider({
 
 ### 节点挂载
 
-通过`five.plugins.ModelView`方式获取 `ModelViewPlugin` 实例的引用。该插件实例提供两个方法：
+通过`five.plugins.modelViewPlugin`方式获取 `ModelViewPlugin` 实例的引用。该插件实例提供两个方法：
 
 - `appendTo(element: HTMLElement, size?: { width?: number; height?: number }): void`: 将渲染内容挂载至相关 `DOM` 节点
 - `refresh(size?: { width?: number; height?: number }): void` : 强制刷新，即重新渲染一次。
@@ -70,9 +70,12 @@ const FiveProvider = createFiveProvider({
 通过 `appendTo` 方法将挂载 DOM 节点
 
 ```ts
-five.plugins.modelView.appendTo(wrapperElement)
+five.plugins.modelViewPlugin.appendTo(wrapperElement)
 
 // refresh 方法使用示例
-// five.plugins.modelView.refresh({ width: 160, height: 180 })
+// five.plugins.modelViewPlugin.refresh({ width: 160, height: 180 })
 ```
 
+## demo 源码参考
+
+[demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)

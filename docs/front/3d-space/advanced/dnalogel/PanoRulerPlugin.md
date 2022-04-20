@@ -1,5 +1,5 @@
 ---
-title: 全景标尺
+title: 添加全景标尺
 ---
 
 ## **PanoRulerPlugin**
@@ -9,27 +9,18 @@ title: 全景标尺
 **全景标尺插件** 提供在全景模式下标注房源关键轮廓的尺寸。
 
 详细功能点如下：
-- 提供在全景模式下标注房源关键轮廓的尺寸，比如分间的层高、面宽和径深等信息；支持实景VR和虚景VR的场景。
+- 提供在全景模式下标注房源关键轮廓的尺寸，比如分间的层高、面宽和径深等信息；支持实景 VR 和虚景 VR 的场景。
 - 只展示当前视角下靠近中心位置的标尺线。
 - 移动走点及变换视角时，标尺线会跟随移动和变换。
-- 数值气泡长度自适应：根据数值内容自适应气泡长度，同时支持数值内容根据特殊需求配置，比如海外数值有英寸单位的需求。
+- 数值气泡长度自适应：根据数值内容自适应气泡长度，同时支持数值内容根据特殊需求配置，比如数值有英寸单位的需求。
 - 若标尺线长度低于该标尺的数值气泡长度，则不展示该标尺线。
 
-## 效果展示
 
-点击**空间总览**按钮，查看空间总览模态下的全景标尺效果。
-
-```mdx-code-block
-import {PlaygroundCard} from '@site/src/components/Playground';
+## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src=""></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoRulerPlugin/index.html"></iframe>
 </div>
-
-<PlaygroundCard
-    url=''
- />
-```
 
 
 ## 安装引用
@@ -102,10 +93,13 @@ pluginInstance.load(roomInfo, roomRules, { distanceText: (distance) => `约 ${di
 
 - `load: (roomInfo?: RoomInfo, roomRules?: RoomRules, options?: PanoRulerPluginOptions) => Promise<boolean>` 载入插件数据
 
-> 您需要手动载入插件数据，数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
+> 您需要手动载入插件数据，数据来源请阅读[开发 API](http://localhost:3001/open/api/#/)。
  
 - `enable: () => void` 打开标尺
 
 - `disable: () => void` 关闭标尺
 
 
+## demo 源码参考
+
+[demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)
