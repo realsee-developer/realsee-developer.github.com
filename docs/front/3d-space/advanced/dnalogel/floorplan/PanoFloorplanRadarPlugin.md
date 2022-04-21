@@ -12,8 +12,12 @@ title: 📦 全景户型雷达图
 
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://stackblitz.com/edit/panofloorplanradarplugin?embed=1&file=index.tsx&hideExplorer=1&hideNavigation=1&view=preview"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoFloorplanRadarPlugin/index.html"></iframe>
 </div>
+
+<PlaygroundCard
+    url='https://stackblitz.com/edit/panofloorplanradarplugin'
+ />
 ```
 
 
@@ -38,7 +42,7 @@ npm install @realsee/dnalogel
 **通过 es 引用：**
 
 ```tsx
-import PanoFloorplanRadarPlugin from "@realsee/dnalogel/plugins/floorplan/PanoFloorplanRadarPlugin"
+import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 ```
 
 ## 开发指南
@@ -49,7 +53,7 @@ import PanoFloorplanRadarPlugin from "@realsee/dnalogel/plugins/floorplan/PanoFl
 
 ```ts
 import Five  from '@realsee/five'
-import PanoFloorplanRadarPlugin from '@realsee/dnalogel/plugins/floorplan/PanoFloorplanRadarPlugin'
+import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 
 // 初始化 five 实例
 const five = new Five({
@@ -64,6 +68,7 @@ const five = new Five({
 
 ```ts
 import { createFiveProvider } from '@realsee/five/react'
+import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 
 // 创建 FiveProvider 组件
 const FiveProvider = createFiveProvider({
@@ -86,7 +91,7 @@ pluginInstance.load(floorplanServerData)
 
 ### 核心方法
 
-**ModelFloorplanPlugin** 提供的核心方法有：
+**PanoFloorplanRadarPlugin** 提供的核心方法有：
 
 - `load(data: FloorplanServerData)` 载入户型图数据
 
@@ -123,7 +128,7 @@ export interface FloorplanExtraObject3D {
 
 ```ts
 
-import PanoFloorplanRadarPlugin from '@xxx/dnalogel/plugins/PanoFloorplanRadarPlugin'
+import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 import { Five, FivePluginInit } from '@realsee/five'
 
 const five = new Five({
@@ -143,16 +148,6 @@ const five = new Five({
 
 ```
 
-> 更多细节请参考 [ModelFloorplanPlugin]。
+## demo 源码参考
 
-
-## 在线练习
-
-```mdx-code-block
-import {PlaygroundCard} from '@site/src/components/Playground';
-
-<PlaygroundCard
-    name='😊点击 Try it now! 试一试吧😊'
-    url='https://stackblitz.com/edit/panofloorplanradarplugin?file=index.tsx'
- />
-```
+[demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)

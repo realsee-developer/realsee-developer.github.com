@@ -87,6 +87,7 @@ const spaceSidebar = {
       label: '进阶指南',
       collapsed: true,
       items: [
+        // "front/3d-space/advanced/plugin-dev",
         "front/3d-space/advanced/dnalogel/ModelViewPlugin",
         {
           type: 'category',
@@ -101,7 +102,9 @@ const spaceSidebar = {
             "front/3d-space/advanced/dnalogel/floorplan/TopviewFloorplanPlugin", //folder_name/file_name
           ]
         },
-        "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin"
+        "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin",
+        // "front/3d-space/advanced/dnalogel/PanoRulerPlugin",
+        "front/3d-space/advanced/dnalogel/PanoCompassPlugin",
       ]
     },
 
