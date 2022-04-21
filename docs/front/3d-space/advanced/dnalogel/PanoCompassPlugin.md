@@ -66,7 +66,7 @@ const FiveProvider = createFiveProvider({
 
 ### 载入数据
 
-您需要**载入北向数据**方可使得
+您需要**载入标识北向的数据**方可看到正确效果：
 
 ```tsx
 // 朝北方向来源于户型图数据
