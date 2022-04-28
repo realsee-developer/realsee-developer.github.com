@@ -13,7 +13,7 @@ title: 📦 俯视模型户型图
 
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogelExamples/TopviewFloorplanPluginExample/"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/TopviewFloorplanPlugin/index.html"></iframe>
 </div>
 ```
 
@@ -41,7 +41,7 @@ npm install @realsee/dnalogel
 **通过 es 引用：**
 
 ```tsx
-import TopviewFloorplanPlugin from "@realsee/dnalogel/plugins/floorplan/TopviewFloorplanPlugin"
+import { TopviewFloorplanPlugin } from "@realsee/dnalogel"
 ```
 
 ## 开发指南
@@ -111,3 +111,6 @@ pluginInstance.load(floorplanServerData)
 
 > 将户型图DOM模块载入您的 HTML 结构中。
 
+## demo 源码参考
+
+[demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)

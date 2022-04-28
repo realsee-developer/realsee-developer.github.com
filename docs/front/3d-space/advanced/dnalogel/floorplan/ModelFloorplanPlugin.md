@@ -21,6 +21,11 @@ title: 📦 模型户型图
 - 指北针展示: 暂不支持配置，但可以借助 CSS 选择器优先级方式覆盖原有样式。
 - 支持手势快捷操作：在二维户型图界面进行滑动，会快速切换到模型状态；在模型状态松手时，如果比较接近户型图的展示角度，会自动旋转模型，并展示户型图。此功能**支持配置**是否禁用。
 
+## 示例效果
+
+<div className="docs-vr-normal">
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelFloorplanPlugin/index.html"></iframe>
+</div>
 
 ## 安装引用
 
@@ -183,3 +188,6 @@ five.plugins.modelFloorplan.hooks.on('hide', ({ auto, userAction }) => {
 })
 ```
 
+## demo 源码参考
+
+[demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)

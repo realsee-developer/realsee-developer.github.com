@@ -26,14 +26,14 @@ title: iOS 端
 	</tr >
   <tr align="center">
 	  <td rowspan="1">基础版本</td>
-	  <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
-    <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
+	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk_lite-1.0.16.zip">rsvrsdk_lite-1.0.16</a></td>
+    <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/vrdemo.zip">demo</a></td>
     <td>约4M</td>
 	</tr>
   <tr align="center">
 	  <td rowspan="1">带看版本</td>
-	  <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
-    <td><a target="_blank">请联系 developer@realsee.com 获取</a></td>
+    <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk-1.0.16.zip">rsvrsdk-1.0.16</a></td>
+	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/vrdemo.zip">demo</a></td>
     <td>约18M</td>
    </tr>
 </table>
@@ -56,9 +56,9 @@ title: iOS 端
 
 ### 引入 SDK
 
-首先下载 VRWebView SDK，将 VRWebView SDK 包解压缩后放到项目目录下：
+首先下载 RSVRSDK，将 RSVRSDK 包解压缩后放到项目目录下：
 
-在项目 `Target` 的 `General` 下的 `Frameworks` 里添加 `VRWEBVIEW.framework`：
+在项目 `Target` 的 `General` 下的 `Frameworks` 里添加 `RSVRSDK.framework`：
 
 ![add_vrlib_step1](https://vrlab-static.ljcdn.com/release/web/ios/add_vrlib_step1.f7d4adf3.png)
 
@@ -67,7 +67,7 @@ title: iOS 端
 ![add_vrlib_step1](https://vrlab-static.ljcdn.com/release/web/ios/add_vrlib_step2.62881917.png)
 
 
-引入 VRWebView SDK 所需要的资源文件 `VRWEBVIEW.bundle`
+引入 RSVRSDK 所需要的资源文件 `RSVRSDK.bundle`
 
 ![add_vrlib_step1](https://vrlab-static.ljcdn.com/release/web/ios/add_vrlib_step3.ad02175d.png)
 
@@ -84,7 +84,7 @@ title: iOS 端
 
 ### 添加第三方依赖
 
-由于 VRWebView SDK 依赖了一些第三方的开源库，需要在主工程的 Podfile 引入.
+由于 RSVRSDK 依赖了一些第三方的开源库，需要在主工程的 Podfile 引入.
 
 ```ruby
 # Pods for VRSDK
@@ -98,7 +98,7 @@ pod 'Masonry'
 
 ### 申请相关权限
 
-VRWebView SDK 会使用保存到相册权限，需要在 `info.plist` 里配置权限申请：
+RSVRSDK 会使用保存到相册权限，需要在 `info.plist` 里配置权限申请：
 
 ```xml
 <key>NSPhotoLibraryAddUsageDescription</key>
@@ -107,12 +107,12 @@ VRWebView SDK 会使用保存到相册权限，需要在 `info.plist` 里配置�
 
 ### 初始化 SDK
 
-VRWebView SDK 初始化需要引入头文件
+RSVRSDK 初始化需要引入头文件
 
 ```objectivec
 // 导入 VR SDK 头文件
-#import <VRWebView/VRWebView.h>
-#import <VRWebView/VRWebViewConfig.h>
+#import <RSVRSDK/RSVRSDK.h>
+#import <RSVRSDK/RSVRSDKConfig.h>
 ```
 
 提供初始化配置
@@ -140,16 +140,16 @@ UIViewController *vc = [RSVRSDK VRWebViewWithParam:param];
 ```
 
 
-自此，iOS 端 VRWebView SDK 基础版功能完成集成。
+自此，iOS 端 RSVRSDK 基础版功能完成集成。
 
 
 ## 自定义协议
 
 ### 微信分享
 
-VRWebView SDK 支持调用微信分享到小程序、复制链接等功能，要使用微信分享功能，需要执行以下操作：
+RSVRSDK 支持调用微信分享到小程序、复制链接等功能，要使用微信分享功能，需要执行以下操作：
 
-```groovy
+```ruby
 // 引入微信分享SDK
 pod 'WechatOpenSDK'
 ```
@@ -163,9 +163,20 @@ pod 'WechatOpenSDK'
 ...
 /// H5 页面点击分享时调用
 /// @param sharedJson  H5 页面传过来的分享json
-- (void)shareWithParam:(NSString *)sharedJson
-{
-	 ...
+- (void)shareWithParam:(NSString *)sharedJson {
+   // 完全自定义分享, 可以实现这个代理回调
+   // sharedJson 是一个分享数据的 json 字符串
+   // 可以通过 shareJson 自定义分享 UI 已经分享行为
+}
+
+/// 当用户点击分享 item 回调
+/// @param shareModel 分享 item 数据
+- (void)didShareItemClick:(RSVRShareBaseModel *)shareModel {
+    // 实现这个代理方法, 分享的 UI 将由 SDK 内部实现
+    // 当用户点击分享 icon 的时候, 将会回调这代理方法
+    // 可以通过 shareModel.extraData 获取到业务方自定义的数据
+
+    // ⚠️ 如果同时实现 shareWithParam: 跟 didShareItemClick:, 将只会回调 shareWithParam:
 }
 ```
 
@@ -184,10 +195,10 @@ RSVRParam *param = [[RSVRParam alloc] init];
 [param setVrUrl:url];// 要打开的 VR 链接
 [param setLogoUrl:logoUrl]; // 自定义Loading页Logo，建议规格：宽306，高111，分辨率72，背景透明。
 [param setLoadingImage:loadingImage]; // 自定义Loading页背景图图片
-[param setLoadingType:E_RSVRWebViewLoadingTypeTypeDefault]; // 自定义Loading类型
+[param setLoadingType:E_RSRSVRSDKLoadingTypeTypeDefault]; // 自定义Loading类型
 
 UIViewController *vc = [RSVRSDK VRWebViewWithParam:param];
-    [self.navigationController pushViewController:vc animated:YES];
+[self.navigationController pushViewController:vc animated:YES];
 ```
 
 
@@ -220,7 +231,7 @@ jsBridge.callAndBackfeed('custom/showQrCode?url=http%3A%2F%2Fwww.realsee.com')
 App 侧：
 
 ```objectivec
-/// 可以实现这个方法来处理某个 VRWebView 实例无法处理的 scheme
+/// 可以实现这个方法来处理某个 RSVRSDK 实例无法处理的 scheme
 /// @param urlString scheme url
 /// @param finishBlock scheme 回调
 - (void)actionURL:(NSString *)urlString withFinishBlock:(finishBlock _Nullable)finishBlock
@@ -262,11 +273,10 @@ jsBridge.callAndListen('custom/listenWebViewState', (newState) => {
 App 侧：
 
 ```objectivec
-/// 可以实现这个方法来处理某个 VR  WebView 实例无法处理的 scheme
-/// @param urlString scheme url
+/// 需要实现这个方法来处理一些 VR SDK 没有处理的 H5 scheme, 比如: web/compaign
+/// @param urlString sscheme url
 /// @param finishBlock scheme 回调
-- (void)actionURL:(NSString *)urlString withFinishBlock:(finishBlock _Nullable)finishBlock
-{
+- (void)actionURL:(NSString *)urlString withFinishBlock:(RSVRSchemeFinishCallback _Nullable)finishBlock {
   	NSURL* url = [NSURL URLWithString:urlString];
     if (url && [@"/custom/listenWebViewState" isEqualToString:url.path]) {
         finishBlock(@"START"); //回调通知前端 开始

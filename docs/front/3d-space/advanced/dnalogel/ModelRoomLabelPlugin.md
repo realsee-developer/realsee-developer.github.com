@@ -23,7 +23,7 @@ title: 模型分间标签
 import {PlaygroundCard} from '@site/src/components/Playground';
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://modelroomlabelplugin.stackblitz.io"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelRoomLabelPlugin/index.html"></iframe>
 </div>
 
 <PlaygroundCard
@@ -43,7 +43,7 @@ npm install @realsee/dnalogel
 **通过 es 引用：**
 
 ```tsx
-import ModelRoomLabelPlugin from "@realsee/dnalogel/plugins/floorplan/ModelRoomLabelPlugin"
+import { ModelRoomLabelPlugin } from "@realsee/dnalogel"
 ```
 
 ## 开发指南
@@ -125,4 +125,7 @@ React.useEffect(() => {
 
 > 您可以将插件 DOM 模块载入您的 HTML 结构中。
 
+## demo 源码参考
+
+[demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)
 

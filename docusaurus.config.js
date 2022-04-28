@@ -135,10 +135,10 @@ const config = {
                 label: '三维空间',
                 to: '/docs/front/3d-space/intro',
               },
-              // {
-              //   label: '空间导览',
-              //   to: '/docs/front/space-navigation/intro',
-              // },
+              {
+                label: '空间导览',
+                to: '/docs/front/space-navigation/intro',
+              },
               {
                 label: '线上带看',
                 to: '/docs/front/live/intro',
