@@ -25,9 +25,9 @@ paths:
         URI: 例如 "shepherd/callback/receive"
         Body: `{"vr_code": "80vwYQ3dlB6QE3nj28", "start_time": 1651738990, "end_time": 1651738990, "message": {}}`
 
-        如此一来，在任务处理完成之后会发送HTTP POST（application/json）至"https://app-gateway.realsee.com/shepherd/callback/receive"，可以据此做出特定的业务逻辑
+        如此一来，在任务处理完成之后会发送HTTP POST（application/json）至"https://app-gateway.realsee.com/shepherd/callback/receive"
 
-        `message`的具体格式待后续需求再做补充
+        开发者可以据此做出特定的业务逻辑，`message`的具体格式待后续需求再做补充
 
       parameters:
         - name: Authorization
