@@ -42,7 +42,7 @@ paths:
                 task_type:
                   description: "异步任务类型"
                   type: string
-                  enum: ["vr_compress", "work_cleanup"]
+                  enum: ["work-compress", "work-archive", "work-cleanup"]
       responses:
         200:
           description: V1ShepherdTaskCreate
