@@ -1,0 +1,75 @@
+openapi: 3.0.2
+info:
+  title: "REALSEE OPENAPI"
+  description: |
+
+  version: v1
+servers:
+  - url: https://app-gateway.realsee.com
+paths:
+  /open/v1/entity/pano_ruler/plugin:
+    get:
+      summary: 全景标尺
+      description: ""
+      parameters:
+        - name: Authorization
+          in: header
+          description: 鉴权获取的access_token
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: vr_code
+          in: query
+          description: "VR 编码"
+          required: true
+          schema:
+            type: string
+            default: "80drj5DRZejY2Dq8Oe"
+        - name: version
+          in: query
+          required: false
+          description: 所需全景标尺插件版本号，当前仅支持0
+          schema:
+            type: string
+            default: 0
+        - name: locate
+          in: query
+          required: false
+          description: 多语言控制参数：枚举值：en-US（英文）、zh-CN（中文）、ja-JP（日文）
+          schema:
+            type: string
+            default: zh-CN
+      responses:
+        "200":
+          description: V1PanoRuler
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "标识唯一一次请求"
+                  trace_id:
+                    type: string
+                    description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为 0"
+                  status:
+                    type: string
+                    description: "错误信息，请求成功是默认为 success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位 ms"
+                  data:
+                    $ref: "#/components/schemas/V1PanoRuler"
+components:
+  schemas:
+    V1PanoRuler:
+      type: object
+      properties:
+        PanoRulerPlugin:
+          type: object
+          description: "插件数据字段: 较为复杂后端无须理解，直接透传至SDK即可"
