@@ -89,6 +89,19 @@ const pluginInstance = five.plugins.panoRulerPlugin
 pluginInstance.load(roomInfo, roomRules, { distanceText: (distance) => `约 ${distance.toFixed(1)}米` })
 ```
 
+:::tip
+**distanceText 说明：**
+
+如视标尺数据输出单位默认值为**m**，如有其他单位需求，可通过传入 `distanceText` 回调方法更改单位描述和增加统一描述信息。以**厘米**为例：
+```ts
+pluginInstance.load(roomInfo, roomRules, { distanceText: (distance) => `约 ${(distance * 100).toFixed(2)}厘米` })
+```
+需将回调参数 `distance` 做 **distance * 100** 处理，以达到将米换算为厘米的目的。`toFixed()` 用以设置小数点后保留位数。
+
+效果截图：
+![img.png](http://vrlab-public.ljcdn.com/common/file/web/75037dde-01a3-4954-b452-9d39b2592e0b.png)
+:::
+
 ### 核心方法
 
 - `load: (roomInfo?: RoomInfo, roomRules?: RoomRules, options?: PanoRulerPluginOptions) => Promise<boolean>` 载入插件数据

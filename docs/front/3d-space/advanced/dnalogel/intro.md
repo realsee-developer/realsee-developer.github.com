@@ -1,5 +1,5 @@
 ---
-title: 看房插件
+title: VR 看房插件介绍
 ---
 
 [![npm version](https://img.shields.io/npm/v/@realsee/dnalogel.svg?style=flat-square&logo=npm&label=npm%20install%20@realsee/dnalogel)](https://www.npmjs.com/package/@realsee/dnalogel)
