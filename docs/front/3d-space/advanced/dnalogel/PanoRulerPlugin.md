@@ -1,8 +1,13 @@
 ---
-title: 添加全景标尺
+title: 添加全景标尺🌟️
 ---
 
 ## **PanoRulerPlugin**
+
+:::info
+全景标尺依赖如视 open API 获取标尺数据，您可以参考 [开放 API](https://open-platform.realsee.com/developer/open/api/#/) 了解如何获取全景标尺数据。
+全景标尺数据 open API 对应接口为：`/open/v1/entity/pano_ruler/plugin`
+:::
 
 ## 功能说明
 
@@ -98,7 +103,7 @@ pluginInstance.load(roomInfo, roomRules, { distanceText: (distance) => `约 ${(d
 ```
 需将回调参数 `distance` 做 **distance * 100** 处理，以达到将米换算为厘米的目的。`toFixed()` 用以设置小数点后保留位数。
 
-效果截图：
+效果展示：
 ![img.png](http://vrlab-public.ljcdn.com/common/file/web/75037dde-01a3-4954-b452-9d39b2592e0b.png)
 :::
 
@@ -111,7 +116,6 @@ pluginInstance.load(roomInfo, roomRules, { distanceText: (distance) => `约 ${(d
 - `enable: () => void` 打开标尺
 
 - `disable: () => void` 关闭标尺
-
 
 ## demo 源码参考
 
