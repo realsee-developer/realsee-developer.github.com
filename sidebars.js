@@ -40,7 +40,6 @@ const spaceSidebar = {
       label: '手把手教学',
       collapsed: true,
       items: [
-        // "3d-space/usage/no-framework", //folder_name/file_name
         {
           type: 'category',
           label: '无框架模式开发',
@@ -87,6 +86,8 @@ const spaceSidebar = {
       label: '进阶指南',
       collapsed: true,
       items: [
+        "front/3d-space/advanced/dnalogel/intro",
+        // "front/3d-space/advanced/plugin-dev",
         "front/3d-space/advanced/dnalogel/ModelViewPlugin",
         {
           type: 'category',
@@ -101,7 +102,9 @@ const spaceSidebar = {
             "front/3d-space/advanced/dnalogel/floorplan/TopviewFloorplanPlugin", //folder_name/file_name
           ]
         },
-        "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin"
+        "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin",
+        "front/3d-space/advanced/dnalogel/PanoRulerPlugin",
+        "front/3d-space/advanced/dnalogel/PanoCompassPlugin",
       ]
     },
 
@@ -223,6 +226,7 @@ const vreoSidebar = {
         'front/space-navigation/keyframes/updatevr',
         'front/space-navigation/keyframes/model-video',
         'front/space-navigation/keyframes/video-effect',
+        // 'front/space-navigation/keyframes/bgm',
       ],
     },
     {
