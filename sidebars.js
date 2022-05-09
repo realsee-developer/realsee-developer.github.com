@@ -226,7 +226,7 @@ const vreoSidebar = {
         'front/space-navigation/keyframes/updatevr',
         'front/space-navigation/keyframes/model-video',
         'front/space-navigation/keyframes/video-effect',
-        // 'front/space-navigation/keyframes/bgm',
+        'front/space-navigation/keyframes/bgm',
       ],
     },
     {
