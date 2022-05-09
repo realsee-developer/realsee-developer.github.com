@@ -184,7 +184,7 @@ const config = {
         logo: {
           alt: 'Realsee open platform Logo',
           src: '//vrlab-public.ljcdn.com/common/file/web/3d1933d3-739a-4c2d-8350-53c0cca6a9e4.png\n',
-          href: 'https://realsee.js.org',
+          href: 'https://open-platform.realsee.com/developer/',
           width: 70,
           height: 31,
         },
