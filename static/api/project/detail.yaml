@@ -1,0 +1,103 @@
+get:
+      tags:
+        - 生产服务
+      summary: 项目详情
+      description: ""
+      parameters:
+        - name: project_id
+          in: query
+          required: true
+          schema:
+            description: 项目ID
+            type: string
+            default: "auto3d-xxx"
+        - name: app_code
+          in: query
+          required: true
+          schema:
+            description: 控制台中的Application Id
+            type: string
+            default: ""
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema: 
+                type: object
+                title: empty object
+                properties: 
+                  request_id:
+                        type: string
+                        description: "标识唯一一次请求"
+                  trace_id:
+                    type: string
+                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为0"
+                  status:
+                    type: string
+                    description: "错误信息，请求成功是默认为success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位ms"
+                  data:
+                    type: object
+                    properties:
+                      create_time:
+                        type: string
+                        description: "创建时间 例如：2022-05-10 11:13:38"
+                        default: "2022-05-10 11:13:38"
+                      device_type:
+                        type: integer
+                        description: "设备类型，1:手机，2全景相机（默认），3云台，4专业相机（伽罗华）"
+                        default: 2
+                      extension:
+                        type: string
+                        description: "json格式"
+                        default: "{}"
+                      modify_time:
+                        type: string
+                        description: "修改时间 例如：2022-05-10 11:13:38"
+                        default: "2022-05-10 11:13:38"
+                      name:
+                        type: string
+                        description: "项目名称"
+                        default: "测试项目"
+                      project_id:
+                        type: string
+                        description: "项目ID"
+                        default: "auto3d-xxx"
+                      remark:
+                        type: string
+                        description: "备注"
+                        default: ""
+                      shoot_type:
+                        type: integer
+                        description: "拍摄类型 1是ar拍摄，2是拼接定位，0是未知 默认为2"
+                        default: 2
+                      status_text:
+                        type: string
+                        description: "项目状态.status_text枚举值如下：
+                            project_not_upload - 默认
+                            project_upload_failed - 项目上传失败
+                            project_upload_success - 项目上传成功
+                            project_uploading - 项目上传中
+                            project_processing - 项目处理中
+                            project_process_cancel - 项目处理已取消
+                            project_process_success - 项目处理成功
+                            project_process_failed - 项目处理失败
+                            project_temporarily_delete - 放入回收站
+                            project_exported - 数据被导出
+                            project_export_fail - 数据被导出失败
+                            project_exporting - 数据导出中"
+                        default: "project_exporting"
+                      user_identifier:
+                        type: string
+                        description: "业务方自身账号系统的用户ID"
+                        default: "测试用户"
+                      vr_code:
+                        type: string
+                        description: "VR编码"
+                        default: "80xxx"
