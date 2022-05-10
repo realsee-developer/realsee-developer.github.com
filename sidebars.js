@@ -13,6 +13,43 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 
+const collectSidebar = {
+  '空间采集': [
+    'collect/intro',
+    {
+      type: 'category',
+      label: '伽罗华采集',
+      collapsed: false,
+      items: [
+        "collect/galois/Android",
+        // "webview/app/",
+        // "webview/app/download",
+        // "webview/app/demo",
+        // "webview/app/show-android",
+        // "webview/app/show-ios",
+      ]
+    },
+    // {
+    //   type: 'category',
+    //   label: '"桥" 协议',
+    //   collapsed: false,
+    //   items: [
+    //     "webview/jsbridge/intro",
+    //     "webview/jsbridge/built-in",
+    //     "webview/jsbridge/event",
+    //     "webview/jsbridge/custom",
+    //     "webview/jsbridge/react-support",
+    //     "webview/jsbridge/browser-jsbridge",
+    //     {
+    //       type: 'link',
+    //       label: 'jsBridge API 文档',
+    //       href: 'https://unpkg.com/@realsee/jsbridge-x/docs/index.html'
+    //     }
+    //   ]
+    // },
+  ]
+}
+
 const spaceSidebar = {
   '三维空间': [
     'front/3d-space/intro',
@@ -368,6 +405,7 @@ const openAPISidebar = {
 }
 
 module.exports = {
+  ...collectSidebar,
   ...spaceSidebar,
   ...liveSidebar,
   ...vreoSidebar,
