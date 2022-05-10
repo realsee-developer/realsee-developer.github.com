@@ -130,6 +130,10 @@ tags:
     description: 转储服务。
   - name: 生产服务
     description: 生产服务。
+  - name: URL工具箱
+    description: URL工具箱。
+  - name: 异步任务
+    description: 异步任务。
 paths:
   /auth/access_token:
     post:
@@ -788,6 +792,12 @@ paths:
     $ref: "./api/produce/list.yaml"
   /open/v1/produce/project/detail:
     $ref: "./api/produce/detail.yaml"
+  /open/v1/entity/pano_ruler/plugin:
+    $ref: "./api/extend/pano_ruler.yaml"
+  /open/v1/url/space:
+    $ref: "./api/tool/url_toolbox.yaml"
+  /open/v1/shepherd/task/create:
+    $ref: "./api/task/shepherd_task.yaml"
 
 components:
   schemas:

@@ -1,0 +1,74 @@
+
+post:
+  summary: 任务创建
+  tags:
+    - 异步任务
+  description: |
+    具体任务类型依据ApplicationId进行权限控制
+    #### 支持的任务类型
+    |名称|描述|备注|
+    |-|-|-|
+    |work-compress|触发指定VR编码的转存打包离线任务，当任务完成之后会回调至配置的`ENDPOINT`之上|-|
+    |work-cleanup|触发指定VR编码的清理任务(默认会在转存离线打包之后自动倒计时触发，亦可单独触发打包任务)|-|
+    |work-archive|[暂时不予对外]触发"归档"原始数据，一般会挂载在清理任务的前置钩子之上|-|
+
+    任务处理完成之后，会以**固定的Payload形式**向配置ENDPOINT之上投递，ENDPOINT的配置格式为:
+
+    Host: 例如 "https://app-gateway.realsee.com"
+    URI: 例如 "shepherd/callback/receive"
+    Body: `{"vr_code": "80vwYQ3dlB6QE3nj28", "start_time": 1651738990, "end_time": 1651738990, "message": {}}`
+
+    如此一来，在任务处理完成之后会发送HTTP POST（application/json）至"https://app-gateway.realsee.com/shepherd/callback/receive"
+
+    开发者可以据此做出特定的业务逻辑，`message`的具体格式待后续需求再做补充
+
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          type: object
+          required: ["task_type", "vr_code"]
+          properties:
+            vr_code:
+              description: "VR 编码"
+              type: string
+              default: "80drj5DRZejY2Dq8Oe"
+            task_type:
+              description: "异步任务类型"
+              type: string
+              enum: ["work-compress", "work-archive", "work-cleanup"]
+  responses:
+    200:
+      description: V1ShepherdTaskCreate
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: integer
+                description: "任务TaskID，用于后续追查执行计划、日志等信息"
