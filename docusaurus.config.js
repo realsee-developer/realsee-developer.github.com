@@ -84,6 +84,12 @@ const config = {
         },
         items: [
           {
+              type: 'doc',
+              label: '空间采集',
+              docId: 'collect/intro',
+              position: 'left',
+          },
+          {
             type: 'doc',
             label: '三维空间',
             docId: 'front/3d-space/intro',
@@ -131,6 +137,10 @@ const config = {
           {
             title: '开发手册',
             items: [
+              {
+                label: '空间采集',
+                to: '/docs/collect/intro',
+              },
               {
                 label: '三维空间',
                 to: '/docs/front/3d-space/intro',
