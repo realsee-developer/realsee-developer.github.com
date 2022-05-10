@@ -62,4 +62,3 @@ get:
                       type: string
                       description: "临时凭据 仅能使用1次 默认过期时间 5min"
                       default: "2f56b9e5c2bd7bd8da50d35cdbab7f1b"
-                      

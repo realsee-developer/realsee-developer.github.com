@@ -101,4 +101,3 @@ get:
                         type: string
                         description: "VR编码"
                         default: "80xxx"
-                        
