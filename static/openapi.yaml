@@ -582,75 +582,75 @@ paths:
                     $ref: "#/components/schemas/V1LiveRoomDetail"
   /open/v1/live/apply/ticket:
     post:
-        requestBody:
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              required: ["app_id", "user_id", "user_role", "room_code"]
+              properties:
+                app_id:
+                  description: 控制台中的Application Id
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                user_id:
+                  description: 加入直播房间的用户ID，传入业务系统用户的唯一标识即可，用于区分不同用户
+                  type: string
+                  default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+                user_role:
+                  description: 加入直播房间用户的角色，此角色必须在您在后台所创建的角色列表之中
+                  type: string
+                  default: "audience"
+                room_code:
+                  description: 要加入的房间ID
+                  type: string
+                  default: "yw7Pz65mrX68A4oa"
+                extension:
+                  description: JSON序列化之后的对象，用于存储用户的扩展信息
+                  type: string
+                  default: "{}"
+      tags:
+        - 直播服务
+      summary: 加入房间
+      description: |
+        #### 返回字段说明
+        |名称|示例|类型|描述|必有|
+        |-|-|-|-|-|
+        |ticket|`99317955e49e0221d593f0330150b9df `|`string`|**服务端签发的通行证, 五分钟内有效, 一旦被使用, 立即失效**|YES|
+        |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: 鉴权获取的access_token
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+      responses:
+        200:
+          description: 申请进入房间通行证
           content:
-            "application/json":
+            application/json:
               schema:
                 type: object
-                required: ["app_id", "user_id", "user_role", "room_code"]
                 properties:
-                  app_id:
-                    description: 控制台中的Application Id
+                  request_id:
                     type: string
-                    default: "KmAknx7zqqVNpWg8"
-                  user_id:
-                    description: 加入直播房间的用户ID，传入业务系统用户的唯一标识即可，用于区分不同用户
+                    description: "标识唯一一次请求"
+                  trace_id:
                     type: string
-                    default: "7e7b5a43f74142b7bab2021bb54c6d3e"
-                  user_role:
-                    description: 加入直播房间用户的角色，此角色必须在您在后台所创建的角色列表之中
+                    description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+                  code:
+                    type: integer
+                    description: "错误码，请求成功时默认为0"
+                  status:
                     type: string
-                    default: "audience"
-                  room_code:
-                    description: 要加入的房间ID
-                    type: string
-                    default: "yw7Pz65mrX68A4oa"
-                  extension:
-                    description: JSON序列化之后的对象，用于存储用户的扩展信息
-                    type: string
-                    default: "{}"
-        tags:
-          - 直播服务
-        summary: 加入房间
-        description: |
-          #### 返回字段说明
-          |名称|示例|类型|描述|必有|
-          |-|-|-|-|-|
-          |ticket|`99317955e49e0221d593f0330150b9df `|`string`|**服务端签发的通行证, 五分钟内有效, 一旦被使用, 立即失效**|YES|
-          |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|直播房间的长链接(WebSocket)地址|YES|
-        parameters:
-          - name: Authorization
-            in: header
-            description: 鉴权获取的access_token
-            required: true
-            schema:
-              type: string
-              default: your_access_token
-        responses:
-          200:
-            description: 申请进入房间通行证
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    request_id:
-                      type: string
-                      description: "标识唯一一次请求"
-                    trace_id:
-                      type: string
-                      description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
-                    code:
-                      type: integer
-                      description: "错误码，请求成功时默认为0"
-                    status:
-                      type: string
-                      description: "错误信息，请求成功是默认为success"
-                    cost:
-                      type: integer
-                      description: "服务端计算耗时，单位ms"
-                    data:
-                      $ref: "#/components/schemas/V1LiveApplyTicket"
+                    description: "错误信息，请求成功是默认为success"
+                  cost:
+                    type: integer
+                    description: "服务端计算耗时，单位ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveApplyTicket"
   /open/v1/live/voice/sign:
     post:
       requestBody:
@@ -1420,3 +1420,4 @@ components:
       type: http
       scheme: bearer
       bearerFormat: jwt
+
