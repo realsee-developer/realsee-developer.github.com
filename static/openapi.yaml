@@ -128,6 +128,12 @@ tags:
     description: 如视开放平台提供的一项**全双工通信能力**的标准服务。
   - name: 转储服务
     description: 转储服务。
+  - name: 生产服务
+    description: 生产服务。
+  - name: URL工具箱
+    description: URL工具箱。
+  - name: 异步任务
+    description: 异步任务。
 paths:
   /auth/access_token:
     post:
@@ -778,6 +784,20 @@ paths:
                     description: "服务端计算耗时，单位ms"
                   data:
                     $ref: "#/components/schemas/V1LiveRoomDetail"
+  /open/v1/produce/project/apply/ticket:
+    $ref: "./api/produce/apply_ticket.yaml"
+  /open/v1/produce/project/create:
+    $ref: "./api/produce/create.yaml"
+  /open/v1/produce/project/list:
+    $ref: "./api/produce/list.yaml"
+  /open/v1/produce/project/detail:
+    $ref: "./api/produce/detail.yaml"
+  /open/v1/entity/pano_ruler/plugin:
+    $ref: "./api/extend/pano_ruler.yaml"
+  /open/v1/url/space:
+    $ref: "./api/tool/url_toolbox.yaml"
+  /open/v1/shepherd/task/create:
+    $ref: "./api/task/shepherd_task.yaml"
 
 components:
   schemas:
@@ -1411,3 +1431,4 @@ components:
       type: http
       scheme: bearer
       bearerFormat: jwt
+
