@@ -405,10 +405,10 @@ const openAPISidebar = {
 }
 
 module.exports = {
-  ...collectSidebar,
   ...spaceSidebar,
   ...liveSidebar,
   ...vreoSidebar,
   ...webviewSidebar,
+  ...collectSidebar,
   ...openAPISidebar,
 };

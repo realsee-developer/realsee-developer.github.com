@@ -48,13 +48,15 @@ five.plugins.PluginName.dispose()
 
 您可以通过 [open API](https://open-platform.realsee.com/developer/open/api#/) 查看数据获取方式及相关 open API 。
 
+<!--
+
 ## 使用示例
 
 :::tip
 此小节将以 `ModelRoomLabelPlugin` 为例，阐述如何使用含**如视数据依赖**的插件。开始前请确保您已经能成功渲染出一个 VR。
 :::
 
-
+-->
 
 ## 相关链接
 

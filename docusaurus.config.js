@@ -84,12 +84,6 @@ const config = {
         },
         items: [
           {
-              type: 'doc',
-              label: '空间采集',
-              docId: 'collect/intro',
-              position: 'left',
-          },
-          {
             type: 'doc',
             label: '三维空间',
             docId: 'front/3d-space/intro',
@@ -117,6 +111,12 @@ const config = {
             docId: 'webview/intro',
             position: 'left',
             label: '容器集成',
+          },
+          {
+            type: 'doc',
+            label: '空间采集',
+            docId: 'collect/intro',
+            position: 'left',
           },
           {
             to: '/open/api/',
