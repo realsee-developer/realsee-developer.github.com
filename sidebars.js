@@ -155,15 +155,14 @@ const spaceSidebar = {
     //   ],
     // },
     'front/3d-space/get-started/terminology',
-    // {
-    //   type: 'category',
-    //   label: '常见问题',
-    //   collapsed: true,
-    //   items: [
-    //     "front/3d-space/faq/five-state",
-    //     "front/3d-space/faq/work"
-    //   ]
-    // }
+    {
+      type: 'category',
+      label: '常见问题',
+      collapsed: true,
+      items: [
+        "front/3d-space/faq/render"
+      ]
+    },
     {
       type: 'link',
       label: 'Five API 文档',
