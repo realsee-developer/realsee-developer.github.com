@@ -2,7 +2,7 @@
 get:
   summary: VR漫游链接
   tags:
-    - URL工具箱
+    - 工具箱
   description: |
     #### 返回字段说明
     |名称|示例|类型|描述|必有|
