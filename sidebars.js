@@ -80,6 +80,19 @@ const spaceSidebar = {
             "front/3d-space/handbook/react-hooks/tagging",
           ]
         },
+        {
+          type: 'category',
+          label: 'Vue 模式开发',
+          collapsed: true,
+          items: [
+            "front/3d-space/handbook/vue/get-started",
+            "front/3d-space/handbook/vue/displaying-work",
+            "front/3d-space/handbook/vue/knowing-state",
+            "front/3d-space/handbook/vue/recording-state",
+            "front/3d-space/handbook/vue/points-in-3d",
+            "front/3d-space/handbook/vue/tagging",
+          ]
+        },
       ],
     },
     {

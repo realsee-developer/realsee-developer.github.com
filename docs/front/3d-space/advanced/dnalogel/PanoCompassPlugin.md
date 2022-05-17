@@ -64,6 +64,29 @@ const FiveProvider = createFiveProvider({
 });
 ```
 
+> 方法3：在 `FiveProvider` 时，将 `PanoCompassPlugin` 配置在初始化插件参数即可。
+```vue
+<template>
+  <FiveProvider :fiveInitArgs="fiveInitArgs">
+  </FiveProvider>
+</template>
+<script setup>
+import { PanoCompassPlugin } from "@realsee/dnalogel";
+import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
+const fiveInitArgs = {
+    plugins: [
+        [
+            PanoCompassPlugin,
+            'panoCompassPlugin', // 自定义插件名称
+            {
+                // compassImageUrl: '' // 配置方向指向盘图片
+            }
+        ]
+    ]
+}
+</script>
+```
+
 ### 载入数据
 
 您需要**载入标识北向的数据**方可看到正确效果：

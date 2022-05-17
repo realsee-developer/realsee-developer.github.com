@@ -79,6 +79,29 @@ const FiveProvider = createFiveProvider({
 });
 ```
 
+> 方法3：在使用 `FiveProvider` 时，将 `PanoRulerPlugin` 配置在初始化插件参数即可。
+```vue
+<template>
+  <FiveProvider :fiveInitArgs="fiveInitArgs">
+  </FiveProvider>
+</template>
+<script setup>
+import { PanoRulerPlugin } from "@realsee/dnalogel";
+import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
+const fiveInitArgs = {
+    plugins: [
+        [
+            PanoRulerPlugin,
+            'panoRulerPlugin', // 自定义插件名称
+            {
+                // compassImageUrl: '' // 配置方向指向盘图片
+            }
+        ]
+    ]
+}
+</script>
+```
+
 ### 载入数据
 
 ```ts
