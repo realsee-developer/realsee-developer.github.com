@@ -118,11 +118,11 @@ const config = {
             docId: 'collect/intro',
             position: 'left',
           },
-          {
-            to: '/open/api/',
-            position: 'left',
-            label: '开放 API',
-          },
+          // {
+          //   to: '/open/api/',
+          //   position: 'left',
+          //   label: '开放 API',
+          // },
           { to: '/blog', label: '博客', position: 'right' },
           {
             href: 'https://github.com/realsee-developer',
