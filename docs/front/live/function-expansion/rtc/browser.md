@@ -2,21 +2,16 @@
 title: 浏览器语音
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
-:::tip
-语音能力需依赖 WebView/Browser 容器，即需要容器端实现 RTC 能力。
-为了方便开发者接入，如视开发者中心 VRTC 服务 为主流平台提供 容器 SDK 和 `jsbridge-x` 。
-Live 通过 jsbridge-x 与 集成了容器 SDK 的客户端应用或微信小程序应用程序桥接，实现原生能力的调用。这个 jsbridge-x 实例需作为配置参数提供给createLive()。
-如果是 iOS/Android App（已接入如视 VRTC 容器 SDK）。**本章将为您介绍如何在浏览器端加入带看语言功能。**
+:::tip 语音能力需依赖 WebView/Browser 容器，即需要容器端实现 RTC 能力。 为了方便开发者接入，如视开发者中心 VRTC 服务 为主流平台提供 容器 SDK 和 `jsbridge-x` 。 Live 通过
+jsbridge-x 与 集成了容器 SDK 的客户端应用或微信小程序应用程序桥接，实现原生能力的调用。这个 jsbridge-x 实例需作为配置参数提供给createLive()。 如果是 iOS/Android App（已接入如视
+VRTC 容器 SDK）。**本章将为您介绍如何在浏览器端加入带看语言功能。**
 :::
-
 
 ## 安装依赖
 
-:::important
-带看语音强依赖 `@realsee/jsbridge-x` 包，开发时请务必安装此包。
+:::important 带看语音强依赖 `@realsee/jsbridge-x` 包，开发时请务必安装此包。
 :::
 
 ```bash npm2yarn
@@ -49,7 +44,7 @@ import request from "../utils/request"
 * */
 // highlight-start
 const getVoiceSign = async (opts) => { // 此处的 opts 是形参，sdk 内部在调用语言签名方法时会自动注入，无需业务方处理。
-// highlight-end	
+	// highlight-end	
 	// 在此处请求您的后端接口，这里的 request 的方法仅简单对 fetch 方法做了封装，未做特殊处理。
 	return await request('getRtcSign', {
 		voice_id: opts.voiceId,
@@ -68,7 +63,7 @@ const getVoiceSign = async (opts) => { // 此处的 opts 是形参，sdk 内部�
 
 // 初始化 rtc 实例
 let rtcInstance
-rtcInstance = new BrowserRTC({jsBridge: new JSBridgeBrowser(), getVoiceSign})
+rtcInstance = new BrowserRTC({ getVoiceSign })
 
 const liveInstance = createLiveReact({
 	__debug__: true,
@@ -77,7 +72,9 @@ const liveInstance = createLiveReact({
 
 export default liveInstance
 ```
- 
+
+如果您需要同时实现多类语音（浏览器语音、客户端语音、微信小程序语音），您可以按照"桥"协议，实现相应的方法。更多信息请参考： [@realsee/jsbridge-x](http://localhost:3001/docs/webview/jsbridge/intro/)
+
 **一个简单的 JSBridgeBrowser 实现**
 
 ```js title='browser.js'
@@ -85,20 +82,21 @@ import request from "./request";
 
 export class JSBridgeBrowser {
 	
-	closeWebView() {
+	closeWebView () {
 		return window.history.back()
 	}
 	
 	// way表示新起还是覆盖，先支持新起
-	openWebView(url, way) {
+	openWebView (url, way) {
 		return window.location.href(url)
 	}
 	
-	actionShare(shareConfig) {
-		return () => {}
+	actionShare (shareConfig) {
+		return () => {
+		}
 	}
 	
-	async getUserInfo() {
+	async getUserInfo () {
 		const res = await request('getUserId')
 			.then(data => {
 				return data.user_id
@@ -113,7 +111,7 @@ export class JSBridgeBrowser {
 		return [userInfo,]
 	}
 	
-	async login() {
+	async login () {
 		const res = await request('getUserId')
 			.then(data => {
 				return data.user_id
@@ -125,15 +123,15 @@ export class JSBridgeBrowser {
 		return res
 	}
 	
-	async logout() {
+	async logout () {
 		return {}
 	}
 	
-	async closeLoading() {
+	async closeLoading () {
 		return {}
 	}
 	
-	async getBangsHeight() {
+	async getBangsHeight () {
 		return 0
 	}
 }
@@ -145,8 +143,7 @@ export class JSBridgeBrowser {
 
 ### 语音成功加入监听
 
-:::info
-通过带看实例提供的 `useRTCEventCallback` hook 监听语音成功加入事件。
+:::info 通过带看实例提供的 `useRTCEventCallback` hook 监听语音成功加入事件。
 :::
 
 ```jsx
@@ -155,15 +152,13 @@ import LiveReact from './LiveReact'
 const { useRTCEventCallback } = LiveReact
 
 useRTCEventCallback("joined", () => {
-    console.log('rtc -- joined')
+	console.log('rtc -- joined')
 })
 ```
 
-
 ### 语音错误监听
 
-:::info
-通过带看实例提供的 `useRTCEventCallback` hook 监听语音报错信息。
+:::info 通过带看实例提供的 `useRTCEventCallback` hook 监听语音报错信息。
 :::
 
 ```jsx
@@ -172,6 +167,6 @@ import LiveReact from './LiveReact'
 const { useRTCEventCallback } = LiveReact
 
 useRTCEventCallback("error", (error) => {
-    console.log('rtc -- error: ', error.message)
+	console.log('rtc -- error: ', error.message)
 })
 ```
