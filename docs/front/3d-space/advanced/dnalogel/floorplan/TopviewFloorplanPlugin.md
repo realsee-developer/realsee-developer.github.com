@@ -62,6 +62,8 @@ const five = new Five({
                 // 示例参数配置
                 selector: '.plugin-full-screen-container',  // 替换成您的容器节点
                 hoverEnable: true
+                /** 是否开启放大缩小和拖动功能，默认为 false */
+                // gestureEnable?: boolean 
             }
         ]
     ]
@@ -83,6 +85,8 @@ const FiveProvider = createFiveProvider({
                 // 示例参数配置
                 selector: '.plugin-full-screen-container',  // 替换成您的容器节点
                 hoverEnable: true
+                /** 是否开启放大缩小和拖动功能，默认为 false */
+                // gestureEnable?: boolean 
             }
         ]
     ]
