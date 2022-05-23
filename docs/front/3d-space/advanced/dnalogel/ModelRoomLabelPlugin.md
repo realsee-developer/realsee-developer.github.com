@@ -96,7 +96,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import { TopviewFloorplanPlugin } from "@realsee/dnalogel";
+import  TopviewFloorplanPlugin from "@realsee/dnalogel/libs/TopviewFloorplanPlugin"
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [

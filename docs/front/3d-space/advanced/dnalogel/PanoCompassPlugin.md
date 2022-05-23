@@ -71,7 +71,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import { PanoCompassPlugin } from "@realsee/dnalogel";
+import  PanoCompassPlugin from "@realsee/dnalogel/libs/PanoCompassPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [

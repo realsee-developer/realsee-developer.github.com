@@ -89,7 +89,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel";
+import  PanoFloorplanRadarPlugin from "@realsee/dnalogel/libs/PanoFloorplanRadarPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [
