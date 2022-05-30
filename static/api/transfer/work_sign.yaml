@@ -1,0 +1,75 @@
+post:
+  summary: 元数据签名
+  tags:
+    - 转储服务
+  description: |
+    > 将下载好的TAR包解压后，取出其中的**work.json**，替换**base_url**为静态资源的相对路径，然后整体作为RAW_BODY进行签名
+
+    > **全链路接入教程[请戳此处|随时更新](https://e2kz5laqu0.feishu.cn/docs/doccngabi88zC4wSWmcqkawIR8d)**
+
+    #### 就要成功
+
+    该步骤是加载离线转存数据的最后一步，旨在获取完整可用的VR基础数据
+
+    计算签名之前，需要确保`base_url`+对应的图片地址是可以访问的，此处在联调阶段务验证，会避免相当一部分问题
+
+    签名后的结构**存储至业务RDBMS(MySQL)中**，在C端应用时候透传至前端即可
+
+    #### 最后一句
+    如果希望对图片降质以保证更大范围的兼容性，可以考虑将work.json中的图片替换为降质后的图片签名，并存储。建议的降质尺寸为：
+
+    - `1024`
+    - `512`
+
+    因此，可以考虑以三种不通的图片质量获取三份`work.json`的副本，具体副本的选用可以动态控制。对于支持CDN访问的存储服务来说，一般能够通过控制Query参数来操作图片以实现降低质量，裁剪的效果
+
+    **签名后请勿篡改任何数据，否则将会导致VR无法加载**
+
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: vr_code
+      in: query
+      description: "VR 编码"
+      required: true
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          type: object
+
+  responses:
+    200:
+      description: V1ShepherdTaskCreate
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: object
+                description: "签名后的work.json，相比原始仅多出certificate和signature两个字段"

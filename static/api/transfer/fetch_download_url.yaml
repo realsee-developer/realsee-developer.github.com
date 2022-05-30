@@ -1,10 +1,12 @@
 get:
-  summary: 获取下载地址
+  summary: 基础包下载地址
   tags:
     - 转储服务
   description: |
-    #### TAR包格式说明
-    TAR包中一共包含**4**个目录和**1**个文件，其中目录简介如下：
+    > **全链路接入教程[请戳此处|随时更新](https://e2kz5laqu0.feishu.cn/docs/doccngabi88zC4wSWmcqkawIR8d)**
+
+    #### Tar包格式说明
+    Tar包中一共包含**4**个目录和**1**个文件，其中目录简介如下：
 
     - `images` : 全景图片，具体数量与点位数相同
     - `materials` : 3D模型纹理贴图
@@ -12,6 +14,23 @@ get:
     - `screenshot` : 截图文件，一般是封面图和标题图
 
     唯一的文件`work.json`是如视VR基础数据的元数据描述信息，格式参考"核心实体-基础数据"章节，转储下的work.json主要是剥离了对如视CDN的依赖
+
+    一段演示的解压后的Tar包格式：
+    ```
+    $ tree -h -L 2
+
+    ├── [  96]  images
+    │   └── [ 224]  cube_2048
+    ├── [ 160]  materials
+    │   ├── [344K]  texture_0.jpg
+    │   ├── [321K]  texture_1.jpg
+    │   └── [230K]  texture_2.jpg
+    ├── [  96]  model
+    │   └── [446K]  cyclops-7jomZeYbdqOZNXBA.at3d
+    ├── [  96]  screenshot
+    │   └── [ 128]  664187822_0
+    └── [4.4K]  work.json
+    ```
 
     #### 返回字段说明
 
@@ -67,11 +86,11 @@ get:
                 type: integer
                 description: "服务端计算耗时，单位 ms"
               data:
-                $ref: "#/components/schemas/V1OpenDownload"
+                $ref: "#/components/schemas/V1WorkDownload"
 
 components:
   schemas:
-    V1OpenDownload:
+    V1WorkDownload:
       type: object
       properties:
         expired_timestamp:
@@ -80,5 +99,5 @@ components:
           default: "0"
         presigned_urls:
           type: array
-          description: "预签名的下载链接列表，取0位即可"
+          description: "预签名的下载链接列表，取0位即可。地址内容为**腾讯云COS**公网可达URL"
           default: "[]"

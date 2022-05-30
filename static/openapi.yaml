@@ -800,6 +800,8 @@ paths:
     $ref: "./api/task/shepherd_task.yaml"
   /open/v1/work/download:
     $ref: "./api/transfer/fetch_download_url.yaml"
+  /open/v1/work/sign:
+    $ref: "./api/transfer/work_sign.yaml"
 
 components:
   schemas:
