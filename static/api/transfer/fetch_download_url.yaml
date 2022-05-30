@@ -1,0 +1,84 @@
+get:
+  summary: 获取下载地址
+  tags:
+    - 转储服务
+  description: |
+    #### TAR包格式说明
+    TAR包中一共包含**4**个目录和**1**个文件，其中目录简介如下：
+
+    - `images` : 全景图片，具体数量与点位数相同
+    - `materials` : 3D模型纹理贴图
+    - `model` : 3D模型文件
+    - `screenshot` : 截图文件，一般是封面图和标题图
+
+    唯一的文件`work.json`是如视VR基础数据的元数据描述信息，格式参考"核心实体-基础数据"章节，转储下的work.json主要是剥离了对如视CDN的依赖
+
+    #### 返回字段说明
+
+    |名称|示例|类型|描述|必有|
+    |-|-|-|-|-|
+    |expired_timestamp|`0`|`integer`|下载截止时间(UNIX时间戳)|YES|
+    |presigned_urls|`[]`|`array`|预签名的下载链接列表，取0位即可|YES|
+
+
+    #### 开始上传
+    将上述**4**个目录递归上传至自己的服务端，需要注意两点：
+
+    - 务必采用**递归上传**，以保证原始的目录结构
+    - 服务端可以是自己的业务服务器，不过更多的情况还是存储至`对象存储`，一般的，对象存储支持CDN加速，以保证高速的C端浏览体验
+
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: vr_code
+      in: query
+      description: "VR 编码"
+      required: true
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+
+  responses:
+    200:
+      description: V1ShepherdTaskCreate
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                $ref: "#/components/schemas/V1OpenDownload"
+
+components:
+  schemas:
+    V1OpenDownload:
+      type: object
+      properties:
+        expired_timestamp:
+          type: string
+          description: "下载截止时间(UNIX时间戳)"
+          default: "0"
+        presigned_urls:
+          type: array
+          description: "预签名的下载链接列表，取0位即可"
+          default: "[]"
