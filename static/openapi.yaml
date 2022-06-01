@@ -792,8 +792,6 @@ paths:
     $ref: "./api/produce/list.yaml"
   /open/v1/produce/project/detail:
     $ref: "./api/produce/detail.yaml"
-  /open/v1/entity/pano_ruler/plugin:
-    $ref: "./api/extend/pano_ruler.yaml"
   /open/v1/url/space:
     $ref: "./api/tool/url_toolbox.yaml"
   /open/v1/shepherd/task/create:
@@ -802,6 +800,10 @@ paths:
     $ref: "./api/transfer/fetch_download_url.yaml"
   /open/v1/work/sign:
     $ref: "./api/transfer/work_sign.yaml"
+  /open/v1/plugin/PangRulerPlugin:
+    $ref: "./api/plugin/pano_ruler.yaml"
+  /open/v1/plugin/CruisePlugin:
+    $ref: "./api/plugin/cruise.yaml"
 
 components:
   schemas:
