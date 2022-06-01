@@ -60,6 +60,30 @@ const FiveProvider = createFiveProvider({
 });
 ```
 
+> 方法3：在创建 `FiveProvider` 时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
+
+```vue
+<template>
+  <FiveProvider :fiveInitArgs="fiveInitArgs">
+  </FiveProvider>
+</template>
+<script setup>
+import  ModelViewPlugin from "@realsee/dnalogel/libs/ModelViewPlugin"
+import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
+const fiveInitArgs = {
+    plugins: [
+        [
+            ModelViewPlugin,
+            'modelViewPlugin', // 自定义插件名称
+            {
+                // 参数配置
+            }
+        ]
+    ]
+}
+</script>
+```
+
 ### 节点挂载
 
 通过`five.plugins.modelViewPlugin`方式获取 `ModelViewPlugin` 实例的引用。该插件实例提供两个方法：

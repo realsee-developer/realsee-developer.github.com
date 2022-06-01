@@ -80,6 +80,31 @@ const FiveProvider = createFiveProvider({
 })
 ```
 
+
+> 方法3：在使用 `FiveProvider` 时，将 `PanoFloorplanRadarPlugin` 配置在初始化插件参数即可。
+
+```vue
+<template>
+  <FiveProvider :fiveInitArgs="fiveInitArgs">
+  </FiveProvider>
+</template>
+<script setup>
+import  PanoFloorplanRadarPlugin from "@realsee/dnalogel/libs/PanoFloorplanRadarPlugin";
+import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
+const fiveInitArgs = {
+    plugins: [
+        [
+            PanoFloorplanRadarPlugin,
+            'panoFloorplanRadarPlugin', // 自定义插件名称
+            {
+                // 参数配置
+            }
+        ]
+    ]
+}
+</script>
+```
+
 ### 载入数据
 
 ```ts
