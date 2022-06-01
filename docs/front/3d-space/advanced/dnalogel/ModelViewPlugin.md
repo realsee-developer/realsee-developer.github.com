@@ -21,8 +21,7 @@ import {  ModelViewPlugin } from "@realsee/dnalogel"
 ## 开发指南
 
 ### 初始化
-
-> 方法1：在初始化 `Five` 实例时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
+在初始化 `Five` 实例时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
 
 ```ts
 import { Five } from '@realsee/five'
@@ -41,7 +40,8 @@ const five = new Five({
 })
 ```
 
-> 方法2：在创建 `FiveProvider` 时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
+### React 初始化
+在创建 `FiveProvider` 时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
 
 ```ts
 import { ModelViewPlugin } from "@realsee/dnalogel";
@@ -60,7 +60,8 @@ const FiveProvider = createFiveProvider({
 });
 ```
 
-> 方法3：在创建 `FiveProvider` 时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
+### Vue 初始化
+在创建 `FiveProvider` 时，将 `ModelViewPlugin` 配置在初始化插件参数即可。
 
 ```vue
 <template>
