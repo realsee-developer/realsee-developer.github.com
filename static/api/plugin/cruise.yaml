@@ -1,8 +1,7 @@
-
 get:
-  summary: 全景标尺
+  summary: 自动漫游
   tags:
-    - 扩展实体
+    - 插件集市
   description: ""
   parameters:
     - name: Authorization
@@ -19,23 +18,9 @@ get:
       schema:
         type: string
         default: "80drj5DRZejY2Dq8Oe"
-    - name: version
-      in: query
-      required: false
-      description: 所需全景标尺插件版本号，当前仅支持0
-      schema:
-        type: string
-        default: 0
-    - name: locate
-      in: query
-      required: false
-      description: 多语言控制参数：枚举值：en-US（英文）、zh-CN（中文）、ja-JP（日文）
-      schema:
-        type: string
-        default: zh-CN
   responses:
     "200":
-      description: V1PanoRuler
+      description: V1PluginCruise
       content:
         application/json:
           schema:
@@ -58,7 +43,6 @@ get:
                 description: "服务端计算耗时，单位 ms"
               data:
                 properties:
-                  PanoRulerPlugin:
+                  auto_camera:
                     type: object
-                    description: "插件数据字段: 较为复杂后端无须理解，直接透传至SDK即可"
-
+                    description: "自动漫游序列帧数据，直接传递至SDK插件即可，无需理解"
