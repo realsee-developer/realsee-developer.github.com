@@ -157,7 +157,7 @@ paths:
       summary: |
         获取 access_token
       description: |
-        # 为什么签名
+        # 为什么鉴权
 
         与绝大多数 API 一样，为保证数据的安全性，如视开放平台 API 要求接入时加入鉴权流程。当前支持的鉴权流程包含两种：
         - 1 ~~参数签名~~。即通过特定的算法将请求参数(`Header/Body`)进行编码，其中包含 Unix 时间戳作为随机因子(**RANDOM FACTORS**)，以增加数据抓取的难度，保障数据安全。但当前由于算法实现较为复杂，为方便快速接入/应用先临时废弃，待后面全语言 SDK 均支持时，再重新开放。**已接入的业务方不受影响**。
@@ -792,12 +792,18 @@ paths:
     $ref: "./api/produce/list.yaml"
   /open/v1/produce/project/detail:
     $ref: "./api/produce/detail.yaml"
-  /open/v1/entity/pano_ruler/plugin:
-    $ref: "./api/extend/pano_ruler.yaml"
   /open/v1/url/space:
     $ref: "./api/tool/url_toolbox.yaml"
   /open/v1/shepherd/task/create:
     $ref: "./api/task/shepherd_task.yaml"
+  /open/v1/work/download:
+    $ref: "./api/transfer/fetch_download_url.yaml"
+  /open/v1/work/sign:
+    $ref: "./api/transfer/work_sign.yaml"
+  /open/v1/plugin/PangRulerPlugin:
+    $ref: "./api/plugin/pano_ruler.yaml"
+  /open/v1/plugin/CruisePlugin:
+    $ref: "./api/plugin/cruise.yaml"
 
 components:
   schemas:
@@ -1431,4 +1437,3 @@ components:
       type: http
       scheme: bearer
       bearerFormat: jwt
-
