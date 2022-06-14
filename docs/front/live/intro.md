@@ -23,8 +23,7 @@ title: 简介
   <div style={{display: 'flex',     background: 'white',
     justifyContent: 'center',
     alignItems: 'center',}}>
-    <div style={{flex:1}}><img style={{width:'100%'}} src="//vrlab-public.ljcdn.com/common/file/web/b8e0ccf8-a022-401c-a094-23f2f6058c2a.png
-" /></div>
+    <div style={{flex:1}}><img style={{width:'100%'}} src="//vrlab-public.ljcdn.com/common/file/web/5ccab87f-edda-4a4c-864b-6a7f9738fa8c.png" /></div>
   </div>
   <figcaption>图一：带看服务架构</figcaption>
 </figure>
