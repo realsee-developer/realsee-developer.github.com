@@ -14,11 +14,11 @@ title: 开发准备
 
 ## 公开数据集
 
-**如视三维空间的渲染强依赖于 [Work 数据](./get-started/terminology)**。
+**如视三维空间的渲染强依赖于 [Work 数据](./get-started/terminology.md)**。
 **Work** 是通过如视硬件设备（[如视扫描仪](https://realsee.com/website/product/hardware) 、[如视 Lite 全景相机](https://realsee.com/website/product/lite) 、[如视 VR App](https://realsee.com/website/mobile) ）扫描并经过算法加工之后生成的用于描述三维空间的数据。
 
 :::tip
-关于 **Work** 数据更详细的介绍请移步 **[什么是 Work](./get-started/terminology)**。
+关于 **Work** 数据更详细的介绍请移步 **[什么是 Work](./get-started/terminology.md)**。
 :::
 
 为便于社区开发、调试和研究，我们公开了部分 **Work** 数据集，
@@ -32,7 +32,7 @@ npm install @realsee/open-works
 
 也可以直接跳转至 [realsee-developer/open-works](https://github.com/realsee-developer/open-works) 查看、获取数据。
 
-准备好前端开发环境，拿到描述三维空间信息的 **Work** 数据之后，您就可以使用我们的 [**渲染引擎 Five**](./get-started/rendering-engine) 来着手开发您自己的三维空间 VR 应用。
+准备好前端开发环境，拿到描述三维空间信息的 **Work** 数据之后，您就可以使用我们的 [**渲染引擎 Five**](/docs/front/3d-space/get-started/rendering-engine) 来着手开发您自己的三维空间 VR 应用。
 
 :::tip
 当然，您也可以通过 [如视-开放平台](http://developers.realsee.com/) 和 [如视 VR App](https://realsee.com/website/mobile) 去生成您自己的 **Work** 数据，参考博客 [如视三维空间能力迅速 "尝鲜"](/blog/quick-start-with-api)。
