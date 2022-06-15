@@ -62,7 +62,7 @@ const spaceSidebar = {
       label: '快速实践',
       collapsed: false,
       items: [
-        "front/3d-space/get-started/usage/00.3d-space",
+        "front/3d-space/get-started/usage/3d-space",
         "front/3d-space/get-started/usage/five-state",
         "front/3d-space/get-started/usage/event-hooks",
         "front/3d-space/get-started/usage/conversion-coordinates",
