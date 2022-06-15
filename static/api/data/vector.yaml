@@ -72,7 +72,7 @@ get:
                           properties:
                             areas:
                               type: array
-                              decoration: "面"
+                              description: "面"
                               items:
                                 required:
                                   - id
@@ -112,7 +112,7 @@ get:
                                     $ref: "#/components/schemas/EndPoint"
                             lines:
                               type: array
-                              decoration: "线"
+                              description: "线"
                               items:
                                 required:
                                   - id
