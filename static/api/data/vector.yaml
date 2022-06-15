@@ -106,11 +106,15 @@ get:
                                     type: string
                                     description: "门/窗/其他"
                                   startPoint:
+                                    type: array
                                     description: "起始点"
-                                    $ref: "#/components/schemas/Point"
+                                    items:
+                                      $ref: "#/components/schemas/Point"
                                   endPoint:
-                                    description: "结束点"
-                                    $ref: "#/components/schemas/Point"
+                                    type: array
+                                    description: "终点"
+                                    items:
+                                      $ref: "#/components/schemas/Point"
                             lines:
                               type: array
                               items:
@@ -162,19 +166,17 @@ components:
           type: string
           description: "模型的二级品类描述"
     Point:
-      type: array
-      items:
-        required:
-          - x
-          - y
-        type: object
-        properties:
-          id:
-            type: string
-            description: "当前户型内唯一ID，并非全局唯一"
-          x:
-            type: number
-            description: "X坐标"
-          y:
-            type: number
-            description: "Y坐标"
+      required:
+        - x
+        - y
+      type: object
+      properties:
+        id:
+          type: string
+          description: "当前户型内唯一ID，并非全局唯一"
+        x:
+          type: number
+          description: "X坐标"
+        y:
+          type: number
+          description: "Y坐标"
