@@ -166,9 +166,6 @@ components:
         - y
       type: object
       properties:
-        id:
-          type: string
-          description: "当前户型内唯一ID，并非全局唯一"
         x:
           type: number
           description: "X坐标"
@@ -178,6 +175,20 @@ components:
     EndPoint:
       description: "终点"
       required:
+        - x
+        - y
+      type: object
+      properties:
+        x:
+          type: number
+          description: "X坐标"
+        y:
+          type: number
+          description: "Y坐标"
+    Point:
+      description: "终点"
+      required:
+        - id
         - x
         - y
       type: object
