@@ -72,6 +72,7 @@ get:
                           properties:
                             areas:
                               type: array
+                              decoration: "面"
                               items:
                                 required:
                                   - id
@@ -111,6 +112,7 @@ get:
                                     $ref: "#/components/schemas/EndPoint"
                             lines:
                               type: array
+                              decoration: "线"
                               items:
                                 required:
                                   - id
@@ -186,7 +188,7 @@ components:
           type: number
           description: "Y坐标"
     Point:
-      description: "终点"
+      description: "点"
       required:
         - id
         - x
