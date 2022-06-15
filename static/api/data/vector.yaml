@@ -104,7 +104,7 @@ get:
                                     description: "当前户型内唯一ID"
                                   is:
                                     type: string
-                                    decoration: "门/窗/其他"
+                                    description: "门/窗/其他"
                                   startPoint:
                                     description: "起始点"
                                     $ref: "#/components/schemas/Point"
