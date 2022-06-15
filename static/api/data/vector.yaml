@@ -1,0 +1,206 @@
+get:
+  summary: 设计方案矢量
+  tags:
+    - 数据集市
+  description: 提供标准的AI设计方案矢量数据，包括但不限于`户型结构数据、模型摆放数据`等
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: vr_code
+      in: query
+      description: "VR 编码，当前仅支持vr_type为`virtual`类型的数据，若已有`basic_render_code`请加`81`前缀,暨81 + 6V08KboE2Fe7eEj8(basic_render_code)作为vr_code传入"
+      required: true
+      schema:
+        type: string
+        default: "816V08KboE2Fe7eEj8"
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: object
+                properties:
+                  decoration:
+                    type: object
+                    description: "模型摆放数据部分"
+                    properties:
+                      components:
+                        type: array
+                        description: "定制模型"
+                        items:
+                          $ref: "#/components/schemas/Model"
+                      models:
+                        type: array
+                        description: "成品模型"
+                        items:
+                          $ref: "#/components/schemas/Model"
+                  floorplan:
+                    type: object
+                    description: "户型图数据部分"
+                    properties:
+                      cityName:
+                        type: string
+                        description: "城市名"
+                      floorplans:
+                        type: array
+                        description: "户型图数据"
+                        items:
+                          type: object
+                          properties:
+                            areas:
+                              type: array
+                              description: "面"
+                              items:
+                                required:
+                                  - id
+                                  - points
+                                  - type
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: "当前户型内唯一ID"
+                                  points:
+                                    description: "组合成Area的PointID集合"
+                                    items:
+                                      type: string
+                                  type:
+                                    type: number
+                                    description: "房间(Area)类型"
+                            lineItems:
+                              type: array
+                              items:
+                                required:
+                                  - endPoint
+                                  - id
+                                  - is
+                                  - startPoint
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: "当前户型内唯一ID"
+                                  is:
+                                    type: string
+                                    description: "门/窗/其他"
+                                  startPoint:
+                                    $ref: "#/components/schemas/StartPoint"
+                                  endPoint:
+                                    $ref: "#/components/schemas/EndPoint"
+                            lines:
+                              type: array
+                              description: "线"
+                              items:
+                                required:
+                                  - id
+                                  - points
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: "当前户型内唯一ID"
+                                  points:
+                                    description: "两端Point的ID集合"
+                                    items:
+                                      type: string
+                            points:
+                              $ref: "#/components/schemas/Point"
+                      id:
+                        type: string
+                        description: "户型唯一码，在floorplanid的基础上进行一层加密处理"
+                      resblockName:
+                        type: string
+                        description: "小区名"
+
+components:
+  schemas:
+    Model:
+      required:
+        - id
+        - matrix
+        - size
+        - type
+      type: object
+      properties:
+        id:
+          type: number
+          description: "模型ID，对应模型库或定制库ID，不唯一"
+        matrix:
+          type: array
+          description: "位置"
+          items:
+            type: number
+        size:
+          type: array
+          description: "长宽高"
+          items:
+            type: number
+        type:
+          type: string
+          description: "模型的二级品类描述"
+    StartPoint:
+      description: "起始点"
+      required:
+        - x
+        - y
+      type: object
+      properties:
+        x:
+          type: number
+          description: "X坐标"
+        y:
+          type: number
+          description: "Y坐标"
+    EndPoint:
+      description: "终点"
+      required:
+        - x
+        - y
+      type: object
+      properties:
+        x:
+          type: number
+          description: "X坐标"
+        y:
+          type: number
+          description: "Y坐标"
+    Point:
+      description: "点"
+      required:
+        - id
+        - x
+        - y
+      type: object
+      properties:
+        id:
+          type: string
+          description: "当前户型内唯一ID，并非全局唯一"
+        x:
+          type: number
+          description: "X坐标"
+        y:
+          type: number
+          description: "Y坐标"

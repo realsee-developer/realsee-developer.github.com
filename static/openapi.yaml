@@ -804,6 +804,8 @@ paths:
     $ref: "./api/plugin/pano_ruler.yaml"
   /open/v1/plugin/CruisePlugin:
     $ref: "./api/plugin/cruise.yaml"
+  /open/v1/data/vector:
+    $ref: "./api/data/vector.yaml"
 
 components:
   schemas:
