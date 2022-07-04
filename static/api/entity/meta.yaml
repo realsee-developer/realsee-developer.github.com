@@ -1,0 +1,83 @@
+get:
+  summary: 元(Meta)数据
+  tags:
+    - 核心实体
+  description: 提供VR元数据的查询，主要包括但不限于`标题、拍摄信息、渲染信息、Five中控参数`等
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: vr_code
+      in: query
+      description: "VR 编码"
+      required: true
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: object
+                properties:
+                  status:
+                    type: enums
+                    description: "VR 状态"
+                    enum: ["RENDER_DONE"]
+                  detail:
+                    type: object
+                    description: "详情数据"
+                    $ref: "#/components/schemas/Detail"
+                  original:
+                    type: object
+                    description: "原始信息: 采集/渲染时数据"
+                    $ref: "#/components/schemas/Original"
+components:
+  schemas:
+    Detail:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "VR 标题"
+        create_time:
+          type: string
+          description: "创建时间: 实景-项目创建时间; 虚拟-开始渲染时间"
+        picture_url:
+          type: string
+          description: "封面图片"
+    Original:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "拍摄设备名称"
+        bg_image:
+          type: string
+          description: "拍摄设备图片"
+        principle:
+          type: string
+          description: "采集引擎"
