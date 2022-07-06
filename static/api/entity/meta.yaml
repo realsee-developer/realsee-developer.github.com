@@ -46,7 +46,13 @@ get:
                   status:
                     type: enums
                     description: "VR 状态"
-                    enum: ["RENDER_DONE"]
+                    enum:
+                      [
+                        "RENDER_DONE",
+                        "RENDER_ING",
+                        "RENDER_PART_DONE",
+                        "RENDER_FAIL",
+                      ]
                   detail:
                     type: object
                     description: "详情数据"
@@ -55,6 +61,10 @@ get:
                     type: object
                     description: "原始信息: 采集/渲染时数据"
                     $ref: "#/components/schemas/Original"
+                  five:
+                    type: object
+                    description: "Five中控参数"
+                    $ref: "#/components/schemas/Five"
 components:
   schemas:
     Detail:
@@ -69,6 +79,12 @@ components:
         picture_url:
           type: string
           description: "封面图片"
+    Five:
+      type: object
+      properties:
+        notTextureResize:
+          type: boolean
+          description: "是否禁用纹理缩放"
     Original:
       type: object
       properties:

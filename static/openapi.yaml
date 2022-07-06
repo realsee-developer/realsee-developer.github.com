@@ -814,7 +814,8 @@ paths:
     $ref: "./api/resblock/suggest.yaml"
   /open/v1/floorplan/search:
     $ref: "./api/floorplan/search.yaml"
-
+  /open/v1/shepherd/virtual/render/ai/submit:
+    $ref: "./api/task/shepherd_virtual_render_ai_submit.yaml"
 
 components:
   schemas:
