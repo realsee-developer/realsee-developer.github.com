@@ -808,6 +808,13 @@ paths:
     $ref: "./api/data/vector.yaml"
   /open/v1/entity/meta:
     $ref: "./api/entity/meta.yaml"
+  /open/v1/city/list:
+    $ref: "./api/city/list.yaml"
+  /open/v1/resblock/suggest:
+    $ref: "./api/resblock/suggest.yaml"
+  /open/v1/floorplan/search:
+    $ref: "./api/floorplan/search.yaml"
+
 
 components:
   schemas:

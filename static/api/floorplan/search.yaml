@@ -1,0 +1,143 @@
+get:
+  summary: 户型检索
+  tags:
+    - 生产服务
+  description: 提供可生产(实景拍摄/虚拟设计)的户型(FLOORPLAN)搜索
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: source
+      in: query
+      description: "业务方标示"
+      required: true
+      schema:
+        type: string
+        default: "REALSEE"
+    - name: city_id
+      in: query
+      description: "城市ID"
+      required: false
+      schema:
+        type: number
+        default: 110000
+    - name: resblock_id
+      in: query
+      description: "小区ID"
+      required: false
+      schema:
+        type: string
+        default: "1111027380057"
+    - name: room_count
+      in: query
+      description: "**室**数量"
+      required: false
+      schema:
+        type: number
+        default: 2
+    - name: parlor_count
+      in: query
+      description: "**厅**数量"
+      required: false
+      schema:
+        type: number
+        default: 1
+    - name: area_min
+      in: query
+      description: "户型最小面积"
+      required: false
+      schema:
+        type: string
+        default: "50"
+    - name: area_max
+      in: query
+      description: "户型最大面积"
+      required: false
+      schema:
+        type: string
+        default: "180"
+    - name: area_sort
+      in: query
+      description: "面积排序方式"
+      required: false
+      schema:
+        type: string
+        default: "ASC"
+        enum: ["ASC", "DESC"]
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: array
+                description: "户型列表"
+                items:
+                  type: object
+                  required:
+                  properties:
+                    outer_edge_group_id:
+                      type: string
+                      description: "户型组ID"
+                      default: "c1abdcec-2480-4318-801d- 8517a592d001"
+                    room_count:
+                      type: number
+                      description: "**室**数量"
+                      default: 4
+                    parlor_count:
+                      type: number
+                      description: "**厅**数量"
+                      default: 2
+                    area:
+                      type: number
+                      description: "户型面积"
+                      default: 175.58
+                    image_url:
+                      type: string
+                      description: "户型图片地址"
+                      default: ""
+                    resblock_id:
+                      type: string
+                      description: "小区ID"
+                      default: "8708128625140685"
+                    resblock_name:
+                      type: string
+                      description: "小区名"
+                      default: "恒大⻰溪翡翠"
+                    district_name:
+                      type: string
+                      description: "城区名"
+                      default: "吴兴区"
+                    city_id:
+                      type: number
+                      description: "城市ID"
+                      default: 110000
+                    city_name:
+                      type: string
+                      description: "城市名"
+                      default: "北京"
+                    can_ai_design:
+                      type: number
+                      description: "是否可以进行AI设计"
+                      enum: [0, 1]
