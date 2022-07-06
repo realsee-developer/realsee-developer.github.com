@@ -21,7 +21,7 @@ get:
   responses:
     200:
       content:
-        "*/*":
+        application/json:
           schema:
             type: object
             properties:
@@ -53,6 +53,10 @@ get:
                         "RENDER_PART_DONE",
                         "RENDER_FAIL",
                       ]
+                  source:
+                    type: string
+                    description: "VR 来源"
+                    default: "REALSEE"
                   detail:
                     type: object
                     description: "详情数据"
@@ -76,9 +80,15 @@ components:
         create_time:
           type: string
           description: "创建时间: 实景-项目创建时间; 虚拟-开始渲染时间"
+        modify_time:
+          type: string
+          description: "更新时间"
         picture_url:
           type: string
           description: "封面图片"
+        url:
+          type: string
+          description: "中心化服务预览链接"
     Five:
       type: object
       properties:
@@ -97,3 +107,15 @@ components:
         principle:
           type: string
           description: "采集引擎"
+        outer_edge_group_id:
+          type: string
+          description: "户型组ID"
+          default: "cba55c60-f4c0-4ff4-b0c1-2e859763d137"
+        style_id:
+          type: number
+          description: "风格ID"
+          default: 1118
+        style_name:
+          type: string
+          description: "风格名"
+          default: "灰白简约"

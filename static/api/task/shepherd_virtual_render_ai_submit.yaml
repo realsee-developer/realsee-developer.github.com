@@ -5,7 +5,7 @@ post:
   description: |
     > 提交虚拟AI渲染任务
 
-    ##### 渲染状态枚举值
+    #### 渲染状态枚举值
     | 枚举值 | 说明 | 备注 |
     | - | - | - |
     | `RENDER_ING` | 渲染中 | 提交任务成功后进入该状态 |
@@ -13,12 +13,36 @@ post:
     | `RENDER_DONE` | 渲染完成 | - |
     | `RENDER_FAIL` | 渲染失败 | - |
 
-    ##### 渲染结果回调
+    #### 渲染结果回调
     - 回调地址在提交AI渲染接口的请求参数中由调用方指定
     - 回调请求的`Content-Type`为`application/json`
     - 请求参数以`JSON`格式编码。 只有在渲染完成或渲染失败时，才会回调该接口
 
-    ###### 回调ENDPOINT的返回规范
+    ##### 回调ENDPOINT的返回规范
+
+    ###### BODY
+    | 参数名                   | 类型   | 是否必需 | 说明                                              | 示例                                 |
+    | ------------------------ | ------ | -------- | ------------------------------------------------- | ------------------------------------ |
+    | callback_id              | string | no       | 回调 ID，在提交接口请求参数中指定                 | 123456                               |
+    | callback_context         | string | no       | 回调上下文，在提交接口请求参数中指定              |                                      |
+    | data                     | object | yes      | 回调数据                                          |                                      |
+    | data.source              | string | yes      | 业务来源                                          | REALSEE                              |
+    | data.basic_render_code   | string | yes      | 渲染惟一编码                                      | 0LLN24JAiz9D7dA0                     |
+    | data.outer_edge_group_id | string | yes      | 户型组 ID                                         | cba55c60-f4c0-4ff4-b0c1-2e859763d137 |
+    | data.style_id            | int    | yes      | 风格 ID                                           | 1118                                 |
+    | data.style_name          | string | yes      | 风格名                                            | 灰白简约                             |
+    | data.status              | string | yes      | 渲染状态，见渲染状态说明                          | RENDER_ING                           |
+    | data.url                 | string | yes      | 中心化服务渲染预览链接，status=RENDER_DONE 时有效 |                                      |
+    | data.cover_url           | string | yes      | 封面缩略图链接，status=RENDER_DONE 时有效         |                                      |
+    | data.create_time         | string | yes      | 创建时间                                          | 2022-07-04 17:43:53                  |
+    | data.update_time         | string | yes      | 更新时间                                          | 2022-07-04 17:43:53                  |
+
+    ###### 响应格式
+    | 参数名 | 类型 | 是否必需 | 说明 | 示例 |
+    | - | - | - | - |- |
+    | code | int | yes | 错误码, 0-正常，非 0 最多重试 3 次 | 0 |
+    | status | string | no | 错误状态 | success |
+    | request_id | string | no | 请求 ID | 35f34f6c-95a6-4708-a9e1-22f665bbd8b9 |
 
   parameters:
     - name: Authorization

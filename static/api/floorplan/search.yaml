@@ -1,5 +1,5 @@
 get:
-  summary: 户型检索
+  summary: 户型搜索
   tags:
     - 生产服务
   description: 提供可生产(实景拍摄/虚拟设计)的户型(FLOORPLAN)搜索
