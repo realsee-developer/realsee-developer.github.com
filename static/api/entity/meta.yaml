@@ -18,6 +18,13 @@ get:
       schema:
         type: string
         default: "80drj5DRZejY2Dq8Oe"
+    - name: locale
+      in: query
+      description: "默认zh_CN暨中文，请参考https://docs.oracle.com/cd/E23824_01/html/E26033/glset.html"
+      required: false
+      schema:
+        type: string
+        default: "zh_CN"
   responses:
     200:
       content:
@@ -77,6 +84,10 @@ components:
         name:
           type: string
           description: "VR 标题"
+        source:
+          type: string
+          description: "VR 来源"
+          default: "REALSEE"
         create_time:
           type: string
           description: "创建时间: 实景-项目创建时间; 虚拟-开始渲染时间"
@@ -119,3 +130,7 @@ components:
           type: string
           description: "风格名"
           default: "灰白简约"
+        cube_size:
+          type: string
+          description: "全景Cube图尺寸"
+          default: "2048×2048"
