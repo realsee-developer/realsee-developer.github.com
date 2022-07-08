@@ -60,10 +60,6 @@ get:
                         "RENDER_PART_DONE",
                         "RENDER_FAIL",
                       ]
-                  source:
-                    type: string
-                    description: "VR 来源"
-                    default: "REALSEE"
                   detail:
                     type: object
                     description: "详情数据"
@@ -133,4 +129,4 @@ components:
         cube_size:
           type: string
           description: "全景Cube图尺寸"
-          default: "2048×2048"
+          default: "2048"
