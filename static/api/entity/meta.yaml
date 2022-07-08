@@ -102,6 +102,9 @@ components:
         notTextureResize:
           type: boolean
           description: "是否禁用纹理缩放"
+        autoResize:
+          type: boolean
+          description: "是否自动缩放"
         min_fov:
           type: number
           description: "最小视角(Field Of View)"
