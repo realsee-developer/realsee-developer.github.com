@@ -102,6 +102,12 @@ components:
         notTextureResize:
           type: boolean
           description: "是否禁用纹理缩放"
+        min_fov:
+          type: number
+          description: "最小视角(Field Of View)"
+        max_fov:
+          type: number
+          description: "最大视角(Field Of View)"
     Original:
       type: object
       properties:
