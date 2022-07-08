@@ -108,6 +108,9 @@ components:
         max_fov:
           type: number
           description: "最大视角(Field Of View)"
+        tile_level:
+          type: number 
+          description: "瓦片等级: 0-4"
     Original:
       type: object
       properties:
