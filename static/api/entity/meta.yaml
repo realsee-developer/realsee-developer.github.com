@@ -99,10 +99,7 @@ components:
     Five:
       type: object
       properties:
-        notTextureResize:
-          type: boolean
-          description: "是否禁用纹理缩放"
-        autoResize:
+        auto_resize:
           type: boolean
           description: "是否自动缩放"
         min_fov:
@@ -112,7 +109,7 @@ components:
           type: number
           description: "最大视角(Field Of View)"
         tile_level:
-          type: number 
+          type: number
           description: "瓦片等级: 0-4"
     Original:
       type: object
