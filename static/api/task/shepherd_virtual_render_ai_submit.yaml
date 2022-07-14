@@ -62,7 +62,7 @@ post:
             outer_edge_group_id:
               description: "户型组ID"
               type: string
-              default: "c1abdcec-2480-4318-801d- 8517a592d001"
+              default: "c1abdcec-2480-4318-801d-8517a592d001"
             style_id:
               type: string
               description: "风格ID，支持固定的枚举值"
@@ -113,7 +113,7 @@ post:
                   outer_edge_group_id:
                     type: string
                     description: "户型组ID"
-                    default: "c1abdcec-2480-4318-801d- 8517a592d001"
+                    default: "c1abdcec-2480-4318-801d-8517a592d001"
                   style_id:
                     type: string
                     description: "风格ID"
