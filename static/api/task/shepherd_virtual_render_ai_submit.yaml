@@ -57,29 +57,21 @@ post:
       "application/json":
         schema:
           type: object
-          required: ["source", "outer_edge_group_id", "style_id"]
+          required: ["outer_edge_group_id", "style_id", "callback_id"]
           properties:
-            source:
-              description: "业务方标示"
-              type: string
-              default: "REALSEE"
             outer_edge_group_id:
               description: "户型组ID"
               type: string
               default: "c1abdcec-2480-4318-801d- 8517a592d001"
             style_id:
-              type: number
+              type: string
               description: "风格ID，支持固定的枚举值"
-              default: 1118
-              enum: [1118]
+              default: "1024"
+              enum: ["1024"]
             callback_id:
               type: string
               description: "回调ID，最大⻓度128"
               default: "123456"
-            callback_url:
-              type: string
-              description: "回调地址，最大⻓度1024"
-              default: "https://app-gateway.realsee.com/event/callback"
             callback_context:
               type: string
               description: "回调上下文，最大⻓度1024"
@@ -123,9 +115,9 @@ post:
                     description: "户型组ID"
                     default: "c1abdcec-2480-4318-801d- 8517a592d001"
                   style_id:
-                    type: number
+                    type: string
                     description: "风格ID"
-                    default: 1118
+                    default: "1024"
                   style_name:
                     type: string
                     description: "风格名"
