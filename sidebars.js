@@ -56,6 +56,7 @@ const spaceSidebar = {
     "front/3d-space/preparation",
     "front/3d-space/get-started/rendering-engine",
     "front/3d-space/get-started/install",
+    "front/3d-space/get-started/config",
 
     {
       type: 'category',
