@@ -128,9 +128,9 @@ components:
           description: "户型组ID"
           default: "cba55c60-f4c0-4ff4-b0c1-2e859763d137"
         style_id:
-          type: number
+          type: string 
           description: "风格ID"
-          default: 1118
+          default: "3" 
         style_name:
           type: string
           description: "风格名"
