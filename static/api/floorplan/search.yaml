@@ -24,7 +24,7 @@ get:
       required: false
       schema:
         type: string
-        default: "1111027380057"
+        default: "c11000000003714"
     - name: room_count
       in: query
       description: "**室**数量"
