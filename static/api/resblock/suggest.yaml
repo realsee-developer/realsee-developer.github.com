@@ -48,16 +48,19 @@ get:
                 type: integer
                 description: "服务端计算耗时，单位 ms"
               data:
-                type: array
-                description: "小区列表"
-                items:
-                  type: object
-                  properties:
-                    resblock_id:
-                      type: string
-                      description: "小区ID"
-                      default: "1111027380057"
-                    resblock_name:
-                      type: number
-                      description: "小区名"
-                      default: "天通苑中苑"
+                type: object
+                properties:
+                  list:
+                    type: array
+                    description: "小区列表"
+                    items:
+                      type: object
+                      properties:
+                        resblock_id:
+                          type: string
+                          description: "小区ID"
+                          default: "1111027380057"
+                        resblock_name:
+                          type: number
+                          description: "小区名"
+                          default: "天通苑中苑"
