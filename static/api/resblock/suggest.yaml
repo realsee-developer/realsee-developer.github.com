@@ -18,13 +18,6 @@ get:
       schema:
         type: string
         default: "融泽家园"
-    - name: source
-      in: query
-      description: "业务方标示"
-      required: true
-      schema:
-        type: string
-        default: "REALSEE"
     - name: city_id
       in: query
       description: "城市ID"
