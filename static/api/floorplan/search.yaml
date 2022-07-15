@@ -85,10 +85,10 @@ get:
                 description: "服务端计算耗时，单位 ms"
               data:
                 type: object
-                description: "户型列表"
                 properties:
                   list:
                     type: array
+                    description: "户型列表"
                     properties:
                     items:
                       type: object
