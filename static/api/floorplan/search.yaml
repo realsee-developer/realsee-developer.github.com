@@ -11,13 +11,6 @@ get:
       schema:
         type: string
         default: your_access_token
-    - name: source
-      in: query
-      description: "业务方标示"
-      required: true
-      schema:
-        type: string
-        default: "REALSEE"
     - name: city_id
       in: query
       description: "城市ID"
@@ -31,7 +24,7 @@ get:
       required: false
       schema:
         type: string
-        default: "1111027380057"
+        default: "c11000000003714"
     - name: room_count
       in: query
       description: "**室**数量"
@@ -91,53 +84,57 @@ get:
                 type: integer
                 description: "服务端计算耗时，单位 ms"
               data:
-                type: array
-                description: "户型列表"
-                items:
-                  type: object
-                  required:
-                  properties:
-                    outer_edge_group_id:
-                      type: string
-                      description: "户型组ID"
-                      default: "c1abdcec-2480-4318-801d- 8517a592d001"
-                    room_count:
-                      type: number
-                      description: "**室**数量"
-                      default: 4
-                    parlor_count:
-                      type: number
-                      description: "**厅**数量"
-                      default: 2
-                    area:
-                      type: number
-                      description: "户型面积"
-                      default: 175.58
-                    image_url:
-                      type: string
-                      description: "户型图片地址"
-                      default: ""
-                    resblock_id:
-                      type: string
-                      description: "小区ID"
-                      default: "8708128625140685"
-                    resblock_name:
-                      type: string
-                      description: "小区名"
-                      default: "恒大⻰溪翡翠"
-                    district_name:
-                      type: string
-                      description: "城区名"
-                      default: "吴兴区"
-                    city_id:
-                      type: number
-                      description: "城市ID"
-                      default: 110000
-                    city_name:
-                      type: string
-                      description: "城市名"
-                      default: "北京"
-                    can_ai_design:
-                      type: number
-                      description: "是否可以进行AI设计"
-                      enum: [0, 1]
+                type: object
+                properties:
+                  list:
+                    type: array
+                    description: "户型列表"
+                    properties:
+                    items:
+                      type: object
+                      required:
+                      properties:
+                        outer_edge_group_id:
+                          type: string
+                          description: "户型组ID"
+                          default: "c1abdcec-2480-4318-801d-8517a592d001"
+                        room_count:
+                          type: number
+                          description: "**室**数量"
+                          default: 4
+                        parlor_count:
+                          type: number
+                          description: "**厅**数量"
+                          default: 2
+                        area:
+                          type: number
+                          description: "户型面积"
+                          default: 175.58
+                        image_url:
+                          type: string
+                          description: "户型图片地址"
+                          default: ""
+                        resblock_id:
+                          type: string
+                          description: "小区ID"
+                          default: "8708128625140685"
+                        resblock_name:
+                          type: string
+                          description: "小区名"
+                          default: "恒大⻰溪翡翠"
+                        district_name:
+                          type: string
+                          description: "城区名"
+                          default: "吴兴区"
+                        city_id:
+                          type: number
+                          description: "城市ID"
+                          default: 110000
+                        city_name:
+                          type: string
+                          description: "城市名"
+                          default: "北京"
+                        can_ai_design:
+                          type: number
+                          description: "是否可以进行AI设计"
+                          enum: [0, 1]

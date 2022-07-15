@@ -18,6 +18,13 @@ get:
       schema:
         type: string
         default: "80drj5DRZejY2Dq8Oe"
+    - name: locale
+      in: query
+      description: "默认zh_CN暨中文，请参考https://docs.oracle.com/cd/E23824_01/html/E26033/glset.html"
+      required: false
+      schema:
+        type: string
+        default: "zh_CN"
   responses:
     200:
       content:
@@ -53,10 +60,6 @@ get:
                         "RENDER_PART_DONE",
                         "RENDER_FAIL",
                       ]
-                  source:
-                    type: string
-                    description: "VR 来源"
-                    default: "REALSEE"
                   detail:
                     type: object
                     description: "详情数据"
@@ -77,6 +80,10 @@ components:
         name:
           type: string
           description: "VR 标题"
+        source:
+          type: string
+          description: "VR 来源"
+          default: "REALSEE"
         create_time:
           type: string
           description: "创建时间: 实景-项目创建时间; 虚拟-开始渲染时间"
@@ -92,9 +99,18 @@ components:
     Five:
       type: object
       properties:
-        notTextureResize:
+        auto_resize:
           type: boolean
-          description: "是否禁用纹理缩放"
+          description: "是否自动缩放"
+        min_fov:
+          type: number
+          description: "最小视角(Field Of View)"
+        max_fov:
+          type: number
+          description: "最大视角(Field Of View)"
+        tile_level:
+          type: number
+          description: "瓦片等级: 0-4"
     Original:
       type: object
       properties:
@@ -112,10 +128,14 @@ components:
           description: "户型组ID"
           default: "cba55c60-f4c0-4ff4-b0c1-2e859763d137"
         style_id:
-          type: number
+          type: string 
           description: "风格ID"
-          default: 1118
+          default: "3" 
         style_name:
           type: string
           description: "风格名"
           default: "灰白简约"
+        cube_size:
+          type: string
+          description: "全景Cube图尺寸"
+          default: "2048"
