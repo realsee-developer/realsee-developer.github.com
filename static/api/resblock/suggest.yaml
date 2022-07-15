@@ -17,7 +17,7 @@ get:
       required: true
       schema:
         type: string
-        default: "融泽家园"
+        default: "京粮悦"
     - name: city_id
       in: query
       description: "城市ID"
