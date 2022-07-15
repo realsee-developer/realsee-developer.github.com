@@ -804,6 +804,20 @@ paths:
     $ref: "./api/plugin/pano_ruler.yaml"
   /open/v1/plugin/CruisePlugin:
     $ref: "./api/plugin/cruise.yaml"
+  /open/v1/data/vector:
+    $ref: "./api/data/vector.yaml"
+  /open/v1/entity/meta:
+    $ref: "./api/entity/meta.yaml"
+  /open/v1/city/list:
+    $ref: "./api/city/list.yaml"
+  /open/v1/resblock/suggest:
+    $ref: "./api/resblock/suggest.yaml"
+  /open/v1/floorplan/search:
+    $ref: "./api/floorplan/search.yaml"
+  /open/v1/shepherd/virtual/render/ai/submit:
+    $ref: "./api/task/shepherd_virtual_render_ai_submit.yaml"
+  /open/v1/shepherd/virtual/render/ai/style:
+    $ref: "./api/task/shepherd_virtual_render_ai_style.yaml"
 
 components:
   schemas:
