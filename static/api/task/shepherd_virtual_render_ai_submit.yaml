@@ -62,12 +62,12 @@ post:
             outer_edge_group_id:
               description: "户型组ID"
               type: string
-              default: "c1abdcec-2480-4318-801d-8517a592d001"
+              default: "42f78e14-a468-4ee5-bea1-6ca548112b9a"
             style_id:
               type: string
               description: "风格ID，支持固定的枚举值"
-              default: "1024"
-              enum: ["1024"]
+              default: "3"
+              enum: ["3"]
             callback_id:
               type: string
               description: "回调ID，最大⻓度128"
@@ -115,9 +115,9 @@ post:
                     description: "户型组ID"
                     default: "c1abdcec-2480-4318-801d-8517a592d001"
                   style_id:
-                    type: string
+                    type: number 
                     description: "风格ID"
-                    default: "1024"
+                    default: 3
                   style_name:
                     type: string
                     description: "风格名"
@@ -145,7 +145,7 @@ post:
                     type: string
                     description: "创建时间"
                     default: "2022-07-04 17:43:53"
-                  modify_time:
+                  update_time:
                     type: string
                     description: "更新时间"
                     default: "2022-07-04 17:43:53"
