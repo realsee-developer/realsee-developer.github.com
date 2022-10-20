@@ -4,8 +4,8 @@ title: 配置说明
 
 # Five 初始化配置使用说明
 
-:::info 
-在初始化 five 实例时，可以配置的参数项具体可参考 **[FiveInitArgs](https://unpkg.com/@realsee/five/docs/interfaces/five.FiveInitArgs.html) **
+:::info
+在初始化 five 实例时，可以配置的参数项具体可参考 **[FiveInitArgs](https://unpkg.com/@realsee/five/docs/interfaces/five.FiveInitArgs.html)**
 ，以下几个配置项将直接影响到 VR 体验，我们在此为您详细说明。
 :::
 
@@ -90,7 +90,7 @@ Five 引擎通过 work 中的 `panorama.list.tiles` 实现全景图瓦片加载�
 
 ```
 
-:::tip 提示 
+:::tip 提示
 瓦片图片的切割默认使用腾讯云数据万象实现。如果不是腾讯云图片域名，则需要按照对应万象配置 `imageOptions` 规则。
 :::
 
@@ -99,6 +99,7 @@ Five 引擎通过 work 中的 `panorama.list.tiles` 实现全景图瓦片加载�
 **瓦片配置示例：**
 
 初始加载 512*512 尺寸的全景图，然后根据引擎内置的规则加载更高清的全景图。
+
 ```ts
 const five = new Five({
     imageOptions: {
@@ -129,6 +130,7 @@ const five = new Five({
 ## textureOptions
 
 ### 基础配置
+
 `textureOptions` 是模型贴图的配置参数，可以动态对配置在 work 数据中的模型贴图在 runtime 做 url 调整。 以平衡加载时间和图片质量，配置示例：
 
 ``` ts
@@ -140,7 +142,7 @@ const five = new Five({
 })
 ```
 
-一般我们 work 数据里包含的模型分为两种类型，`domez`` 和 `at3d`，具体类型可通过查看 `work.model.file_url` 字段的后缀名得知，我们推荐根据模型的类型来设定模型贴图的 `size` 以达到更好的 VR 体验效果。配置示例：
+一般我们 work 数据里包含的模型分为两种类型，`domez`` 和`at3d`，具体类型可通过查看`work.model.file_url`字段的后缀名得知，我们推荐根据模型的类型来设定模型贴图的`size` 以达到更好的 VR 体验效果。配置示例：
 
 ``` ts
 const five = new Five({
@@ -155,7 +157,7 @@ const five = new Five({
 如您在某些特定场景需要展示未被压缩质量的原始模型，可以不设置此参数。当然，这不可避免的可能会发生因为模型资源过大而引发加载速度过慢或者卡顿的问题。
 :::
 
-### autoResize 
+### autoResize
 
 textureOptions 支持 `autoResize`， 此配置项默认为 `true`。如果配置为 true，Five 渲染引擎将根据模型贴图的数量自适应地计算合适的模型贴图尺寸。引擎内置逻辑如下：
 
@@ -175,23 +177,39 @@ if (textureOptions.autoResize !== false) {
 }
 ```
 
-## 数据万象
+## 图床服务
 
 :::warning
-Five 引擎内部目前默认使用腾讯云数据万象，其他类型数据万象的配置仅做参考，建议直接参考所使用的供应方官网配置文档。
+Five 引擎内部目前默认使用腾讯云数据万象服务，其他对象存储的相关配置仅做参考，建议直接参考所使用的供应方官网配置文档。
 :::
 
-### 阿里云数据万象
+### 阿里云对象存储OSS
 
 ```ts
 export const imageOptions = {
   format: "jpg", // 格式 可选 "jpg" | "png" | "heif" | "webp" | "avif"
-  quality: 70, // 图片质量参数(0-100)
-  size: 2048, // 图片尺寸参数 尽量使用 2 的幂次 如 512 1024 2048
-  transform: (url: string, options: ImageURLOptions) => {
-    const { format, quality, size } = options;
+  quality: 100, // 图片质量参数(0-100)
+  size: 2048, // 图片尺寸参数 尽量使用 2 的幂次 如 512 1024 2048，瓦片使用512
+  transform: (
+    source: string,
+    options: {
+      size?: number;
+      quality?: number;
+      format?: "jpg" | "png" | "heif" | "webp" | "avif";
+      cut?: [number, number, number, number];
+      sharpen?: number;
+    }
+  ) => {
+    let base = source.split("?")[0];
+    let ext = base.split(".").pop();
 
-    const params = ["x-oss-process=image"];
+    if (ext === "jpeg") ext = "jpg";
+    if (ext !== "png" && ext !== "jpg") return source;
+
+    let suffix: string = "";
+
+    const params: string[] = ["x-oss-process=image"];
+    const { format, quality, size } = options;
 
     // 图片缩放
     // https://help.aliyun.com/document_detail/44688.htm?spm=a2c4g.11186623.0.0.ea05890eIlPbUs#concept-hxj-c4n-vdb
@@ -199,38 +217,42 @@ export const imageOptions = {
       params.push(`resize,w_${size}`);
     }
 
+    // 自定义裁剪
+    // https://help.aliyun.com/document_detail/44693.html
+    if (options.cut !== undefined) {
+      const [x, y, width, height] = options.cut;
+      params.push(`crop,x_${x},y_${y},w_${width},h_${height},g_nw`);
+    }
+
     // 图片处理包含缩放操作时，建议将格式转换参数放到处理参数的最后。
     // https://help.aliyun.com/document_detail/44703.htm?spm=a2c4g.11186623.0.0.ea0532458MXRu0#concept-mf3-md5-vdb
-    if (format && !url.endsWith(format)) {
+    if (format !== undefined && format !== ext) {
       params.push(`format,${format}`);
     }
 
     // 图片质量
     // 质量变换仅支持JPG和WebP，其他图片格式不支持。
     // https://help.aliyun.com/document_detail/44705.htm?spm=a2c4g.11186623.0.0.ea053245KXAlE2#concept-exc-qp5-vdb
-    if (
-      quality &&
-      quality !== 100 &&
-      ((format && ["jpg", "webp"].includes(format)) ||
-        url.endsWith("jpg") ||
-        url.endsWith("webp"))
-    ) {
-      params.push(`quality,Q_${quality}`);
+    if (quality !== undefined && quality !== 100) {
+      const format = options.format ?? ext;
+      if (format && ["jpg", "webp"].indexOf(format) >= 0) {
+        params.push(`quality,Q_${quality}`);
+      }
     }
 
-    if (params.length > 1) {
-      return `${url}?${params.join("/")}`;
-    } else {
-      return url;
+    // 锐化
+    // https://help.aliyun.com/document_detail/44700.html
+    if (options.sharpen !== undefined) {
+      params.push(`sharpen,${options.sharpen}`);
     }
+
+    // 拼接参数
+    if (params.length) {
+      suffix = "?" + params.join("/");
+    }
+    return base + suffix;
   },
 };
-
-interface ImageURLOptions {
-  quality: number;
-  format: string;
-  size: number;
-}
 
 const url = imageOptions.transform(
   "https://dts-test.bellecdn.com/806gyq3vl4Zpy97JO1/6gyq3vl4Zpy97JO1/images/cube_2048/6/bcaaac09c0edbacef756205bf6db9895/6_r.jpg",
@@ -240,7 +262,6 @@ const url = imageOptions.transform(
 // console.log(url)
 
 ```
-
 
 ## 如视推荐配置示例
 
@@ -292,5 +313,3 @@ if (需要展示高清模型) {
 }
 
 ```
-
-
