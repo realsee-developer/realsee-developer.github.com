@@ -155,6 +155,7 @@ const spaceSidebar = {
         },
         "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin",
         "front/3d-space/advanced/dnalogel/ModelChassisCompassPlugin",
+        "front/3d-space/advanced/dnalogel/ModelEntryDoorGuidePlugin",
         "front/3d-space/advanced/dnalogel/PanoRulerPlugin",
         "front/3d-space/advanced/dnalogel/PanoRulerProPlugin",
         "front/3d-space/advanced/dnalogel/PanoCompassPlugin",
