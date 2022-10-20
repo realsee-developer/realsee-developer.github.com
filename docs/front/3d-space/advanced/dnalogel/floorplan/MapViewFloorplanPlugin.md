@@ -1,17 +1,17 @@
 ---
-title: 📦 模型户型图
+title: 📦 大空间模型户型图
 ---
 
-## **ModelFloorplanPlugin**
+## **MapviewFloorplanPlugin**
 
 :::tip 此插件强依赖于**户型图数据**，请率先了解如何获取户型图数据。
 :::
 
 ## 功能说明
 
-**模型户型图插件** 无缝集成了一套基于 VR 3D 模型状态下户型图交互。
+**大空间模型户型图插件** 是对模型户型图插件的**升级版本**，**新增了缩放和拖动的手势操作**。
 
-借助此插件，您可以在 VR 3D 模型状态下展示更详细的二维户型图，集成的功能如下：
+借助此插件，您可以在 VR 3D 模型状态下展示更详细的二维户型图，除却以下同模型户型图插件实现的相同功能：
 - 支持二维户型图( png / svg 格式)展示。
 - 房屋标签展示: **支持自定义标签样式**。
 - 展示进入二维户型图前，相机位置和朝向: **支持自定义相机图标**。
@@ -21,10 +21,14 @@ title: 📦 模型户型图
 - 指北针展示: 暂不支持配置，但可以借助 CSS 选择器优先级方式覆盖原有样式。
 - 支持手势快捷操作：在二维户型图界面进行滑动，会快速切换到模型状态；在模型状态松手时，如果比较接近户型图的展示角度，会自动旋转模型，并展示户型图。此功能**支持配置**是否禁用。
 
+**大空间模型户型图还增加了以下功能：**
+- 等比放大、缩小二维户型图与 VR 3D模型，保证二者的对齐。
+- 拖动查看放大后的户型图展示，可以精准查看户型图的某一区域内容。
+
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelFloorplanPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/MapviewFloorplanPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用
@@ -38,22 +42,26 @@ npm install @realsee/dnalogel
 **通过 es 引用：**
 
 ```tsx
-import ModelFloorplanPlugin from "@realsee/dnalogel"
+import MapviewFloorplanPlugin from "@realsee/dnalogel"
 ```
 
 ## 开发指南
 
+:::tip 
+此插件的使用方式与模型户型图插件**完全一致**，包括初始化、数据载入、核心方法调用、自定义配置以及事件 hooks 使用，展示效果也基本相同，主要区别于**大空间模型户型图插件增加了缩放和拖动功能**，如果您已经掌握了模型户型图插件的使用，您也就掌握了大空间模型户型图插件的使用方式，只需要根据合适的使用场景调用即可。
+:::
+
 ### 初始化
-在初始化 `Five` 实例的时候，将 `ModelFloorplanPlugin` 配置在初始化插件参数即可。
+在初始化 `Five` 实例的时候，将 `MapviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
 import Five, { FivePluginInits } from '@realsee/five'
-import ModelFloorplanPlugin from '@realsee/dnalogel'
+import MapviewFloorplanPlugin from '@realsee/dnalogel'
 
 // 初始化 five 实例
 const five = new Five({
   plugins: [
-    [ModelFloorplanPlugin, "modelFloorplan", {
+    [MapviewFloorplanPlugin, "mapviewFloorplan", {
       // 初始化参数
     }]
   ]
@@ -61,7 +69,7 @@ const five = new Five({
 ```
 
 ### React 初始化
-在创建 FiveProvider 组件时将 `ModelFloorplanPlugin` 配置在初始化插件参数即可。
+在创建 FiveProvider 组件时将 `MapviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
 import { createFiveProvider } from '@realsee/five/react'
@@ -69,7 +77,7 @@ import { createFiveProvider } from '@realsee/five/react'
 // 创建 FiveProvider 组件
 const FiveProvider = createFiveProvider({
     plugins: [
-        [ModelFloorplanPlugin, "modelFloorplan", {
+        [MapviewFloorplanPlugin, "mapviewFloorplan", {
             // 初始化参数
         }]
     ]
@@ -77,7 +85,7 @@ const FiveProvider = createFiveProvider({
 ```
 
 ### Vue 初始化
-在使用 `FiveProvider` 时，将 `ModelFloorplanPlugin` 配置在初始化插件参数即可。
+在使用 `FiveProvider` 时，将 `MapviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```vue
 <template>
@@ -85,13 +93,13 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import  ModelFloorplanPlugin from "@realsee/dnalogel/libs/ModelFloorplanPlugin";
+import  MapviewFloorplanPlugin from "@realsee/dnalogel/libs/MapviewFloorplanPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [
         [
-            ModelFloorplanPlugin,
-            'modelFloorplanPlugin', // 自定义插件名称
+            MapviewFloorplanPlugin,
+            'mapviewFloorplanPlugin', // 自定义插件名称
             {
                 // 参数配置
             }
@@ -105,14 +113,14 @@ const fiveInitArgs = {
 
 ```ts
 // 获取插件实例
-const pluginInstance = five.plugins.modelFloorplan
+const pluginInstance = five.plugins.mapviewFloorplan
 // 载入数据
 pluginInstance.load(floorplanServerData)
 ```
 
 ### 插件核心方法
 
-**ModelFloorplanPlugin** 提供的核心方法有：
+**MapviewFloorplanPlugin** 提供的核心方法有：
 
 - `load(data: FloorplanServerData)` 载入户型图数据
 
@@ -155,7 +163,7 @@ interface ShowOpts {
 
 ### 自定义配置
 
-**ModelFloorplanPlugin** 支持丰富的自定义配置选项（详见[ModelFloorplanParameterType]），常见的配置项有：
+**MapviewFloorplanPlugin** 支持丰富的自定义配置选项（详见[MapviewFloorplanParameterType]），常见的配置项有：
 
 - `selector?: string | Element` 插件挂载的 DOM 节点
 
@@ -194,7 +202,7 @@ interface ShowOpts {
 户型图展示结束，只会在从不可见到可见触发，调用多次show只会触发一次 showAnimationEnded。
 
 ```ts
-five.plugins.modelFloorplan.hooks.on('showAnimationEnded', ({ auto, userAction }) => {
+five.plugins.mapviewFloorplan.hooks.on('showAnimationEnded', ({ auto, userAction }) => {
   console.log('是否是用户滑动模型导致的户型图自动展示: ', auto)
   console.log('是否是用户行为导致的户型图展示: ', userAction)
   console.log('户型图展示完成')
@@ -206,7 +214,7 @@ five.plugins.modelFloorplan.hooks.on('showAnimationEnded', ({ auto, userAction }
 户型图消失完成
 
 ```ts
-five.plugins.modelFloorplan.hooks.on('hide', ({ auto, userAction }) => {
+five.plugins.mapviewFloorplan.hooks.on('hide', ({ auto, userAction }) => {
   console.log('是否是用户滑动模型导致的户型图自动消失: ', auto)
   console.log('是否是用户行为导致的户型图消失: ', userAction)
   console.log('户型图已经消失')
@@ -214,5 +222,4 @@ five.plugins.modelFloorplan.hooks.on('hide', ({ auto, userAction }) => {
 ```
 
 ## demo 源码参考
-
 [demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)
