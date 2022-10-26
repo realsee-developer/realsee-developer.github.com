@@ -810,9 +810,9 @@ paths:
     $ref: "./api/entity/meta.yaml"
   /open/v1/editor/detail:
     $ref: "./api/editor/custom/detail.yaml"
-  /open/v1/editor/guide:
+  /open/v1/editor/route/list:
     $ref: "./api/editor/custom/route/list.yaml"
-  /open/v1/editor/info:
+  /open/v1/editor/card/info:
     $ref: "./api/editor/custom/card/info.yaml"
   /open/v1/city/list:
     $ref: "./api/city/list.yaml"
