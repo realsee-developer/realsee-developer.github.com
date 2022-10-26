@@ -55,7 +55,7 @@ get:
                     description: "联系人名称"
                   agent_title:
                     type: string
-                      description: "联系人介绍"
+                    description: "联系人介绍"
                   agent_virtual_phone:
                       type: string
                       description: "联系人电话"
@@ -64,14 +64,14 @@ get:
                     description: "联系人头像"
                   mappings:
                     type: array
-                      description: "信息项"
-                      items:
-                        title:
-                          type: string
-                          description: "标题"
-                        content:
-                          type: string
-                          description: "内容"
-                        is_block:
-                          type: bool
-                          description: "是否整行展示"
+                    description: "信息项"
+                    items:
+                      title:
+                        type: string
+                        description: "标题"
+                      content:
+                        type: string
+                        description: "内容"
+                      is_block:
+                        type: bool
+                        description: "是否整行展示"
