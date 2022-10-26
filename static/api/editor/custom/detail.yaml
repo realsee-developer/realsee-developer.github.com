@@ -1,5 +1,5 @@
 get:
-  summary: 基础信息
+  summary: 基础信息123
   tags:
     - 数据集市
   description: VR的基础信息，包含：名称、描述、地址等
