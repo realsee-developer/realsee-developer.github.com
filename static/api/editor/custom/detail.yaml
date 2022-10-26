@@ -1,7 +1,7 @@
 get:
   summary: 基础信息
   tags:
-    - 数据集市
+    - 编辑实体
   description: VR的基础信息，包含：名称、描述、地址等
   parameters:
     - name: Authorization
@@ -57,9 +57,9 @@ get:
                     type: string
                     description: "介绍"
                   bd_location:
-                      type: object
-                      description: "地理位置"
-                      $ref: "#/components/schemas/bd_location"
+                    type: object
+                    description: "地理位置"
+                    $ref: "#/components/schemas/bd_location"
                   backdrop_filter:
                     type: object
                     description: "滤镜数据"
