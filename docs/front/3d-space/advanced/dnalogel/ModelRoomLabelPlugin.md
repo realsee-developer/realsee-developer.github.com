@@ -9,6 +9,7 @@ title: 模型分间标签
 **模型房屋标签插件** 集成了一套能够在模型状态下快速查看房间名称 & 快速访问房间全景的交互。
 
 详细功能点如下：
+
 - 在模型态下，用标签展示对应的房屋名称。
 - 当标签标记的房间被其他房屋所遮挡时，自动隐藏此标签。
 - 移动模型时，对应标签也能跟随模型移动。
@@ -31,7 +32,6 @@ import {PlaygroundCard} from '@site/src/components/Playground';
  />
 ```
 
-
 ## 安装引用
 
 **请按需选择 `yarn` 或 `npm` 安装方式：**
@@ -49,6 +49,7 @@ import { ModelRoomLabelPlugin } from "@realsee/dnalogel"
 ## 开发指南
 
 ### 初始化
+
 在初始化 `Five` 实例时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -69,6 +70,7 @@ const five = new Five({
 ```
 
 ### React 初始化
+
 在创建 `FiveProvider` 时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -89,6 +91,7 @@ const FiveProvider = createFiveProvider({
 ```
 
 ### Vue 初始化
+
 在使用 `FiveProvider` 时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```vue
@@ -112,7 +115,6 @@ const fiveInitArgs = {
 }
 </script>
 ```
-
 
 ### 载入数据
 
@@ -146,7 +148,7 @@ React.useEffect(() => {
 - `load(data: ModelRoomLabelPluginData)` 载入插件数据
 
 > 您需要手动载入插件数据，数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
- 
+
 - `appendTo(wrapper: Element)` 挂载 DOM 节点
 
 > 您可以将插件 DOM 模块载入您的 HTML 结构中。
@@ -154,4 +156,3 @@ React.useEffect(() => {
 ## demo 源码参考
 
 [demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)
-

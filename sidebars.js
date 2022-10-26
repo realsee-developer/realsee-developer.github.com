@@ -149,11 +149,15 @@ const spaceSidebar = {
             "front/3d-space/advanced/dnalogel/floorplan/getFloorplanData", //folder_name/file_name
             "front/3d-space/advanced/dnalogel/floorplan/PanoFloorplanRadarPlugin", //folder_name/file_name
             "front/3d-space/advanced/dnalogel/floorplan/ModelFloorplanPlugin", //folder_name/file_name
+            "front/3d-space/advanced/dnalogel/floorplan/MapViewFloorplanPlugin", //folder_name/file_name
             "front/3d-space/advanced/dnalogel/floorplan/TopviewFloorplanPlugin", //folder_name/file_name
           ]
         },
         "front/3d-space/advanced/dnalogel/ModelRoomLabelPlugin",
+        "front/3d-space/advanced/dnalogel/ModelChassisCompassPlugin",
+        "front/3d-space/advanced/dnalogel/ModelEntryDoorGuidePlugin",
         "front/3d-space/advanced/dnalogel/PanoRulerPlugin",
+        "front/3d-space/advanced/dnalogel/PanoRulerProPlugin",
         "front/3d-space/advanced/dnalogel/PanoCompassPlugin",
         "front/3d-space/advanced/dnalogel/components/PaintBrush",
       ]
