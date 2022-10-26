@@ -818,8 +818,13 @@ paths:
     $ref: "./api/task/shepherd_virtual_render_ai_submit.yaml"
   /open/v1/shepherd/virtual/render/ai/style:
     $ref: "./api/task/shepherd_virtual_render_ai_style.yaml"
-  /open/v1/editor/fuck:
+  /open/v1/editor/detail:
     $ref: "./api/editor/custom/detail.yaml"
+  /open/v1/editor/guide:
+    $ref: "./api/editor/custom/route/list.yaml"
+  /open/v1/editor/info:
+    $ref: "./api/editor/custom/card/info.yaml"
+
 
 
 components:
