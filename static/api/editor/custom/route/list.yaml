@@ -1,0 +1,65 @@
+get:
+  summary: 引导路线列表
+  tags:
+    - 数据集市
+  description: VR的引导路线列表
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: source
+      in: query
+      description: "业务方标识，例如：T-RZ4L2XQD"
+      required: true
+      schema:
+        type: string
+        default: "T-RZ4L2XQD"
+    - name: resource_code
+      in: query
+      description: "VR副本编码，例如：8oep3ZPGW8TjRlyT7x"
+      required: true
+      schema:
+        type: string
+        default: "8oep3ZPGW8TjRlyT7x"
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: object
+                properties:
+                  list:
+                    type: array
+                      description: "路线列表"
+                      items:
+                        title:
+                          type: string
+                          description: "路线名称"
+                        display_index:
+                          type: integer
+                          description: "路线展示顺序，从1开始"
+                        pano_group:
+                          type: array
+                          description: "点位数组"

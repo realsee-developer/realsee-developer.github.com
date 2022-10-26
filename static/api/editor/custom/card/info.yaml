@@ -1,0 +1,77 @@
+get:
+  summary: 卡片信息详情
+  tags:
+    - 数据集市
+  description: VR的卡片信息详情
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: source
+      in: query
+      description: "业务方标识，例如：T-RZ4L2XQD"
+      required: true
+      schema:
+        type: string
+        default: "T-RZ4L2XQD"
+    - name: resource_code
+      in: query
+      description: "VR副本编码，例如：8oep3ZPGW8TjRlyT7x"
+      required: true
+      schema:
+        type: string
+        default: "8oep3ZPGW8TjRlyT7x"
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: object
+                properties:
+                  agent_name:
+                    type: string
+                    description: "联系人名称"
+                  agent_title:
+                    type: string
+                      description: "联系人介绍"
+                  agent_virtual_phone:
+                      type: string
+                      description: "联系人电话"
+                  agent_avatar:
+                    type: string
+                    description: "联系人头像"
+                  mappings:
+                    type: array
+                      description: "信息项"
+                      items:
+                        title:
+                          type: string
+                          description: "标题"
+                        content:
+                          type: string
+                          description: "内容"
+                        is_block:
+                          type: bool
+                          description: "是否整行展示"
