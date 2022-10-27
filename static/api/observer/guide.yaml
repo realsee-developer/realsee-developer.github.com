@@ -20,7 +20,7 @@ get:
         default: "80drj5DRZejY2Dq8Oe"
     - name: resource_code
       in: query
-      description: "VR副本编码，例如：8oep3ZPGW8TjRlyT7x"
+      description: "VR副本编码，例如：8oep3ZPGW8TjRlyT7x。`vr_code`和`resource_code`二者传其一即可"
       required: false
       schema:
         type: string
