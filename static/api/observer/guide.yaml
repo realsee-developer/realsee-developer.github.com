@@ -86,3 +86,9 @@ components:
             pano:
               type: integer
               description: "全景图"
+            floor_index:
+              type: integer
+              description: "楼层号"
+            flag_position:
+              type: array
+              description: "旗帜坐标"
