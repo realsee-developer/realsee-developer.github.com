@@ -48,94 +48,41 @@ get:
                 type: integer
                 description: "服务端计算耗时，单位 ms"
               data:
-                type: object
+                type: array
                 properties:
-                  status:
-                    type: enums
-                    description: "VR 状态"
-                    enum:
-                      [
-                        "RENDER_DONE",
-                        "RENDER_ING",
-                        "RENDER_PART_DONE",
-                        "RENDER_FAIL",
-                      ]
-                  detail:
-                    type: object
-                    description: "详情数据"
-                    $ref: "#/components/schemas/Detail"
-                  original:
-                    type: object
-                    description: "原始信息: 采集/渲染时数据"
-                    $ref: "#/components/schemas/Original"
-                  five:
-                    type: object
-                    description: "Five中控参数"
-                    $ref: "#/components/schemas/Five"
+                items:
+                  $ref: "#/components/schemas/Item"
+
 components:
   schemas:
-    Detail:
+    Item:
       type: object
       properties:
         name:
           type: string
-          description: "VR 标题"
-        source:
-          type: string
-          description: "VR 来源"
-          default: "REALSEE"
-        create_time:
-          type: string
-          description: "创建时间: 实景-项目创建时间; 虚拟-开始渲染时间"
-        modify_time:
-          type: string
-          description: "更新时间"
+          description: "标题名称"
+        pano_index:
+          type: integer
+          description: "全景图索引"
         picture_url:
           type: string
-          description: "封面图片"
-        url:
-          type: string
-          description: "中心化服务预览链接"
-    Five:
-      type: object
-      properties:
-        auto_resize:
-          type: boolean
-          description: "是否自动缩放"
-        min_fov:
-          type: number
-          description: "最小视角(Field Of View)"
-        max_fov:
-          type: number
-          description: "最大视角(Field Of View)"
-        tile_level:
-          type: number
-          description: "瓦片等级: 0-4"
-    Original:
-      type: object
-      properties:
-        name:
-          type: string
-          description: "拍摄设备名称"
-        bg_image:
-          type: string
-          description: "拍摄设备图片"
-        principle:
-          type: string
-          description: "采集引擎"
-        outer_edge_group_id:
-          type: string
-          description: "户型组ID"
-          default: "cba55c60-f4c0-4ff4-b0c1-2e859763d137"
-        style_id:
-          type: string
-          description: "风格ID"
-          default: "3"
-        style_name:
-          type: string
-          description: "风格名"
-          default: "灰白简约"
-        cube_size:
-          type: string
-          description: "全景Cube图尺寸"
-          default: "2048"
+          description: "截图链接"
+        data:
+          type: object
+          description: "VR 来源"
+          properties:
+            fov:
+              type: integer
+              description: "视角"
+            heading:
+              type: integer
+              description: "方向"
+            latitude:
+              type: integer
+              description: "纬度"
+            longitude:
+              type: number
+              description: "经度"
+            pano:
+              type: integer
+              description: "全景图"
