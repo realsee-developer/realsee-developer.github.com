@@ -75,7 +75,12 @@ const config = {
         indexName: 'realseejs',
         contextualSearch: true,
       },
-      hideableSidebar: true,
+      docs: {
+        sidebar: {
+          hideable: true,
+        }
+      },
+      // hideableSidebar: true,
       navbar: {
         // title: 'Realsee',
         logo: {
