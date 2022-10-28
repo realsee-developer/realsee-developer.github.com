@@ -1,7 +1,7 @@
 get:
   summary: 引导路线列表
   tags:
-    - 编辑实体
+    - 扩展实体
   description: VR的引导路线列表
   parameters:
     - name: Authorization

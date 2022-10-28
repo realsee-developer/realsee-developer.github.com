@@ -1,7 +1,7 @@
 get:
   summary: 基础信息
   tags:
-    - 编辑实体
+    - 扩展实体
   description: VR的基础信息，包含：名称、描述、地址等
   parameters:
     - name: Authorization
