@@ -1,7 +1,7 @@
 get:
   summary: 卡片信息详情
   tags:
-    - 数据集市
+    - 编辑实体
   description: VR的卡片信息详情
   parameters:
     - name: Authorization
@@ -55,23 +55,23 @@ get:
                     description: "联系人名称"
                   agent_title:
                     type: string
-                      description: "联系人介绍"
+                    description: "联系人介绍"
                   agent_virtual_phone:
-                      type: string
-                      description: "联系人电话"
+                    type: string
+                    description: "联系人电话"
                   agent_avatar:
                     type: string
                     description: "联系人头像"
                   mappings:
                     type: array
-                      description: "信息项"
-                      items:
-                        title:
-                          type: string
-                          description: "标题"
-                        content:
-                          type: string
-                          description: "内容"
-                        is_block:
-                          type: bool
-                          description: "是否整行展示"
+                    description: "信息项"
+                    items:
+                      title:
+                        type: string
+                        description: "标题"
+                      content:
+                        type: string
+                        description: "内容"
+                      is_block:
+                        type: bool
+                        description: "是否整行展示"

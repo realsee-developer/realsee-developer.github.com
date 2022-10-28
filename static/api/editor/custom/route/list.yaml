@@ -1,7 +1,7 @@
 get:
   summary: 引导路线列表
   tags:
-    - 数据集市
+    - 编辑实体
   description: VR的引导路线列表
   parameters:
     - name: Authorization
@@ -52,14 +52,14 @@ get:
                 properties:
                   list:
                     type: array
-                      description: "路线列表"
-                      items:
-                        title:
-                          type: string
-                          description: "路线名称"
-                        display_index:
-                          type: integer
-                          description: "路线展示顺序，从1开始"
-                        pano_group:
-                          type: array
-                          description: "点位数组"
+                    description: "路线列表"
+                    items:
+                      title:
+                        type: string
+                        description: "路线名称"
+                      display_index:
+                        type: integer
+                        description: "路线展示顺序，从1开始"
+                      pano_group:
+                        type: array
+                        description: "点位数组"

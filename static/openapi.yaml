@@ -808,6 +808,12 @@ paths:
     $ref: "./api/data/vector.yaml"
   /open/v1/entity/meta:
     $ref: "./api/entity/meta.yaml"
+  /realsee-data/custom/detail.json:
+    $ref: "./api/editor/custom/detail.yaml"
+  /realsee-data/custom/route/list.json:
+    $ref: "./api/editor/custom/route/list.yaml"
+  /realsee-data/custom/card/info.json:
+    $ref: "./api/editor/custom/card/info.yaml"
   /open/v1/city/list:
     $ref: "./api/city/list.yaml"
   /open/v1/resblock/suggest:
@@ -818,6 +824,8 @@ paths:
     $ref: "./api/task/shepherd_virtual_render_ai_submit.yaml"
   /open/v1/shepherd/virtual/render/ai/style:
     $ref: "./api/task/shepherd_virtual_render_ai_style.yaml"
+  /open/v1/entity/observer/guide:
+    $ref: "./api/observer/guide.yaml"
 
 components:
   schemas:

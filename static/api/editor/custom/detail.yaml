@@ -1,7 +1,7 @@
 get:
   summary: 基础信息
   tags:
-    - 数据集市
+    - 编辑实体
   description: VR的基础信息，包含：名称、描述、地址等
   parameters:
     - name: Authorization
@@ -55,19 +55,19 @@ get:
                     description: "VR名称"
                   introduction:
                     type: string
-                      description: "介绍"
+                    description: "介绍"
                   bd_location:
-                      type: object
-                      description: "地理位置"
-                      $ref: "#/components/schemas/bd_location"
+                    type: object
+                    description: "地理位置"
+                    $ref: "#/components/schemas/bd_location"
                   backdrop_filter:
                     type: object
                     description: "滤镜数据"
                     $ref: "#/components/schemas/backdrop_filter"
                   background_music:
                     type: object
-                      description: "背景音乐"
-                      $ref: "#/components/schemas/background_music"
+                    description: "背景音乐"
+                    $ref: "#/components/schemas/background_music"
 components:
   schemas:
     bd_location:
@@ -97,21 +97,21 @@ components:
               description: "经度"
     backdrop_filter:
       type: object
-        properties:
-          backdrop:
-            description: "滤镜参数"
-            type: object
-            properties:
-              brightness:
-                type: number
-              contrast:
-                type: number
-              grayscale:
-                type: number
-              opacity:
-                type: number
-              saturate:
-                type: number
+      properties:
+        backdrop:
+          description: "滤镜参数"
+          type: object
+          properties:
+            brightness:
+              type: number
+            contrast:
+              type: number
+            grayscale:
+              type: number
+            opacity:
+              type: number
+            saturate:
+              type: number
     background_music:
       type: object
       properties:
