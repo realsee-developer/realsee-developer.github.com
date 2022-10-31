@@ -15,7 +15,7 @@ title: 开发准备
 ## 公开数据集
 
 **如视三维空间的渲染强依赖于 [Work 数据](./get-started/02.terminology.md)** 。
-**Work** 是通过如视硬件设备（[如视扫描仪](https://realsee.com/website/product/hardware) 、[如视 Lite 全景相机](https://realsee.com/website/product/lite) 、[如视 VR App](https://realsee.com/website/mobile) ）扫描并经过算法加工之后生成的用于描述三维空间的数据。
+**Work** 是通过如视硬件设备（[如视扫描仪](https://realsee.com/website/product/hardware) 、[如视 Lite 全景相机](https://realsee.com/website/product/lite) 、[如视 VR App](https://home.realsee.com/product/mobilecapture) ）扫描并经过算法加工之后生成的用于描述三维空间的数据。
 
 :::tip
 关于 **Work** 数据更详细的介绍请移步 **[什么是 Work](./get-started/02.terminology.md)** 。

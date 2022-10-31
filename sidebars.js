@@ -58,19 +58,7 @@ const spaceSidebar = {
     "front/3d-space/get-started/install",
     "front/3d-space/get-started/config",
 
-    {
-      type: 'category',
-      label: '快速实践',
-      collapsed: false,
-      items: [
-        "front/3d-space/get-started/usage/space",
-        "front/3d-space/get-started/usage/five-state",
-        "front/3d-space/get-started/usage/event-hooks",
-        "front/3d-space/get-started/usage/conversion-coordinates",
-        "front/3d-space/get-started/usage/add-three-mesh",
-        "front/3d-space/get-started/usage/collision-detection",
-      ],
-    },
+
     // "front/3d-space/get-started/typescript-support",
     {
       type: 'category',
@@ -129,6 +117,19 @@ const spaceSidebar = {
             "front/3d-space/handbook/vue/tagging",
           ]
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: '快速实践',
+      collapsed: false,
+      items: [
+        "front/3d-space/get-started/usage/space",
+        "front/3d-space/get-started/usage/five-state",
+        "front/3d-space/get-started/usage/event-hooks",
+        "front/3d-space/get-started/usage/conversion-coordinates",
+        "front/3d-space/get-started/usage/add-three-mesh",
+        "front/3d-space/get-started/usage/collision-detection",
       ],
     },
     {
