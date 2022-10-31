@@ -1,0 +1,94 @@
+get:
+  summary: 导览
+  tags:
+    - 扩展实体
+  description: VR导览，即点位之间快速漫游功能
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: vr_code
+      in: query
+      description: "VR 编码"
+      required: false
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+    - name: resource_code
+      in: query
+      description: "VR副本编码，例如：8oep3ZPGW8TjRlyT7x。`vr_code`和`resource_code`二者传其一即可"
+      required: false
+      schema:
+        type: string
+        default: "8oep3ZPGW8TjRlyT7x"
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: array
+                properties:
+                items:
+                  $ref: "#/components/schemas/Item"
+
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "标题名称"
+        pano_index:
+          type: integer
+          description: "全景图索引"
+        picture_url:
+          type: string
+          description: "截图链接"
+        data:
+          type: object
+          description: "VR 来源"
+          properties:
+            fov:
+              type: integer
+              description: "视角"
+            heading:
+              type: integer
+              description: "方向"
+            latitude:
+              type: integer
+              description: "纬度"
+            longitude:
+              type: number
+              description: "经度"
+            pano:
+              type: integer
+              description: "全景图"
+            floor_index:
+              type: integer
+              description: "楼层号"
+            flag_position:
+              type: array
+              description: "旗帜坐标"
