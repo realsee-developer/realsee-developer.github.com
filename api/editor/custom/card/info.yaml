@@ -1,7 +1,7 @@
 get:
   summary: 卡片信息详情
   tags:
-    - 编辑实体
+    - 扩展实体
   description: VR的卡片信息详情
   parameters:
     - name: Authorization
