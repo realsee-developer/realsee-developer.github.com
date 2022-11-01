@@ -81,7 +81,7 @@ const fiveInitArgs = {
 
 ### 载入数据
 
-您需要**载入路径规划数据数据**方可看到正确效果：
+您需要**载入路径规划数据**方可看到正确效果：
 
 ```tsx
 // 自定义路径数据
@@ -95,17 +95,19 @@ five.plugins.guideLinePlugin.load({ routes: guideLineServerData }, { visible: tr
 
 ### 核心方法
 
-- `load(data: PluginServerData)` 载入插件数据
+- `load(serverData: PluginServerData | PluginData)` 载入插件数据
 
 > 您需要手动载入插件数据，数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
+
+- `show: (options?: { userAction?: boolean }) => void` 显示路径
+
+- `hide: (options?: { userAction?: boolean }) => void` 隐藏路径
 
 - `enable: (options?: { userAction?: boolean }) => void` 启用插件
 
 - `disable: (options?: { userAction?: boolean }) => void` 禁用插件
 
-- `show: (options?: { userAction?: boolean }) => void` 显示路径
-
-- `hide: (options?: { userAction?: boolean }) => void` 隐藏路径
+- `dispose: () => void` 销毁插件
 
 ## demo 源码参考
 

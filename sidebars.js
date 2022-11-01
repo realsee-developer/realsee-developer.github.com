@@ -161,6 +161,7 @@ const spaceSidebar = {
         "front/3d-space/advanced/dnalogel/PanoRulerProPlugin",
         "front/3d-space/advanced/dnalogel/PanoCompassPlugin",
         "front/3d-space/advanced/dnalogel/GuideLinePlugin",
+        "front/3d-space/advanced/dnalogel/CruisePlugin",
         "front/3d-space/advanced/dnalogel/components/PaintBrush",
       ]
     },
