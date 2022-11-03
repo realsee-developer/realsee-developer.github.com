@@ -20,10 +20,12 @@ title: 使用说明
 
 ## 功能说明
 
-![全景雷达图](https:////vrlab-static.ljcdn.com/release/web/temp/floorplanRadar.57b51f71.png)
-![模型户型图](https:////vrlab-static.ljcdn.com/release/web/temp/floorplan.15808fa0.png)
+<div style={{display:'flex'}}>
+    <img src="https:////vrlab-static.ljcdn.com/release/web/temp/floorplanRadar.57b51f71.png" alt="全景雷达图" width="50%" height="50%" />
+    <img src="https:////vrlab-static.ljcdn.com/release/web/temp/floorplan.15808fa0.png" alt="模型户型图" width="50%" height="50%" />
+</div>
 
-户型图的展示一般会有两种场景：** 浏览房源全景时雷达图 **（上图左），以及 ** 查看房源三维模型状态下的详细户型图 **（上图右）。
+户型图的展示一般会有两种场景：**浏览房源全景时雷达图**（上图左），以及 **查看房源三维模型状态下的详细户型图**（上图右）。
 
 ## 插件选择
 
@@ -43,4 +45,4 @@ title: 使用说明
 
 户型图插件的目的是更详细的展示、描述户型信息的交互，目前还在不断完善中。
 
-您可以参考 [户型相关描述用语]，我们在不断尝试从三维、二维等各个层面来体现房源的户型特征、信息。
+您可以参考 [户型相关描述用语](https://open-platform.realsee.com/developer/docs/front/3d-space/advanced/dnalogel/floorplan/desc/)，我们在不断尝试从三维、二维等各个层面来体现房源的户型特征、信息。

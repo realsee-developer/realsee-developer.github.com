@@ -25,6 +25,7 @@ import { PanoCompassPlugin } from "@realsee/dnalogel"
 ## 开发指南
 
 ### 初始化
+
 在初始化 `Five` 实例时，将 `PanoCompassPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -45,6 +46,7 @@ const five = new Five({
 ```
 
 ### React 初始化
+
 在创建 `FiveProvider` 时，将 `PanoCompassPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -65,14 +67,16 @@ const FiveProvider = createFiveProvider({
 ```
 
 ### Vue 初始化
+
 在 `FiveProvider` 时，将 `PanoCompassPlugin` 配置在初始化插件参数即可。
+
 ```vue
 <template>
   <FiveProvider :fiveInitArgs="fiveInitArgs">
   </FiveProvider>
 </template>
 <script setup>
-import  PanoCompassPlugin from "@realsee/dnalogel/libs/PanoCompassPlugin";
+import PanoCompassPlugin from "@realsee/dnalogel/libs/PanoCompassPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [
@@ -112,7 +116,6 @@ five.plugins.panoCompassPlugin.load({ north_rad: NORTH_RAD })
   </div>
   <figcaption>图一：方向指向盘标准方向参考图</figcaption>
 </figure>
-
 
 ## demo 源码参考
 

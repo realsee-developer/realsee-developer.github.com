@@ -4,7 +4,6 @@ title: 介绍
 
 **Vreo** (VR Video) 是基于如视三维渲染引擎 [Five](https://unpkg.com/@realsee/five/docs/index.html) 和 用户界面构建库 [React](https://reactjs.org/) 实现的**如视三维空间剧本播放器**。
 
-
 :::tip
 我们将三维空间的动态行为以剧本的概念去抽象。传统的剧本主要展现故事情节和构造人物形象，而 **Vreo 剧本** 则注重三维空间信息的动态表达。
 

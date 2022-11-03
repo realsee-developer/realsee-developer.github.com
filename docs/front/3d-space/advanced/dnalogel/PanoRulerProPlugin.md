@@ -32,10 +32,10 @@ title: 添加全景标尺Pro🌟️
 
 ### 限制条件
 
-  1. 目前仅支持实景 VR 的场景
-  2. 仅支持伽罗华采集的单楼层房源
-  3. 仅适用于200平米以下的家居空间、不支持毛坯房
-  4. 需要联系如视指定数据生产的VR范围进行数据生产后才可使用
+  1. 目前仅支持实景 VR 的场景。
+  2. 仅支持伽罗华采集的单楼层房源。
+  3. 仅适用于200平米以下的家居空间、不支持毛坯房。
+  4. 需要[联系如视](https://home.realsee.com/developer/contact)指定数据生产的VR范围进行数据生产后才可使用。
 
 ## 示例效果
 
@@ -111,7 +111,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import  PanoRulerProPlugin from "@realsee/dnalogel/libs/PanoRulerProPlugin";
+import PanoRulerProPlugin from "@realsee/dnalogel/libs/PanoRulerProPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [
@@ -119,7 +119,7 @@ const fiveInitArgs = {
             PanoRulerProPlugin,
             'panoRulerProPlugin', // 自定义插件名称
             {
-                // compassImageUrl: '' // 配置方向指向盘图片
+                // 参数配置
             }
         ]
     ]
@@ -141,7 +141,7 @@ pluginInstance.load(data, { distanceText: (distance) => `约 ${distance.toFixed(
 
 - `load: (serverData: PanoRulerProPluginDatas) => Promise<boolean>` 载入插件数据
 
-> 您需要手动载入插件数据，数据来源请阅读[开发 API](http://localhost:3001/open/api/#/)。
+> 您需要手动载入插件数据，数据来源请阅读[开发 API](https://open-platform.realsee.com/developer/open/api/#/)。
 
 - `enable: () => void` 打开标尺
 

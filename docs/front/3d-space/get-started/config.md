@@ -49,8 +49,7 @@ Five 引擎通过 work 中的 `panorama.list.tiles` 实现全景图瓦片加载�
 - `1, 2, 3` 表示瓦片层级。level 1 为 cube 单面图片 1024 尺寸，走 512瓦片； level 2 为 cube 单面图片 2048 尺寸，走 512瓦片； level 3 为 cube 单面图片 4096
   尺寸，走 512瓦片。 依次类推。
 - 默认逻辑 `1` (1024x), `2` (2048x) 从 原图缩放实现。
-- `3` 及以上需要更加高清的图片，默认从 原图路径的 `/cube_2048/` 中匹配。 3 则匹配 `/cube_2048/` -> `/cube_4096/`; 4 则匹配 `/cube_2048/`
-  -> `/cube_8192/`
+- `3` 及以上需要更加高清的图片，默认从 原图路径的 `/cube_2048/` 中匹配。 3 则匹配 `/cube_2048/` -> `/cube_4096/`; 4 则匹配 `/cube_2048/`  -> `/cube_8192/`。
 - 如果不使用匹配逻辑，则需要另行配置, size 表示下方的图片原始尺寸。
 
 ```json
@@ -91,7 +90,7 @@ Five 引擎通过 work 中的 `panorama.list.tiles` 实现全景图瓦片加载�
 ```
 
 :::tip 提示
-瓦片图片的切割默认使用腾讯云数据万象实现。如果不是腾讯云图片域名，则需要按照对应万象配置 `imageOptions` 规则。
+瓦片图片的切割默认使用 [腾讯云数据万象](https://cloud.tencent.com/product/ci) 实现。如果不是腾讯云图片域名，则需要按照对应万象配置 `imageOptions` 规则。
 :::
 
 ### 瓦片配置示例
@@ -142,7 +141,9 @@ const five = new Five({
 })
 ```
 
-一般我们 work 数据里包含的模型分为两种类型，`domez`` 和`at3d`，具体类型可通过查看`work.model.file_url`字段的后缀名得知，我们推荐根据模型的类型来设定模型贴图的`size` 以达到更好的 VR 体验效果。配置示例：
+一般我们 work 数据里包含的模型分为两种类型，`domez` 和`at3d`，具体类型可通过查看`work.model.file_url`字段的后缀名得知。我们推荐根据模型的类型来设定模型贴图的`size` 以达到更好的 VR 体验效果。
+
+配置示例：
 
 ``` ts
 const five = new Five({
@@ -159,7 +160,9 @@ const five = new Five({
 
 ### autoResize
 
-textureOptions 支持 `autoResize`， 此配置项默认为 `true`。如果配置为 true，Five 渲染引擎将根据模型贴图的数量自适应地计算合适的模型贴图尺寸。引擎内置逻辑如下：
+textureOptions 支持 `autoResize`， 此配置项默认为 `true`。如果配置为 true，Five 渲染引擎将根据模型贴图的数量自适应地计算合适的模型贴图尺寸。
+
+引擎内置逻辑如下：
 
 ```ts
 if (textureOptions.autoResize !== false) {
@@ -180,7 +183,7 @@ if (textureOptions.autoResize !== false) {
 ## 图床服务
 
 :::warning
-Five 引擎内部目前默认使用腾讯云数据万象服务，其他对象存储的相关配置仅做参考，建议直接参考所使用的供应方官网配置文档。
+Five 引擎内部目前默认使用 [腾讯云数据万象](https://cloud.tencent.com/product/ci) 服务，其他对象存储的相关配置仅做参考，建议直接参考所使用的供应方官网配置文档。
 :::
 
 ### 阿里云对象存储OSS

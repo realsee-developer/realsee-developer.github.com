@@ -9,7 +9,6 @@ title: 📦 全景户型雷达图
 
 ## 示例效果
 
-
 ```mdx-code-block
 <div className="docs-vr-normal">
   <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoFloorplanRadarPlugin/index.html"></iframe>
@@ -20,12 +19,12 @@ title: 📦 全景户型雷达图
  />
 ```
 
-
 ## 功能说明
 
 **全景户型雷达图插件** 提供了在全景模式下展示二维户型图的功能。
 
 支持的特性有：
+
 - 雷达指引：以"雷达"图标的方式展示当前点位的位置和朝向。
 - 户型图自适应填充：最小边大小自动计算，保障展示在 DOM 容器中心。
 - 全景模式下走点出现楼层变更时会自动切换至当前楼层的户型图。
@@ -48,6 +47,7 @@ import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 ## 开发指南
 
 ### 初始化
+
 在初始化 `Five` 实例的时候，将 `PanoFloorplanRadarPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -57,13 +57,15 @@ import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 // 初始化 five 实例
 const five = new Five({
     plugins: [
-    	[PanoFloorplanRadarPlugin, 'panoFloorplanRadar', {
-    	//初始化参数
+     [PanoFloorplanRadarPlugin, 'panoFloorplanRadar', {
+     //初始化参数
         }]
     ]
 })
 ```
+
 ### React 初始化
+
 在创建 FiveProvider 组件时将 `PanoFloorplanRadarPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -80,8 +82,8 @@ const FiveProvider = createFiveProvider({
 })
 ```
 
-
 ### Vue 初始化
+
 在使用 `FiveProvider` 时，将 `PanoFloorplanRadarPlugin` 配置在初始化插件参数即可。
 
 ```vue
@@ -119,21 +121,35 @@ pluginInstance.load(floorplanServerData)
 
 **PanoFloorplanRadarPlugin** 提供的核心方法有：
 
-- `load(data: FloorplanServerData)` 载入户型图数据
+- `async load(data: FloorplanServerData)` 载入户型图数据；
 
-> 您需要手动载入户型图数据，[FloorplanServerData] 的数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
+> 您需要手动载入户型图数据，[FloorplanServerData] 的数据来源请阅读[如视开放平台 API](https://open-platform.realsee.com/developer/open/api/#/)。
 
-- `appendTo(wrapper: Element)` 挂载 DOM 节点
+- `appendTo(wrapper: Element)` 挂载 DOM 节点；
 
 > 将户型图DOM模块载入您的 HTML 结构中。
+
+- `setState(state: Partial<State>, options: BaseOptions = {})` 更改插件 State；
+
+- `changeConfigs(config: Config, userAction = true)` 修改插件配置信息
+
+- `setExtraObjectsWith3DPositions(data: FloorplanExtraObject3D[])` 在雷达图上展示额外内容
+
+- `async show(options: BaseOptions = {})` 展示户型图数据；
+
+- `async hide(options: BaseOptions = {})` 隐藏户型图数据；
+
+- `enable(options: BaseOptions = {})` 启用插件；
+
+- `disable(options: BaseOptions = {})` 禁用插件；
 
 ### 在雷达图上展示额外内容
 
 对于一些三维场景中的物体，我们可以在雷达图上用一些特殊的图标进行展示
 
-`setExtraObjectsWith3DPositions(data: FloorplanExtraObject3D[])` 设置在户型图上展示的三维物体列表
+`setExtraObjectsWith3DPositions(data: FloorplanExtraObject3D[])` 设置在户型图上展示的三维物体列表。
 
-> 三维数据的结构如下
+三维数据的结构如下
 
 ```ts
 // 能够映射到雷达图上的三维物体
@@ -146,9 +162,9 @@ export interface FloorplanExtraObject3D {
 
 ### 配置参数
 
-- `wrapper: string | Element` 插件挂载的 DOM 节点
+- `wrapper: string | Element` 插件挂载的 DOM 节点。
 
-- `hoverEnable?: boolean` 否开启鼠标 `hover` 高亮分间
+- `hoverEnable?: boolean` 否开启鼠标 `hover` 高亮分间。
 
 配置样例参考：
 

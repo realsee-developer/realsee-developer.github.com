@@ -6,7 +6,7 @@ title: 模型分间标签
 
 ## 功能说明
 
-**模型房屋标签插件** 集成了一套能够在模型状态下快速查看房间名称 & 快速访问房间全景的交互。
+**模型分间标签插件** 集成了一套能够在模型状态下快速查看房间名称 & 快速访问房间全景的交互。
 
 详细功能点如下：
 
@@ -50,7 +50,7 @@ import { ModelRoomLabelPlugin } from "@realsee/dnalogel"
 
 ### 初始化
 
-在初始化 `Five` 实例时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
+在初始化 `Five` 实例时，将 `ModelRoomLabelPlugin` 配置在初始化插件参数即可。
 
 ```ts
 import { Five } from '@realsee/five'
@@ -60,7 +60,7 @@ const five = new Five({
     plugins: [
         [
             ModelRoomLabelPlugin,
-            'modelRoomLabel', // 自定义插件名称
+            'modelRoomLabelPlugin', // 自定义插件名称
             {
                 // 参数配置
             }
@@ -71,7 +71,7 @@ const five = new Five({
 
 ### React 初始化
 
-在创建 `FiveProvider` 时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
+在创建 `FiveProvider` 时，将 `ModelRoomLabelPlugin` 配置在初始化插件参数即可。
 
 ```ts
 import { ModelRoomLabelPlugin } from "@realsee/dnalogel";
@@ -81,7 +81,7 @@ const FiveProvider = createFiveProvider({
     plugins: [
         [
             ModelRoomLabelPlugin,
-            'modelRoomLabel', // 自定义插件名称
+            'modelRoomLabelPlugin', // 自定义插件名称
             {
                 // 参数配置
             }
@@ -92,7 +92,7 @@ const FiveProvider = createFiveProvider({
 
 ### Vue 初始化
 
-在使用 `FiveProvider` 时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
+在使用 `FiveProvider` 时，将 `ModelRoomLabelPlugin` 配置在初始化插件参数即可。
 
 ```vue
 <template>
@@ -100,13 +100,13 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import  TopviewFloorplanPlugin from "@realsee/dnalogel/libs/TopviewFloorplanPlugin";
+import  ModelRoomLabelPlugin from "@realsee/dnalogel/libs/ModelRoomLabelPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [
         [
-            TopviewFloorplanPlugin,
-            'topviewFloorplanPlugin', // 自定义插件名称
+            ModelRoomLabelPlugin,
+            'modelRoomLabelPlugin', // 自定义插件名称
             {
                 // 参数配置
             }
@@ -119,7 +119,7 @@ const fiveInitArgs = {
 ### 载入数据
 
 ```ts
-// 获取插件实例,其中 `topviewFloorplanPlugin` 是初始化时自定义的名称
+// 获取插件实例,其中 `modelRoomLabelPlugin` 是初始化时自定义的名称
 const pluginInstance = five.plugins.modelRoomLabel 
 
 // 调用 `load` 方法载入模型房屋标签数据
@@ -147,7 +147,7 @@ React.useEffect(() => {
 
 - `load(data: ModelRoomLabelPluginData)` 载入插件数据
 
-> 您需要手动载入插件数据，数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
+> 您需要手动载入插件数据，数据来源请阅读[如视开放平台 API](https://open-platform.realsee.com/developer/open/api#/)。
 
 - `appendTo(wrapper: Element)` 挂载 DOM 节点
 

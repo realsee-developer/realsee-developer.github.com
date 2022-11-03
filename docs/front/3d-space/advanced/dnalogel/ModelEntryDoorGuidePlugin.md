@@ -90,7 +90,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import  ModelEntryDoorGuidePlugin from "@realsee/dnalogel/libs/ModelEntryDoorGuidePlugin";
+import ModelEntryDoorGuidePlugin from "@realsee/dnalogel/libs/ModelEntryDoorGuidePlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [
@@ -120,7 +120,7 @@ pluginInstance.load(modelEntryDoorGuidePluginData)
 
 - `load(data: ModelEntryDoorGuidePluginData)` 载入插件数据
 
-> 您需要手动载入插件数据，数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
+> 您需要手动载入插件数据，数据来源请阅读[如视开放平台 API](https://open-platform.realsee.com/developer/open/api#/)。
 
 - `enable: (config?: { animationEnable?: boolean /** 是否开启动态效果 */ }) => void` 启用插件
 

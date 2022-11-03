@@ -12,7 +12,7 @@ title: 添加画笔功能
 
 ## 效果展示
 
-点击**开启画笔🖌️**按钮，可进行绘写。
+点击 **开启画笔🖌️** 按钮，可进行绘写。
 
 ```mdx-code-block
 import {PlaygroundCard} from '@site/src/components/Playground';
@@ -39,6 +39,7 @@ import { PaintBrush } from "@realsee/dnalogel/components"
 ## 开发指南
 
 ### 初始化
+
 按需初始化画笔实例。
 
 ```ts
@@ -56,11 +57,13 @@ const paintBrushInstance = new PaintBrush({
 ### 开启画笔
 
 通过调用 `show()` 方法可开启画笔。
+
 ```ts
 paintBrushInstance.show()
 ```
 
 ### 事件监听
+
 - ready 监听事件 `readyChange: (ready: boolean) => void`
 
 ```ts
@@ -85,9 +88,9 @@ paintBrushInstance.on('stateChange', (state: PaintBrushAction, userAction: boole
 ```
 
 ### 核心方法
+
 - `setCurrentColor(color: string)` 修改画笔颜色
 
 ## demo 源码参考
 
 [demo 源码参考](https://github.com/realsee-developer/dnalogel/tree/main/examples/src)
-
