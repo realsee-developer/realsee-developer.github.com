@@ -10,7 +10,7 @@ title: 添加全景标签
 
 详细功能点如下：
 
-- 标签共分为“音频标签(Audio)”、“文本标签(Text)”、“图文标签(ImageText)”、“VR跳转标签(Link)”、“营销标签(Marketing)”、“图片视频贴片(MediaPlane)”等6类。
+- 标签共分为“音频标签(Audio)”、“文本标签(Text)”、“图文标签(ImageText)”、“VR跳转标签(Link)”、“营销标签(Marketing)”、“图片视频贴片(MediaPlane)”等。
 - 标签按照维度类型(DimensionType)可以分为：“2D(Two)”和“3D(Three)”两种。
 - 按照点位类型(PointType)来分，标签又可以分为：点标记(PointTag)和平面标记(PlaneTag)两种。
 - 用户可以自由组合上述标签分类属性，根据自己的业务类型，创造更加适合的全景标签。
@@ -18,7 +18,7 @@ title: 添加全景标签
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoTagPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="http://localhost:5173/dnalogel/src/PanoTagPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用
@@ -144,6 +144,90 @@ panoTagPluginInstance.load(tagsData, config)
 - `destroyTagById: (id: TagId | TagId[]) => void` 销毁tag
 
 - `pauseCurrentMedia: () => void` 暂停当前标签内进行的所有多媒体
+
+
+## 数据结构
+插件中最重要的一个结构是Tag，添加标签，修改标签信息等操作都需要使用，其对应的数据结构如下：
+
+``` typescript
+
+export type Tag<
+  C extends ContentType = any,
+  P extends PointType = any,
+  D extends DimensionType = any,
+  CustomDataType extends Object = {},
+> = {
+  /** 开启/禁用 */
+  enabled?: boolean
+  /** 唯一标识 */
+  id: TagId
+  /** 一个点的标签/4个点的标签 */
+  pointType: P
+  /** 2维/3维类型 */
+  dimensionType: D
+  /** 内容类型，根据内容类型展示对应UI */
+  contentType: C
+  /** 点 */
+  position: P extends PointType.PointTag ? Position : P extends PointType.PlaneTag ? [Position, Position, Position, Position] : any
+  /** 自定义标签内容 */
+  element?: string | Element | ElementRenderer
+  /** 标签数据 */
+  data: C extends ContentType.Custom ? CustomDataType : ContentTypeMap[C]
+  /** 「展开/收起」 「可见/不可见」 的策略配置 */
+  config?: TagConfig<C, P, D, CustomDataType>
+  /** 法向量 */
+  normal?: Position
+  /** 样式 */
+  style?: {
+    /** 小圆点样式 */
+    point?: { style: 'Default' } | { style: 'CustomIcon'; iconUrl: string } | { style: 'noPoint' }
+    /** 收起的时候的动画延时，单位：ms */
+    foldedPointDelay?: number
+  }
+} & (D extends DimensionType.Three ? (P extends PointType.PointTag ? { normal: Position } : unknown) : unknown) /** 三维标签需要法向量 */
+
+```
+
+标签类型定义
+
+```typescript
+export enum ContentType {
+  /** 音频标签 */
+  Audio = 'Audio',
+  /** 文本标签 */
+  Text = 'Text',
+  /** 图文标签 */
+  ImageText = 'ImageText',
+  /** VR跳转标签 */
+  Link = 'Link',
+  /** 营销标签 */
+  Marketing = 'Marketing',
+  /** 图片视频贴片 */
+  MediaPlane = 'MediaPlane',
+  /** 其他/自定义标签 */
+  Custom = 'Custom',
+}
+```
+
+标签维度类型定义
+
+```typescript
+export enum DimensionType {
+  Two = '2D',
+  Three = '3D',
+}
+```
+
+标签点位类型定义
+
+```typescript
+export enum PointType {
+  PointTag = 'PointTag',
+  PlaneTag = 'PlaneTag',
+}
+
+```
+
 
 ## demo 源码参考
 
