@@ -145,7 +145,6 @@ pluginInstance.load(tagsData, config)
 
 - `pauseCurrentMedia: () => void` 暂停当前标签内进行的所有多媒体
 
-
 ## 添加自定义标签
 
 标签中有一个标签类型叫做“自定义标签”，使用这个标签类型，开发者可以根据自己的业务需要，自定义添加任意符合规范的标签样式。
