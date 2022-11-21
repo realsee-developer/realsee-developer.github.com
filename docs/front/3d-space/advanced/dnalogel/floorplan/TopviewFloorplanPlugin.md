@@ -23,12 +23,11 @@ title: 📦 俯视模型户型图
 
 其功能为 [模型户型图插件 ModelFloorplanPlugin](ModelFloorplanPlugin.md) 的简版，仅**展示能力**，相关用法和 API 可直接参考 [ModelFloorplanPlugin](ModelFloorplanPlugin.md)。
 
-**区别**
+**区别：**
 
 **俯视模型户型图插件** 与 `five` 实例的 `Mode` 状态做了绑定：当 `five.mode` 为 `Five.Mode.Topview` 且动画执行完毕时，会自动展示二维户型图模块。当不处在`Five.Mode.Topview` 状态时，则自动隐藏二维户型图模块。
 
 因此，您可以操作 `five.mode` 来间接控制二维户型图模块的展示和隐藏。其他功能及 API 完全一致。
-
 
 ## 安装引用
 
@@ -47,6 +46,7 @@ import { TopviewFloorplanPlugin } from "@realsee/dnalogel"
 ## 开发指南
 
 ### 初始化
+
 在初始化 `Five` 实例时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -70,6 +70,7 @@ const five = new Five({
 ```
 
 ### React 初始化
+
 在创建 `FiveProvider` 时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -93,8 +94,8 @@ const FiveProvider = createFiveProvider({
 });
 ```
 
-
 ### Vue 初始化
+
 在使用 `FiveProvider` 时，将 `TopviewFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```vue
@@ -135,7 +136,7 @@ pluginInstance.load(floorplanServerData)
 
 - `load(data: FloorplanServerData)` 载入户型图数据
 
-> 您需要手动载入户型图数据，[FloorplanServerData] 的数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
+> 您需要手动载入户型图数据，[FloorplanServerData] 的数据来源请阅读[如视开放平台 API](https://open-platform.realsee.com/developer/open/api#/)。
 
 - `appendTo(wrapper: Element)` 挂载 DOM 节点
 

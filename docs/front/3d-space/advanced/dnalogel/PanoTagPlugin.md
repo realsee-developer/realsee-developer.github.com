@@ -1,19 +1,19 @@
 ---
-title: 添加全景标签
+title: 添加全景热点标签
 ---
 
 ## **PanoTagPlugin**
 
 ## 功能说明
 
-**全景标签插件** 提供在全景模式下标注房源不同位置标签信息。
+**全景热点标签插件** 提供在全景模式下标注房源不同位置热点标签信息。
 
 详细功能点如下：
 
-- 标签共分为“音频标签(Audio)”、“文本标签(Text)”、“图文标签(ImageText)”、“VR跳转标签(Link)”、“营销标签(Marketing)”、“图片视频贴片(MediaPlane)”、“自定义标签(Custom)”等。
+- 热点标签共分为“音频标签(Audio)”、“文本标签(Text)”、“图文标签(ImageText)”、“VR跳转标签(Link)”、“营销标签(Marketing)”、“图片视频贴片(MediaPlane)”、“自定义标签(Custom)”等。
 - 标签按照维度类型(DimensionType)可以分为：“2D(Two)”和“3D(Three)”两种。
 - 按照点位类型(PointType)来分，标签又可以分为：点标记(PointTag)和平面标记(PlaneTag)两种。
-- 用户可以自由组合上述标签分类属性，根据自己的业务类型，创造更加适合的全景标签。
+- 用户可以自由组合上述标签分类属性，根据自己的业务类型，创造更加适合的全景热点标签。
 
 ## 示例效果
 
@@ -145,18 +145,18 @@ pluginInstance.load(tagsData, config)
 
 - `pauseCurrentMedia: () => void` 暂停当前标签内进行的所有多媒体
 
-## 添加自定义标签
+## 添加自定义热点标签
 
-标签中有一个标签类型叫做“自定义标签”，使用这个标签类型，开发者可以根据自己的业务需要，自定义添加任意符合规范的标签样式。
+热点标签中有一个标签类型叫做“自定义热点标签”，使用这个标签类型，开发者可以根据自己的业务需要，自定义添加任意符合规范的标签样式。
 
 可以参考下面的例子：
 
 ```ts
-  // 添加自定义标签
+  // 添加自定义热点
   const addCustomerTag = () => {
     // 自定义Element
     const ele = document.createElement('div');
-    ele.innerText = "这是一个自定义的标签";
+    ele.innerText = "这是一个自定义的热点标签";
     ele.style.color = "red";
     ele.style.width = "200px";
     ele.style.border = "1px solid #000";
@@ -167,7 +167,7 @@ pluginInstance.load(tagsData, config)
       dimensionType: "2D",
       position: [-1.7882169929208833, 1.022040232156752, -2.339700937271118],
       data: {
-        text: "自定义标签"
+        text: "自定义热点标签"
       },
       element: ele,
       // ContentType设置为Custom
@@ -179,7 +179,7 @@ pluginInstance.load(tagsData, config)
 
 ## 数据结构
 
-插件中最重要的一个结构是 `Tag`，添加标签，修改标签信息等操作都需要使用，其对应的数据结构如下：
+插件中最重要的一个结构是 `Tag`，添加热点标签，修改标签信息等操作都需要使用，其对应的数据结构如下：
 
 ``` typescript
 

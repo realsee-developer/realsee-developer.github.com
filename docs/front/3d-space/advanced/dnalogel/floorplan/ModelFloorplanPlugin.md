@@ -12,6 +12,7 @@ title: 📦 模型户型图
 **模型户型图插件** 无缝集成了一套基于 VR 3D 模型状态下户型图交互。
 
 借助此插件，您可以在 VR 3D 模型状态下展示更详细的二维户型图，集成的功能如下：
+
 - 支持二维户型图( png / svg 格式)展示。
 - 房屋标签展示: **支持自定义标签样式**。
 - 展示进入二维户型图前，相机位置和朝向: **支持自定义相机图标**。
@@ -44,6 +45,7 @@ import ModelFloorplanPlugin from "@realsee/dnalogel"
 ## 开发指南
 
 ### 初始化
+
 在初始化 `Five` 实例的时候，将 `ModelFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -53,7 +55,7 @@ import ModelFloorplanPlugin from '@realsee/dnalogel'
 // 初始化 five 实例
 const five = new Five({
   plugins: [
-    [ModelFloorplanPlugin, "modelFloorplan", {
+    [ModelFloorplanPlugin, "modelFloorplanPlugin", {
       // 初始化参数
     }]
   ]
@@ -61,6 +63,7 @@ const five = new Five({
 ```
 
 ### React 初始化
+
 在创建 FiveProvider 组件时将 `ModelFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -69,7 +72,7 @@ import { createFiveProvider } from '@realsee/five/react'
 // 创建 FiveProvider 组件
 const FiveProvider = createFiveProvider({
     plugins: [
-        [ModelFloorplanPlugin, "modelFloorplan", {
+        [ModelFloorplanPlugin, "modelFloorplanPlugin", {
             // 初始化参数
         }]
     ]
@@ -77,6 +80,7 @@ const FiveProvider = createFiveProvider({
 ```
 
 ### Vue 初始化
+
 在使用 `FiveProvider` 时，将 `ModelFloorplanPlugin` 配置在初始化插件参数即可。
 
 ```vue
@@ -114,15 +118,15 @@ pluginInstance.load(floorplanServerData)
 
 **ModelFloorplanPlugin** 提供的核心方法有：
 
-- `load(data: FloorplanServerData)` 载入户型图数据
+- `async load(data: FloorplanServerData)` 载入户型图数据；
 
-> 您需要手动载入户型图数据，[FloorplanServerData] 的数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)
+> 您需要手动载入户型图数据，[FloorplanServerData] 的数据来源请阅读[如视开放平台 API](https://open-platform.realsee.com/developer/open/api#/)
 
-- `appendTo(wrapper: Element)` 挂载 DOM 节点
+- `appendTo(wrapper: Element)` 挂载 DOM 节点；
 
 > 您可以将户型图DOM模块载入您的 HTML 结构中。
 
-- `async show(opts?: ShowOpts): true` 展示
+- `async show(opts?: ShowOpts): true` 展示户型图；
 
 >调用插件的 `show()` 方法，插件会自动操作 `five` 实例到模型俯视状态，并展示当前点位对应楼层的户型图。
 
@@ -143,15 +147,21 @@ interface ShowOpts {
 }
 ```
 
-- `hide(options?: { isAutoHide?: boolean; userAction?: boolean )`
+- `async hide(options?: { isAutoHide?: boolean; userAction?: boolean )` 隐藏户型图
 
 > 您可以直接调用 `hide()` 方法将户型图隐藏，如果在配置项`autoShowEnable`设置为`true`（默认设置）时，当用户在户型图上进行滑动操作时，超过一定滑动幅度会自动关闭户型图。
 
-- `changeFloor(floorIndex: number)` 更改户型楼层
+- `updateSize()` 更新户型图大小；
 
-> 有些房源是多楼层的（复式、别墅等），每一层的户型均不同，您可以通过`changeFloor()`直接切换对应楼层的户型。<br/>
-> 需要注意的是，对于多楼层房源仅会高亮当前楼层的三维模型的模块。<br/>
-> 当然，当用户在 VR 全景中走点时，对应的楼层发生变化户型图展示期间也会自动展示当前点位的楼层。
+- `changeConfigs(config: Partial<Config>, userAction = true)` 修改户型图配置；
+
+- `setState(state: PartialDeep<State>, options: BaseOptions = {})` 更改插件 State;
+
+- `enable(options: BaseOptions = {})` 启用插件；
+
+- `disable(options: BaseOptions = {})` 禁用插件；
+
+- `dispose()` 销毁插件；
 
 ### 自定义配置
 
@@ -168,7 +178,7 @@ interface ShowOpts {
 
 - `hoverEnable?: boolean` 是否开启鼠标 `hover` 高亮分间
 
-> 默认值是 `false`。功能是：当鼠标 `hover` 至对应分间时，改分间会高亮。
+> 默认值是 `true`。功能是：当鼠标 `hover` 至对应分间时，改分间会高亮。
 
 - `getLabelElement?: (room: FloorplanRoomItem) => Element | null` 配置房屋标签
 
@@ -177,7 +187,7 @@ interface ShowOpts {
 > 如果不配置此函数，默认为所有标签都展示。
 > 参数`FloorplanRoomItem` 数据结构参考[开放平台插件类型声明](http://dnalogel.developers.realsee.com/storybook/api/interfaces/plugins.FloorplanRoomItem.html)。
 
-- `cameraImage?: { style: React.CSSProperties }` 配置相机图标
+- `cameraImageUrl?: string` 自定义【雷达】图标
 
 > `style`传入的 CSS 样式会覆盖默认样式，包括 `backgroundImage`、`width`、`height`等。<br/>
 
@@ -186,8 +196,8 @@ interface ShowOpts {
 > 在二维户型图界面进行滑动，会快速切换到模型状态；在模型状态松手时，如果比较接近户型图的展示角度，会自动旋转模型，并展示户型图。默认开启。
 
 ### 事件 Hooks
-户型图相关的事件绑定在 `hooks` 对象上，可以使用 `hooks.on` 方法监听事件。如：
 
+户型图相关的事件绑定在 `hooks` 对象上，可以使用 `hooks.on` 方法监听事件。如：
 
 - `showAnimationEnded`
 

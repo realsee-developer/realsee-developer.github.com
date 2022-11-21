@@ -73,7 +73,7 @@ const liveInstance = createLiveReact({
 export default liveInstance
 ```
 
-如果您需要同时实现多类语音（浏览器语音、客户端语音、微信小程序语音），您可以按照"桥"协议，实现相应的方法。更多信息请参考： [@realsee/jsbridge-x](http://localhost:3001/docs/webview/jsbridge/intro/)
+如果您需要同时实现多类语音（浏览器语音、客户端语音、微信小程序语音），您可以按照"桥"协议，实现相应的方法。更多信息请参考： [@realsee/jsbridge-x](https://open-platform.realsee.com/developer/docs/webview/jsbridge/intro/)
 
 **一个简单的 JSBridgeBrowser 实现**
 

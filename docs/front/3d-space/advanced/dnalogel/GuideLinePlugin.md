@@ -25,6 +25,7 @@ import { GuideLinePlugin } from "@realsee/dnalogel"
 ## 开发指南
 
 ### 初始化
+
 在初始化 `Five` 实例时，将 `GuideLinePlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -42,6 +43,7 @@ const five = new Five({
 ```
 
 ### React 初始化
+
 在创建 `FiveProvider` 时，将 `GuideLinePlugin` 配置在初始化插件参数即可。
 
 ```ts
@@ -59,14 +61,16 @@ const FiveProvider = createFiveProvider({
 ```
 
 ### Vue 初始化
+
 在 `FiveProvider` 时，将 `GuideLinePlugin` 配置在初始化插件参数即可。
+
 ```Vue
 <template>
   <FiveProvider :fiveInitArgs="fiveInitArgs">
   </FiveProvider>
 </template>
 <script setup>
-import  GuideLinePlugin from "@realsee/dnalogel/libs/GuideLinePlugin";
+import GuideLinePlugin from "@realsee/dnalogel/libs/GuideLinePlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [
@@ -97,7 +101,7 @@ five.plugins.guideLinePlugin.load({ routes: guideLineServerData }, { visible: tr
 
 - `load(serverData: PluginServerData | PluginData)` 载入插件数据
 
-> 您需要手动载入插件数据，数据来源请阅读[如视开发者中心服务端 API](http://developers.realsee.com/docs/#/docs/five/server/README)。
+> 您需要手动载入插件数据，数据来源请阅读[如视开放平台 API](https://open-platform.realsee.com/developer/open/api#/)。
 
 - `show: (options?: { userAction?: boolean }) => void` 显示路径
 
