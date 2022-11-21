@@ -18,7 +18,7 @@ title: 添加全景标签
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="http://localhost:5173/dnalogel/src/PanoTagPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.org.js/dnalogel/src/PanoTagPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用
