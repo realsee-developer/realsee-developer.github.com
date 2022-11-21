@@ -18,7 +18,7 @@ title: 添加全景热点标签
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="http://localhost:5173/dnalogel/src/PanoTagPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoTagPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用
@@ -168,38 +168,6 @@ pluginInstance.load(tagsData, config)
       position: [-1.7882169929208833, 1.022040232156752, -2.339700937271118],
       data: {
         text: "自定义热点"
-      },
-      element: ele,
-      // ContentType设置为Custom
-      contentType: "Custom"
-    }
-    pluginInstance.addTag(tagData);
-  }
-```
-
-## 添加自定义标签
-
-标签中有一个标签类型叫做“自定义标签”，使用这个标签类型，开发者可以根据自己的业务需要，自定义添加任意符合规范的标签样式。
-
-可以参考下面的例子：
-
-```ts
-  // 添加自定义标签
-  const addCustomerTag = () => {
-    // 自定义Element
-    const ele = document.createElement('div');
-    ele.innerText = "这是一个自定义的标签";
-    ele.style.color = "red";
-    ele.style.width = "200px";
-    ele.style.border = "1px solid #000";
-
-    const tagData: Tag = {
-      id: "03338b76-b64a-4e90-37fb-44e3c0ffeb88",
-      pointType: "PointTag",
-      dimensionType: "2D",
-      position: [-1.7882169929208833, 1.022040232156752, -2.339700937271118],
-      data: {
-        text: "自定义标签"
       },
       element: ele,
       // ContentType设置为Custom
