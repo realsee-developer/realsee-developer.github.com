@@ -128,6 +128,7 @@ const config = {
             position: 'left',
             label: '开放 API',
           },
+          { to: '/agreement', label: '开发者协议', position: 'right' },
           { to: '/blog', label: '博客', position: 'right' },
           {
             href: 'https://github.com/realsee-developer',
@@ -174,6 +175,10 @@ const config = {
               {
                 label: '如视官网',
                 to: 'https://realsee.com/',
+              },
+              {
+                label: '开放平台开发者协议',
+                to: '/agreement',
               },
               // {
               //   label: '技术博客',
