@@ -2,4 +2,6 @@
   padding: 12px;
   max-width: 1200px;
   margin: 40px auto;
+  pointer-events: none;
+  user-select: none;
 }
