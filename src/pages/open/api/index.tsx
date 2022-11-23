@@ -1,18 +1,32 @@
-import * as React from 'react'
-import Layout from '@theme/Layout'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import BrowserOnly from '@docusaurus/BrowserOnly'
-import { API } from '@stoplight/elements'
+import * as React from "react";
+import Layout from "@theme/Layout";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { API } from "@stoplight/elements";
 // import '@stoplight/elements/styles.min.css'
-import './index.css'
-import './custom.css'
+import "./index.css";
+import "./custom.css";
+import Translate, { translate } from "@docusaurus/Translate";
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext()
+  const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout title={`如视开放 API${siteConfig.title}`} description="开放共建三维生态，互联大千世界">
-      <BrowserOnly>{() => <API layout="sidebar" hideTryIt={false} router='hash' basePath='' apiDescriptionUrl={`${siteConfig.baseUrl}openapi.yaml`} />}</BrowserOnly>
+    <Layout
+      title={translate({ message: "如视开放 API" })}
+      description={<Translate>开放共建三维生态，互联大千世界</Translate>}
+    >
+      <BrowserOnly>
+        {() => (
+          <API
+            layout="sidebar"
+            hideTryIt={false}
+            router="hash"
+            basePath=""
+            apiDescriptionUrl={`${siteConfig.baseUrl}openapi.yaml`}
+          />
+        )}
+      </BrowserOnly>
     </Layout>
-  )
+  );
 }

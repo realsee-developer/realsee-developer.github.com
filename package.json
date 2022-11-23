@@ -14,9 +14,11 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "crowdin": "crowdin"
   },
   "dependencies": {
+    "@crowdin/cli": "^3.9.1",
     "@docusaurus/core": "2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
     "@mdx-js/react": "^1.6.22",
@@ -47,6 +49,8 @@
     "@mui/material": "^5.4.3",
     "@realsee/open-works": "^0.1.0-alpha.4",
     "@tsconfig/docusaurus": "^1.0.5",
+    "crypto-js": "^4.1.1",
+    "glob": "^8.0.3",
     "react-markdown": "^8.0.0",
     "typescript": "^4.7.4"
   },

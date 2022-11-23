@@ -7,6 +7,7 @@ import HomepageFeatures from "../components/HomepageFeatures";
 import { debounce } from "@mui/material";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 import "./index.css";
+import Translate from "@docusaurus/Translate";
 
 const getWindowInnerHeight = () => {
   if (ExecutionEnvironment.canUseDOM) {
@@ -46,14 +47,20 @@ function HomepageHeader() {
       </BrowserOnly>
       <div className="cover__header_mask"></div>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <h1 className="hero__title">
+          <Translate>如视・开发手册</Translate>
+        </h1>
+        <p className="hero__subtitle">
+          <Translate>
+            快速集成丰富多彩的三维空间能力，为您的项目添砖加瓦。
+          </Translate>
+        </p>
         <div>
           <Link
             className="button button--secondary button--lg button--entry"
             to="/docs/front/3d-space/intro"
           >
-            进入阅读
+            <Translate>进入阅读</Translate>
           </Link>
         </div>
       </div>
@@ -66,7 +73,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="开放共建三维生态，互联大千世界"
+      description={<Translate>开放共建三维生态，互联大千世界</Translate>}
     >
       <BrowserOnly>
         {() => (

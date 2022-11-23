@@ -1,42 +1,42 @@
 {
   "link.title.开发手册": {
-    "message": "开发手册",
+    "message": "Development Manual",
     "description": "The title of the footer links column with title=开发手册 in the footer"
   },
   "link.title.相关链接": {
-    "message": "相关链接",
+    "message": "Related Links",
     "description": "The title of the footer links column with title=相关链接 in the footer"
   },
   "link.item.label.空间采集": {
-    "message": "空间采集",
+    "message": "Spatial acquisition",
     "description": "The label of footer link with label=空间采集 linking to /docs/collect/intro"
   },
   "link.item.label.三维空间": {
-    "message": "三维空间",
+    "message": "Three dimensional space",
     "description": "The label of footer link with label=三维空间 linking to /docs/front/3d-space/intro"
   },
   "link.item.label.空间导览": {
-    "message": "空间导览",
+    "message": "Space guided tour",
     "description": "The label of footer link with label=空间导览 linking to /docs/front/space-navigation/intro"
   },
   "link.item.label.线上带看": {
-    "message": "线上带看",
+    "message": "Online tape watch",
     "description": "The label of footer link with label=线上带看 linking to /docs/front/live/intro"
   },
   "link.item.label.容器集成": {
-    "message": "容器集成",
+    "message": "Container integration",
     "description": "The label of footer link with label=容器集成 linking to /docs/webview/intro"
   },
   "link.item.label.开放 API": {
-    "message": "开放 API",
+    "message": "Open API",
     "description": "The label of footer link with label=开放 API linking to /open/api"
   },
   "link.item.label.如视官网": {
-    "message": "如视官网",
+    "message": "Nu Vision Official website",
     "description": "The label of footer link with label=如视官网 linking to https://realsee.com/"
   },
   "link.item.label.开放平台开发者协议": {
-    "message": "开放平台开发者协议",
+    "message": "Open Platform Developer Agreement",
     "description": "The label of footer link with label=开放平台开发者协议 linking to /agreement"
   },
   "link.item.label.GitHub": {
