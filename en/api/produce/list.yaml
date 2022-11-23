@@ -1,0 +1,168 @@
+get:
+  tags:
+    - 生产服务
+  summary: 项目列表
+  description: ""
+
+  parameters:
+    - name: app_code
+      in: query
+      required: true
+      schema:
+        description: 控制台中的Application Id
+        type: string
+        default: ""
+    - name: page
+      in: query
+      required: false
+      schema:
+        description: 页数（从1开始）
+        type: string
+        default: "1"
+    - name: page_size
+      in: query
+      required: false
+      schema:
+        description: 一页中展示的数目
+        type: string
+        default: "20"
+    - name: start_timestamp
+      in: query
+      required: false
+      schema:
+        description: 开始时间戳（秒级）
+        type: string
+        default: "1652154268"
+    - name: end_timestamp
+      in: query
+      required: false
+      schema:
+        description: 结束时间戳（秒级）
+        type: string
+        default: "1652254268"
+    - name: status
+      in: query
+      required: false
+      schema:
+        description: "status枚举值如下
+          0  - 默认
+          1 - 项目上传失败
+          2 - 项目上传成功
+          3 - 数据处理中
+          4 - 数据处理成功
+          5 - 数据处理失败
+          6 - 放入回收站
+          8 - 项目上传中
+          9 - 数据被导出
+          10 - 数据正在导出中
+          11 - 数据处理任务已取消
+          12 - 数据导出失败
+          "
+        type: string
+        default: "0"
+    - name: sort
+      in: query
+      required: false
+      schema:
+        description: 排序规格(desc,asc)
+        type: string
+        default: "desc"
+    - name: start_id
+      in: query
+      required: false
+      schema:
+        description: 开始的ID
+        type: string
+        default: "0"
+  responses:
+    "200":
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            title: empty object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位ms"
+              data:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: "满足搜索条件的项目总条数"
+                    default: 1
+                  current_page:
+                    type: integer
+                    description: "当前页"
+                    default: 1
+                  page_size:
+                    type: integer
+                    description: "页大小"
+                    default: 20
+                  next_start_id:
+                    type: integer
+                    description: "如果下一页有数据，下一页开始ID"
+                  project_list:
+                    type: array
+                    description: "项目列表"
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: "项目名称"
+                          default: "测试项目"
+                        remark:
+                          type: string
+                          description: "备注"
+                          default: ""
+                        create_time:
+                          type: string
+                          description: "创建时间 例如：2022-05-10 11:13:38"
+                          default: "2022-05-10 11:13:38"
+                        vr_code:
+                          type: string
+                          description: "VR编码，如果没有生成VR为空"
+                          default: "80xxx"
+                        project_id:
+                          type: string
+                          description: "项目ID"
+                          default: "auto3d-xxx"
+                        status_text:
+                          type: string
+                          description: "项目状态.status_text枚举值如下：
+                            project_not_upload - 默认
+                            project_upload_failed - 项目上传失败
+                            project_upload_success - 项目上传成功
+                            project_uploading - 项目上传中
+                            project_processing - 项目处理中
+                            project_process_cancel - 项目处理已取消
+                            project_process_success - 项目处理成功
+                            project_process_failed - 项目处理失败
+                            project_temporarily_delete - 放入回收站
+                            project_exported - 数据被导出
+                            project_export_fail - 数据被导出失败
+                            project_exporting - 数据导出中"
+                          default: "project_exporting"
+                        modify_time:
+                          type: string
+                          description: "更改时间 例如：2022-05-10 11:13:38"
+                          default: "2022-05-10 11:13:38"
+                        move_to_trash_time:
+                          type: string
+                          description: "放入回收站时间 例如：2022-05-10 11:13:38"
+                          default: "2022-05-10 11:13:38"

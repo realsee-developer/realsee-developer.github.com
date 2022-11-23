@@ -1,0 +1,50 @@
+get:
+  summary: 城市列表
+  tags:
+    - 生产服务
+  description: 提供可生产(实景拍摄/虚拟设计)的全量城市列表
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: array
+                decoration: "城市列表"
+                items:
+                  type: object
+                  properties:
+                    city_name:
+                      type: string
+                      description: "城市名称"
+                    city_id:
+                      type: number
+                      description: "城市ID(国标gbCode)"
+                    city_pinyin:
+                      type: string
+                      description: "城市拼音"

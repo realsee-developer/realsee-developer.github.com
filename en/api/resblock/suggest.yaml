@@ -1,0 +1,66 @@
+get:
+  summary: 小区搜索建议
+  tags:
+    - 生产服务
+  description: 提供可生产(实景拍摄/虚拟设计)的小区(RESBLOCK)搜索建议
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: keyword
+      in: query
+      description: "小区关键词"
+      required: true
+      schema:
+        type: string
+        default: "京粮悦"
+    - name: city_id
+      in: query
+      description: "城市ID"
+      required: true
+      schema:
+        type: string
+        default: "110000"
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    description: "小区列表"
+                    items:
+                      type: object
+                      properties:
+                        resblock_id:
+                          type: string
+                          description: "小区ID"
+                          default: "1111027380057"
+                        resblock_name:
+                          type: number
+                          description: "小区名"
+                          default: "天通苑中苑"

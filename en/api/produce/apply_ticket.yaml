@@ -1,0 +1,64 @@
+get:
+  tags:
+    - 生产服务
+  summary: 申请Ticket
+  description: ""
+  parameters:
+    - name: app_code
+      in: query
+      required: true
+      schema:
+        description: 控制台中的Application Id
+        type: string
+        default: ""
+    - name: user_identifier
+      in: query
+      required: true
+      schema:
+        description: 业务方自身账号系统的用户ID
+        type: string
+        default: "测试用户"
+    - name: action
+      in: query
+      required: true
+      schema:
+        description: 用户行为字段，从如视提供的客户端SDK中获取，透传给该接口，内容业务方无须关注
+        type: string
+        default: "apply_cos_token"
+    - name: project_id
+      in: query
+      required: true
+      schema:
+        description: 创建的项目ID
+        type: string
+        default: "auto3d-xxx"
+  responses:
+    "200":
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            title: empty object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同request_id类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位ms"
+              data:
+                properties:
+                  ticket:
+                    type: string
+                    description: "临时凭据 仅能使用1次 默认过期时间 5min"
+                    default: "2f56b9e5c2bd7bd8da50d35cdbab7f1b"

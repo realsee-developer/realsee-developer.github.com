@@ -1,0 +1,123 @@
+get:
+  summary: 基础信息
+  tags:
+    - 扩展实体
+  description: VR的基础信息，包含：名称、描述、地址等
+  parameters:
+    - name: Authorization
+      in: header
+      description: 鉴权获取的access_token
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - name: source
+      in: query
+      description: "业务方标识，例如：T-RZ4L2XQD"
+      required: true
+      schema:
+        type: string
+        default: "T-RZ4L2XQD"
+    - name: resource_code
+      in: query
+      description: "VR副本编码，例如：8oep3ZPGW8TjRlyT7x"
+      required: true
+      schema:
+        type: string
+        default: "8oep3ZPGW8TjRlyT7x"
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "标识唯一一次请求"
+              trace_id:
+                type: string
+                description: "标识唯一一次请求, 同 request_id 类似，但主要用于请求追溯的场景"
+              code:
+                type: integer
+                description: "错误码，请求成功时默认为 0"
+              status:
+                type: string
+                description: "错误信息，请求成功是默认为 success"
+              cost:
+                type: integer
+                description: "服务端计算耗时，单位 ms"
+              data:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: "VR名称"
+                  introduction:
+                    type: string
+                    description: "介绍"
+                  bd_location:
+                    type: object
+                    description: "地理位置"
+                    $ref: "#/components/schemas/bd_location"
+                  backdrop_filter:
+                    type: object
+                    description: "滤镜数据"
+                    $ref: "#/components/schemas/backdrop_filter"
+                  background_music:
+                    type: object
+                    description: "背景音乐"
+                    $ref: "#/components/schemas/background_music"
+components:
+  schemas:
+    bd_location:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "地址名称"
+        province:
+          type: string
+          description: "省"
+        city:
+          type: string
+          description: "城市"
+        district:
+          type: string
+          description: "城区"
+        location:
+          type: object
+          description: "经纬度坐标"
+          properties:
+            lat:
+              type: number
+              description: "维度"
+            lng:
+              type: number
+              description: "经度"
+    backdrop_filter:
+      type: object
+      properties:
+        backdrop:
+          description: "滤镜参数"
+          type: object
+          properties:
+            brightness:
+              type: number
+            contrast:
+              type: number
+            grayscale:
+              type: number
+            opacity:
+              type: number
+            saturate:
+              type: number
+    background_music:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "名称"
+        url:
+          type: string
+          description: "音乐地址"
