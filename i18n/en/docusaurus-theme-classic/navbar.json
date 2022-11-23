@@ -1,22 +1,22 @@
 {
   "item.label.三维空间": {
-    "message": "Three dimensional space",
+    "message": "three-dimensional space",
     "description": "Navbar item with label 三维空间"
   },
   "item.label.空间导览": {
-    "message": "Space guided tour",
+    "message": "space guide",
     "description": "Navbar item with label 空间导览"
   },
   "item.label.线上带看": {
-    "message": "Online tape watch",
+    "message": "watch online",
     "description": "Navbar item with label 线上带看"
   },
   "item.label.容器集成": {
-    "message": "Container integration",
+    "message": "container integration",
     "description": "Navbar item with label 容器集成"
   },
   "item.label.空间采集": {
-    "message": "Spatial acquisition",
+    "message": "space acquisition",
     "description": "Navbar item with label 空间采集"
   },
   "item.label.开放 API": {
@@ -24,7 +24,7 @@
     "description": "Navbar item with label 开放 API"
   },
   "item.label.开发者协议": {
-    "message": "Developer Agreement",
+    "message": "developer agreement",
     "description": "Navbar item with label 开发者协议"
   },
   "item.label.博客": {

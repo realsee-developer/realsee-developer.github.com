@@ -49,10 +49,10 @@ title: 微信小程序语音
 
 创建符合您业务场景 WXML 文件模板page.wxml
 
-````html 
+```html 
 <!-- 引入 sdk 里的wxml模板 -->
 <include src="path-to/rs-wx-vrsdk/index.wxml"/>
-````
+```
 
 ### 2、创建 page.js
 

@@ -43,7 +43,7 @@ npm install @realsee/dnalogel
 **通过 es 引用：**
 
 ```tsx
-import { ModelRoomLabelPlugin } from "@realsee/dnalogel"
+import { ModelRoomLabelPlugin } from "@realsee/dnagel";
 ```
 
 ## 开发指南
@@ -53,20 +53,20 @@ import { ModelRoomLabelPlugin } from "@realsee/dnalogel"
 在初始化 `Five` 实例时，将 `ModelRoomLabelPlugin` 配置在初始化插件参数即可。
 
 ```ts
-import { Five } from '@realsee/five'
+import { Five } from "@realsee/five";
 import { ModelRoomLabelPlugin } from "@realsee/dnalogel";
 
 const five = new Five({
-    plugins: [
-        [
-            ModelRoomLabelPlugin,
-            'modelRoomLabelPlugin', // 自定义插件名称
-            {
-                // 参数配置
-            }
-        ]
-    ]
-})
+  plugins: [
+    [
+      ModelRoomLabelPlugin,
+      "modelRoomLabelPlugin", // 自定义插件名称
+      {
+        // 参数配置
+      },
+    ],
+  ],
+});
 ```
 
 ### React 初始化
@@ -78,15 +78,15 @@ import { ModelRoomLabelPlugin } from "@realsee/dnalogel";
 import { createFiveProvider, FiveCanvas } from "@realsee/five/react";
 
 const FiveProvider = createFiveProvider({
-    plugins: [
-        [
-            ModelRoomLabelPlugin,
-            'modelRoomLabelPlugin', // 自定义插件名称
-            {
-                // 参数配置
-            }
-        ]
-    ]
+  plugins: [
+    [
+      ModelRoomLabelPlugin,
+      "modelRoomLabelPlugin", // 自定义插件名称
+      {
+        // 参数配置
+      },
+    ],
+  ],
 });
 ```
 
@@ -96,23 +96,22 @@ const FiveProvider = createFiveProvider({
 
 ```vue
 <template>
-  <FiveProvider :fiveInitArgs="fiveInitArgs">
-  </FiveProvider>
+  <FiveProvider :fiveInitArgs="fiveInitArgs"> </FiveProvider>
 </template>
 <script setup>
-import  ModelRoomLabelPlugin from "@realsee/dnalogel/libs/ModelRoomLabelPlugin";
+import ModelRoomLabelPlugin from "@realsee/dnalogel/libs/ModelRoomLabelPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
-    plugins: [
-        [
-            ModelRoomLabelPlugin,
-            'modelRoomLabelPlugin', // 自定义插件名称
-            {
-                // 参数配置
-            }
-        ]
-    ]
-}
+  plugins: [
+    [
+      ModelRoomLabelPlugin,
+      "modelRoomLabelPlugin", // 自定义插件名称
+      {
+        // 参数配置
+      },
+    ],
+  ],
+};
 </script>
 ```
 
@@ -120,27 +119,26 @@ const fiveInitArgs = {
 
 ```ts
 // 获取插件实例,其中 `modelRoomLabelPlugin` 是初始化时自定义的名称
-const pluginInstance = five.plugins.modelRoomLabel 
+const pluginInstance = five.plugins.modelRoomLabel;
 
 // 调用 `load` 方法载入模型房屋标签数据
-pluginInstance.load(modelRoomLabels)
+pluginInstance.load(modelRoomLabels);
 ```
 
 ### 节点挂载
 
 ```ts
 // 调用 appendTo(wrapper: Element) 方法挂载 DOM 节点
-five.plugins.modelRoomLabel.appendTo(wrapper)
-
+five.plugins.modelRoomLabel.appendTo(wrapper);
 
 // 示例
 React.useEffect(() => {
-    // plugin-full-screen-container 即为提前准备好的挂载节点
-    const wrapper = document.querySelector('.plugin-full-screen-container')
-    if (wrapper) {
-        five.plugins.modelRoomLabelPlugin.appendTo(wrapper)
-    }
-}, [])
+  // plugin-full-screen-container 即为提前准备好的挂载节点
+  const wrapper = document.querySelector(".plugin-full-screen-container");
+  if (wrapper) {
+    five.plugins.modelRoomLabelPlugin.appendTo(wrapper);
+  }
+}, []);
 ```
 
 ### 核心方法

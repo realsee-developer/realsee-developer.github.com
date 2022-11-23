@@ -21,8 +21,8 @@ title: 使用说明
 ## 功能说明
 
 <div style={{display:'flex'}}>
-    <img src="https:////vrlab-static.ljcdn.com/release/web/temp/floorplanRadar.57b51f71.png" alt="全景雷达图" width="50%" height="50%" />
-    <img src="https:////vrlab-static.ljcdn.com/release/web/temp/floorplan.15808fa0.png" alt="模型户型图" width="50%" height="50%" />
+    <img src="https://vrlab-static.ljcdn.com/release/web/temp/floorplanRadar.57b51f71.png" alt="全景雷达图" width="50%" height="50%" />
+    <img src="https://vrlab-static.ljcdn.com/release/web/temp/floorplan.15808fa0.png" alt="模型户型图" width="50%" height="50%" />
 </div>
 
 户型图的展示一般会有两种场景：**浏览房源全景时雷达图**（上图左），以及 **查看房源三维模型状态下的详细户型图**（上图右）。

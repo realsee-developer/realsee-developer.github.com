@@ -3,44 +3,47 @@
     "message": "Core SDK"
   },
   "解剖三维重建能力，为您重建三维空间提供无限可能。": {
-    "message": "Anatomical 3D reconstruction ability, for you to reconstruct three-dimensional space provides unlimited possibilities."
+    "message": "Anatomical 3D reconstruction capability provides unlimited possibilities for you to reconstruct 3D space."
   },
   "容器集成": {
-    "message": "Container integration"
+    "message": "container integration"
   },
   "集成如视容器，让您的三维空间跨平台完美演绎。": {
-    "message": "Integration such as visual container, let your three-dimensional space perfect cross-platform interpretation."
+    "message": "Integrate with the visual container, allowing your 3D space to perform perfectly across platforms."
   },
   "开放 API": {
     "message": "Open API"
   },
   "连通开放 API，丝滑接入如视云服务，为您的三维空间数据表达保驾护航。": {
-    "message": "Connect open API, silky access such as cloud services, for your three-dimensional space data expression escort."
+    "message": "Connect to the open API, and connect to Realsee cloud service smoothly, escorting your 3D spatial data expression."
   },
   "如视・开发手册": {
-    "message": "· Develop the manual"
+    "message": "Realsee·Development Manual"
   },
   "快速集成丰富多彩的三维空间能力，为您的项目添砖加瓦。": {
-    "message": "Quickly integrate colorful 3D space capabilities to add to your project."
+    "message": "Quickly integrate rich and colorful 3D space capabilities to add bricks and tiles to your project."
+  },
+  "进入阅读": {
+    "message": "Enter to read"
   },
   "开放共建三维生态，互联大千世界": {
-    "message": "Open and build a three-dimensional ecology, and connect the world"
+    "message": "Open and build a 3D ecology, interconnecting the world"
   },
   "playground.stackblitz.description": {
-    "message": "StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser."
+    "message": "StackBlitz uses a novel {webContainersLink} technology to run Docusauur directly in your browser."
   },
   "playground.tryItButton": {
-    "message": "Try it now!"
+    "message": "Track it now!"
   },
   "如视开放 API": {
-    "message": "Such as open API"
+    "message": "Realsee open API"
   },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.ErrorPageContent.tryAgain": {
-    "message": "Try again",
+    "message": "Try Again",
     "description": "The label of the button to try again when the page crashed"
   },
   "theme.NotFound.title": {
@@ -56,7 +59,7 @@
     "description": "The 2nd paragraph of the 404 page"
   },
   "theme.admonition.note": {
-    "message": "note",
+    "message": "Notes",
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {
@@ -88,11 +91,11 @@
     "description": "The ARIA label for the back to top button"
   },
   "theme.blog.paginator.navAriaLabel": {
-    "message": "Blog list page navigation",
+    "message": "Blog list page",
     "description": "The ARIA label for the blog pagination"
   },
   "theme.blog.paginator.newerEntries": {
-    "message": "Newer Entries",
+    "message": "New Entries",
     "description": "The label used to navigate to the newer blog posts page (previous page)"
   },
   "theme.blog.paginator.olderEntries": {
@@ -100,11 +103,11 @@
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
   "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Blog post page navigation",
+    "message": "Blog post page",
     "description": "The ARIA label for the blog posts pagination"
   },
   "theme.blog.post.paginator.newerPost": {
-    "message": "Newer Post",
+    "message": "New Post",
     "description": "The blog post button label to navigate to the newer/previous post"
   },
   "theme.blog.post.paginator.olderPost": {
@@ -160,19 +163,15 @@
     "description": "The label used to navigate to the next doc"
   },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "message": "One doc tagged|{count} docs tagged",
+    "message": "One doc tagged |{count} docs tagged",
     "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.docs.tagDocListPageTitle": {
-    "message": "{nDocsTagged} with \"{tagName}\"",
+    "message": "{nDocsTagged} with \"{tagName}",
     "description": "The title of the page for a docs tag"
   },
   "theme.docs.versionBadge.label": {
     "message": "Version: {versionLabel}"
-  },
-  "theme.common.editThisPage": {
-    "message": "Edit this page",
-    "description": "The link label to edit the current page"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "This is unreleased documentation for {siteTitle} {versionLabel} version.",
@@ -183,15 +182,19 @@
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "For up-to-date documentation, see the {latestVersionLink} ({versionLabel}).",
+    "message": "For up-to-date document, see the {latestVersionLink} ({versionLabel}).",
     "description": "The label used to tell the user to check the latest version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
     "message": "latest version",
     "description": "The label used for the latest version suggestion link label"
   },
+  "theme.common.editThisPage": {
+    "message": "Edit this page",
+    "description": "The link label to edit the current page"
+  },
   "theme.common.headingLinkTitle": {
-    "message": "Direct link to heading",
+    "message": "Direct link to head",
     "description": "Title for link to heading"
   },
   "theme.lastUpdated.atDate": {
@@ -210,16 +213,16 @@
     "message": "Versions",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
-  "theme.tags.tagsListLabel": {
-    "message": "Tags:",
-    "description": "The label alongside a tag list"
-  },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Close",
     "description": "The ARIA label for close button of announcement bar"
   },
+  "theme.tags.tagsListLabel": {
+    "message": "Tags:",
+    "description": "The label alongside a tag list"
+  },
   "theme.blog.sidebar.navAriaLabel": {
-    "message": "Blog recent posts navigation",
+    "message": "Blog recent posts",
     "description": "The ARIA label for recent posts in the blog sidebar"
   },
   "theme.CodeBlock.copied": {
@@ -227,7 +230,7 @@
     "description": "The copied button label on code blocks"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
-    "message": "Copy code to clipboard",
+    "message": "Copy Code to Clipboard",
     "description": "The ARIA label for copy code blocks button"
   },
   "theme.CodeBlock.copy": {
@@ -235,20 +238,20 @@
     "description": "The copy button label on code blocks"
   },
   "theme.CodeBlock.wordWrapToggle": {
-    "message": "Toggle word wrap",
+    "message": "Toggle wrap",
     "description": "The title attribute for toggle word wrapping button of code block lines"
   },
   "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
-    "message": "Toggle the collapsible sidebar category '{label}'",
+    "message": "Toggles the collable side category '{label}'",
     "description": "The ARIA label to toggle the collapsible sidebar category"
-  },
-  "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "Languages",
-    "description": "The label for the mobile language switcher dropdown"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "On this page",
     "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Languages",
+    "description": "The label for the mobile language switcher dropdown"
   },
   "theme.blog.post.readingTime.plurals": {
     "message": "One min read|{readingTime} min read",
@@ -275,19 +278,19 @@
     "description": "The ARIA label for close button of mobile sidebar"
   },
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
-    "message": "← Back to main menu",
+    "message": "Back to main menu",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
   },
   "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "message": "Toggle navigation bar",
+    "message": "Toggles navigation bar",
     "description": "The ARIA label for hamburger menu button of mobile navigation"
   },
   "theme.docs.sidebar.expandButtonTitle": {
-    "message": "Expand sidebar",
+    "message": "Exp side bar",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "Expand sidebar",
+    "message": "Exp side bar",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.SearchBar.seeAll": {
@@ -318,11 +321,11 @@
     "description": "The ARIA label for Algolia mention"
   },
   "theme.SearchPage.noResultsText": {
-    "message": "No results were found",
+    "message": "No results found",
     "description": "The paragraph for empty search result"
   },
   "theme.SearchPage.fetchingNewResults": {
-    "message": "Fetching new results...",
+    "message": "Feeding new results...",
     "description": "The paragraph for fetching new search results"
   },
   "theme.SearchBar.label": {
@@ -362,7 +365,7 @@
     "description": "The label for remove favorite search button"
   },
   "theme.SearchModal.errorScreen.titleText": {
-    "message": "Unable to fetch results",
+    "message": "Enable to fit results",
     "description": "The title for error screen of search modal"
   },
   "theme.SearchModal.errorScreen.helpText": {
@@ -406,7 +409,7 @@
     "description": "The text explains that there are no results for the following search"
   },
   "theme.SearchModal.noResultsScreen.suggestedQueryText": {
-    "message": "Try searching for",
+    "message": "Search for",
     "description": "The text for the suggested query when no results are found for the following search"
   },
   "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
@@ -414,7 +417,7 @@
     "description": "The text for the question where the user thinks there are missing results"
   },
   "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
-    "message": "Let us know.",
+    "message": "Set us know.",
     "description": "The text for the link to report missing results"
   },
   "theme.SearchModal.placeholder": {
@@ -428,8 +431,5 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
-  },
-  "进入阅读": {
-    "message": "Enter the reading"
   }
 }

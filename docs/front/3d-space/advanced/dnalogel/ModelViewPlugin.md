@@ -69,7 +69,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import  ModelViewPlugin from "@realsee/dnalogel/libs/ModelViewPlugin"
+import ModelViewPlugin from "@realsee/dnalogel/libs/ModelViewPlugin"
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [

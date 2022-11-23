@@ -51,7 +51,7 @@ import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 在初始化 `Five` 实例的时候，将 `PanoFloorplanRadarPlugin` 配置在初始化插件参数即可。
 
 ```ts
-import Five  from '@realsee/five'
+import Five from '@realsee/five'
 import { PanoFloorplanRadarPlugin } from "@realsee/dnalogel"
 
 // 初始化 five 实例
@@ -92,7 +92,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import  PanoFloorplanRadarPlugin from "@realsee/dnalogel/libs/PanoFloorplanRadarPlugin";
+import PanoFloorplanRadarPlugin from "@realsee/dnalogel/libs/PanoFloorplanRadarPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [

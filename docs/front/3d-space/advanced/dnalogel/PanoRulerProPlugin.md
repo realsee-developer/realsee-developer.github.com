@@ -5,8 +5,8 @@ title: 添加全景标尺Pro🌟️
 ## **PanoRulerProPlugin**
 
 :::info
-全景标尺Pro依赖如视 open API 获取标尺数据Pro，您可以参考 [开放 API](https://open-platform.realsee.com/developer/open/api/#/) 了解如何获取全景标尺数据Pro。
-全景标尺数据Pro的 open API 对应接口为：`/open/v1/plugin/PangRulerProPlugin`
+全景标尺 Pro 依赖如视 open API 获取标尺数据 Pro，您可以参考 [开放 API](https://open-platform.realsee.com/developer/open/api/#/) 了解如何获取全景标尺数据 Pro。
+全景标尺数据 Pro 的 open API 对应接口为：`/open/v1/plugin/PangRulerProPlugin`
 :::
 
 ## 功能说明
@@ -16,7 +16,7 @@ title: 添加全景标尺Pro🌟️
 详细功能点如下：
 
 - 提供在全景模式下标注房源关键轮廓的尺寸，比如分间的层高、面宽和径深等信息。
-- 相比于普通标尺，增加了物体识别和墙体遮挡识别，将遮挡部位进行虚线处理，并进行了样式优化，看起来更有空间感；目前仅支持实景 VR 的场景，仅支持伽罗华采集的单楼层房源、仅适用于200平米以下的家居空间、不支持毛坯房、需要指定范围预跑，再打开端上入口。
+- 相比于普通标尺，增加了物体识别和墙体遮挡识别，将遮挡部位进行虚线处理，并进行了样式优化，看起来更有空间感；目前仅支持实景 VR 的场景，仅支持伽罗华采集的单楼层房源、仅适用于 200 平米以下的家居空间、不支持毛坯房、需要指定范围预跑，再打开端上入口。
 - 只展示当前视角下靠近中心位置的标尺线。
 - 移动走点及变换视角时，标尺线会跟随移动和变换。
 - 数值气泡长度自适应：根据数值内容自适应气泡长度，同时支持数值内容根据特殊需求配置，比如数值有英寸单位的需求。
@@ -26,16 +26,16 @@ title: 添加全景标尺Pro🌟️
 
 ### 优化点
 
-  1. 层高数据更精准：根据之前线下测量数据，1.0标尺层高误差在10cm左右，是1.0标尺的主要痛点之一，2.0标尺通过算法优化将误差缩小至3cm以内。
-  2. 标识位置更准确： 2.0标尺根据墙线算法识别优化，标尺的展示位置更贴合真实墙线。
-  3. 展示体验更好：2.0标尺增加了物体识别和墙体遮挡识别，将遮挡部位进行虚线处理，并进行了样式优化，看起来更有空间感。
+1. 层高数据更精准：根据之前线下测量数据，1.0 标尺层高误差在 10cm 左右，是 1.0 标尺的主要痛点之一，2.0 标尺通过算法优化将误差缩小至 3cm 以内。
+2. 标识位置更准确： 2.0 标尺根据墙线算法识别优化，标尺的展示位置更贴合真实墙线。
+3. 展示体验更好：2.0 标尺增加了物体识别和墙体遮挡识别，将遮挡部位进行虚线处理，并进行了样式优化，看起来更有空间感。
 
 ### 限制条件
 
-  1. 目前仅支持实景 VR 的场景。
-  2. 仅支持伽罗华采集的单楼层房源。
-  3. 仅适用于200平米以下的家居空间、不支持毛坯房。
-  4. 需要[联系如视](https://home.realsee.com/developer/contact)指定数据生产的VR范围进行数据生产后才可使用。
+1. 目前仅支持实景 VR 的场景。
+2. 仅支持伽罗华采集的单楼层房源。
+3. 仅适用于 200 平米以下的家居空间、不支持毛坯房。
+4. 需要[联系如视](https://home.realsee.com/developer/contact)指定数据生产的 VR 范围进行数据生产后才可使用。
 
 ## 示例效果
 
@@ -54,7 +54,7 @@ npm install @realsee/dnalogel
 **通过 es 引用：**
 
 ```tsx
-import { PanoRulerProPlugin } from "@realsee/dnalogel"
+import { PanoRulerProPlugin } from "@realsee/dnalogel";
 ```
 
 ## 开发指南
@@ -64,20 +64,20 @@ import { PanoRulerProPlugin } from "@realsee/dnalogel"
 在初始化 `Five` 实例时，将 `PanoRulerProPlugin` 配置在初始化插件参数即可。
 
 ```ts
-import { Five } from '@realsee/five'
+import { Five } from "@realsee/five";
 import { PanoRulerProPlugin } from "@realsee/dnalogel";
 
 const five = new Five({
-    plugins: [
-        [
-            PanoRulerProPlugin,
-            'panoRulerProPlugin', // 自定义插件名称
-            {
-                // 参数配置
-            }
-        ]
-    ]
-})
+  plugins: [
+    [
+      PanoRulerProPlugin,
+      "panoRulerProPlugin", // 自定义插件名称
+      {
+        // 参数配置
+      },
+    ],
+  ],
+});
 ```
 
 ### React 初始化
@@ -89,15 +89,15 @@ import { PanoRulerProPlugin } from "@realsee/dnalogel";
 import { createFiveProvider, FiveCanvas } from "@realsee/five/react";
 
 const FiveProvider = createFiveProvider({
-    plugins: [
-        [
-            PanoRulerProPlugin,
-            'panoRulerProPlugin', // 自定义插件名称
-            {
-                // 参数配置
-            }
-        ]
-    ]
+  plugins: [
+    [
+      PanoRulerProPlugin,
+      "panoRulerProPlugin", // 自定义插件名称
+      {
+        // 参数配置
+      },
+    ],
+  ],
 });
 ```
 
@@ -107,23 +107,22 @@ const FiveProvider = createFiveProvider({
 
 ```vue
 <template>
-  <FiveProvider :fiveInitArgs="fiveInitArgs">
-  </FiveProvider>
+  <FiveProvider :fiveInitArgs="fiveInitArgs"> </FiveProvider>
 </template>
 <script setup>
 import PanoRulerProPlugin from "@realsee/dnalogel/libs/PanoRulerProPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
-    plugins: [
-        [
-            PanoRulerProPlugin,
-            'panoRulerProPlugin', // 自定义插件名称
-            {
-                // 参数配置
-            }
-        ]
-    ]
-}
+  plugins: [
+    [
+      PanoRulerProPlugin,
+      "panoRulerProPlugin", // 自定义插件名称
+      {
+        // 参数配置
+      },
+    ],
+  ],
+};
 </script>
 ```
 
@@ -131,10 +130,12 @@ const fiveInitArgs = {
 
 ```ts
 // 获取插件实例,其中 `panoRulerProPlugin` 是初始化时自定义的名称
-const pluginInstance = five.plugins.panoRulerProPlugin
+const pluginInstance = five.plugins.panoRulerProPlugin;
 
 // 调用 `load` 方法载入全景标尺数据
-pluginInstance.load(data, { distanceText: (distance) => `约 ${distance.toFixed(1)}米` })
+pluginInstance.load(data, {
+  distanceText: (distance) => `约 ${distance.toFixed(1)}米`,
+});
 ```
 
 ### 核心方法
