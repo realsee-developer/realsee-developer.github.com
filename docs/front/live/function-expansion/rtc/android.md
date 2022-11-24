@@ -10,12 +10,11 @@ Android 语音的集成文档仅针对 Android 客户端开发人员。其他端
 开始前请确保您已经集成了 `Android SDK`，若您还没有集成 `Android SDK`，请跳转至 **[Android SDK 集成](../../../../webview/app/Android.md)** 文档，进行集成。
 :::
 
-
 **SDK 使用腾讯语音（Trtc）实现了带看过程中的语音同步，使用带看功能需进行以下操作步骤：**
 
 ## 依赖添加
 
-为避免版本冲突，SDK并没有将腾讯语音库合入 aar 中，因此需要单独引入腾讯语音库，修改 **build.gradle** 文件，添加依赖
+为避免版本冲突，SDK 并没有将腾讯语音库合入 aar 中，因此需要单独引入腾讯语音库，修改 **build.gradle** 文件，添加依赖
 
 ```groovy title="build.gradle"
 dependencies {
@@ -44,13 +43,13 @@ RsVrSdk.init(this, new RsVrCallBack() {
   public String accessToken() {
     return Utils.getAccessToken();
   }
-  
+
   // 返回用户id
   @Override
   public String getUserId() {
     return Utils.getUserId();
   }
-	
+
   // 返回用户名
   @Override
   public String getUserName() {
@@ -65,5 +64,3 @@ RsVrSdk.init(this, new RsVrCallBack() {
   }
 });
 ```
-
-

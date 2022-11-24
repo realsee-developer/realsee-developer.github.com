@@ -17,7 +17,6 @@ As a leader in the VR space re-engineering domain, such as capturing, displaying
 Technical documents are intended for researchers with **front-end knowledge background** so we assume you have a basic knowledge of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) languages,[Node.js](https://nodejs.org/en/docs/) and [npm](https://docs.npmjs.com/) etc.  
 :::
 
-
 :::tip
 Document refers to SDK, sample written in [TypeScript](https://www.typescriptlang.org/) for quality assurance of development and programming experience (e.g. friendly code prompt, auto-completion, etc.), recommended via [Visual Studio Code](https://code.visualstudio.com),[WebStorm](https://www.jetbrains.com/webstorm/) etc.
 :::

@@ -7,80 +7,103 @@ title: Built-in interface
 :::
 
 ### webViewType
+
 - `webViewType: WebViewTypeEnum` WebView Type
 
-### already available
-- `ready: () => Promis<JSBridgeReturnType<boolean>>` judge whether jsBridge is ready
+### ready
 
-### Load Progress
-- `loadProgress: (progress: number@@1) => Promis<JSBridgeReturnType<boolean>>` Control progress bar
+- `ready: () => Promise<JSBridgeReturnType<boolean>>` judge whether jsBridge is ready
+
+### loadProgress
+
+- `loadProgress: (progress: number) => Promise<JSBridgeReturnType<boolean>>` Control progress bar
 
 ### closeLoading
-- `closeLoading: () => Promis<JSBridgeReturnType<boolean>>` Close progress bar
+
+- `closeLoading: () => Promise<JSBridgeReturnType<boolean>>` Close progress bar
 
 ### getDeviceInfo
-- `getDeviceInfo: () => Promis<JSBridgeReturnType<DeviceInfo | false>>` Get information on container devices
+
+- `getDeviceInfo: () => Promise<JSBridgeReturnType<DeviceInfo | false>>` Get information on container devices
 
 ### getWebViewState
-- `getWebViewState: () => Promis<JSBridgeReturnType<WebViewState | false>>` Get the latest WebView status
+
+- `getWebViewState: () => Promise<JSBridgeReturnType<WebViewState | false>>` Get the latest WebView status
 
 ### setLeftTopBackButton
-- `setLeftTopBackButton: (enable: boolean) => Promis<JSBridgeReturnType<boolean>>` Set Hidden Back button in the upper left corner (only iOS is valid)
+
+- `setLeftTopBackButton: (enable: boolean) => Promise<JSBridgeReturnType<boolean>>` Set Hidden Back button in the upper left corner (only iOS is valid)
 
 ### login
-- `login: () => Promis<JSBridgeReturnType<UserInfo | false>>` Login
+
+- `login: () => Promise<JSBridgeReturnType<UserInfo | false>>` Login
 
 Successfully logged in to current login user.
 
-### Logout
-- `logout: () => Promis<JSBridgeReturnType<boolean>>` Logout
+### logout
+
+- `logout: () => Promise<JSBridgeReturnType<boolean>>` Logout
 
 ### getUserInfo
-- `getUserInfo: () => Promis<JSBridgeReturnType<UserInfo | false>>` Get user information (logged in)
+
+- `getUserInfo: () => Promise<JSBridgeReturnType<UserInfo | false>>` Get user information (logged in)
 
 ### openWebView
-- `openWebView: (url: string, way: OpenWebViewEnum) => Promiss<JSBridgeReturnType<boolean>>` Open new WebView
+
+- `openWebView: (url: string, way: OpenWebViewEnum) => Promise<JSBridgeReturnType<boolean>>` Open new WebView
 
 ### closeWebView
-- `closeWebView: () => Promis<JSBridgeReturnType<boolean>>` Close current WebView
+
+- `closeWebView: () => Promise<JSBridgeReturnType<boolean>>` Close current WebView
 
 ### getBangsHeight
-- `getBangsHeight: () => Promis<JSBridgeReturnType<number | false>>` Get "Liu Ha" \"Dig Holes" to take up the height of the screen
+
+- `getBangsHeight: () => Promise<JSBridgeReturnType<number | false>>` Get "Liu Ha" \"Dig Holes" to take up the height of the screen
 
 ### setOrientation
-- `setOrientation: (orientation: OrientationEnum) => Promis<JSBridgeReturnType<boolean>>` set horizontal portrait
 
-### KeepScreenLight
-- `KeepScreenLight: (enable: boolean) => Promise<JSBridgeReturnType<boolean>>` Keep screen on
+- `setOrientation: (orientation: OrientationEnum) => Promise<JSBridgeReturnType<boolean>>` set horizontal portrait
+
+### keepScreenLight
+
+- `keepScreenLight: (enable: boolean) => Promise<JSBridgeReturnType<boolean>>` Keep screen on
 
 ### shock
-- `shock: (duration?: number@@1) => Promis<JSBridgeReturnType<boolean>>` Vibrate
 
-duration indicates the time/number of vibrations; the Android terminal indicates the number of vibrations in****, and the iOS terminal indicates the number of vibrations in****.
+- `shock: (duration?: number) => Promise<JSBridgeReturnType<boolean>>` Vibrate
+
+duration indicates the time/number of vibrations; the Android terminal indicates **the number of vibrations in**, and the iOS terminal indicates **the number of vibrations in**.
 
 > Parameter `duration` indicates the number of vibrations on the iOS site; on Android it indicates the duration of vibration (unit：seconds).
 
-### Minimize
-- `minimize: () => Promis<JSBridgeReturnType<boolean>>` Minimized ("Widget" mode).
+### minimize
+
+- `minimize: () => Promise<JSBridgeReturnType<boolean>>` Minimized ("Widget" mode).
 
 ### saveImage2Album
-- `saveImage2Album: (base64: string) => Promis<JSBridgeReturnType<boolean>>` Save image to album
 
-### DetMicro
-- `DetectMicro: () => Promis<JSBridgeReturnType<boolean>>` Detect microphone license
+- `saveImage2Album: (base64: string) => Promise<JSBridgeReturnType<boolean>>` Save image to album
+
+### detectMicro
+
+- `detectMicro: () => Promise<JSBridgeReturnType<boolean>>` Detect microphone license
 
 If the microphone is not authorized, this method will automatically lead the user to enable the permission.
 
-### Action Share
-- `ActionShare: (shareConfig: Partial<ShareConfig>) => Promis<JSBridgeReturnType<boolean>>` Share
+### actionShare
 
-### Preload
-- `preload: (urls: string[]) => Promis<JSBridgeReturnType<boolean>>` Static resources preload
+- `actionShare: (shareConfig: Partial<ShareConfig>) => Promise<JSBridgeReturnType<boolean>>` Share
+
+### preload
+
+- `preload: (urls: string[]) => Promise<JSBridgeReturnType<boolean>>` Static resources preload
 
 :::caution
+
 - This method is only valid for iOS VRWebView \Android VRWebView.
 - The request result will be cached by the client, that is, the second subsequent request **may** read the cache values directly, and do not perform the HTTP request.
-:::
+  :::
 
 ### createCacheProxyUrl
+
 - `createCacheProxyUrl: (urls: string | string[]) => string[]` Generate proxy request link

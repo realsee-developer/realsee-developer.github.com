@@ -10,7 +10,6 @@ iOS voice integrated documents only for iOS client developers.There is no need f
 Before you start, make sure you have integrated `iOS SDK`, and if you have not integrated `iOS SDK`, jump to **[iOS SDK integration](../../../../webview/app/iOS.md)** documentation.
 :::
 
-
 **The SDK uses Tencent Voice (Trtc) to realize voice synchronization during the process of watching with video. To use the video with video function, the following steps are required：**
 
 ## Dependencies added
@@ -28,16 +27,16 @@ A user login status needs to be checked, the SDK needs to get the current user l
 
 ```objectivec
 // Returns the latest user login token
-[RSVRSDKConfig shareInstance]. ccessToken = ^NSString * _Nullable.
-    return [[NSUserDefaults] valueForKey:@"login_token"];
+[RSVRSDKConfig shareInstance].accessToken = ^NSString * _Nullable{
+  	return [[NSUserDefaults standardUserDefaults] valueForKey:@"login_token"];
 };
 // Return to the latest user ID
-[RSVRSDSDKConfig share]. serId = ^NSString * _Nullable
-    return [[NSUserDefaults standards]valueForKey:@"login_user_id"];
+[RSVRSDKConfig shareInstance].userId = ^NSString * _Nullable{
+  	return [[NSUserDefaults standardUserDefaults] valueForKey:@"login_user_id"];
 };
 // Return to the latest user
-[RSVRSDKConfig ShareInstance]. serName = ^NSString * _Nullable
-    return [[NSUserDefaults standardUserDefaults] valueForKey:@"login_user_name"];
+[RSVRSDKConfig shareInstance].userName = ^NSString * _Nullable{
+  	return [[NSUserDefaults standardUserDefaults] valueForKey:@"login_user_name"];
 };
 ```
 
@@ -50,19 +49,17 @@ When the validation results are not logged in or invalid login information, jump
 Methods to implement RSVRSDKDelegate:
 
 ```objectivec
-#pagma RSVRSDKDelegate
+#pragma RSVRSDKDelegate
 
 // needs to be implemented in this proxy method to wake up login interface.
 /// @param didUserLoginBlock needs to be activated when users log in, then use this block
-- (void) actionLogin:(dispatch_block_t) didUserLoginBlock
-
-    self. oginBlockAction = didUserLoginBlock;
-    LoginViewControler* loginVc = [[LoginViewController alloca] init];
-    [self. avigationController pushViewControler:loginVc animated:YES];
+- (void)actionLogin:(dispatch_block_t)didUserLoginBlock
+{
+    self.loginBlockAction = didUserLoginBlock;
+    LoginViewController* loginVc = [[LoginViewController alloc] init];
+    [self.navigationController pushViewController:loginVc animated:YES];
 }
-...
+....
 ```
 
 H5 On receipt of a successful login notification, the method of retrieving user information will be redeployed, updated information will be obtained, validated and initiated.
-
-

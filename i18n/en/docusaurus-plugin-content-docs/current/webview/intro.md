@@ -16,8 +16,8 @@ title: Introduction
 ### Performance experience
 
 - **Preload capacity**：Before turning on the VR page, you can preload some data, sticky resources and more.
-- **First Rendering**(*partially supported*)：provides terminal rendering capability, pending seamless switching when front-end rendering is complete.
-- **Proxy request**(*partially support*)：takes advantage of high client performance **HTTP** request capacity, and caches request results to avoid subsequent duplicate requests.
+- **First Rendering**(_partially supported_)：provides terminal rendering capability, pending seamless switching when front-end rendering is complete.
+- **Proxy request**(_partially support_)：takes advantage of high client performance **HTTP** request capacity, and caches request results to avoid subsequent duplicate requests.
 
 ## "bridge" protocol
 
@@ -25,6 +25,6 @@ title: Introduction
 
 For more details, please move by way： **["bridge" protocol - introduce](/docs/webview/jsbridge/intro)**.
 
-:::tip Reminder 
+:::tip Reminder
 Due to the inconsistent implementation mechanism of `WebView` of each terminal (iOS [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), Android [WebView](https://developer.android.com/reference/android/webkit/WebView), WeChat applet [web-view](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html) , etc.), although `@realsee/jsbridge-x` has tried to smooth out the differences between them, but due to the differences in platforms, please refer to the API corresponding to each version for details.
 :::

@@ -4,20 +4,19 @@ title: Introduction
 
 **Online** is seen in real time communication capacity based on [WebSocket](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket) and [WebRTC](https://webrtc.org/).With browser SDK and server VRTC services as its core, twinning containers support cross-platform business scenes (iOS / Android / Microlet).Based on these tools and services, developers can develop applications that support functions such as screen and voice in real time.
 
-
 ## Product Structure
 
 - **Browser SDK**
-    - [@realsee/five](../3d-space/get-started/00.rendering-engine.md) rendering engine
-    - [@realsee/live](./preparation/3.live-controller.md) with watching controller
-    - [@realsee/jsbridge-x](../../webview/jsbridge/intro.md) "bridge" protocol
+  - [@realsee/five](../3d-space/get-started/00.rendering-engine.md) rendering engine
+  - [@realsee/live](./preparation/3.live-controller.md) with watching controller
+  - [@realsee/jsbridge-x](../../webview/jsbridge/intro.md) "bridge" protocol
 - **Client container SDK** (cross-platform container)
-    - for iOS
-    - for Android
-    - for WeChat MiniProgram
+  - for iOS
+  - for Android
+  - for WeChat MiniProgram
 - **Server API**
-    - HTTP
-    - WebSocket
+  - HTTP
+  - WebSocket
 
 <figure>
   <div style={{display: 'flex',     background: 'white',
@@ -27,7 +26,3 @@ title: Introduction
   </div>
   <figcaption>Figure I：See the structure of services</figcaption>
 </figure>
-
-
-
-

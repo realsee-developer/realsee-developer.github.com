@@ -27,8 +27,8 @@ For iOS \Android, Micromessager and other terminals, platforms provide the corre
 
 ```js
 // iOS/Android
-import JSBbridge from '@realsee/jsbridge-x/lib/app'
-// or microletter apple
+import JSBridge from '@realsee/jsbridge-x/lib/app'
+// or miniprogram
 // import JSBbridge from '@realsee/jsbridge-x/lib/miniprogram'
 
 const jsBridge = new JSBridge({})
@@ -37,20 +37,18 @@ const jsBridge = new JSBridge({})
 jsBridge. n('inited', () => /** */)
 
 // Get device information for the current container
-const [deviceInfo, err] = await jsBridge.geDetDeviceInfo()
+const [deviceInfo, err] = await jsBridge.getDeviceInfo()
 
 ```
-
 
 ## Adaptations
 
 - [x] [iOS VRWebView](../app/iOS.md)
 - [x] [Android VRWebView](../app/Android.md)
-- [x] [Microletter apple](../miniProgram/wechat.md)
+- [x] [Miniprogram](../miniProgram/wechat.md)
 - [ ] Headline applets
 - [ ] 100 applets
 
 ::caution notes  
 the browser itself is the full version of WebView and does not exist for the so-called `jsBridge`.But in order to ensure the unity of business source code logic, we also simulated a `jsBridge` concept in the browser environment.The browser's `jsBridge` needs to be implemented by yourself, with reference **[browser "bridge" implementation](./browser-jsbridge.md)**.
 :::
-

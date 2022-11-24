@@ -18,8 +18,8 @@ If the network is unstable, you can set the `autoPreload` parameter to `true` to
 
 ```ts
 // Global preload
-const vreoplayer = new Player(five, { autoPreload: true })
+const vreoplayer = new Player(five, { autoPreload: true });
 
 // preload data for a player
-vreoplayer.load(vreoUnit, 0, true)
+vreoplayer.load(vreoUnit, 0, true);
 ```

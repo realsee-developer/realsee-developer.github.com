@@ -13,20 +13,19 @@ title: React 支持
 假设您自行开发的浏览器"桥"类文件名为 `JSBridgeBrowser.ts`
 :::
 
-
 ```tsx
-import { JSBridgeApp } from '@realsee/jsbridge-x/lib/app' // 客户端
-import { JSBridgeMiniprogram } from '@realsee/jsbridge-x/lib/miniprogram' // 微信小程序
-import { JSBridgeBrowser } from './JSBridgeBrowser' // 注意，浏览器桥需要您自行实现
+import { JSBridgeApp } from "@realsee/jsbridge-x/lib/app"; // 客户端
+import { JSBridgeMiniprogram } from "@realsee/jsbridge-x/lib/miniprogram"; // 微信小程序
+import { JSBridgeBrowser } from "./JSBridgeBrowser"; // 注意，浏览器桥需要您自行实现
 
-import { isApp, isMiniprogram } from './utils/deviceDetect'
+import { isApp, isMiniprogram } from "./utils/deviceDetect";
 
-let bridgeInstance
+let bridgeInstance;
 
 // 根据端的类型初始化 jsBridge 实例
-if (isApp) bridgeInstance = new JSBridgeApp()
-else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram()
-else bridgeInstance = new JSBridgeBrowser()
+if (isApp) bridgeInstance = new JSBridgeApp();
+else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram();
+else bridgeInstance = new JSBridgeBrowser();
 ```
 
 ## 集成"桥"至 React Context 上下文
@@ -34,32 +33,31 @@ else bridgeInstance = new JSBridgeBrowser()
 通过 `JSBridgeContext` 将 "桥" 集成至 React 的 Context 上下文。
 
 ```tsx
-import { JSBridgeApp } from '@realsee/jsbridge-x/lib/app' // 客户端
-import { JSBridgeMiniprogram } from '@realsee/jsbridge-x/lib/miniprogram' // 微信小程序
-import { JSBridgeBrowser } from './JSBridgeBrowser' // 注意，浏览器桥需要您自行实现
+import { JSBridgeApp } from "@realsee/jsbridge-x/lib/app"; // 客户端
+import { JSBridgeMiniprogram } from "@realsee/jsbridge-x/lib/miniprogram"; // 微信小程序
+import { JSBridgeBrowser } from "./JSBridgeBrowser"; // 注意，浏览器桥需要您自行实现
 // highlight-start
-import { JSBridgeContext } from "@realsee/jsbridge-x/lib/react"
+import { JSBridgeContext } from "@realsee/jsbridge-x/lib/react";
 // highlight-end
 
-import { isApp, isMiniprogram } from './utils/deviceDetect'
+import { isApp, isMiniprogram } from "./utils/deviceDetect";
 
-let bridgeInstance
+let bridgeInstance;
 
 // 根据端的类型初始化 jsBridge 实例
-if (isApp) bridgeInstance = new JSBridgeApp()
-else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram()
-else bridgeInstance = new JSBridgeBrowser()
-
+if (isApp) bridgeInstance = new JSBridgeApp();
+else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram();
+else bridgeInstance = new JSBridgeBrowser();
 
 ReactDOM.render(
-    <React.StrictMode>
-        // highlight-start
-        <JSBridgeContext.Provider value={bridgeInstance}>
-            <YourApp />
-        </JSBridgeContext.Provider>
-        // highlight-end
-    </React.StrictMode>,
-document.getElementById('root')
+  <React.StrictMode>
+    // highlight-start
+    <JSBridgeContext.Provider value={bridgeInstance}>
+      <YourApp />
+    </JSBridgeContext.Provider>
+    // highlight-end
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 ```
 
@@ -70,27 +68,28 @@ document.getElementById('root')
 比如，获取 "刘海" \ "挖孔" 占用屏幕的高度：
 
 ```tsx
-import { useBangsHeightState } from "@realsee/jsbridge-x/lib/react/hooks"
+import { useBangsHeightState } from "@realsee/jsbridge-x/lib/react/hooks";
 
 function DemoApp() {
-    const bandHeight = useBangsHeightState()
-    
-    return null
+  const bandHeight = useBangsHeightState();
+
+  return null;
 }
 ```
 
 关闭 loading :
+
 ```ts
-import { useJSBridgeAction } from "@realsee/jsbridge-x/lib/react/hooks"
+import { useJSBridgeAction } from "@realsee/jsbridge-x/lib/react/hooks";
 
 function DemoApp() {
-    const { closeLoading } = useJSBridgeAction()
-    
-    React.useEffect(() => {
-        Promise.resolve().then(closeLoading)
-    }, [])
-    
-    return null
+  const { closeLoading } = useJSBridgeAction();
+
+  React.useEffect(() => {
+    Promise.resolve().then(closeLoading);
+  }, []);
+
+  return null;
 }
 ```
 

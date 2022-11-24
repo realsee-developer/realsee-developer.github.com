@@ -10,7 +10,6 @@ Android voice integrated documents only for Android client developers.There is n
 Before you start, make sure you have integrated `Android SDK`, and if you have not integrated `Android SDK`please jump to **[Android SDK integration](../../../../webview/app/Android.md)** documentation for integration.
 :::
 
-
 **The SDK uses Tencent Voice (Trtc) to realize voice synchronization during the process of watching with video. To use the video with video function, the following steps are required：**
 
 ## Dependencies added
@@ -42,7 +41,7 @@ RsVrSdk.init(this, new RsVrCallBack() {
   // return login token
   @Override
   public String accessToken() {
-    return Utils .getAccessToken();
+    return Utils.getAccessToken();
   }
 
   // Return user id
@@ -60,10 +59,8 @@ RsVrSdk.init(this, new RsVrCallBack() {
   // If the login token fails the validation, jump to App login
   @Override
   public void actionLogin(Activity activity, int requestCode) {
-    Intent intent = new Intent(activity, GetUserIdActivity.class );
+    Intent intent = new Intent(activity, GetUserIdActivity.class);
     activity.startActivityForResult(intent, requestCode);
   }
 });
 ```
-
-

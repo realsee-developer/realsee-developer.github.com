@@ -7,19 +7,22 @@ title: Custom "bridge" protocol
 :::
 
 ### callAndBackfeed
-- `callBackfeed: <T>(schedume: string) => Promis<JSBridgeReturnType<T | false>>`
+
+- `callAndBackfeed: <T>(scheme: string) => Promise<JSBridgeReturnType<T | false>>`
 
 ```ts title="示例"
-const success = await jsBridge.callAndBackfeed<boolean>('/PlayVoiceMsg?msg={待播放语音文本}') // Return successful
+const success = await jsBridge.callAndBackfeed<boolean>(
+  "/PlayVoiceMsg?msg={待播放语音文本}"
+); // Return successful
 ```
 
 > Send `scheme` information to the client, who will return to the frontend as soon as they receive it.
 
 ### callAndListen
-- `callAndListen: <T>(scheme: string, callback: (data: T) => void) => Promis<JSBridgeReturnType<false | (() => void)>>`
+
+- `callAndListen: <T>(scheme: string, callback: (data: T) => void) => Promise<JSBridgeReturnType<false | (() => void)>>`
 
 > Send `scheme` information to client, client listens to changes in the status and feeds back to the frontend as soon as the status changes occur.The difference with`callBackfeed` is：`callBackfeed()` is a one-time behavior,`callAndListen()` is listening.
-
 
 :::info
 For more information, refer to **[iOS Custom Protocol](../app/iOS.md#callandbackfeed)** or **[Android Custom Protocol](../app/Android.md#callandbackfeed)** Documents description.

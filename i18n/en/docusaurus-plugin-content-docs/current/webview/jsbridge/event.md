@@ -6,14 +6,14 @@ title: Event listener
 
 ```ts
 // iOS/Android
-import JSBbridge from '@realsee/jsbridge-x/lib/app'
-// or microletter apple
-// import JSBbridge from '@realsee/jsbridge-x/lib/miniprogram'
+import JSBridge from "@realsee/jsbridge-x/lib/app";
+// or miniprogram
+// import JSBridge from '@realsee/jsbridge-x/lib/miniprogram'
 
-const jsBridge = new JSBridge({})
+const jsBridge = new JSBridge({});
 
 // Listen if jsBridge completes initialization
-jsBridge. n('evtName', callback)
+jsBridge.on("evtName", callback);
 ```
 
 ## Container Status Listening
@@ -21,9 +21,9 @@ jsBridge. n('evtName', callback)
 Listen to the current container status changes with `webViewStateChange` events.
 
 ```ts
-jsBridge.on('webViewStateChange', (webViewState: WebViewState) => {
-    // Processing Business Logic here
-})
+jsBridge.on("webViewStateChange", (webViewState: WebViewState) => {
+  // Processing Business Logic here
+});
 ```
 
 WebViewState describes the status of the current WebView：
@@ -36,15 +36,15 @@ export interface WebViewState {
   /**
    * Whether it is in the active state：For example, the App is in the inactive state when it is switched to the background
    */
-  active: boolean
+  active: boolean;
   /**
    * The current horizontal and vertical screen orientation
    */
-  orientation: OrientationEnum
+  orientation: OrientationEnum;
   /**
    * minimized
    */
-  minimized: boolean
+  minimized: boolean;
 }
 ```
 
@@ -53,14 +53,14 @@ export interface WebViewState {
  * WebView in landscape portrait.
  */
 export enum OrientationEnum {
-    /**
-     * Landscape
-     */
-    Landscape = 'Landscape',
-    /**
-     * Vertical
-     */
-    Portrait = 'Portrait',
+  /**
+   * Landscape
+   */
+  Landscape = "Landscape",
+  /**
+   * Vertical
+   */
+  Portrait = "Portrait",
 }
 ```
 
@@ -69,11 +69,10 @@ export enum OrientationEnum {
 Listen to error messages via `error`.
 
 ```ts
-jsBridge.on('error', (error: WebViewErrorInfo) => {
-    // Processing Business Logic here
-})
+jsBridge.on("error", (error: WebViewErrorInfo) => {
+  // Processing Business Logic here
+});
 ```
-
 
 ```ts title="WebView 错误信息声明"
 export face WebViewErrorInfoInfo has
@@ -83,6 +82,7 @@ export face WebViewErrorInfoInfo has
 ```
 
 ## Full amount of documentation
+
 :::tip
 **[For full event monitoring, please refer to EventMap](https://unpkg.com/@realsee/jsbridge-x/docs/modules/jsBridge.html#EventMap) of @realsee/jsbridge-x detailed documentation.**
 :::

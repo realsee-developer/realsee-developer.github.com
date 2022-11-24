@@ -1,5 +1,5 @@
 ---
-title: Micromessage applet voice
+title: Miniprogram voice
 ---
 
 :::tip hint
@@ -25,7 +25,10 @@ When developing it is necessary to open applet categories with punctuation tabs.
 
 - The applet pull label does not support individual applets but only business class app.
 - Small program of push-pull flow temporarily open only to limited access to [ categories ](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)
-- Small programs that meet the requirements of the category need to be in the [wechat public platform] > 【 development 】> 【 Development management 】> The permission of this component can be opened by self-service in Interface Settings, as shown in the following figure:<!-- !\[check\](../../../../assets/wx/check.png) -->### Application for SDK access key
+- Small programs that meet the requirements of the category need to be in the [wechat public platform] > 【 development 】> 【 Development management 】> The permission of this component can be opened by self-service in Interface Settings, as shown in the following figure:
+<!-- !\[check\](../../../../assets/wx/check.png) -->
+
+### Application for SDK access key
 
 Please jump to the [developer console](https://developers.realsee.com/console) request.
 
@@ -35,10 +38,9 @@ Please jump to the [developer console](https://developers.realsee.com/console) r
 
 **Legal domain name for socket**: `wss://ws.realsee.cn;wss://ws.realsee.com;`
 
-
 ## SDK Downloads
 
-By [ ](https://vrlab-static.ljcdn.com/release/web/sdk/vrwebview-miniprogram.3af4ce43.zip) download the SDK resources `rs-wx-vrsdk.zip` file, unzipped after direct reference
+By [SDK](https://vrlab-static.ljcdn.com/release/web/sdk/vrwebview-miniprogram.3af4ce43.zip) download the SDK resources `rs-wx-vrsdk.zip` file, unzipped after direct reference
 
 ## Access Guide
 
@@ -46,65 +48,65 @@ By [ ](https://vrlab-static.ljcdn.com/release/web/sdk/vrwebview-miniprogram.3af4
 
 Create Scene WXML file template page.wxml
 
-```html 
+```html
 <!-- introduce wxml template in sdk -->
-<include src="path-to/rs-wx-vrsdk/index.wxml"/>
+<include src="path-to/rs-wx-vrsdk/index.wxml" />
 ```
 
 ### 2, Create page.js
 
 ```javascript title="page.js"
-// import vrPage object from sdk 
-import vrPage from 'path-to/rs-wx-vrsdk/index'
-// import the trtc object from the sdk, or import the trtc-wx object you plugged in 
-import TRTC from 'path-to/trtc-wx'
- 
-// Mount TRTC on vrPage 
-vrPage.TRTC = TRTC
- 
-// configure SDK initialization parameters 
+// import vrPage object from sdk
+import vrPage from "path-to/rs-wx-vrsdk/index";
+// import the trtc object from the sdk, or import the trtc-wx object you plugged in
+import TRTC from "path-to/trtc-wx";
+
+// Mount TRTC on vrPage
+vrPage.TRTC = TRTC;
+
+// configure SDK initialization parameters
 vrPage.vrOptions = {
   app: {
-    key: 'your app key',
-    secret: 'your app secret',
+    key: "your app key",
+    secret: "your app secret",
     // gateway endpoint
-    gateway: 'https://app-gateway-realsee.ke.com', // production
+    gateway: "https://app-gateway-realsee.ke.com", // production
     // sdk startup api
-    startup: '/sdk/open/startup/cold.json',
+    startup: "/sdk/open/startup/cold.json",
     // voice sign api
-    sign: '/sdk/open/live/voice/sign.json',
-  }
-}
- 
-/** Please implement the following interface */ 
- 
-// Get the user ID to see which interface must be implemented 
-vrPage.getUserIdentifier = async () => ''
- 
-// Log in 
-vrPage.login = async () => ' ' 
- 
-// Communicate with the webview 
-vrPage.bindMessage = (message) => { 
-// message body structure: {id: random message id, data: message data} 
-// The data structure of data, please define by both sides of the communication 
-} 
- 
-// Exit current applet page 
-vrPage.exit = () => {} 
- 
-// Do shared data transfer 
-vrPage.share = (shareObj) =>{} 
- 
-// Just pass vrPage object to wechat native Page object 
-Page(vrPage)
+    sign: "/sdk/open/live/voice/sign.json",
+  },
+};
+
+/** Please implement the following interface */
+
+// Get the user ID to see which interface must be implemented
+vrPage.getUserIdentifier = async () => "";
+
+// Log in
+vrPage.login = async () => " ";
+
+// Communicate with the webview
+vrPage.bindMessage = (message) => {
+  // message body structure: {id: random message id, data: message data}
+  // The data structure of data, please define by both sides of the communication
+};
+
+// Exit current applet page
+vrPage.exit = () => {};
+
+// Do shared data transfer
+vrPage.share = (shareObj) => {};
+
+// Just pass vrPage object to wechat native Page object
+Page(vrPage);
 ```
 
 ### Methods of use
 
 ```js
-// Use vr link as the url parameter for the small size of the applet, note the need to use encodeURIComponent 
+// Use vr link as the url parameter for the small size of the applet, note the need to use encodeURIComponent
 wx.navigateTo({
-  url: `/page?url=encodeURIComponent (${vrUrl})`
-})
+  url: `/page?url=encodeURIComponent(${vrUrl})`,
+});
 ```

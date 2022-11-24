@@ -23,7 +23,7 @@ title: iOS 端
     <th>SDK</th>
     <th>DEMO</th>
     <th>安装包增量</th>
-	</tr >
+	</tr>
   <tr align="center">
 	  <td rowspan="1">基础版本</td>
 	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk_lite-1.0.16.zip">rsvrsdk_lite-1.0.16</a></td>
@@ -37,7 +37,6 @@ title: iOS 端
     <td>约18M</td>
    </tr>
 </table>
-
 
 ## 环境要求
 
@@ -53,7 +52,6 @@ title: iOS 端
 
 ## 集成步骤
 
-
 ### 引入 SDK
 
 首先下载 RSVRSDK，将 RSVRSDK 包解压缩后放到项目目录下：
@@ -66,13 +64,9 @@ title: iOS 端
 
 ![add_vrlib_step1](https://vrlab-static.ljcdn.com/release/web/ios/add_vrlib_step2.62881917.png)
 
-
 引入 RSVRSDK 所需要的资源文件 `RSVRSDK.bundle`
 
 ![add_vrlib_step1](https://vrlab-static.ljcdn.com/release/web/ios/add_vrlib_step3.ad02175d.png)
-
-
-
 
 ### 添加框架依赖
 
@@ -80,15 +74,13 @@ title: iOS 端
 
 ![add_vrlib_step4](https://vrlab-static.ljcdn.com/release/web/ios/add_vrlib_step4.d290d723.png)
 
-
-
 ### 添加第三方依赖
 
 由于 RSVRSDK 依赖了一些第三方的开源库，需要在主工程的 Podfile 引入.
 
 ```ruby
 # Pods for VRSDK
-pod 'FMDB' 
+pod 'FMDB'
 pod 'Mantle'
 pod 'AFNetworking', '3.2.1'
 pod 'YYCache'
@@ -121,7 +113,7 @@ RSVRSDK 初始化需要引入头文件
 - (void)configVR {
     [RSVRSDKConfig shareInstance].appInfo.scheme = @"xxxxx";
     [RSVRSDKConfig shareInstance].appInfo.appId = @"appid";
-    [RSVRSDKConfig shareInstance].appInfo.appSecret = @"appSecret";    
+    [RSVRSDKConfig shareInstance].appInfo.appSecret = @"appSecret";
     [RSVRSDKConfig shareInstance].appInfo.userAgent = @"xxxx";
 }
 ```
@@ -139,9 +131,7 @@ UIViewController *vc = [RSVRSDK VRWebViewWithParam:param];
 [self.navigationController pushViewController:vc animated:YES];
 ```
 
-
 自此，iOS 端 RSVRSDK 基础版功能完成集成。
-
 
 ## 自定义协议
 
@@ -155,7 +145,7 @@ pod 'WechatOpenSDK'
 ```
 
 :::caution 特殊说明
-如果使用基础版本，不包含VR分享功能，可以自定义分享逻辑
+如果使用基础版本，不包含 VR 分享功能，可以自定义分享逻辑
 :::
 
 ```objectivec
@@ -180,7 +170,6 @@ pod 'WechatOpenSDK'
 }
 ```
 
-
 ### 自定义 Loading
 
 SDK 支持业务方自定义打开 VR 页面前的 Loading 背景图及 Logo。
@@ -201,11 +190,9 @@ UIViewController *vc = [RSVRSDK VRWebViewWithParam:param];
 [self.navigationController pushViewController:vc animated:YES];
 ```
 
-
 ### `callAndBackfeed`
 
 前端发送 `scheme` 信息给客户端，客户端收到信息后会立马返回给前端。
-
 
 协议格式：
 
@@ -222,10 +209,10 @@ UIViewController *vc = [RSVRSDK VRWebViewWithParam:param];
 前端侧：
 
 ```javascript
-import JSBridge from '@realsee/jsbridge-x'
+import JSBridge from "@realsee/jsbridge-x";
 
-const jsBridge = new JSBridge()
-jsBridge.callAndBackfeed('custom/showQrCode?url=http%3A%2F%2Fwww.realsee.com')
+const jsBridge = new JSBridge();
+jsBridge.callAndBackfeed("custom/showQrCode?url=http%3A%2F%2Fwww.realsee.com");
 ```
 
 App 侧：
@@ -262,12 +249,12 @@ App 侧：
 前端侧：
 
 ```javascript
-import JSBridge from '@realsee/jsbridge-x'
+import JSBridge from "@realsee/jsbridge-x";
 
-const jsBridge = new JSBridge()
-jsBridge.callAndListen('custom/listenWebViewState', (newState) => {
+const jsBridge = new JSBridge();
+jsBridge.callAndListen("custom/listenWebViewState", (newState) => {
   // 监听的客户端状态发生变更
-})
+});
 ```
 
 App 侧：

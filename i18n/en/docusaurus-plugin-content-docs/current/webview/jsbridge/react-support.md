@@ -12,20 +12,19 @@ The bridge class of the functional import client and the micromessage applet fro
 If you need to use `@realsee/jsbridge-x` , you need to implement browser "bridge" by `@realsee/jsbridge-x`. Assume that your own browser "bridge" file is named `JSBridgeBrowser.ts`
 :::
 
-
 ```tsx
-import { JSBridgeApp } from '@realsee/jsbridge-x/lib/app' // client
-import { JSBridgeMiniprogram } from '@realsee/jsbridge-x/lib/miniprogram' // Microletter apple
-import { JSBridgeBrowser } from '. JSBridgeBrowser' // NOTE, browser bridge requires you to implement yourself
+import { JSBridgeApp } from "@realsee/jsbridge-x/lib/app"; // client
+import { JSBridgeMiniprogram } from "@realsee/jsbridge-x/lib/miniprogram"; // Miniprogram
+import { JSBridgeBrowser } from "./JSBridgeBrowser"; // NOTE, browser bridge requires you to implement yourself
 
-import { isApp, isMiniprogram } from '. utils/deviceDet'
+import { isApp, isMiniprogram } from "./utils/deviceDetect";
 
-let bridgeInstance
+let bridgeInstance;
 
 // Initialize jsBridge instances based on ends' type
-if (isApp) bridgeInstalment = new JSBridgeApp()
-else if (isMiniprogram) bridgeInstrence = new JSBridgeMiniprogram()
-else bridgeInstalment = new JSBridgeBrowser()
+if (isApp) bridgeInstance = new JSBridgeApp();
+else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram();
+else bridgeInstance = new JSBridgeBrowser();
 ```
 
 ## Integration "Bridge" to React Context context
@@ -33,32 +32,31 @@ else bridgeInstalment = new JSBridgeBrowser()
 Integrate "bridge" into React Context Context with `JSBridgeContext`
 
 ```tsx
-import { JSBridgeApp } from '@realsee/jsbridge-x/lib/app' // client
-import { JSBridgeMiniprogram } from '@realsee/jsbridge-x/lib/miniprogram' // Microletter apple
-import { JSBridgeBrowser } from '. JSBridgeBrowser' // Note that the browser bridge requires your own implementation
+import { JSBridgeApp } from "@realsee/jsbridge-x/lib/app"; // client
+import { JSBridgeMiniprogram } from "@realsee/jsbridge-x/lib/miniprogram"; // Miniprogram
+import { JSBridgeBrowser } from "./JSBridgeBrowser"; // Note that the browser bridge requires your own implementation
 // highlight-start
-import { JSBridgeContext } from "@realsee/jsbridge-x/lib/react"
+import { JSBridgeContext } from "@realsee/jsbridge-x/lib/react";
 // highlight-end
 
-import { isApp, isMiniprogram } from '. utils/deviceDet'
+import { isApp, isMiniprogram } from "./utils/deviceDetect";
 
-let bridgeInstalment
+let bridgeInstance;
 
 // Initialize jsBridge instance by end's type
-if (isApp) bridgeInstalment = new JSBridgeApp()
-else if (isMiniprogram) bridgeInstallation = new JSBridgeMiniprogram()
-else bridgeInstalment = new JSBridgeBrowser()
+if (isApp) bridgeInstance = new JSBridgeApp();
+else if (isMiniprogram) bridgeInstance = new JSBridgeMiniprogram();
+else bridgeInstance = new JSBridgeBrowser();
 
-
-ReactDOM. ender(
-    <React.StrictMode>
-        // Highlight-start
-        <JSBridgeContext.Provider value={bridgeInstance}>
-            <YourApp />
-        </JSBridgeContext.Provider>
-        // Highlight-end
-    </React.StrictMode>,
-document. etElementById('root')
+ReactDOM.render(
+  <React.StrictMode>
+    // highlight-start
+    <JSBridgeContext.Provider value={bridgeInstance}>
+      <YourApp />
+    </JSBridgeContext.Provider>
+    // highlight-end
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 ```
 
@@ -69,27 +67,28 @@ Next, you can use the "bridge" method in any component that is packaged by `JSBr
 For example, get "Liu Ha" \"Dig holes" takes the height of the screen：
 
 ```tsx
-import { useBangsHeightState } from "@realsee/jsbridge-x/lib/react/hooks"
+import { useBangsHeightState } from "@realsee/jsbridge-x/lib/react/hooks";
 
-function DemoApp()
-    const bandHeightState()
+function DemoApp() {
+  const bandHeight = useBangsHeightState();
 
-    return null
+  return null;
 }
 ```
 
 Close loading:
+
 ```ts
-import { useJSBridgeAction } from "@realsee/jsbridge-x/lib/react/hooks"
+import { useJSBridgeAction } from "@realsee/jsbridge-x/lib/react/hooks";
 
-function DemoApp()
-    const { closeLoading } = useJSBridgeAction()
+function DemoApp() {
+  const { closeLoading } = useJSBridgeAction();
 
-    React. seEffect() => {
-        Promise.resolve(). hen(closeLoading)
-    }, [])
+  React.useEffect(() => {
+    Promise.resolve().then(closeLoading);
+  }, []);
 
-    return null
+  return null;
 }
 ```
 

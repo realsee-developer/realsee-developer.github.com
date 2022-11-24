@@ -6,8 +6,6 @@ title: Android
 This document is in the direction of **Android developers**, in the description that follows, we assume you already have Android basics and installed Android Studio and other related development environments.
 :::
 
-
-
 ## Download address
 
 If you see two versions of SDK：**basics**and**with revision**.
@@ -23,14 +21,14 @@ If you see two versions of SDK：**basics**and**with revision**.
     <th>Installation increment</th>
     </tr>
   <tr align="center">
-      <td rowspan="1">Base Version</td>
-      <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk_lite-1.0.16.aar">rsvrsdk_lite-1.0.16</a></td>
+    <td rowspan="1">Base Version</td>
+	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk_lite-1.0.16.aar">rsvrsdk_lite-1.0.16</a></td>
     <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/demo_external.zip">demo</a></td>
     <td>About 1.2M</td>
     </tr>
   <tr align="center">
-      <td rowspan="1">Take Version</td>
-      <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk-1.0.16.aar">rsvrsdk-1.0.16</a></td>
+    <td rowspan="1">Take Version</td>
+	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk-1.0.16.aar">rsvrsdk-1.0.16</a></td>
     <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/demo_external.zip">demo</a></td>
     <td>About 10M</td>
    </tr>
@@ -57,7 +55,7 @@ Add **vrsdk** folders in main `module` , put **rsvrsdk-{版本号}.aar** into it
 Change build.gradle:
 
 ```groovy title="build.gradle"
-dependencies {$
+dependencies {
   ...
   implementation fileTree(dir: 'vrsdk', include: ['*.aar'])
   ...
@@ -73,32 +71,30 @@ dependencies have been {
   ...
     // basic component
     api "androidx. ecyview:recyclerview:1.1.0"
-    api "androidx.fragment:fragment:1.2. "
+    api "androidx.fragment:fragment:1.2.4"
     // Network parsing data
-    api "com.squareup.okhttp3:okhttp:3.7. "
+    api "com.squareup.okhttp3:okhttp:3.7.0"
     api "com.squareup.retrofit2:retrofit:2.1.0"
-    api "io. eactive: rxjava:1.2.9"
+    api "io.reactivex:rxjava:1.2.9"
     api "com.google.code.gson:gson:2.7"
-    api "io. eactive: rxandroid:1.2.1"
+    api "io.reactivex:rxandroid:1.2.1"
     // Picture
-    api "com. ithub.bestech.glide:glide:4.8.0"
+    api "com.github.bumptech.glide:glide:4.8.0"
     // Local notification
-    api "androidx.localbroadcastmanager:localbroadcastmanager:1.0"
+    api "androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
   ...
 }
 ```
-
 
 ### Initialize SDK
 
 The initialization of the SDK needs to be performed in the custom `application` , and the initialization method：is called
 
 ```java
-RsVrSdk.init(this, new VrCallBack()
+RsVrSdk.init(this, new VrCallBack())
 ```
 
 Required parameters appId and appSecretary are required.
-
 
 ```java
 public class App extends Application {
@@ -129,7 +125,7 @@ public class App extends Application {
                     public String appSecret() {
                         return "123123";
                     }
-                    // Can be used as the app identifier of the application (****required****)                  
+                    // Can be used as the app identifier of the application (****required****)
                     @Override
                     public String scheme() {
                         return "realsee";
@@ -145,7 +141,6 @@ public class App extends Application {
 }
 ```
 
-
 ### Open VR Page
 
 after initialization finished, by calling：
@@ -158,7 +153,7 @@ Open VR link
 
 ```java
 String url = "http://open.realsee.com/xxxxx"
-RsVrEntity vrEntity = new RsVr Entity(url);
+RsVrEntity vrEntity = new RsVrEntity(url);
 RsVrSdk.openVr(this, vrEntity);
 ```
 
@@ -176,7 +171,7 @@ After introducing SDK, pack apk requires attention to obfuscate configurations, 
 -keep class jp. wasabeef.** {*;}
 #============================ Retrofit start===========================
 -keep class com.squareup.** {*;}
--keep class okhttp3.** {* ;}
+-keep class okhttp3.** {*;}
 -keep class okio.** {*;}
 -keep class retrofit2.** {*;}
 #======================= ====glide start===========================
@@ -186,10 +181,10 @@ After introducing SDK, pack apk requires attention to obfuscate configurations, 
 **[] $VALUES;
 public *;
 }
--keep class com .bumptech.glide.** {*;}
-#=============================vrsdk start========== ==================
+-keep class com.bumptech.glide.** {*;}
+#==========================vrsdk start==========================
 -keep class com.rushi.android.vrsdk.** {*;}
--keep class com.lianjia.common .vr.** {*;}
+-keep class com.lianjia.common.vr.** {*;}
 -keep interface com.lianjia.common.vr.** {*;}
 ```
 
@@ -210,11 +205,9 @@ dependencies {
     ...
     // See audio
     api "com.tencent.liteav:LiteAVSDK_Professional:8.4.9947"
-    ...
+  	...
 }
 ```
-
-
 
 ### Share
 
@@ -239,12 +232,12 @@ RsVrSdk.init(this, new RsVrCallBack() {
         */
         @Override
         public boolean shareWithParam(Context context, String shareJson) {
-            Log.e(TAG,"shareWithParam shareJson: "+shareJson);
-            return true;
-        }
+        	Log.e(TAG,"shareWithParam shareJson: "+shareJson);
+        	return true;
+      	}
       ...
     };
-}
+  }
 ```
 
 #### Partial Customization
@@ -267,15 +260,13 @@ RsVrSdk.init(this, new RsVrCallBack() {
         public boolean onShareItemClick(RsBaseShareModel shareData) {
           // It can be converted to the object needed by the App through the convertToShareModel of the shareData object, and the input parameter is the class of the model
           AppWxMiNiProgramModel model = shareData.convertToShareModel(AppWxMiNiProgramModel.class);
-          Log.e(TAG," onShareWithShareType model: "+model);
+          Log.e(TAG,"onShareWithShareType model: "+model);
           return true;
         }
       ...
     };
 }
 ```
-
-
 
 #### Share with VRSDK
 
@@ -286,8 +277,8 @@ dependencies are only available
     ...
     // Share (microletter)
     api "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.4"
-    api "androidx.appcompat:appcompat:1.0"
-    ...
+    api "androidx.appcompat:appcompat:1.0.0"
+  	...
 }
 ```
 
@@ -303,7 +294,7 @@ RsVrSdk.init(this, new RsVrCallBack() {
         // Keys required for WeChat sharing
         @Override
         public String wxShareKey() {
-            return "";
+        	return "";
       }
       ...
     };
@@ -312,27 +303,25 @@ RsVrSdk.init(this, new RsVrCallBack() {
 
 ### Custom Loading
 
-
 The SDK supports the operator to customize the Loading Background and Logo on the VR page.
 
 When constructing `RsVrEntity` , customize as follows：
 
 ```java
-String url = "http://open-rushivr.cn/xxxxxxx"
-String overUrl = "http://xxxcdn.com/loading.png";
-String logoUrl = "http://xxxxcdn.com/logo. ng";
+String url = "http://open-rushivr.cn/xxxxx"
+String coverUrl = "http://xxxcdn.com/loading.png";
+String logoUrl = "http://xxxcdn.com/logo.png";
 
 RsVrEntity vrEntity = new RsVrEntity(url)// VR link to open
-  .setCoverUrl(coverUrl)// Custom Loading Page Background Link without setting default background
-  . etLogoUrl(logoUrl)// Custom Loading page by default logo, recommend specification：wide 306, high 111, resolution 72, background translation
-  .setLoadingType.LOADING_NULL) // Custom loadingtype (LOADING_NUL: no loading)
+  .setCoverUrl(coverUrl) // Custom Loading Page Background Link without setting default background
+  .setLogoUrl(logoUrl) // Custom Loading page by default logo, recommend specification：wide 306, high 111, resolution 72, background translation
+  .setLoadingType(RsLoadingType.LOADING_NULL) // Custom loadingtype (LOADING_NUL: no loading)
   .setHideLoadingProgress(true) // Set if loading
 
 RsVrSdk.openVr(this, vrEntity);
 ```
 
 ### Page Jump
-
 
 Jump inside page, H5 moves back to Apps by passing routerUrl
 
@@ -350,11 +339,11 @@ RsVrSdk.init(this, new RsVrCallBack() {
         */
         @Override
         public void onActionRouter(Context context, String routerUrl) {
-            Log .e(TAG,"onActionRouter routerUrl: "+routerUrl);
-        }
+        	Log.e(TAG,"onActionRouter routerUrl: "+routerUrl);
+      	}
       ...
     };
-}
+  }
 ```
 
 ###
@@ -364,7 +353,6 @@ RsVrSdk.init(this, new RsVrCallBack() {
 #### `callAndBackfeed`
 
 Send `scheme` information to the client. The client will return to the front end when it receives the message.
-
 
 Protocol format：
 
@@ -381,10 +369,10 @@ Protocol format：
 Frontend side：
 
 ```javascript
-import JSBbridge from '@realsee/jsbridge-x'
+import JSBridge from "@realsee/jsbridge-x";
 
-const jsBridge = new JSBridge()
-jsBridge.callAndBackfeed('custom/showQrCode?url=HTTP%3A%2F%2Fwww.realsee.com')
+const jsBridge = new JSBridge();
+jsBridge.callAndBackfeed("custom/showQrCode?url=http%3A%2F%2Fwww.realsee.com");
 ```
 
 App side：
@@ -398,11 +386,11 @@ RsVrSdk.init(this, new RsVrCallBack() {
   public void actionUrlWithFinishBlock(Context context, String actionUrl, RsFinishBlock block){
         // parse actionUrl
      Uri uri = Uri.parse(actionUrl);
-     if (TextUtils.equals(uri.getPath()," /custom/showQrCode")){
+     if (TextUtils.equals(uri.getPath(),"/custom/showQrCode")){
        // Get the bridge parameter
        String qrUrl = uri.getQueryParameter("url");
        // The example is to jump to another page showing the QR code
-       Intent intent = new Intent( context,ResultActivity.class);
+       Intent intent = new Intent(context,ResultActivity.class);
        intent.putExtra("qrUrl",qrUrl);
        context.startActivity(intent);
        block.onFinished(OK);
@@ -431,16 +419,15 @@ Protocol format：
 Frontend side：
 
 ```javascript
-import JSBbridge from '@realsee/jsbridge-x'
+import JSBridge from "@realsee/jsbridge-x";
 
-const jsBridge = new JSBridge()
-jsBridge.callAndListen ('custom/listenWebViewState', (newState) => LOCE
+const jsBridge = new JSBridge();
+jsBridge.callAndListen("custom/listenWebViewState", (newState) => {
   //listener client status changed
-})
+});
 ```
 
 App side：
-
 
 ```java
 // Initialize VR configuration and callback
@@ -451,17 +438,17 @@ RsVrSdk.init(this, new RsVrCallBack() {
   public void actionUrlWithFinishBlock(Context context, String actionUrl, RsFinishBlock block){
         // parse actionUrl
      Uri uri = Uri.parse(actionUrl);
-     if (TextUtils.equals(uri.getPath( ),"/custom/listenWebViewState")){
+     if (TextUtils.equals(uri.getPath(),"/custom/listenWebViewState")){
          // Callback state starts
        block.onFinished(CREATE);
        ......
          // Callback state pauses
        block.onFinished(PAUSE);
-             ... ...
-       // callback status stop
+			 ......
+       // 回调状态 停止
        block.onFinished(STOP);
      }
   }
-    ...
+	...
 });
 ```

@@ -2,15 +2,13 @@
 title: 开发准备
 ---
 
-
 **如视三维空间渲染** 是基于现代浏览器 [WebGL](https://www.khronos.org/webgl/) 能力实现的。您只要准备一款现代浏览器即可，其他的环境准备与传统前端开发并无差异。比如，您可以通过 [Vite](https://vitejs.dev/) 或 [Create React App](https://create-react-app.dev/) 等工具快速搭建前端开发脚手架。
 
 ## 浏览器兼容性
 
-
- | Safari | Safari on iOS | Chrome | Chrome for Android | Edge  | Firefox |
- | :----: | :-----------: | -----: | :----------------: | :---: | :-----: |
- |  >= 9  |     >= 9      |  >= 49 |       >= 93        | >= 13 |  >= 45  |
+| Safari | Safari on iOS | Chrome | Chrome for Android | Edge  | Firefox |
+| :----: | :-----------: | -----: | :----------------: | :---: | :-----: |
+|  >= 9  |     >= 9      |  >= 49 |       >= 93        | >= 13 |  >= 45  |
 
 ## 公开数据集
 
@@ -39,4 +37,3 @@ npm install @realsee/open-works
 
 企业级实景空间采集、虚拟空间设计、加工服务请联系 [如视官网-商务合作](https://home.realsee.com/solution/spacedata)。
 :::
-

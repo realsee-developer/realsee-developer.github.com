@@ -16,8 +16,8 @@ title: 简介
 ### 性能体验
 
 - **预载能力**：在开启 VR 页面前，可以提前预载一些数据、贴图资源等。
-- **首屏渲染**（*部分支持*）：提供终端渲染能力，等前端渲染完成后实现无缝切换。
-- **代理请求**（*部分支持*）：充分利用客户端高性能 **HTTP** 请求能力，并缓存请求结果规避后续重复请求。
+- **首屏渲染**（_部分支持_）：提供终端渲染能力，等前端渲染完成后实现无缝切换。
+- **代理请求**（_部分支持_）：充分利用客户端高性能 **HTTP** 请求能力，并缓存请求结果规避后续重复请求。
 
 ## "桥" 协议
 
@@ -25,6 +25,6 @@ title: 简介
 
 使用方式等更多细节请移步： **["桥" 协议-介绍](/docs/webview/jsbridge/intro)**。
 
-:::tip 温馨提示 
+:::tip 温馨提示
 由于各个终端的 `WebView` 的实现机制不一致（iOS [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)、Android [WebView](https://developer.android.com/reference/android/webkit/WebView)、微信小程序 [web-view](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html) 等等），虽然 `@realsee/jsbridge-x` 已尽量抹平它们之间的差异，但由于平台的差异性，具体细节请以各个版本对应的 API 为准。
 :::

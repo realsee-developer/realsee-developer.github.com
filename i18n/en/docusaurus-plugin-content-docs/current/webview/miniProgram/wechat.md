@@ -1,17 +1,17 @@
 ---
-title: Micromessage applet
+title: WeChat Miniprogram
 ---
 
 ::tip hint  
-This document is in front of **Micromessage applet Developer**, in the description that follows, we assume you already have development experience of front end, micromessenger applet, etc. and have installed related micromessenger app.
+This document is in front of **Miniprogram Developer**, in the description that follows, we assume you already have development experience of front end, micromessenger applet, etc. and have installed related micromessenger app.
 :::
 
 ## Environmental requirements
 
 ### Terminal Requirements
 
-- Microphone App Minimum Version Requirements：7.0.9.
-- Microphone App Android minimum request：7.0.8.
+- IOS Wechat App Version Requirements：7.0.9.
+- Android Wechat App minimum request：7.0.8.
 - The micromessage PC applet (windows/macOS) app.
 - Minimum version requirement for the base library：2.10.0.
 
@@ -28,7 +28,7 @@ If you use a watched capability, make sure all of the following requirements are
 - The applet pull usage permission is temporarily open to limited[classes](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html).
 - Small programs that meet the category requirements need to be activated in **[WeChat Public Platform]**>**[Development]**>**[Development Management]**>**[Interface Settings]**,**real-time playback of audio and video streams**and**real-time Two permissions for recording audio and video streams**, as shown in the figure below：
 
-  ![Check](https://vrlab-static.ljcdn.com/release/web/wx/check.5d997a77.png)
+  ![check](https://vrlab-static.ljcdn.com/release/web/wx/check.5d997a77.png)
 
 ## Development preparation
 
@@ -40,7 +40,7 @@ Please apply to the developer center for access key containing `app_id` and `app
 
 ### Add widget's valid domain whitelist
 
-- **Requisite valid domain name**: `https://cloud.tencent.com; https://yun.tim.qqq.com; https://app-gateway-realsee.ke.com; https://app-gateway.realsee.com; https://app-gateway.ushivr.com;`.
+- **Requisite valid domain name**: `https://cloud.tencent.com;https://yun.tim.qq.com;https://app-gateway-realsee.ke.com;https://app-gateway.realsee.com;https://app-gateway.rushivr.com;`.
 
 - **Legal domain name for WebSocket**: `wss://ws.realsee.cn;wss://ws.realsee.com;wss://ws.rushivr.cn;wss://ws.rushivr.com;`.
 
@@ -52,7 +52,7 @@ Download `vrwebview-miniprogram.zip` file through [SDK resource](https://vrlab-s
 
 vrwebview-miniprogram provides capability access in the form of native custom components of the micromessaging app. In theory only the custom component development framework that supports the micromessenger applet can be developed and has now been tested for the inbound framework：
 
-- [Micromessage applet original development](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+- [Miniprogram original development](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 - [Taro 3](https://taro.jd.com/)
 - [uni-app](https://uniapp.dcloud.io/)
 
@@ -60,7 +60,7 @@ vrwebview-miniprogram provides capability access in the form of native custom co
 The following code variables are used in method`$PROJECT`identify the root of the development framework.
 :::
 
-#### Micromessage applet native development usage
+#### Miniprogram native development usage
 
 1. Unpressed`vrwebview-miniprogram.zip`to`$PROJECT/lib/vrwebview`directories are structured around：
 
@@ -68,27 +68,27 @@ The following code variables are used in method`$PROJECT`identify the root of th
 -$PROJECT
   -pages
     -vr
-      -index. s
+      -index.js
       -index.json
-      -index. xml
-      -index. xss
+      -index.wxml
+      -index.wxss
   -lib
     -vrwebview
-      -index. .ts
+      -index.d.ts
       -index.js
-      -index. son
+      -index.json
       -index.wxml
-      -utils. .ts
+      -utils.d.ts
       -utils.js
       -trtc-wx.js
-      - TERMS.txt
+      -TERMS.txt
 ```
 
 2. Assume that the page directory you want to introduce components is`$PROJECT/pages/vr`, the configuration json file in the page directory needs to be modified.The following is：
 
 ```json
 {
-  "usingCompants": {
+  "usingComponents": {
     "vr-webview": "$PROJECT/lib/vrwebview"
   }
 }
@@ -218,17 +218,17 @@ Page({
     -pages
       -vr
         -index.tsx
-        -index.config. s
+        -index.config.js
     -lib
       -vrwebview
-        -index.d. s
+        -index.d.ts
         -index.js
-        -index. son
+        -index.json
         -index.wxml
-        -utils. .ts
+        -utils.d.ts
         -utils.js
-        -trtc-wx. s
-        - TERMS.txt
+        -trtc-wx.js
+        -TERMS.txt
 ```
 
 2. Assume that the page directory path you want to introduce to the component is`$PROJECT/src/pages/vr`then change the configuration in the page directory.The following is：
@@ -375,17 +375,17 @@ export default class Index extends Component {
   -src
     -pages
       -vr
-        -index. Due
+        -index.vue
     -wxcomponents
       -vrwebview
-        -index. .ts
-        -index. s
+        -index.d.ts
+        -index.js
         -index.json
-        -index. xml
-        -utils.d. s
+        -index.wxml
+        -utils.d.ts
         -utils.js
-        -trtc-wx. s
-        - TERMS.txt
+        -trtc-wx.js
+        -TERMS.txt
 ```
 
 2. Add a declaration to the project profile`pages.json`for pages that need to introduce components, eg:
@@ -395,7 +395,7 @@ export default class Index extends Component {
   "pages": [
     //The first item in the pages array indicates the application startup page, refer to：https://uniapp.dcloud.io/collocation/pages
     {
-      "path": "pages/index/index" ,
+      "path": "pages/index/index",
       "style": {
         "usingComponents": {
           // #ifdef APP-PLUS || MP-WEIXIN || MP-QQ
@@ -449,19 +449,19 @@ export default {
       // 这个是VR网关相关的配置
       this.rsVrOptions = rsVrWebviewPropsWrapper({
         app: {
-        key: "app_id",
-        secret: "app_secret",
-        gateway: "网关地址",
-        startup: "sdk启动uri",
-        sign: "语音签名uri",
-      },
-      info: {
-        appName: "小程序名",
-        appVersion: "小程序版本",
-        scheme: "jsbridge调用的协议头",
-        userAgent: "特殊UA",
-        extraData: {}, // 其它自定义扩展信息
-      },
+          key: "app_id",
+          secret: "app_secret",
+          gateway: "网关地址",
+          startup: "sdk启动uri",
+          sign: "语音签名uri",
+        },
+        info: {
+          appName: "小程序名",
+          appVersion: "小程序版本",
+          scheme: "jsbridge调用的协议头",
+          userAgent: "特殊UA",
+          extraData: {}, // 其它自定义扩展信息
+        },
         // trtc: TRTC, // 带看引入的TRTC对象
       });
 

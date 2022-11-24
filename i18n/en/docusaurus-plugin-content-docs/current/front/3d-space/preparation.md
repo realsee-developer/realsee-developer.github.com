@@ -2,15 +2,13 @@
 title: Development preparation
 ---
 
-
 **To see 3D Rendering** is based on modern browser [WebGL](https://www.khronos.org/webgl/) capability.You can simply prepare a modern browser. Other environments do not differ from traditional front-end development.For example, you can quickly build front-end development scaffolds with tools such as [Vite](https://vitejs.dev/) or [Create React App](https://create-react-app.dev/).
 
 ## Browser compatibility
 
-
- | Safari | Safari on iOS | Chrome | Chrome for Android | Edge  | Firefox |
- |:------:|:-------------:| ------:|:------------------:|:-----:|:-------:|
- |  >= 9  |     >= 9      |  >= 49 |       >= 93        | >= 13 |  >= 45  |
+| Safari | Safari on iOS | Chrome | Chrome for Android | Edge  | Firefox |
+| :----: | :-----------: | -----: | :----------------: | :---: | :-----: |
+|  >= 9  |     >= 9      |  >= 49 |       >= 93        | >= 13 |  >= 45  |
 
 ## Public Dataset
 
@@ -37,4 +35,3 @@ Of course, you can also generate your own **Work** by [such as Visi-Open Platfor
 
 For business-level real space collection, virtual space design, processing services contact [such as VID-Business cooperation](https://home.realsee.com/solution/spacedata).
 :::
-

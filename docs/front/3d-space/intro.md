@@ -17,7 +17,6 @@ title: 简介
 技术文档面向有 **前端领域知识背景** 的研发人员，所以我们假设你对 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) 语言、[Node.js](https://nodejs.org/en/docs/) 及 [npm](https://docs.npmjs.com/) 等知识已有基本的了解。  
 :::
 
-
 :::tip
 文档涉及的 SDK、样例均采用 [TypeScript](https://www.typescriptlang.org/) 编写，为保证开发的质量以及编程体验（比如，友好的代码提示、自动补全等），推荐通过 [Visual Studio Code](https://code.visualstudio.com)、[WebStorm](https://www.jetbrains.com/webstorm/) 等现代源代码编辑器。
 :::

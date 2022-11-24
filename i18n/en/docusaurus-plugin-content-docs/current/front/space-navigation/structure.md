@@ -14,13 +14,13 @@ If you view the three-dimensional space play player as a playback and deducting 
 /**
  * * theater structure
  */
-export interface VreoUnit 5
-  categoryId: string 
-  categoryText: string 
-  frontRequestId: string
-  index: string | number
-  keyframes: Vreo Keyframe[]// Plain frame
-  video: VreoVideo / / Virtual Video Role
+export interface VreoUnit {
+  categoryId: string;
+  categoryText: string;
+  frontRequestId: string;
+  index: string | number;
+  keyframes: VreoKeyframe[]; // Plain frame
+  video: VreoVideo; // Virtual Video Role
 }
 ```
 
@@ -44,17 +44,17 @@ currently supports various types of play keyframes, follow-up work and add new p
 
 **Vreo** has built-in UI and action behavior for each episode keyframe, by `vreoplayer.on()` can listen to the hits of the corresponding play keyframe and add business logic as needed.
 
-
 ```ts title="剧本帧结构声明"
 export interface VreoKeyframe {
-  uuid?: string // play frame `uuid`.
-  type: VreoKeyframeEnum // Playframe category enum
-  start: number // trigger timestamp.
-  end: number // End timestamp
-  parsed?: boolean // parse status
-  data: Record<string, any> // Current frame category data dependence
- } }
+  uuid?: string; // play frame `uuid`.
+  type: VreoKeyframeEnum; // Playframe category enum
+  start: number; // trigger timestamp.
+  end: number; // End timestamp
+  parsed?: boolean; // parse status
+  data: Record<string, any>; // Current frame category data dependence
+}
 ```
+
 :::tip
 Detailed frame definition： **[Click to view](https://unpkg.com/@realsee/vreo@0.2.0-alpha.10/docs/interfaces/Player.VreoKeyframe.html)**.
 :::
@@ -67,17 +67,17 @@ Detailed frame definition： **[Click to view](https://unpkg.com/@realsee/vreo@0
   "categoryText": "Talk about the house type",
   "video": {
     "duration": 106278, // video length
-    "start ": 0, // start timestamp
+    "start": 0, // start timestamp
     "end": 106278, // end timestamp
     "url": "//url-host/***/xxx.mp4" // video address
   },
-  " keyframes": [
+  "keyframes": [
     {
       "uuid": "ac70621b-4e00-442e-311c-befb5bd3f87f",
       "type": "PanoTextLabel",
       "start": 27060,
       "end": 42351,
-      "parsed" : false,
+      "parsed": false,
       "data": {
         "text": "Drama Life",
         "vertex": {
@@ -88,7 +88,7 @@ Detailed frame definition： **[Click to view](https://unpkg.com/@realsee/vreo@0
         "fontSize": 16
       }
     }
-  // ... 
+    // ...
   ]
 }
 ```

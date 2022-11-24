@@ -29,6 +29,6 @@ You can also access **[Vreo Demo](https://vrlab-static.ljcdn.com/release/web/vre
 
 ## Dependency Description
 
-::caution  
+:::caution  
 The play player function is based on a three-dimensional capability view if your system is not currently integrated **for 3D space** capability, please go to [**like 3D documentation**](../3d-space/intro.md) for more information.
 :::
