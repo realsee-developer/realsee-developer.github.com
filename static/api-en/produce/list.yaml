@@ -1,0 +1,150 @@
+get:
+  tags:
+    - production service
+  summary: project list
+  description: ""
+  parameters:
+    - 
+      name: app_code
+      in: query
+      required: true
+      schema:
+        description: Application Id in console
+        type: string
+        default: ""
+    - 
+      name: page
+      in: query
+      required: false
+      schema:
+        description: number of pages (starting from 1)
+        type: string
+        default: "1"
+    - 
+      name: page_size
+      in: query
+      required: false
+      schema:
+        description: The number of impressions on a page
+        type: string
+        default: "20"
+    - 
+      name: start_timestamp
+      in: query
+      required: false
+      schema:
+        description: Start timestamp (second level)
+        type: string
+        default: "1652154268"
+    - 
+      name: end_timestamp
+      in: query
+      required: false
+      schema:
+        description: End timestamp (second level)
+        type: string
+        default: "1652254268"
+    - 
+      name: status
+      in: query
+      required: false
+      schema:
+        description: "The status enumeration value is as follows 0 - default 1 - project upload failed 2 - project uploaded successfully 3 - data processing 4 - data processing successful 5 - data processing failed 6 - put in the recycle bin 8 - project uploading 9 - data was exported 10 - Data is being exported11 - Data processing task has been canceled12 - Data export failed "
+        type: string
+        default: "0"
+    - 
+      name: sort
+      in: query
+      required: false
+      schema:
+        description: SortSpec(desc,asc)
+        type: string
+        default: "desc"
+    - 
+      name: start_id
+      in: query
+      required: false
+      schema:
+        description: Start ID
+        type: string
+        default: "0"
+  responses:
+    "200":
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            title: empty object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: "The total number of items that meet the search criteria"
+                    default: 1
+                  current_page:
+                    type: integer
+                    description: "current page"
+                    default: 1
+                  page_size:
+                    type: integer
+                    description: "page size"
+                    default: 20
+                  next_start_id:
+                    type: integer
+                    description: "If the next page has data, the next page start ID"
+                  project_list:
+                    type: array
+                    description: "project list"
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: "project name"
+                          default: "Test items"
+                        remark:
+                          type: string
+                          description: "Remark"
+                          default: ""
+                        create_time:
+                          type: string
+                          description: "Creation time e.g.：2022-05-10 11:13:38"
+                          default: "2022-05-10 11:13:38"
+                        vr_code:
+                          type: string
+                          description: "VR encoding, empty if no VR is generated"
+                          default: "80xxx"
+                        project_id:
+                          type: string
+                          description: "project ID"
+                          default: "auto3d-xxx"
+                        status_text:
+                          type: string
+                          description: "Project status.status_text enumerated values are as follows： project_not_upload - default project_upload_failed - project upload failed project_upload_success - project uploaded successfully project_uploading - project uploading project_processing - project processing project_process_cancel - project processing has been canceled project_process_success - project processing successfully project_projectetempleprocess_failed - project processing Put in recycle bin project_exported - data is being exported project_export_fail - data is being exported failed project_exporting - data is being exported"
+                          default: "project_exporting"
+                        modify_time:
+                          type: string
+                          description: "Change time such as：2022-05-10 11:13:38"
+                          default: "2022-05-10 11:13:38"
+                        move_to_trash_time:
+                          type: string
+                          description: "Put it into the recycle bin, such as：2022-05-10 11:13:38"
+                          default: "2022-05-10 11:13:38"

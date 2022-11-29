@@ -11,3 +11,8 @@ files:
   # Markdown 博客文件
   - source: /blog/**/*
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
+  # api接口文档
+  - source: /static/api/**/*
+    translation: /static/api-%two_letters_code%/**/%original_file_name%
+  - source: /static/openapi.yaml
+    translation: /static/openapi-%two_letters_code%.yaml

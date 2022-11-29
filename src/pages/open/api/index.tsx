@@ -9,7 +9,12 @@ import "./custom.css";
 import Translate, { translate } from "@docusaurus/Translate";
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig, i18n } = useDocusaurusContext();
+
+  const locale =
+    i18n.currentLocale === i18n["defaultLocale"]
+      ? ""
+      : "-" + i18n.currentLocale;
 
   return (
     <Layout
@@ -23,7 +28,7 @@ export default function Home(): JSX.Element {
             hideTryIt={false}
             router="hash"
             basePath=""
-            apiDescriptionUrl={`${siteConfig.baseUrl}openapi.yaml`}
+            apiDescriptionUrl={`${siteConfig.baseUrl}openapi${locale}.yaml`}
           />
         )}
       </BrowserOnly>

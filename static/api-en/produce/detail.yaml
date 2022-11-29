@@ -1,0 +1,93 @@
+get:
+  tags:
+    - production service
+  summary: project details
+  description: ""
+  parameters:
+    - 
+      name: project_id
+      in: query
+      required: true
+      schema:
+        description: project ID
+        type: string
+        default: "auto3d-xxx"
+    - 
+      name: app_code
+      in: query
+      required: true
+      schema:
+        description: Application Id in console
+        type: string
+        default: ""
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            title: empty object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                properties:
+                  create_time:
+                    type: string
+                    description: "Creation time e.g.：2022-05-10 11:13:38"
+                    default: "2022-05-10 11:13:38"
+                  device_type:
+                    type: integer
+                    description: "Device type, 1: mobile phone, 2 panoramic camera (default), 3 gimbal, 4 professional camera (Galois)"
+                    default: 2
+                  extension:
+                    type: string
+                    description: "json format"
+                    default: "{}"
+                  modify_time:
+                    type: string
+                    description: "Modification time such as：2022-05-10 11:13:38"
+                    default: "2022-05-10 11:13:38"
+                  name:
+                    type: string
+                    description: "project name"
+                    default: "Test items"
+                  project_id:
+                    type: string
+                    description: "project ID"
+                    default: "auto3d-xxx"
+                  remark:
+                    type: string
+                    description: "Remark"
+                    default: ""
+                  shoot_type:
+                    type: integer
+                    description: "Shooting type 1 is AR shooting, 2 is splicing positioning, 0 is unknown, the default is 2"
+                    default: 2
+                  status_text:
+                    type: string
+                    description: "Project status.status_text enumerated values are as follows： project_not_upload - default project_upload_failed - project upload failed project_upload_success - project uploaded successfully project_uploading - project uploading project_processing - project processing project_process_cancel - project processing has been canceled project_process_success - project processing successfully project_projectetempleprocess_failed - project processing Put in recycle bin project_exported - data is being exported project_export_fail - data is being exported failed project_exporting - data is being exported"
+                    default: "project_exporting"
+                  user_identifier:
+                    type: string
+                    description: "The user ID of the business party's own account system"
+                    default: "test user"
+                  vr_code:
+                    type: string
+                    description: "VR coding"
+                    default: "80xxx"

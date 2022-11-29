@@ -1,0 +1,74 @@
+post:
+  summary: metadata signature
+  tags:
+    - dump service
+  description: |
+    > After decompressing the downloaded TAR package, take out **work.json**, replace **base_url** with the relative path of the static resource, and then sign the whole as RAW_BODY
+
+    > **Full link access tutorial [Please click here|update at any time](https://e2kz5laqu0.feishu.cn/docs/doccngabi88zC4wSWmcqkawIR8d)**
+
+    #### is about to succeed
+
+    This step is the last step of loading offline dump data, aiming to obtain Complete and available VR basic data
+
+    Before calculating the signature, it is necessary to ensure that `base_url` + the corresponding image address is accessible. Here, the service verification in the joint debugging stage will avoid a considerable part of the problem
+
+    The signed structure** is stored in the business ** in RDBMS (MySQL), it can be transparently transmitted to the front end when it is applied on the C side
+
+    #### The last sentence
+    If you want to downgrade the picture to ensure wider compatibility, you can consider changing the work.json The picture is replaced with the degraded picture signature and stored. The recommended degraded size is：
+
+    - `1024`
+    - `512`
+
+    Therefore, you can consider obtaining three copies of `work.json` with three different image qualities, and the selection of specific copies can be dynamically controlled. For storage services that support CDN access, it is generally possible to manipulate the image by controlling the Query parameter to reduce the quality and crop the effect
+
+    **Do not tamper with any data after signing, otherwise it will cause VR to fail to load**
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: vr_code
+      in: query
+      description: "VR coding"
+      required: true
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          type: object
+  responses:
+    200:
+      description: V1 Shepherd Task Create
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                description: "The signed work.json has only two more fields, certificate and signature, than the original"
