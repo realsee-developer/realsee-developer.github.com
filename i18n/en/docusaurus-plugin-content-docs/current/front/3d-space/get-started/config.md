@@ -284,7 +284,7 @@ const defaultInitArgs = {
   },
   imageOptions: {
     size: 1024, // Because the default image size is 2048, no longer set default
-    quality: 70,
+    quality: 70, // If there are tiles, don't set quality
   },
   textureOptions: {
     size: 512, // Assume model to be at3d
