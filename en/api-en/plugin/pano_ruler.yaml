@@ -1,0 +1,66 @@
+get:
+  summary: panorama ruler
+  tags:
+    - Plugin Bazaar
+  description: ""
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: vr_code
+      in: query
+      description: "VR coding"
+      required: true
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+    - 
+      name: version
+      in: query
+      required: false
+      description: The version number of the required panorama ruler plugin, currently only supports 0
+      schema:
+        type: string
+        default: 0
+    - 
+      name: locate
+      in: query
+      required: false
+      description: Multilingual control parameter：enumerated value：en-US (English), zh-CN (Chinese), ja-JP (Japanese)
+      schema:
+        type: string
+        default: en-CN
+  responses:
+    "200":
+      description: V1PluginPanoRuler
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                properties:
+                  PanoRulerPlugin:
+                    type: object
+                    description: "Plug-in data field: It is not necessary to understand the more complicated backend, and it can be directly transparently transmitted to the SDK"

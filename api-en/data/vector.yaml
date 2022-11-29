@@ -1,0 +1,207 @@
+get:
+  summary: Design scheme vector
+  tags:
+    - data mart
+  description: Provide standard AI design scheme vector data, including but not limited to `family structure data, model placement data`, etc.
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: vr_code
+      in: query
+      description: "VR encoding, currently only supports data whose vr_type is `virtual`, if `basic_render_code` already exists, please add `81` prefix, and 81 + 6V08KboE2Fe7eEj8(basic_render_code) is passed in as vr_code"
+      required: true
+      schema:
+        type: string
+        default: "816V08KboE2Fe7eEj8"
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                properties:
+                  decoration:
+                    type: object
+                    description: "Model placement data part"
+                    properties:
+                      components:
+                        type: array
+                        description: "custom model"
+                        items:
+                          $ref: "#/components/schemas/Model"
+                      models:
+                        type: array
+                        description: "finished model"
+                        items:
+                          $ref: "#/components/schemas/Model"
+                  floorplan:
+                    type: object
+                    description: "Floor plan data part"
+                    properties:
+                      cityName:
+                        type: string
+                        description: "city name"
+                      floorplans:
+                        type: array
+                        description: "floor plan data"
+                        items:
+                          type: object
+                          properties:
+                            areas:
+                              type: array
+                              description: "noodle"
+                              items:
+                                required:
+                                  - id
+                                  - points
+                                  - type
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: "The unique ID in the current apartment type"
+                                  points:
+                                    description: "A collection of PointIDs combined into an Area"
+                                    items:
+                                      type: string
+                                  type:
+                                    type: number
+                                    description: "Room (Area) type"
+                            lineItems:
+                              type: array
+                              items:
+                                required:
+                                  - endPoint
+                                  - id
+                                  - is
+                                  - startPoint
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: "The unique ID in the current apartment type"
+                                  is:
+                                    type: string
+                                    description: "Door/Window/Other"
+                                  startPoint:
+                                    $ref: "#/components/schemas/StartPoint"
+                                  endPoint:
+                                    $ref: "#/components/schemas/EndPoint"
+                            lines:
+                              type: array
+                              description: "Wire"
+                              items:
+                                required:
+                                  - id
+                                  - points
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: "The unique ID in the current apartment type"
+                                  points:
+                                    description: "ID collection of Points at both ends"
+                                    items:
+                                      type: string
+                            points:
+                              $ref: "#/components/schemas/Point"
+                      id:
+                        type: string
+                        description: "The unique code of the house type is encrypted on the basis of floorplanid"
+                      resblockName:
+                        type: string
+                        description: "District name"
+components:
+  schemas:
+    Model:
+      required:
+        - id
+        - matrix
+        - size
+        - type
+      type: object
+      properties:
+        id:
+          type: number
+          description: "Model ID, corresponding to model library or custom library ID, not unique"
+        matrix:
+          type: array
+          description: "Location"
+          items:
+            type: number
+        size:
+          type: array
+          description: "length width height"
+          items:
+            type: number
+        type:
+          type: string
+          description: "Model's secondary category description"
+    StartPoint:
+      description: "starting point"
+      required:
+        - x
+        - true
+      type: object
+      properties:
+        x:
+          type: number
+          description: "X coordinate"
+        y:
+          type: number
+          description: "Y coordinate"
+    EndPoint:
+      description: "end"
+      required:
+        - x
+        - true
+      type: object
+      properties:
+        x:
+          type: number
+          description: "X coordinate"
+        y:
+          type: number
+          description: "Y coordinate"
+    Point:
+      description: "point"
+      required:
+        - id
+        - x
+        - true
+      type: object
+      properties:
+        id:
+          type: string
+          description: "The unique ID within the current apartment type, not globally unique"
+        x:
+          type: number
+          description: "X coordinate"
+        y:
+          type: number
+          description: "Y coordinate"

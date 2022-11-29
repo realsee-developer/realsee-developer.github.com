@@ -1,0 +1,77 @@
+post:
+  summary: task creation
+  tags:
+    - asynchronous task
+  description: |
+    Specific task types are controlled based on ApplicationId
+    #### Supported task types
+    |Name|Description|Remarks|
+    |-|
+    |-| When the task is completed, it will call back to the configured `ENDPOINT` |-|
+    |work-cleanup| Trigger the cleanup task of the specified VR code (by default, it will be automatically counted down and triggered after the offline package is dumped, and the package task can also be triggered separately) |-|
+    |work-archive|[暂时不予对外]Trigger the "archive" of the original data, which is usually mounted on the pre-hook of the cleaning task |
+
+    | Configure delivery on ENDPOINT. The configuration format of ENDPOINT is:
+
+    Host: For example "https://app-gateway.realsee.com"
+    URI: For example "shepherd/callback/receive"
+    Body: `{"vr_code": " 80vwYQ3dlB6QE3nj28", "start_time": 1651738990, "end_time": 1651738990, "message": {}}`
+
+    In this way, an HTTP POST (application/json) will be sent to "https://app- gateway.realsee.com/shepherd/callback/receive"
+
+    can make specific business logic based on this, and the specific format of `message` will be supplemented by subsequent requirements
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          type: object
+          required:
+            - "task_type"
+            - "vr_code"
+          properties:
+            vr_code:
+              description: "VR coding"
+              type: string
+              default: "80drj5DRZejY2Dq8Oe"
+            task_type:
+              description: "Asynchronous task type"
+              type: string
+              enum:
+                - "work-compress"
+                - "work-archive"
+                - "work-cleanup"
+  responses:
+    200:
+      description: V1 Shepherd Task Create
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: integer
+                description: "Task TaskID, used for follow-up tracking of execution plans, logs and other information"

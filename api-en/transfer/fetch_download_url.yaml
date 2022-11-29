@@ -1,0 +1,102 @@
+get:
+  summary: Basic package download address
+  tags:
+    - dump service
+  description: |
+    > **Full Link Access Tutorial[Please poke here|update at any time](https://e2kz5laqu0.feishu.cn/docs/doccngabi88zC4wSWmcqkawIR8d)**
+
+    #### Tar package format description
+    Tar package contains a total of **4** directories and **1** files, the directory introduction is as follows：
+
+    - `images`: panorama image, the specific number is the same as the number of points
+    - `materials`: 3D model texture map
+    - ` model`: 3D model file
+    - `screenshot`: Screenshot file, usually the cover image and title image
+
+    The only file `work.json` is the metadata description information of the basic data of Rushi VR, the format refers to "Core Entity-Basic Data" chapter, the work.json under the dump is mainly stripped of the dependence on Rushi CDN
+
+    Decompressed Tar package format after a demonstration：
+    ```
+    $ tree -h -L 2
+
+    ├── [ 96 ] images
+    │ └── [ 224] cube_2048
+    ├── [ 160] materials
+    │ ├── [344K]  texture_0.jpg
+    │ ├── [321K]  texture_1.jpg
+    │ └── [230K]  texture_2.jpg
+    ├── [ 96] model
+    │ └── [446K]  cyclops-7jomZeYbdqOZNXBA.at3d
+    ├── [ 96] screenshot
+    │ └── [ 128] 664187822_0
+    └── [4.4K]  work.json
+    ```
+
+    #### return Field Description
+
+    |Name|Example|Type|Description|Required|
+    |-|-|-|-|-|
+    |expired_timestamp|`0`|`integer`|Download deadline (UNIX timestamp)|YES|
+    |presigned_urls|`[]`|`array`|Pre-signed download link list, take 0 bit|YES|
+
+
+    #### Start uploading
+    Recursively upload the above **4** directories to your own At the server side, you need to pay attention to two points：
+
+    - Be sure to use **recursive upload** to ensure the original directory structure
+    - The server can be your own business server, but in more cases it is still stored in `object storage`, generally Yes, object storage supports CDN acceleration to ensure a high-speed C-side browsing experience
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: vr_code
+      in: query
+      description: "VR coding"
+      required: true
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+  responses:
+    200:
+      description: V1 Shepherd Task Create
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                $ref: "#/components/schemas/V1WorkDownload"
+components:
+  schemas:
+    V1WorkDownload:
+      type: object
+      properties:
+        expired_timestamp:
+          type: string
+          description: "Download deadline (UNIX timestamp)"
+          default: "0"
+        presigned_urls:
+          type: array
+          description: "A list of pre-signed download links, 0 is sufficient. The content of the address is **Tencent Cloud COS** public network reachable URL"
+          default: "[]"

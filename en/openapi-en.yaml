@@ -1,0 +1,1462 @@
+openapi: 3.0.2
+info:
+  title: "Open API Explorer"
+  description: |
+    # Ready to build
+
+    **REALSEE** relies on mature technologies such as **3D reconstruction** / **depth prediction** / **WebGL** , and uses standard and easy-to-use SDK and supporting OpenAPI to realize online space and immersive user experience. Since the user terminal is implemented using 'HTML5', the cross-platform feature is advantageous. Today, we are exporting these capabilities as an open platform that enables industry practitioners to quickly build a vibrant and interesting stream of 3D/VR applications.
+
+    ## Flow of interaction
+    The core pattern is shown below, where '*' is not necessary.
+
+    ![interaction process](https://files.readme.io/45593d8-Screen_Shot_2022-03-07_at_12.29.42_AM.png)
+    ## For whom
+
+    **Server Engineer** (aka backend/server engineer, including NodeJS Stack).
+
+    So the current documentation is in the form of the **API Explorer** . Client and JavaScript SDK please [**walks here**](https://realsee.js.org/docs/front/3d-space/intro).
+
+    # Get started
+
+    > Make sure to follow the order of the text, or you may have unexpected problems. Steps 1-2 in the **Know Before You Build** section are very important and are the core part of building your test data.
+
+    ## What to Know Before Developing
+
+    |   serial number   | matters need attention                                                                                                                                                                                                                                                         | explain                                                                                    |
+    | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+    | 1       | Download the **Realsee VR** acquisition app,[iOS Click here to download](https://apps.apple.com/cn/app/%E5%A6%82%E8%A7%86vr-%E6%89%8B%E6%9C%BA%E6%8B%8Dvr%E5%85%A8%E6%99%AF%E6%A8%A1%E5%9E%8B/id1502262095) / [Android Click here to download](https://a.app.qq.com/o/simple.jsp?pkgname=com.realsee.dimensionplus)。 | -                                                                                       |
+    | 2       | Follow the operation guidance to shoot.                                                                                                                                                                                                                                         | -                                                                                       |
+    | 3       | **Log in with the same phone number**[Developer Center website - top right corner - Console](https://developers.realsee.com/console)。                                                                                                                                                                   | Not logged in will automatically jump                                                                |
+    | 4       | Find `Application Id(AK)/Application Secret(SK)` and keep it safe.                                                                                                                                                                                                      | -                                                                                       |
+    | **5-1** | Call the fetch `access token` interface.                                                                                                                                                                                                                               | [gain access_token](/paths/auth-access_token/post) |
+    | **5-2** | It is recommended to call the corresponding API according to the API call method in this article [**tabular data**](/paths/open-v1-entity-vr-list/get) Get the first taste.                  | -                                                                                       |
+
+    ## API call flow
+
+    As shown in the figure below, there are two things you need to do before you can call the server-side interface:
+
+    ![Preparations for](https://files.readme.io/808c84c-8793c330d081798e93f3bd03865a263e_vlQYWpsY5S.png)
+
+    1. Apply for the permissions required for the API call
+
+    **For user convenience, almost all apis except the 'dump service' will be available for the time being, until further notice**.
+
+    2. Get the credentials needed for the API call
+
+    API calls are made by putting credentials in the Header and using the syntax 'Authorization: <credentials>'. Refer to [**Get access_token**](/paths/auth-access_token/post) for obtaining and using credentials.
+
+    ## API calls
+
+    When calling the server interface, you need to use the HTTPS protocol, JSON data format, and UTF8 encoding. The request needs to put the access credential **access_token** in the Authorization Header.
+
+    Examples:
+
+    ```
+    $curl 'https://app-gateway.realsee.com/open/v1/entity/vr?vr_code=80eQOd3g2V4NZDm2Yy' -H 'Authorization: <Request temporary credentials for acquisition access_token>'
+    ```
+
+    ## Explanation of API response results
+
+    Most API response bodies have 'code', 'status', and' data 'sections.
+
+    code is the error code, status is the error message, and data is the result of the API call. By default, the code is 0 and status is' success 'when the request is successful. data may not be present in the return of some action class apis.
+
+    For example:
+
+    ```success
+    {
+      "request_id": "23f4356ef0c3f47dae60af547d581c69",
+      "code": 0,
+      "status": "success",
+      "data": {} // Specific data content of the response
+    }
+    ```
+
+    ```error
+    {
+      "request_id": "23f4356ef0c3f47dae60af547d581c69",
+      "code": -3,
+      "status": "miss authorization",
+      "data": {} // Specific data content of the response
+    }
+    ```
+
+    > **Note**: When a request fails, refer to the code in the error handling section of this chapter. The status is a summary of the error. Do not rely on the status to determine whether a request failed or not. The request_id in the Body returned from the request identifies the unique request, and you can use this value to report an API call issue.
+
+    ## Frequency control
+
+    For example, the frequency limit of the server is used to ensure that our API is highly available and performant, while ensuring data security. Our OpenAPI currently has two default strategies for this:
+
+    - A single API Key **256**per minute
+    - **500**times per minute per IP
+    # Explanation of nouns
+
+    ## Key nouns
+
+    - **VR code**: i.e. **vr_code**, the only global code that is generated after VR is released. VR code, namely vr_code, is the core input parameter for interaction with the open platform, and it can be said that 80% of API interactions are based on this parameter.
+    - **project**: The **project**, the entity that is generated at the beginning of the VR shoot, and is uniquely identified **before the reconstruction is successful**.
+    - **Work**: A unique identifier **after the rebuild**, the smallest unit used in the frontend JS/TS SDK. In most cases, VR/Work are equivalent concepts, i.e. **vr_code**is the only global encoding for Work.
+
+    ## Expand the noun
+
+    | name   | code | paraphrase                                                                        |
+    | ------ | ---------- | --------------------------------------------------------------------------- |
+    | panorama | panorama   |For example, the current 'cube' mode is used to implement the panorama, so for display: **6** images in total |
+    | observation point | observer   | **Point position** in panoramic walkthrough mode, i.e. the position of the camera                                |
+
+    # Error handling
+
+    > Error code summary and quick troubleshooting guide, specific error business processes need to be designed by yourself.
+
+    | error code | explain         | Suggestions for troubleshooting                   |
+    | ------ | ------------ | -------------------------- |
+    | -3     | service error     | not available                       |
+    | -1     | Authentication verification error | Check if the access token has expired |
+  version: v1
+servers:
+  - url: https://app-gateway.realsee.com
+tags:
+  - name: authentication
+  - name: core entity
+    externalDocs:
+      description: Find out more
+      url: https://realsee.js.org
+  - name: extended entity
+    description: Floor plan, cover image.
+  - name: Live service
+    description: A standard service of **full-duplex communication capability**provided by Ruishi open platform.
+  - name: dump service
+    description: dump service.
+  - name: production service
+    description: production services.
+  - name: toolbox
+    description: toolbox.
+  - name: asynchronous task
+    description: Asynchronous tasks.
+paths:
+  /auth/access_token:
+    post:
+      requestBody:
+        content:
+          "application/x-www-form-urlencoded":
+            schema:
+              type: object
+              required: ["app_key", "app_secret"]
+              properties:
+                app_key:
+                  description: Application Id in console
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                app_secret:
+                  description: Application Secret in console
+                  type: string
+                  default: "AVE4VGWGBI713YJ1JFVQSNFFCUJSEH7E"
+      tags:
+        - authentication
+      summary: |
+        get access_token
+      description: |
+        # Why authentication
+
+        is the same as most APIs, in order to ensure the security of data, such as the open platform API requires an authentication process when accessing. The currently supported authentication process includes two types of：
+        - 1 ~~parameter signature~~. That is, the request parameters (`Header/Body`) are encoded by a specific algorithm, which contains Unix timestamps as random factors (**RANDOM FACTORS**) to increase the difficulty of data capture and ensure data security. However, due to the complexity of the algorithm implementation, it is temporarily abandoned for the convenience of quick access/application, and will be reopened when all language SDKs support it later. **Connected business parties will not be affected**.
+        - 2 **access_token mechanism**. That is, when any API call is initiated, a temporary access_token (default **5 minutes**) is obtained first, and subsequent requests carry it. The business side can consider setting a cache of about `3min` to reduce the response time of the overall server-side API.
+
+        > The AK / SK demonstrated below are all for testing and demonstration purposes, please use the AK / SK at the time of application for real debugging.
+
+        access_token has a default validity period of **5min**. It is recommended to obtain it from the cache of the business end first before calling it, instead of obtaining it every time**, so as to reduce the network interaction of the server.
+
+        #### return field description
+        |name|example|type|description|required|
+        |-|-|-|-|-|
+        |access_token|`your-access-token`|`string`|temporary Credentials|YES|
+        |expire_at|`1645735400`|`integer`|expiration timestamp, **default 5min**|YES|
+      responses:
+        200:
+          description: Obtain access_token, which is a temporary credential, for subsequent authentication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/AuthAccessToken"
+  /open/v1/entity/vr/list:
+    get:
+      tags:
+        - core entity
+      summary: list data
+      description: |
+        > Only successfully published projects can be obtained from this interface, that is, projects in shooting and editing are not exposed.
+
+        #### return field description
+
+        |name|example|type|description|required|
+        |-|-|-|-|-|
+        |list|`[]`|`array`|VR list|YES |
+        |total|`20`|`integer`|total|YES|
+        |page_size|`10`|`integer`|page size|YES|
+        |current_page|`1`|`integer`|current page number|YES |
+
+        ##### VR
+        |Name|Example|Type|Description|Required|
+        |-|-|-|-|-|
+        |vr_code|`80yAJrMWbqLBeDlvV1`|`string`|VR code|YES|
+        |create_time|`2021-07-13 11:27:10`|`string`|Create time|YES|
+        |name|`My space`|`string`|VR name|YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: page_size
+          in: query
+          description: "Page capacity, the default is 10"
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+            maximum: 1000
+        - name: page
+          in: query
+          description: "current page, default is 1"
+          required: true
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+      responses:
+        200:
+          description: Get the VR list to which the current application (Application) belongs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1EntityVRList"
+  /open/v1/entity/vr:
+    get:
+      tags:
+        - core entity
+      summary: Basic data
+      description: |
+        > The basic metadata is provided to the rendering SDK, and the basic VR roaming function can be easily completed.
+
+        corresponds to the front-end quick start [**move here**](https://realsee.js.org/docs/front/3d-space/intro), `server engineer` running through DEMO **is not difficult* *.
+
+        The current API has many data fields, and it is almost unnecessary to understand **direct transparent transmission**to the SDK.
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: vr_code
+          in: query
+          description: "VR coding"
+          required: true
+          schema:
+            type: string
+            default: "80drj5DRZejY2Dq8Oe"
+      responses:
+        200:
+          description: Get the basic metadata of the current VR code (vr_code)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1EntityVR"
+  /open/v1/entity/floorplan:
+    get:
+      tags:
+        - extended entity
+      summary: floor plan
+      description: |
+        #### Return Field Description
+        |Name|Example|Type|Description|Required|
+        |-|-|-|
+        |-| |NO|
+        |outlines|`[]`|`array of outline`|list of outline outlines, including SVG and JPEG|YES|
+
+        ##### outline outlines
+        |name|example|type|description |must have|
+        |-|-|-|-|-|
+        |checksum|-|`string`|checksum|YES|
+        |index|`0`|`integer`|point index|YES|
+        |svg_url|-|`string`|SVG public address|YES|
+        |url|-|`string`|JPEG public address|YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: vr_code
+          in: query
+          description: "VR coding"
+          required: true
+          schema:
+            type: string
+            default: "80drj5DRZejY2Dq8Oe"
+      responses:
+        200:
+          description: Rushi self-developed structured floor plan data, serialized in JSON form
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1EntityFloorplan"
+  /open/v1/entity/roompicture:
+    get:
+      tags:
+        - extended entity
+      summary: Partition diagram
+      description: |
+        #### Return Field Description
+
+        |Name|Example|Type|Description|Required|
+        |-|-|-|-|-|
+        |capture_data|`{}`|`object`|Screenshot structured data| YES|
+        |cell_name|`living room`|`string`|partition name|YES|
+        |url|-|`string`|screenshot address|YES|
+        |checksum|-|`string`|screenshot checksum| YES
+        |height|`1080`|`integer`|image width|YES|
+        |width|`1440`|`integer`|image width|YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: vr_code
+          in: query
+          description: "VR coding"
+          required: true
+          schema:
+            type: string
+            default: "80drj5DRZejY2Dq8Oe"
+      responses:
+        200:
+          description: Subdivision refers to a single room determined based on the floor plan, and the screenshot of the room in panoramic mode is the subdivision diagram.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1EntityRoompicture"
+  /open/v1/entity/tag/list:
+    get:
+      tags:
+        - extended entity
+      summary: label list
+      description: |
+        #### Return Field Description
+
+        |Name|Example|Type|Description|Required|
+        |-|-|-|-|-|
+        |name|`North-South Transparent`|`string`|Tag Name|YES |
+        |description|-|`string`|label description|YES|
+        |type|`0`|`string`|label type|YES
+        |position|-|`array`|three-dimensional coordinates|YES|
+        |target_url |`1080`|`integer`|Hyperlink under the jump type tag|NO|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: vr_code
+          in: query
+          description: "VR coding"
+          required: true
+          schema:
+            type: string
+            default: "80drj5DRZejY2Dq8Oe"
+      responses:
+        200:
+          description: Structured tags in VR/3D space, including multiple types, the current API returns all tags at once.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1EntityTagList"
+  /open/v1/live/entrance:
+    post:
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              required:
+                - "app_id"
+                - "create_user_id"
+                - "create_user_role"
+                - "members"
+              properties:
+                app_id:
+                  description: Application Id in console
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                create_user_id:
+                  description: Create the user ID of the live room, and pass in the unique identifier of the business system user to distinguish different users
+                  type: string
+                  default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+                create_user_role:
+                  description: Create the role of the live room user, this role must be in the list of roles you created in the background
+                  type: string
+                  default: "audience"
+                members:
+                  description: The list after JSON serialization, the user list (member) in the room, when not uploaded, the default live broadcast room is only the creator
+                  type: string
+                  default: "[]"
+                additive:
+                  description: The object after JSON serialization, the extension information of the room is created, and the callback of various event messages will carry part of the extension information
+                  type: string
+                  default: "{}"
+      tags:
+        - Live service
+      summary: create room
+      description: |
+        # What is live broadcast
+
+        Live broadcast service is a standard service of **full-duplex communication capability**provided by Rushi open platform, which is compatible with [**Tencent Cloud TRTC**](https://cloud.tencent.com/ product/trtc) is similar but can be closely integrated with the Ruoshi basic SDK long link channel, users can easily build a variety of innovative applications：
+
+        - VR real-time barrage
+        - VR roaming synchronization
+        - VR voice chat room
+
+        corresponds to the front-end development manual [**Please move here**](https://realsee.js.org/docs/front/3d-space/intro).
+
+        #### Description of request fields
+        ##### member (data structure embedded in `members` field)
+        |Name|Example|Type|Description|Required|
+        |-|-|-|-|- |
+        |user_id|`7e7b5a43f74142b7bab2021bb54c6d3e`|`string`|user ID of business system|YES|
+        |user_role|`audience`|`string`|user role|YES|
+        |extension|`{}`|`object` |Extended information of the user, after entering the live broadcast room, this information will be pushed|YES|
+
+        #### return field description
+
+        |Name|Example|Type|Description|Required|
+        |-|-|-|-|- |
+        |room_code|`R3LzwQmEb9OQxdJl`|`string`|live room number|YES|
+        |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`| The long link (WebSocket) address of the room|YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+      responses:
+        200:
+          description: Create live room
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveRoomDetail"
+  /open/v1/live/apply/ticket:
+    post:
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              required:
+                - "app_id"
+                - "user_id"
+                - "user_role"
+                - "room_code"
+              properties:
+                app_id:
+                  description: Application Id in console
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                user_id:
+                  description: Add the user ID of the live broadcast room, and pass in the unique identifier of the business system user, which is used to distinguish different users
+                  type: string
+                  default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+                user_role:
+                  description: Add the role of the live room user, this role must be in the role list you created in the background
+                  type: string
+                  default: "audience"
+                room_code:
+                  description: Room ID to join
+                  type: string
+                  default: "yw7Pz65mrX68A4oa"
+                extension:
+                  description: The object after JSON serialization is used to store the user's extended information
+                  type: string
+                  default: "{}"
+      tags:
+        - Live service
+      summary: join the room
+      description: |
+        #### Return Field Description
+
+        |Name|Example|Type|Description|Required|
+        |-|-|-|
+        |-| The pass is valid within five minutes, once used, it will be invalid immediately**|YES|
+        |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|live room The long link (WebSocket) address of |YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+      responses:
+        200:
+          description: Apply for a room pass
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveApplyTicket"
+  /open/v1/live/voice/sign:
+    post:
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              required: ["app_id", "user_identifier", "user_role", "room_code"]
+              properties:
+                app_id:
+                  description: Application Id in console
+                  type: string
+                  default: "KmAknx7zqqVNpWg8"
+                user_identifier:
+                  description: User ID, set it to the user's unique ID
+                  type: string
+                  default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+                room_code:
+                  description: Room ID to join
+                  type: string
+                  default: "yw7Pz65mrX68A4oa"
+                voice_id:
+                  description: voice room number
+                  type: string
+                  default: ""
+      tags:
+        - Live service
+      summary: voice signature
+      description: |
+        #### Return field description
+
+        |name|example|type|description|required|
+        |-|-|-|-|-|
+        |voice_app_id|`1024`|`string`|Voice room AppID for SDK Use |YES|
+        |user_identifier|`7e7b5a43f74142b7bab2021bb54c6d3e`|`string`| user ID, set it as the unique ID of the user. |YES|
+        |sign|`bar`|`string`| corresponds to the signature data of the voice provider, for SDK usage |YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+      responses:
+        200:
+          description: Obtain the voice room signature, which is equivalent to "join the room" of the voice room branch line
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveVoiceSign"
+  /open/v1/live/room/detail:
+    get:
+      tags:
+        - Live service
+      summary: room details
+      description: |
+        #### Return Field Description
+
+        |Name|Example|Type|Description|Required|
+        |-|-|-|
+        |-|
+        |room_link|`wss://ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121`|`integer`|Long link (WebSocket) address of live room|YES|
+      parameters:
+        - name: Authorization
+          in: header
+          description: access_token obtained by authentication
+          required: true
+          schema:
+            type: string
+            default: your_access_token
+        - name: app_id
+          in: query
+          description: Application Id in console
+          required: true
+          schema:
+            type: string
+            default: "KmAknx7zqqVNpWg8"
+        - name: room_code
+          in: query
+          description: Query room code
+          required: true
+          schema:
+            type: string
+            default: "yw7Pz65mrX68A4oa"
+      responses:
+        200:
+          description: Query live room data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    description: "Identifies a unique request"
+                  trace_id:
+                    type: string
+                    description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+                  code:
+                    type: integer
+                    description: "Error code, the default is 0 when the request is successful"
+                  status:
+                    type: string
+                    description: "Error message, if the request is successful, the default is success"
+                  cost:
+                    type: integer
+                    description: "Time-consuming calculation of the server, in ms"
+                  data:
+                    $ref: "#/components/schemas/V1LiveRoomDetail"
+  /open/v1/produce/project/apply/ticket:
+    $ref: "./api-en/produce/apply_ticket.yaml"
+  /open/v1/produce/project/create:
+    $ref: "./api-en/produce/create.yaml"
+  /open/v1/produce/project/list:
+    $ref: "./api-en/produce/list.yaml"
+  /open/v1/produce/project/detail:
+    $ref: "./api-en/produce/detail.yaml"
+  /open/v1/url/space:
+    $ref: "./api-en/tool/url_toolbox.yaml"
+  /open/v1/shepherd/task/create:
+    $ref: "./api-en/task/shepherd_task.yaml"
+  /open/v1/work/download:
+    $ref: "./api-en/transfer/fetch_download_url.yaml"
+  /open/v1/work/sign:
+    $ref: "./api-en/transfer/work_sign.yaml"
+  /open/v1/plugin/PangRulerPlugin:
+    $ref: "./api-en/plugin/pano_ruler.yaml"
+  /open/v1/plugin/CruisePlugin:
+    $ref: "./api-en/plugin/cruise.yaml"
+  /open/v1/data/vector:
+    $ref: "./api-en/data/vector.yaml"
+  /open/v1/entity/meta:
+    $ref: "./api-en/entity/meta.yaml"
+  /realsee-data/custom/detail.json:
+    $ref: "./api-en/editor/custom/detail.yaml"
+  /realsee-data/custom/route/list.json:
+    $ref: "./api-en/editor/custom/route/list.yaml"
+  /realsee-data/custom/card/info.json:
+    $ref: "./api-en/editor/custom/card/info.yaml"
+  /open/v1/city/list:
+    $ref: "./api-en/city/list.yaml"
+  /open/v1/resblock/suggest:
+    $ref: "./api-en/resblock/suggest.yaml"
+  /open/v1/floorplan/search:
+    $ref: "./api-en/floorplan/search.yaml"
+  /open/v1/shepherd/virtual/render/ai/submit:
+    $ref: "./api-en/task/shepherd_virtual_render_ai_submit.yaml"
+  /open/v1/shepherd/virtual/render/ai/style:
+    $ref: "./api-en/task/shepherd_virtual_render_ai_style.yaml"
+  /open/v1/entity/observer/guide:
+    $ref: "./api-en/observer/guide.yaml"
+components:
+  schemas:
+    AuthAccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: "temporary credentials"
+        expire_at:
+          type: integer
+          description: "Expiration timestamp, default 5min"
+    V1EntityVRList:
+      type: object
+      properties:
+        list:
+          type: array
+          description: "VR list"
+          items:
+            type: object
+            properties:
+              create_time:
+                type: string
+                description: "creation time"
+              name:
+                type: string
+                description: "VR name"
+              vr_code:
+                type: string
+                description: "VR coding"
+        page_size:
+          type: integer
+          description: "page size"
+        total:
+          type: integer
+          description: "total"
+        current_page:
+          type: integer
+          description: "current page number"
+    V1EntityVR:
+      type: object
+      properties:
+        _signature:
+          type: string
+          description: "Signature data for verifying data integrity"
+        allow_hosts:
+          type: array
+          description: "domain name allowed"
+        base_url:
+          type: string
+          description: "Relative base paths for static resources"
+        certificate:
+          type: string
+          description: "certificate data"
+        create_time:
+          type: string
+          description: "Work creation time"
+        expire_at:
+          type: string
+          description: "Expiration time in Unix timestamp format"
+        floor_plan_type:
+          type: integer
+          description: "floor plan type"
+        initial:
+          type: object
+          description: "initial point data"
+          properties:
+            fov:
+              type: integer
+              description: "angle of view"
+            heading:
+              type: integer
+              description: "direction"
+            latitude:
+              type: integer
+              description: "latitude"
+            longitude:
+              type: number
+              description: "longitude"
+            pano:
+              type: integer
+              description: "Panorama"
+            pano_index:
+              type: integer
+              description: "panorama index"
+        model:
+          type: object
+          description: "3D model data"
+          properties:
+            file_url:
+              type: string
+              description: "Model file address"
+            material_base_url:
+              type: string
+              description: "Model map base path"
+            material_textures:
+              type: array
+              description: "model texture data, array"
+              items:
+                type: string
+                description: "Model texture address"
+            modify_time:
+              type: string
+              description: "Model modification time"
+            type:
+              type: integer
+              description: "model type"
+        observers:
+          type: array
+          description: "observer list"
+          items:
+            type: object
+            properties:
+              accessible_nodes:
+                type: array
+                description: "list of visible nodes"
+                items:
+                  type: integer
+              floor_index:
+                type: integer
+                description: "floor directory"
+              index:
+                type: integer
+                description: "observer index"
+              offset_point_count:
+                type: integer
+                description: "Number of offset points"
+              position:
+                type: array
+                description: "location coordinate data"
+                items:
+                  type: number
+              quaternion:
+                type: object
+                description: "Quaternion data"
+                properties:
+                  w:
+                    type: number
+                  x:
+                    type: number
+                  "y":
+                    type: number
+                  z:
+                    type: number
+              standing_position:
+                type: array
+                description: "standing position"
+                items:
+                  type: number
+              visible_nodes:
+                type: array
+                items:
+                  type: integer
+        panorama:
+          type: object
+          description: "panorama data"
+          properties:
+            count:
+              type: integer
+              description: "Number of panoramas"
+            list:
+              type: array
+              description: "panorama list"
+              items:
+                type: object
+                properties:
+                  back:
+                    type: string
+                  down:
+                    type: string
+                  front:
+                    type: string
+                  index:
+                    type: integer
+                  left:
+                    type: string
+                  right:
+                    type: string
+                  up:
+                    type: string
+        picture_url:
+          type: string
+          description: "VR image address"
+        title_picture_url:
+          type: string
+          description: "VR Title Image Address"
+        vr_code:
+          type: string
+          description: "VR coding"
+        vr_type:
+          type: string
+          description: "VR type: 80 real scenes/ 81 virtual"
+    V1EntityFloorplan:
+      type: object
+      properties:
+        computed_data:
+          type: object
+          description: "Calculated floor plan data"
+          properties:
+            bounding:
+              type: object
+              properties:
+                max:
+                  type: object
+                  properties:
+                    x:
+                      type: number
+                    "y":
+                      type: number
+                min:
+                  type: object
+                  properties:
+                    x:
+                      type: number
+                    "y":
+                      type: number
+                origin:
+                  type: object
+                  properties:
+                    x:
+                      type: integer
+                    "y":
+                      type: integer
+            entrance:
+              type: string
+              nullable: true
+            floor_datas:
+              type: array
+              items:
+                type: object
+                properties:
+                  floor_index:
+                    type: integer
+                  rooms:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        floor_type:
+                          type: integer
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        observer_indexs:
+                          type: array
+                          items:
+                            type: integer
+                        path:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              x:
+                                type: number
+                              "y":
+                                type: number
+                        room_label:
+                          type: object
+                          properties:
+                            position:
+                              type: object
+                              properties:
+                                x:
+                                  type: number
+                                "y":
+                                  type: integer
+                            position_in_image:
+                              type: object
+                              properties:
+                                x:
+                                  type: number
+                                "y":
+                                  type: number
+                        room_type:
+                          type: string
+                        size:
+                          type: number
+                  rules:
+                    type: object
+                    properties:
+                      bottom:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              x:
+                                type: integer
+                              "y":
+                                type: integer
+                      left:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              x:
+                                type: integer
+                              "y":
+                                type: integer
+                      right:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              x:
+                                type: integer
+                              "y":
+                                type: integer
+                      top:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              x:
+                                type: integer
+                              "y":
+                                type: integer
+            observers:
+              type: array
+              items:
+                type: object
+                properties:
+                  floor_index:
+                    type: integer
+                  index:
+                    type: integer
+                  position:
+                    type: object
+                    properties:
+                      x:
+                        type: number
+                      "y":
+                        type: number
+                  position_in_image:
+                    type: object
+                    properties:
+                      x:
+                        type: number
+                      "y":
+                        type: number
+        format_data:
+          type: object
+          description: "Formatted floor plan data, according to `computed_data`"
+          properties:
+            bounding:
+              type: object
+              description: "boundary data"
+              properties:
+                max:
+                  type: object
+                  properties:
+                    x:
+                      type: number
+                      description: "max x coordinate"
+                    "y":
+                      type: number
+                      description: "max y coordinate"
+                min:
+                  type: object
+                  properties:
+                    x:
+                      type: number
+                      description: "minimum x coordinate"
+                    "y":
+                      type: number
+                      description: "minimum y coordinate"
+                origin:
+                  type: object
+                  properties:
+                    x:
+                      type: integer
+                      description: "origin x coordinate"
+                    "y":
+                      type: integer
+                      description: "origin y coordinate"
+            entrance:
+              type: string
+              nullable: true
+              description: "entry point"
+            floor_names:
+              type: array
+              description: "floor name"
+              items:
+                type: string
+                nullable: true
+            room_labels:
+              type: array
+              description: "room label"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: "room tag id"
+                    name:
+                      type: string
+                      description: "room name"
+                    room_id:
+                      type: string
+                      description: "room id"
+                    size:
+                      type: number
+                      description: "room size"
+                    x:
+                      type: number
+                      description: "room x coordinate"
+                    "y":
+                      type: integer
+                      description: "room y coordinate"
+            room_observers:
+              type: array
+              description: "room observation point"
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: "Room observation point id"
+                  name:
+                    type: string
+                    description: "Room Observation Point Name"
+                  pano_index:
+                    type: integer
+                    description: "panorama index"
+                  room_id:
+                    type: string
+                    description: "room id"
+                  size:
+                    type: number
+                    description: "room size"
+            rooms:
+              type: array
+              description: "Room"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    floor_type:
+                      type: integer
+                      description: "floor type"
+                    id:
+                      type: string
+                      description: "room id"
+                    path:
+                      type: array
+                      description: "room path"
+                      items:
+                        type: object
+                        properties:
+                          x:
+                            type: number
+                            description: "room x coordinate"
+                          "y":
+                            type: number
+                            description: "room y coordinate"
+                    room_type:
+                      type: string
+                      description: "Room type"
+        outlines:
+          type: array
+          description: "outline A list of frame diagrams, including SVG and JPEG"
+          items:
+            type: object
+            properties:
+              checksum:
+                type: string
+                description: "Room Wireframe Checksum"
+              index:
+                type: integer
+                description: "Room Wireframe Index"
+              svg_url:
+                type: string
+                description: "room wireframe svg address"
+              url:
+                type: string
+                description: "Room wireframe image address"
+    V1EntityRoompicture:
+      type: array
+      items:
+        type: object
+        properties:
+          capture_data:
+            type: object
+            description: "screenshot structured data"
+            properties:
+              derived_id:
+                type: integer
+                description: "Panorama global unique index, based on timestamp"
+              filter:
+                type: integer
+                description: "filter"
+              fov:
+                type: integer
+                description: "angle of view"
+              fromFE:
+                type: boolean
+                description: "Is it from FE (front end)"
+              latitude:
+                type: integer
+                description: "latitude"
+              longitude:
+                type: number
+                description: "longitude"
+              original_image_checksum:
+                type: string
+                description: "Original image checksum"
+              original_image_url:
+                type: string
+                description: "Original picture address"
+              pano_index:
+                type: integer
+                description: "panorama index"
+              sizes:
+                type: array
+                description: "screenshot size"
+                items:
+                  type: object
+                  properties:
+                    height:
+                      type: integer
+                      description: "high"
+                    width:
+                      type: integer
+                      description: "width"
+          cell_name:
+            type: string
+            description: "room name"
+          cell_name_type:
+            type: integer
+            description: "room name type"
+          cell_type:
+            type: integer
+            description: "Room type"
+          checksum:
+            type: string
+            description: "screenshot checksum"
+          height:
+            type: integer
+            description: "screenshot height"
+          url:
+            type: string
+            description: "screenshot address"
+          width:
+            type: integer
+            description: "screenshot width"
+    V1EntityTagList:
+      type: array
+      description: "label list"
+      items:
+        type: object
+        properties:
+          description:
+            type: string
+            description: "label description"
+          id:
+            type: integer
+            description: "label id"
+          media_data:
+            type: string
+            nullable: true
+            description: "label multimedia type"
+          name:
+            type: string
+            description: "label name"
+          position:
+            type: array
+            description: "label coordinates"
+            items:
+              type: number
+              description: "label coordinate type"
+          target_url:
+            type: string
+            description: "tag link"
+          type:
+            type: string
+            description: "label type"
+          typed_target_url:
+            type: string
+            description: "Label type link"
+    V1LiveRoomDetail:
+      type: object
+      properties:
+        room_code:
+          type: string
+          description: "live room number"
+          default: "R3LzwQmEb9OQxdJl"
+        room_link:
+          type: string
+          description: "The long link (WebSocket) address of the live room"
+          default: "wss://sandbox-ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121"
+    V1LiveApplyTicket:
+      type: object
+      properties:
+        ticket:
+          type: string
+          description: "The pass issued by the server is valid within five minutes, and once used, it will be invalid immediately"
+          default: "99317955e49e0221d593f0330150b9df"
+        room_link:
+          type: string
+          description: "The long link (WebSocket) address of the live room"
+          default: "wss://sandbox-ws-access.realsee.com/open/R3LzwQmEb9OQxdJl?open_app_id=2121"
+    V1LiveVoiceSign:
+      type: object
+      properties:
+        voice_app_id:
+          type: string
+          description: "Voice room AppID, used by SDK"
+          default: "1024"
+        user_identifier:
+          type: string
+          description: "User ID, set it to the user's unique ID"
+          default: "7e7b5a43f74142b7bab2021bb54c6d3e"
+        sign:
+          type: string
+          description: "Corresponding to the signature data of the voice provider, used by the SDK"
+          default: "bar"
+  securitySchemes:
+    api_key:
+      type: http
+      scheme: bearer
+      bearerFormat: jwt

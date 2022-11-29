@@ -1,0 +1,152 @@
+get:
+  summary: House type search
+  tags:
+    - production service
+  description: Provide house type (FLOORPLAN) search that can be produced (real scene shooting/virtual design)
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: city_id
+      in: query
+      description: "City ID"
+      required: false
+      schema:
+        type: number
+        default: 110000
+    - 
+      name: resblock_id
+      in: query
+      description: "Cell ID"
+      required: false
+      schema:
+        type: string
+        default: "c11000000003714"
+    - 
+      name: room_count
+      in: query
+      description: "**Room** Quantity"
+      required: false
+      schema:
+        type: number
+        default: 2
+    - 
+      name: parlor_count
+      in: query
+      description: "**Room** Quantity"
+      required: false
+      schema:
+        type: number
+        default: 1
+    - 
+      name: area_min
+      in: query
+      description: "House type minimum area"
+      required: false
+      schema:
+        type: string
+        default: "50"
+    - 
+      name: area_max
+      in: query
+      description: "The largest area of the house"
+      required: false
+      schema:
+        type: string
+        default: "180"
+    - 
+      name: area_sort
+      in: query
+      description: "Sort by area"
+      required: false
+      schema:
+        type: string
+        default: "ASC"
+        enum:
+          - "ASC"
+          - "DESC"
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    description: "House type list"
+                    properties:
+                    items:
+                      type: object
+                      required:
+                      properties:
+                        outer_edge_group_id:
+                          type: string
+                          description: "House type group ID"
+                          default: "c1abdcec-2480-4318-801d-8517a592d001"
+                        room_count:
+                          type: number
+                          description: "**Room** Quantity"
+                          default: 4
+                        parlor_count:
+                          type: number
+                          description: "**Room** Quantity"
+                          default: 2
+                        area:
+                          type: number
+                          description: "House size"
+                          default: 175.58
+                        image_url:
+                          type: string
+                          description: "House type picture address"
+                          default: ""
+                        resblock_id:
+                          type: string
+                          description: "Cell ID"
+                          default: "8708128625140685"
+                        resblock_name:
+                          type: string
+                          description: "District name"
+                          default: "Evergrande River Creek Jade"
+                        district_name:
+                          type: string
+                          description: "city name"
+                          default: "Wuxing District"
+                        city_id:
+                          type: number
+                          description: "City ID"
+                          default: 110000
+                        city_name:
+                          type: string
+                          description: "city name"
+                          default: "Beijing"
+                        can_ai_design:
+                          type: number
+                          description: "Is it possible to do AI design"
+                          enum:
+                            - 0
+                            - 1

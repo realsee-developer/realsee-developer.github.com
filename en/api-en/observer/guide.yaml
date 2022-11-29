@@ -1,0 +1,96 @@
+get:
+  summary: guide
+  tags:
+    - extended entity
+  description: VR navigation, that is, the fast roaming function between points
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: vr_code
+      in: query
+      description: "VR coding"
+      required: false
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+    - 
+      name: resource_code
+      in: query
+      description: "VR copy encoding, eg：8oep3ZPGW8TjRlyT7x. Just pass one of `vr_code` and `resource_code`"
+      required: false
+      schema:
+        type: string
+        default: "8oep3ZPGW8TjRlyT7x"
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: array
+                properties:
+                items:
+                  $ref: "#/components/schemas/Item"
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "title name"
+        pano_index:
+          type: integer
+          description: "panorama index"
+        picture_url:
+          type: string
+          description: "screenshot link"
+        data:
+          type: object
+          description: "VR source"
+          properties:
+            fov:
+              type: integer
+              description: "angle of view"
+            heading:
+              type: integer
+              description: "direction"
+            latitude:
+              type: integer
+              description: "latitude"
+            longitude:
+              type: number
+              description: "longitude"
+            pano:
+              type: integer
+              description: "Panorama"
+            floor_index:
+              type: integer
+              description: "floor number"
+            flag_position:
+              type: array
+              description: "flag coordinates"

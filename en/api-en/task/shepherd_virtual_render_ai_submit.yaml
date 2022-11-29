@@ -1,0 +1,153 @@
+post:
+  summary: Submit an AI rendering
+  tags:
+    - production service
+  description: |
+    > 提交虚拟AI渲染任务
+
+    #### 渲染状态枚举值
+    | 枚举值 | 说明 | 备注 |
+    | - | - | - |
+    | `RENDER_ING` | 渲染中 | 提交任务成功后进入该状态 |
+    | `RENDER_PART_DONE` | 渲染部分完成 | 第一个点位渲染完成进入该状态 |
+    | `RENDER_DONE` | 渲染完成 | - |
+    | `RENDER_FAIL` | 渲染失败 | - |
+
+    #### 渲染结果回调
+    - 回调地址在提交AI渲染接口的请求参数中由调用方指定
+    - 回调请求的`Content-Type`为`application/json`
+    - 请求参数以`JSON`格式编码。 只有在渲染完成或渲染失败时，才会回调该接口
+
+    ##### 回调ENDPOINT的返回规范
+
+    ###### BODY
+    | 参数名                   | 类型   | 是否必需 | 说明                                              | 示例                                 |
+    | ------------------------ | ------ | -------- | ------------------------------------------------- | ------------------------------------ |
+    | callback_id              | string | no       | 回调 ID，在提交接口请求参数中指定                 | 123456                               |
+    | callback_context         | string | no       | 回调上下文，在提交接口请求参数中指定              |                                      |
+    | data                     | object | yes      | 回调数据                                          |                                      |
+    | data.source              | string | yes      | 业务来源                                          | REALSEE                              |
+    | data.basic_render_code   | string | yes      | 渲染惟一编码                                      | 0LLN24JAiz9D7dA0                     |
+    | data.outer_edge_group_id | string | yes      | 户型组 ID                                         | cba55c60-f4c0-4ff4-b0c1-2e859763d137 |
+    | data.style_id            | int    | yes      | 风格 ID                                           | 1118                                 |
+    | data.style_name          | string | yes      | 风格名                                            | 灰白简约                             |
+    | data.status              | string | yes      | 渲染状态，见渲染状态说明                          | RENDER_ING                           |
+    | data.url                 | string | yes      | 中心化服务渲染预览链接，status=RENDER_DONE 时有效 |                                      |
+    | data.cover_url           | string | yes      | 封面缩略图链接，status=RENDER_DONE 时有效         |                                      |
+    | data.create_time         | string | yes      | 创建时间                                          | 2022-07-04 17:43:53                  |
+    | data.update_time         | string | yes      | 更新时间                                          | 2022-07-04 17:43:53                  |
+
+    ###### 响应格式
+    | 参数名 | 类型 | 是否必需 | 说明 | 示例 |
+    | - | - | - | - |- |
+    | code | int | yes | 错误码, 0-正常，非 0 最多重试 3 次 | 0 |
+    | status | string | no | 错误状态 | success |
+    | request_id | string | no | 请求 ID | 35f34f6c-95a6-4708-a9e1-22f665bbd8b9 |
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          type: object
+          required:
+            - "outer_edge_group_id"
+            - "style_id"
+            - "callback_id"
+          properties:
+            outer_edge_group_id:
+              description: "House type group ID"
+              type: string
+              default: "42f78e14-a468-4ee5-bea1-6ca548112b9a"
+            style_id:
+              type: string
+              description: "Style ID, support fixed enumeration value"
+              default: "3"
+              enum:
+                - "3"
+            callback_id:
+              type: string
+              description: "Callback ID, the maximum length is 128"
+              default: "123456"
+            callback_context:
+              type: string
+              description: "Callback context, the maximum length is 1024"
+              default: "{}"
+  responses:
+    "200":
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                description: "render metadata`"
+                properties:
+                  source:
+                    type: string
+                    description: "Business party mark"
+                    default: "REAL SEE"
+                  basic_render_code:
+                    type: string
+                    description: "Render unique code, `81`+`basic_render_code` can get `vr_code`"
+                    default: "0LLN24JAiz9D7dA0"
+                  outer_edge_group_id:
+                    type: string
+                    description: "House type group ID"
+                    default: "c1abdcec-2480-4318-801d-8517a592d001"
+                  style_id:
+                    type: number
+                    description: "Style ID"
+                    default: 3
+                  style_name:
+                    type: string
+                    description: "style name"
+                    default: "gray and simple"
+                  status:
+                    type: string
+                    description: "Rendering status, see description of rendering status"
+                    default: "RENDER_ING"
+                    enum:
+                      - "RENDER_DONE"
+                      - "RENDER_ING"
+                      - "RENDER_PART_DONE"
+                      - "RENDER_FAIL"
+                  url:
+                    type: string
+                    description: "Centralized service rendering preview link, valid when status=RENDER_DONE"
+                    default: ""
+                  cover_url:
+                    type: string
+                    description: "Cover thumbnail link, valid when status=RENDER_DONE"
+                    default: ""
+                  create_time:
+                    type: string
+                    description: "creation time"
+                    default: "2022-07-04 17:43:53"
+                  update_time:
+                    type: string
+                    description: "update time"
+                    default: "2022-07-04 17:43:53"

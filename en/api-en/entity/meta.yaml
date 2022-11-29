@@ -1,0 +1,142 @@
+get:
+  summary: Meta data
+  tags:
+    - core entity
+  description: Provide VR metadata query, mainly including but not limited to `title, shooting information, rendering information, Five central control parameters`, etc.
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: vr_code
+      in: query
+      description: "VR coding"
+      required: true
+      schema:
+        type: string
+        default: "80drj5DRZejY2Dq8Oe"
+    - 
+      name: locale
+      in: query
+      description: "Default zh_CN and Chinese, please refer to https://docs.oracle.com/cd/E23824_01/html/E26033/glset.html"
+      required: false
+      schema:
+        type: string
+        default: "zh_CN"
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                properties:
+                  status:
+                    type: enums
+                    description: "VR state"
+                    enum:
+                      - "RENDER_DONE"
+                      - "RENDER_ING"
+                      - "RENDER_PART_DONE"
+                      - "RENDER_FAIL"
+                  detail:
+                    type: object
+                    description: "Detailed data"
+                    $ref: "#/components/schemas/Detail"
+                  original:
+                    type: object
+                    description: "Raw Information: Capture/Render Time Data"
+                    $ref: "#/components/schemas/Original"
+                  five:
+                    type: object
+                    description: "Five central control parameters"
+                    $ref: "#/components/schemas/Five"
+components:
+  schemas:
+    Detail:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "VR title"
+        source:
+          type: string
+          description: "VR source"
+          default: "REAL SEE"
+        create_time:
+          type: string
+          description: "Creation time: real scene - project creation time; virtual - start rendering time"
+        modify_time:
+          type: string
+          description: "update time"
+        picture_url:
+          type: string
+          description: "cover image"
+        url:
+          type: string
+          description: "Centralized service preview link"
+    Five:
+      type: object
+      properties:
+        auto_resize:
+          type: boolean
+          description: "Whether to automatically scale"
+        min_fov:
+          type: number
+          description: "Minimum Angle of View (Field Of View)"
+        max_fov:
+          type: number
+          description: "Maximum Viewing Angle (Field Of View)"
+        tile_level:
+          type: number
+          description: "Tile Rating: 0-4"
+    Original:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "Shooting equipment name"
+        bg_image:
+          type: string
+          description: "Take a picture of the device"
+        principle:
+          type: string
+          description: "acquisition engine"
+        outer_edge_group_id:
+          type: string
+          description: "House type group ID"
+          default: "cba55c60-f4c0-4ff4-b0c1-2e859763d137"
+        style_id:
+          type: string
+          description: "Style ID"
+          default: "3"
+        style_name:
+          type: string
+          description: "style name"
+          default: "gray and simple"
+        cube_size:
+          type: string
+          description: "Panorama Cube size"
+          default: "2048"
