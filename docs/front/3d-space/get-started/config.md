@@ -285,7 +285,7 @@ const defaultInitArgs = {
   },
   imageOptions: {
     size: 1024, // 因为默认图片尺寸就是 2048，所以不再设置默认值
-    quality: 70,
+    quality: 70, // 如果有瓦片，就不要设置quality了
   },
   textureOptions: {
     size: 512, // 假设模型默认是 at3d
