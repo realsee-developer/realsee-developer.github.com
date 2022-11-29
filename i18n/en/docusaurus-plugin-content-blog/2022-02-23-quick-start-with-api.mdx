@@ -1,0 +1,98 @@
+---
+slug: quick-start-with-api
+title: Fast "starving" of three-dimensional space capabilities
+authors:
+  - Angry-Sparrow
+tags:
+  - realsee
+  - 3d
+  - vr
+---
+
+## Personal Food
+
+[**like VR**](https://apps.apple.com/cn/app/id1502262095) is like a panoramic model taken by the official – you can simply take pictures using your phone instructions and generate VR live data after capture.
+
+Generated VR data can be obtained by looking at the Open Platform's [**Open API**](/open/api/#/) , then using [**rendering engine Five**](/docs/front/3d-space/get-started/rendering-engine) you can build your own 3D application.
+
+Just follow this text, quickly "not" the three-dimensional space capabilities you seek.
+
+## 30 Minutes for Gathering Preview
+
+:::tip hint
+We assume you have basic knowledge of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) languages,[Node.js](https://nodejs.org/en/docs/) and [npm](https://docs.npmjs.com/) etc. If you are not in touch before, it is recommended to read this paper in a simple way.
+:::
+
+### Preparatory work
+
+- Your machine has been installed in [Node](https://nodejs.org/en/).
+- Your easy access to apple phone - for capting, capturing VR data.
+
+### Capture Capture
+
+First, you need to download [from the Apple App Store**like VR**](https://apps.apple.com/cn/app/id1502262095) - search in the App Store **"like VR"**.Sign up for an account by guide, then continue to work on the app：
+
+- Do **"My Item"** loat **"Identity Select"** "Personal" **"Person"**(default).
+- Tap the bottom bar **"+"** plus button to select **"phone beat"**(only iOS is supported temporarily.
+- Once the project name is filled, click **"Create Project"** to enter the collection process.
+
+Complete capture and upload by the App Action Guide, waiting for VR project processing (this process takes approximately minutes).
+
+:::tip hint
+suggests that you select a light indoor scene, such as picking your small bedroom during the day.
+:::
+
+Video tutorials are available for specific capture processes：<video style={{width: '100%'}} controls type="video/mp4" src="//vrlab-public.ljcdn.com//release//vrorion/\_\_\_2adb9edde32b9818c91e7475265aef17.MP4"></video>
+
+### Get data
+
+Once you have completed the capture and upload, you can get data by opening API [for example, by looking at](/open/api).You need to login to[before requesting data like the Open Platform Console](https://developers.realsee.com/console)— your account is just registered on the app.
+
+Then click **"Apply Key"**to get your `Application Id` and `Application Secret`, which will be used to access the API interface for spatial data.
+
+The API involved is：
+
+- Authentication：`/auth/access_token`
+- List data：`/open/v1/entity/vr/list`.
+- Basic data：`/open/v1/entity/vr`.
+
+:::tip prompts
+to launch any API calls, get temporary `access_token`(default 5 minutes), and follow up requests.Businesses can consider setting up a cache for about three minutes to reduce the response time of the overall server API. For the specific initiation process, please refer to the source code [five-sdk-starter-with-api](https://github.com/realsee-developer/five-sdk-starter-with-api).
+:::
+
+### Rendering VR
+
+In order to save your cost of creating a scrap, you can also `git clone` [fuve-sdk-starter-with-api](https://github.com/realsee-developer/five-sdk-starter-with-api).
+
+Enter the repository directory open `index.js`search`Your-App-Key` String replaced with the application`Application Id`, Search `Your-App-Secret` String replaced with the application `Application Secret`.
+
+Finally, turn on your terminal：
+
+```shell
+cd five-sdk-starter-with-api
+npm i
+npm un start
+# You will see console output, browser opens the link below and recommends using Chrome browser to ensure best experience
+> node index.js
+> serve at http:///127.0.0.1:3000
+```
+
+Go to [127.0.0.1:3000](http://127.0.0.1:3000) to experience your own VR space!
+
+:::tip hints
+Visit [**Render Engine Five**](/docs/front/3d-space/get-started/rendering-engine) learn more if you want to go deeper to customize your VR space application.
+:::
+
+## Other Supplements
+
+### Open Dataset
+
+If you do not want to take a photograph, we also open [to the open source community**open-works**](https://github.com/realsee-developer/open-works) data sets for development, debugging, and research.
+
+You can cross the capture and call open API process,[**Click here to quickly experience**](docs/front/3d-space/get-started/usage/00.space#效果展示) like the ability to render three-dimensional space.
+
+### Enterprise Level Access
+
+In addition to [**like VR**](https://apps.apple.com/cn/app/id1502262095) , provide powerful [**VR scanner devices**](https://realsee.cn/website/product/hardware) Gathering to generate realm three-dimensional space and [three-dimensional design tool](https://business.realsee.com/) create virtual three-dimensional space.
+
+Enterprise live space collection, virtual space design, processing service contact：[developer@realsee.com](mailto:developer@realsee.com).

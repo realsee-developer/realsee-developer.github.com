@@ -23,6 +23,10 @@
     "message": "开放 API",
     "description": "Navbar item with label 开放 API"
   },
+  "item.label.开发者协议": {
+    "message": "开发者协议",
+    "description": "Navbar item with label 开发者协议"
+  },
   "item.label.博客": {
     "message": "博客",
     "description": "Navbar item with label 博客"

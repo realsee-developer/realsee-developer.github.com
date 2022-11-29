@@ -7,14 +7,14 @@ title: 事件监听
 
 ```ts
 // iOS/Android
-import JSBridge from '@realsee/jsbridge-x/lib/app'
+import JSBridge from "@realsee/jsbridge-x/lib/app";
 // 或 微信小程序
 // import JSBridge from '@realsee/jsbridge-x/lib/miniprogram'
 
-const jsBridge = new JSBridge({})
+const jsBridge = new JSBridge({});
 
 // 监听 jsBridge 是否完成初始化
-jsBridge.on('evtName', callback)
+jsBridge.on("evtName", callback);
 ```
 
 ## 容器状态变更监听
@@ -22,9 +22,9 @@ jsBridge.on('evtName', callback)
 通过 `webViewStateChange` 事件监听当前容器状态变更情况。
 
 ```ts
-jsBridge.on('webViewStateChange', (webViewState: WebViewState) => {
-    // 在此处理业务逻辑
-})
+jsBridge.on("webViewStateChange", (webViewState: WebViewState) => {
+  // 在此处理业务逻辑
+});
 ```
 
 WebViewState 描述了当前 WebView 的状态：
@@ -37,15 +37,15 @@ export interface WebViewState {
   /**
    * 是否处在激活状态：比如 App 切到后台就处在非激活状态
    */
-  active: boolean
+  active: boolean;
   /**
    * 当前横竖屏方向
    */
-  orientation: OrientationEnum
+  orientation: OrientationEnum;
   /**
    * 最小化
    */
-  minimized: boolean
+  minimized: boolean;
 }
 ```
 
@@ -54,14 +54,14 @@ export interface WebViewState {
  * WebView 横竖屏朝向。
  */
 export enum OrientationEnum {
-    /**
-     * 横屏
-     */
-    Landscape = 'Landscape',
-    /**
-     * 竖屏
-     */
-    Portrait = 'Portrait',
+  /**
+   * 横屏
+   */
+  Landscape = "Landscape",
+  /**
+   * 竖屏
+   */
+  Portrait = "Portrait",
 }
 ```
 
@@ -70,20 +70,20 @@ export enum OrientationEnum {
 通过 `error` 事件监听错误信息。
 
 ```ts
-jsBridge.on('error', (error: WebViewErrorInfo) => {
-    // 在此处理业务逻辑
-})
+jsBridge.on("error", (error: WebViewErrorInfo) => {
+  // 在此处理业务逻辑
+});
 ```
-
 
 ```ts title="WebView 错误信息声明"
 export interface WebViewErrorInfo {
-  errorCode: string
-  errorMsg: string
+  errorCode: string;
+  errorMsg: string;
 }
 ```
 
 ## 全量文档
+
 :::tip
-**[全量事件监听请参考 @realsee/jsbridge-x 详细文档之EventMap](https://unpkg.com/@realsee/jsbridge-x/docs/modules/jsBridge.html#EventMap) 。**
+**[全量事件监听请参考 @realsee/jsbridge-x 详细文档之 EventMap](https://unpkg.com/@realsee/jsbridge-x/docs/modules/jsBridge.html#EventMap) 。**
 :::

@@ -64,7 +64,7 @@ const FiveProvider = createFiveProvider({
 
 在 `FiveProvider` 时，将 `CruisePlugin` 配置在初始化插件参数即可。
 
-```Vue
+```vue
 <template>
   <FiveProvider :fiveInitArgs="fiveInitArgs">
   </FiveProvider>
@@ -89,7 +89,7 @@ const fiveInitArgs = {
 
 ```tsx
 // 自定义路径数据
-const currentGuideLine =  [0, 1, 2, 3, 4, 5];
+const currentGuideLine = [0, 1, 2, 3, 4, 5];
 // 载入路径数据
 five.plugins.cruisePlugin.load({ 
     panoIndexList: currentGuideLine,

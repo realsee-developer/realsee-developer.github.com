@@ -15,12 +15,12 @@ title: 剧本结构
  * 剧本结构
  */
 export interface VreoUnit {
-  categoryId: string 
-  categoryText: string 
-  frontRequestId: string
-  index: string | number
-  keyframes: VreoKeyframe[] // 剧本帧合集
-  video: VreoVideo // 虚拟视频角色
+  categoryId: string;
+  categoryText: string;
+  frontRequestId: string;
+  index: string | number;
+  keyframes: VreoKeyframe[]; // 剧本帧合集
+  video: VreoVideo; // 虚拟视频角色
 }
 ```
 
@@ -44,17 +44,17 @@ export interface VreoUnit {
 
 **Vreo** 内置了每一个剧本关键帧的 UI 及动作行为，通过 `vreoplayer.on()` 可监听到相应的剧本关键帧的命中时机，并按需添加业务逻辑。
 
-
 ```ts title="剧本帧结构声明"
 export interface VreoKeyframe {
-  uuid?: string // 剧本帧 `uuid`。
-  type: VreoKeyframeEnum // 剧本帧类别枚举
-  start: number // 触发时间戳。
-  end: number // 结束时间戳
-  parsed?: boolean // 解析状态
-  data: Record<string, any> // 当前帧类别数据依赖
+  uuid?: string; // 剧本帧 `uuid`。
+  type: VreoKeyframeEnum; // 剧本帧类别枚举
+  start: number; // 触发时间戳。
+  end: number; // 结束时间戳
+  parsed?: boolean; // 解析状态
+  data: Record<string, any>; // 当前帧类别数据依赖
 }
 ```
+
 :::tip
 详细的剧本帧结构定义： **[点击查看](https://unpkg.com/@realsee/vreo@0.2.0-alpha.10/docs/interfaces/Player.VreoKeyframe.html)** 。
 :::
@@ -88,7 +88,7 @@ export interface VreoKeyframe {
         "fontSize": 16
       }
     }
-  // ... 
+    // ...
   ]
 }
 ```

@@ -449,19 +449,19 @@ export default {
       // 这个是VR网关相关的配置
       this.rsVrOptions = rsVrWebviewPropsWrapper({
         app: {
-        key: "app_id",
-        secret: "app_secret",
-        gateway: "网关地址",
-        startup: "sdk启动uri",
-        sign: "语音签名uri",
-      },
-      info: {
-        appName: "小程序名",
-        appVersion: "小程序版本",
-        scheme: "jsbridge调用的协议头",
-        userAgent: "特殊UA",
-        extraData: {}, // 其它自定义扩展信息
-      },
+          key: "app_id",
+          secret: "app_secret",
+          gateway: "网关地址",
+          startup: "sdk启动uri",
+          sign: "语音签名uri",
+        },
+        info: {
+          appName: "小程序名",
+          appVersion: "小程序版本",
+          scheme: "jsbridge调用的协议头",
+          userAgent: "特殊UA",
+          extraData: {}, // 其它自定义扩展信息
+        },
         // trtc: TRTC, // 带看引入的TRTC对象
       });
 
@@ -520,7 +520,7 @@ export default {
           // return 'abc'
         },
       });
-      
+
       // 这里是需要打开的vr链接, 注意，一定等上面初始化完成再设置vrUrl，因为vue的特性，提前设置vrUrl会导致组件提前渲染报错。
       this.rsVrUrl = ""; // 此处为VR链接
     },

@@ -6,8 +6,6 @@ title: Android 端
 本文档面向 **Android 开发人员**，后面的描述中我们假设您已经具备 Android 开发基础知识并安装 Android Studio 等相关开发环境。
 :::
 
-
-
 ## 下载地址
 
 如视提供两个版本的 SDK：**基础版本**和**带看版本**。
@@ -21,7 +19,7 @@ title: Android 端
     <th>SDK</th>
     <th>DEMO</th>
     <th>安装包增量</th>
-	</tr >
+	</tr>
   <tr align="center">
 	  <td rowspan="1">基础版本</td>
 	  <td><a target="_blank" href="https://vr-public-1304125667.cos.ap-beijing.myqcloud.com/release/vrnative/rsvrsdk_lite-1.0.16.aar">rsvrsdk_lite-1.0.16</a></td>
@@ -36,15 +34,13 @@ title: Android 端
    </tr>
 </table>
 
-
-
 ## 环境要求
 
 - 最低兼容 Android 5.0（SDK API Level 21），建议使用 Android 8.0 （SDK API Level 26）及以上版本。
 - Android Studio 3.5 及以上版本。
 - App 要求 Android 5.0 及以上设备。
 
-### 申请SDK接入密钥
+### 申请 SDK 接入密钥
 
 :::caution
 请向开发者中心申请接入密钥，包含 `app_id` 和 `app_secret`。
@@ -90,17 +86,15 @@ dependencies {
 }
 ```
 
-
 ### 初始化 SDK
 
-SDK的初始化需要在自定义的 `application` 中执行，调用初始化方法：
+SDK 的初始化需要在自定义的 `application` 中执行，调用初始化方法：
 
 ```java
 RsVrSdk.init(this, new VrCallBack())
 ```
 
-需要提供必需参数appId及appSecret。
-
+需要提供必需参数 appId 及 appSecret。
 
 ```java
 public class App extends Application {
@@ -113,7 +107,7 @@ public class App extends Application {
     // 初始化VR配置
     initVr();
   }
-  
+
   // 初始化VR配置
   private void initVr() {
         RsVrSdk.init(this, new RsVrCallBack() {
@@ -131,7 +125,7 @@ public class App extends Application {
                     public String appSecret() {
                         return "123123";
                     }
-                    // 可作为应用的app标识使用（****必填****）                  
+                    // 可作为应用的app标识使用（****必填****）
                     @Override
                     public String scheme() {
                         return "realsee";
@@ -147,7 +141,6 @@ public class App extends Application {
     }
 ```
 
-
 ### 打开 VR 页面
 
 初始化完成以后，通过调用：
@@ -156,7 +149,7 @@ public class App extends Application {
 RsVrSdk.openVr(this, vrEntity)
 ```
 
-打开VR链接
+打开 VR 链接
 
 ```java
 String url = "http://open.realsee.com/xxxxx"
@@ -202,10 +195,10 @@ public *;
 ### 带看
 
 :::caution
-请注意使用VR带看功能，需要下载带看版本的SDK包
+请注意使用 VR 带看功能，需要下载带看版本的 SDK 包
 :::
 
-VR带看需要使用腾讯 [TRTC](https://cloud.tencent.com/document/product/647/32689)语音服务，如果App没有集成此服务，需要在`build.gradle`添加依赖
+VR 带看需要使用腾讯 [TRTC](https://cloud.tencent.com/document/product/647/32689)语音服务，如果 App 没有集成此服务，需要在`build.gradle`添加依赖
 
 ```groovy
 dependencies {
@@ -216,15 +209,13 @@ dependencies {
 }
 ```
 
-
-
 ### 分享
 
 RsVrSdk SDK 支持调用微信分享到会话、朋友圈、复制链接功能；按照调用的优先级，分享的实现支持以下三种方式：
 
 #### 完全自定义
 
-分享的实现完全由App端实现，SDK只提供分享数据传输的通道，通过实现方法来完成：
+分享的实现完全由 App 端实现，SDK 只提供分享数据传输的通道，通过实现方法来完成：
 
 ```java
 // 初始化VR配置及回调
@@ -251,7 +242,7 @@ RsVrSdk.init(this, new RsVrCallBack() {
 
 #### 部分自定义
 
-分享的弹框由SDK实现，弹框中的item点击之后，将数据传递给App实现
+分享的弹框由 SDK 实现，弹框中的 item 点击之后，将数据传递给 App 实现
 
 ```java
 // 初始化VR配置及回调
@@ -277,9 +268,7 @@ RsVrSdk.init(this, new RsVrCallBack() {
   }
 ```
 
-
-
-#### 使用VRSDK分享
+#### 使用 VRSDK 分享
 
 ①. 引入微信分享 SDK：
 
@@ -314,7 +303,6 @@ RsVrSdk.init(this, new RsVrCallBack() {
 
 ### 自定义 Loading
 
-
 SDK 支持业务方自定义打开 VR 页面前的 Loading 背景图及 Logo。
 
 构造 `RsVrEntity` 时自定义如下：
@@ -335,8 +323,7 @@ RsVrSdk.openVr(this, vrEntity);
 
 ### 页面跳转
 
-
-页面内的跳转，H5通过传递routerUrl的方式，回调到App端
+页面内的跳转，H5 通过传递 routerUrl 的方式，回调到 App 端
 
 ```java
 // 初始化VR配置及回调
@@ -359,14 +346,13 @@ RsVrSdk.init(this, new RsVrCallBack() {
   }
 ```
 
-### 
+###
 
 ### 自定义协议
 
 #### `callAndBackfeed`
 
 前端发送 `scheme` 信息给客户端，客户端收到信息后会立马返回给前端。
-
 
 协议格式：
 
@@ -383,10 +369,10 @@ RsVrSdk.init(this, new RsVrCallBack() {
 前端侧：
 
 ```javascript
-import JSBridge from '@realsee/jsbridge-x'
+import JSBridge from "@realsee/jsbridge-x";
 
-const jsBridge = new JSBridge()
-jsBridge.callAndBackfeed('custom/showQrCode?url=http%3A%2F%2Fwww.realsee.com')
+const jsBridge = new JSBridge();
+jsBridge.callAndBackfeed("custom/showQrCode?url=http%3A%2F%2Fwww.realsee.com");
 ```
 
 App 侧：
@@ -433,16 +419,15 @@ RsVrSdk.init(this, new RsVrCallBack() {
 前端侧：
 
 ```javascript
-import JSBridge from '@realsee/jsbridge-x'
+import JSBridge from "@realsee/jsbridge-x";
 
-const jsBridge = new JSBridge()
-jsBridge.callAndListen('custom/listenWebViewState', (newState) => {
+const jsBridge = new JSBridge();
+jsBridge.callAndListen("custom/listenWebViewState", (newState) => {
   // 监听的客户端状态发生变更
-})
+});
 ```
 
 App 侧：
-
 
 ```java
 // 初始化VR配置及回调

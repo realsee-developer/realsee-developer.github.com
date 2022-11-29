@@ -28,7 +28,7 @@ title: 微信小程序语音
 - 符合类目要求的小程序，需要在【微信公众平台】>【开发】>【开发管理】>【接口设置】中自助开通该组件权限，如下图所示：
   <!-- ![check](../../../../assets/wx/check.png) -->
 
-### 2、申请SDK接入密钥
+### 2、申请 SDK 接入密钥
 
 请跳转至 [开发者控制台](https://developers.realsee.com/console) 申请。
 
@@ -38,7 +38,6 @@ title: 微信小程序语音
 
 **socket 合法域名**: `wss://ws.realsee.cn;wss://ws.realsee.com;`
 
-
 ## SDK 下载
 
 通过 [SDK 资源](https://vrlab-static.ljcdn.com/release/web/sdk/vrwebview-miniprogram.3af4ce43.zip) 下载 `rs-wx-vrsdk.zip` 文件，解压后直接引用
@@ -47,67 +46,67 @@ title: 微信小程序语音
 
 ### 1、创建 page.wxml
 
-创建符合您业务场景 WXML 文件模板page.wxml
+创建符合您业务场景 WXML 文件模板 page.wxml
 
-````html 
+```html
 <!-- 引入 sdk 里的wxml模板 -->
-<include src="path-to/rs-wx-vrsdk/index.wxml"/>
-````
+<include src="path-to/rs-wx-vrsdk/index.wxml" />
+```
 
 ### 2、创建 page.js
 
 ```javascript title="page.js"
 // 从 sdk 里引入 vrPage 对象
-import vrPage from 'path-to/rs-wx-vrsdk/index'
+import vrPage from "path-to/rs-wx-vrsdk/index";
 // 从 sdk 里引入 TRTC 对象，或引入自己接入的 trtc-wx 对象
-import TRTC from 'path-to/trtc-wx'
+import TRTC from "path-to/trtc-wx";
 
 // 将 TRTC 挂载到 vrPage 上
-vrPage.TRTC = TRTC
+vrPage.TRTC = TRTC;
 
 // 进行SDK初始化参数配置
 vrPage.vrOptions = {
   app: {
-    key: 'your app key',
-    secret: 'your app secret',
+    key: "your app key",
+    secret: "your app secret",
     // gateway的挂载点
-    gateway: 'https://app-gateway-realsee.ke.com', // 生产环境
+    gateway: "https://app-gateway-realsee.ke.com", // 生产环境
     // sdk启动接口
-    startup: '/sdk/open/startup/cold.json',
+    startup: "/sdk/open/startup/cold.json",
     // 语音签名接口
-    sign: '/sdk/open/live/voice/sign.json',
-  }
-}
+    sign: "/sdk/open/live/voice/sign.json",
+  },
+};
 
 /** 请实现以下接口 */
 
 // 获取用户标识 带看下该接口必须实现
-vrPage.getUserIdentifier = async () => ''
+vrPage.getUserIdentifier = async () => "";
 
 // 进行登录
-vrPage.login = async () => ''
+vrPage.login = async () => "";
 
-// 与webview进行通信 
+// 与webview进行通信
 vrPage.bindMessage = (message) => {
   // message消息体结构：{ id: 随机消息id, data: 消息的数据 }
   // data的数据结构，请通信双方自行协商定义
-}
+};
 
-// 退出当前小程序页面 
-vrPage.exit = () => {}
+// 退出当前小程序页面
+vrPage.exit = () => {};
 
 // 进行分享数据传递
-vrPage.share = (shareObj) => {}
+vrPage.share = (shareObj) => {};
 
 // 将vrPage对象传递给微信原生的Page对象即可
-Page(vrPage)
+Page(vrPage);
 ```
 
 ### 3、使用方式
 
 ```js
-// 将vr链接作为小程序⻚面的url参数即可，请注意需要使用 encodeURIComponent 
+// 将vr链接作为小程序⻚面的url参数即可，请注意需要使用 encodeURIComponent
 wx.navigateTo({
-  url: `/page?url=encodeURIComponent(${vrUrl})`
-})
+  url: `/page?url=encodeURIComponent(${vrUrl})`,
+});
 ```

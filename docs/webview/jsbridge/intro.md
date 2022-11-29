@@ -41,7 +41,6 @@ const [deviceInfo, err] = await jsBridge.getDeviceInfo()
 
 ```
 
-
 ## 适配情况
 
 - [x] [iOS VRWebView](../app/iOS.md)
@@ -49,8 +48,7 @@ const [deviceInfo, err] = await jsBridge.getDeviceInfo()
 - [x] [微信小程序](../miniProgram/wechat.md)
 - [ ] 头条小程序
 - [ ] 百度小程序
- 
+
 :::caution 注意
 浏览器本身就是 WebView 的完整版，并不存在所谓的 `jsBridge`。但为了保障业务源码逻辑的统一性，我们在浏览器环境下也模拟出一个 `jsBridge` 概念。浏览器的 `jsBridge` 需要您自行实现，具体实现可参考 **[浏览器 "桥" 实现](./browser-jsbridge.md)** 。
 :::
-

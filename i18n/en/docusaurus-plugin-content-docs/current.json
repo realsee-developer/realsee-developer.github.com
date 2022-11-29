@@ -1,0 +1,130 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.三维空间.category.手把手教学": {
+    "message": "Hands-on teaching",
+    "description": "The label for category 手把手教学 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.无框架模式开发": {
+    "message": "Frameworkless development",
+    "description": "The label for category 无框架模式开发 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.React HOC 模式开发": {
+    "message": "React HOC pattern development",
+    "description": "The label for category React HOC 模式开发 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.React Hooks 模式开发": {
+    "message": "React Hooks pattern development",
+    "description": "The label for category React Hooks 模式开发 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.Vue 模式开发": {
+    "message": "Vue mode development",
+    "description": "The label for category Vue 模式开发 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.快速实践": {
+    "message": "quick practice",
+    "description": "The label for category 快速实践 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.进阶指南": {
+    "message": "Advanced Guide",
+    "description": "The label for category 进阶指南 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.集成户型图🌟": {
+    "message": "Integrated floor plan 🌟",
+    "description": "The label for category 集成户型图🌟 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.常见问题": {
+    "message": "common problem",
+    "description": "The label for category 常见问题 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.link.Five API 文档": {
+    "message": "Five API Documentation",
+    "description": "The label for link Five API 文档 in sidebar 三维空间, linking to https://unpkg.com/@realsee/five/docs/index.html"
+  },
+  "sidebar.如视带看.category.开发准备": {
+    "message": "Development preparation",
+    "description": "The label for category 开发准备 in sidebar 如视带看"
+  },
+  "sidebar.如视带看.category.上手开发": {
+    "message": "Get Started",
+    "description": "The label for category 上手开发 in sidebar 如视带看"
+  },
+  "sidebar.如视带看.category.语音集成": {
+    "message": "voice integration",
+    "description": "The label for category 语音集成 in sidebar 如视带看"
+  },
+  "sidebar.如视带看.category.客户端语音": {
+    "message": "client voice",
+    "description": "The label for category 客户端语音 in sidebar 如视带看"
+  },
+  "sidebar.如视带看.category.常见问题": {
+    "message": "common problem",
+    "description": "The label for category 常见问题 in sidebar 如视带看"
+  },
+  "sidebar.如视带看.link.Live API 文档": {
+    "message": "Live API Documentation",
+    "description": "The label for link Live API 文档 in sidebar 如视带看, linking to https://unpkg.com/@realsee/live/docs/index.html"
+  },
+  "sidebar.空间导览.category.快速开始": {
+    "message": "quick start",
+    "description": "The label for category 快速开始 in sidebar 空间导览"
+  },
+  "sidebar.空间导览.category.剧本关键帧": {
+    "message": "script keyframe",
+    "description": "The label for category 剧本关键帧 in sidebar 空间导览"
+  },
+  "sidebar.空间导览.category.进阶指南": {
+    "message": "Advanced Guide",
+    "description": "The label for category 进阶指南 in sidebar 空间导览"
+  },
+  "sidebar.空间导览.category.常见问题": {
+    "message": "common problem",
+    "description": "The label for category 常见问题 in sidebar 空间导览"
+  },
+  "sidebar.空间导览.link.Vreo API 文档": {
+    "message": "Vreo API Documentation",
+    "description": "The label for link Vreo API 文档 in sidebar 空间导览, linking to https://realsee.js.org/vreo/index.html"
+  },
+  "sidebar.容器集成.category.客户端容器": {
+    "message": "client container",
+    "description": "The label for category 客户端容器 in sidebar 容器集成"
+  },
+  "sidebar.容器集成.category.小程序容器": {
+    "message": "applet container",
+    "description": "The label for category 小程序容器 in sidebar 容器集成"
+  },
+  "sidebar.容器集成.category.\"桥\" 协议": {
+    "message": "\"Bridge\" protocol",
+    "description": "The label for category \"桥\" 协议 in sidebar 容器集成"
+  },
+  "sidebar.容器集成.link.jsBridge API 文档": {
+    "message": "jsBridge API Documentation",
+    "description": "The label for link jsBridge API 文档 in sidebar 容器集成, linking to https://unpkg.com/@realsee/jsbridge-x/docs/index.html"
+  },
+  "sidebar.空间采集.category.伽罗华采集": {
+    "message": "Galois collection",
+    "description": "The label for category 伽罗华采集 in sidebar 空间采集"
+  },
+  "sidebar.如视 API.category.鉴权": {
+    "message": "authentication",
+    "description": "The label for category 鉴权 in sidebar 如视 API"
+  },
+  "sidebar.如视 API.category.核心实体": {
+    "message": "core entity",
+    "description": "The label for category 核心实体 in sidebar 如视 API"
+  },
+  "sidebar.如视 API.category.扩展实体": {
+    "message": "extended entity",
+    "description": "The label for category 扩展实体 in sidebar 如视 API"
+  },
+  "sidebar.如视 API.category.直播服务": {
+    "message": "Live service",
+    "description": "The label for category 直播服务 in sidebar 如视 API"
+  },
+  "sidebar.如视 API.category.转存服务": {
+    "message": "dump service",
+    "description": "The label for category 转存服务 in sidebar 如视 API"
+  }
+}

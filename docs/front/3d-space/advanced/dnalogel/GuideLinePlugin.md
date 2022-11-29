@@ -64,7 +64,7 @@ const FiveProvider = createFiveProvider({
 
 在 `FiveProvider` 时，将 `GuideLinePlugin` 配置在初始化插件参数即可。
 
-```Vue
+```vue
 <template>
   <FiveProvider :fiveInitArgs="fiveInitArgs">
   </FiveProvider>

@@ -1,0 +1,80 @@
+get:
+  summary: Card Information Details
+  tags:
+    - extended entity
+  description: Card information details for VR
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: source
+      in: query
+      description: "Business party identification, such as：T-RZ4L2XQD"
+      required: true
+      schema:
+        type: string
+        default: "T-RZ4L2XQD"
+    - 
+      name: resource_code
+      in: query
+      description: "VR copy encoding, eg：8oep3ZPGW8TjRlyT7x"
+      required: true
+      schema:
+        type: string
+        default: "8oep3ZPGW8TjRlyT7x"
+  responses:
+    200:
+      content:
+        "*/*":
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                properties:
+                  agent_name:
+                    type: string
+                    description: "contact name"
+                  agent_title:
+                    type: string
+                    description: "Contact introduction"
+                  agent_virtual_phone:
+                    type: string
+                    description: "contact number"
+                  agent_avatar:
+                    type: string
+                    description: "contact avatar"
+                  mappings:
+                    type: array
+                    description: "information item"
+                    items:
+                      title:
+                        type: string
+                        description: "title"
+                      content:
+                        type: string
+                        description: "content"
+                      is_block:
+                        type: bool
+                        description: "Whether to display the entire row"

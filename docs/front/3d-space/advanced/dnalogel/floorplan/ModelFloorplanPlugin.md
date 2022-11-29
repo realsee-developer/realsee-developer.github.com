@@ -89,7 +89,7 @@ const FiveProvider = createFiveProvider({
   </FiveProvider>
 </template>
 <script setup>
-import  ModelFloorplanPlugin from "@realsee/dnalogel/libs/ModelFloorplanPlugin";
+import ModelFloorplanPlugin from "@realsee/dnalogel/libs/ModelFloorplanPlugin";
 import { FiveProvider, FiveCanvas } from "@realsee/five/vue";
 const fiveInitArgs = {
     plugins: [

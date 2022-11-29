@@ -1,0 +1,69 @@
+get:
+  summary: Neighborhood Search Suggestions
+  tags:
+    - production service
+  description: Provide search suggestions for residential areas (RESBLOCK) that can be produced (real shooting/virtual design)
+  parameters:
+    - 
+      name: Authorization
+      in: header
+      description: access_token obtained by authentication
+      required: true
+      schema:
+        type: string
+        default: your_access_token
+    - 
+      name: keywords
+      in: query
+      description: "Community keywords"
+      required: true
+      schema:
+        type: string
+        default: "Jingliangyue"
+    - 
+      name: city_id
+      in: query
+      description: "City ID"
+      required: true
+      schema:
+        type: string
+        default: "110000"
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+                description: "Identifies a unique request"
+              trace_id:
+                type: string
+                description: "Identifies a unique request, similar to request_id, but mainly used for request traceability scenarios"
+              code:
+                type: integer
+                description: "Error code, the default is 0 when the request is successful"
+              status:
+                type: string
+                description: "Error message, if the request is successful, the default is success"
+              cost:
+                type: integer
+                description: "Time-consuming calculation of the server, in ms"
+              data:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    description: "District List"
+                    items:
+                      type: object
+                      properties:
+                        resblock_id:
+                          type: string
+                          description: "Cell ID"
+                          default: "1111027380057"
+                        resblock_name:
+                          type: number
+                          description: "District name"
+                          default: "Tiantongyuan Zhongyuan"

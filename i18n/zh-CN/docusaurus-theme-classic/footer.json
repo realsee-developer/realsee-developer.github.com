@@ -35,6 +35,10 @@
     "message": "如视官网",
     "description": "The label of footer link with label=如视官网 linking to https://realsee.com/"
   },
+  "link.item.label.开放平台开发者协议": {
+    "message": "开放平台开发者协议",
+    "description": "The label of footer link with label=开放平台开发者协议 linking to /agreement"
+  },
   "link.item.label.GitHub": {
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/realsee-developer"

@@ -3,10 +3,6 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.三维空间.category.快速实践": {
-    "message": "快速实践",
-    "description": "The label for category 快速实践 in sidebar 三维空间"
-  },
   "sidebar.三维空间.category.手把手教学": {
     "message": "手把手教学",
     "description": "The label for category 手把手教学 in sidebar 三维空间"
@@ -26,6 +22,10 @@
   "sidebar.三维空间.category.Vue 模式开发": {
     "message": "Vue 模式开发",
     "description": "The label for category Vue 模式开发 in sidebar 三维空间"
+  },
+  "sidebar.三维空间.category.快速实践": {
+    "message": "快速实践",
+    "description": "The label for category 快速实践 in sidebar 三维空间"
   },
   "sidebar.三维空间.category.进阶指南": {
     "message": "进阶指南",

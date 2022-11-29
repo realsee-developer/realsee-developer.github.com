@@ -1,0 +1,38 @@
+{
+  "item.label.三维空间": {
+    "message": "three-dimensional space",
+    "description": "Navbar item with label 三维空间"
+  },
+  "item.label.空间导览": {
+    "message": "space guide",
+    "description": "Navbar item with label 空间导览"
+  },
+  "item.label.线上带看": {
+    "message": "watch online",
+    "description": "Navbar item with label 线上带看"
+  },
+  "item.label.容器集成": {
+    "message": "container integration",
+    "description": "Navbar item with label 容器集成"
+  },
+  "item.label.空间采集": {
+    "message": "space acquisition",
+    "description": "Navbar item with label 空间采集"
+  },
+  "item.label.开放 API": {
+    "message": "Open API",
+    "description": "Navbar item with label 开放 API"
+  },
+  "item.label.开发者协议": {
+    "message": "developer agreement",
+    "description": "Navbar item with label 开发者协议"
+  },
+  "item.label.博客": {
+    "message": "blog",
+    "description": "Navbar item with label 博客"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
