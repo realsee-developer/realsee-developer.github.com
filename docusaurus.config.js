@@ -93,8 +93,9 @@ const config = {
       navbar: {
         // title: 'Realsee',
         logo: {
-          alt: "如视",
+          alt: "如视 · 开放平台",
           src: "//vrlab-public.ljcdn.com/common/file/web/ea031fa5-ad82-46b3-86c8-7b20ec1e635a.jpg",
+          href: "https://open-platform.realsee.com/",
         },
         items: [
           {
