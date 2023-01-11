@@ -124,7 +124,7 @@ Page({
 
     // 注⼊⾃定义scheme，这⾥是与h5约定的使⽤jsbridge-x进⾏通信的⽅法
     const schemes = {
-      customFunction: (callback, params) => {
+      customFunction: (callback, type, params) => {
         // ⾃定义⽅法，h5会通过jsbridge-x的 callAndBackfeed 或 callAndListen 的⽅式进⾏调⽤（具体调⽤⽅式由两者协商确定）
         // callAndBackfeed 是⼀次订阅流，可当⼀次函数调⽤，将结构通过callback回调给h5
         // callAndListen 是多次订阅流，与事件订阅类似，把callback注册到某事件的回调⾥，并且在⻚⾯关闭后解除注册
@@ -253,7 +253,7 @@ export default class Index extends Component {
 
     // 注⼊⾃定义scheme，这⾥是与h5约定的使⽤jsbridge-x进⾏通信的⽅法
     const schemes = {
-      customFunction: (callback, params) => {
+      customFunction: (callback, type, params) => {
         // ⾃定义⽅法，h5会通过jsbridge-x的 callAndBackfeed 或 callAndListen 的⽅式进⾏调⽤（具体调⽤⽅式由两者协商确定）
         // callAndBackfeed 是⼀次订阅流，可当⼀次函数调⽤，将结构通过callback回调给h5
         // callAndListen 是多次订阅流，与事件订阅类似，把callback注册到某事件的回调⾥，并且在⻚⾯关闭后解除注册
@@ -407,7 +407,7 @@ export default {
 
       // 注⼊⾃定义scheme，这⾥是与h5约定的使⽤jsbridge-x进⾏通信的⽅法
       const schemes = {
-        customFunction: (callback, params) => {
+        customFunction: (callback, type, params) => {
           // ⾃定义⽅法，h5会通过jsbridge-x的 callAndBackfeed 或 callAndListen 的⽅式进⾏调⽤（具体调⽤⽅式由两者协商确定）
           // callAndBackfeed 是⼀次订阅流，可当⼀次函数调⽤，将结构通过callback回调给h5
           // callAndListen 是多次订阅流，与事件订阅类似，把callback注册到某事件的回调⾥，并且在⻚⾯关闭后解除注册
@@ -540,7 +540,7 @@ export default {
 
       // 注⼊⾃定义scheme，这⾥是与h5约定的使⽤jsbridge-x进⾏通信的⽅法
       const schemes = {
-        customFunction: (callback, params) => {
+        customFunction: (callback, type, params) => {
           // ⾃定义⽅法，h5会通过jsbridge-x的 callAndBackfeed 或 callAndListen 的⽅式进⾏调⽤（具体调⽤⽅式由两者协商确定）
           // callAndBackfeed 是⼀次订阅流，可当⼀次函数调⽤，将结构通过callback回调给h5
           // callAndListen 是多次订阅流，与事件订阅类似，把callback注册到某事件的回调⾥，并且在⻚⾯关闭后解除注册
