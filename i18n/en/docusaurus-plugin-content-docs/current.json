@@ -116,7 +116,7 @@
     "description": "The label for category 核心实体 in sidebar 如视 API"
   },
   "sidebar.如视 API.category.扩展实体": {
-    "message": "extended entity",
+    "message": "Extended entity",
     "description": "The label for category 扩展实体 in sidebar 如视 API"
   },
   "sidebar.如视 API.category.直播服务": {
