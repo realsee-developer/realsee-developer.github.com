@@ -15,10 +15,6 @@
     "message": "容器集成",
     "description": "Navbar item with label 容器集成"
   },
-  "item.label.空间采集": {
-    "message": "空间采集",
-    "description": "Navbar item with label 空间采集"
-  },
   "item.label.开放 API": {
     "message": "开放 API",
     "description": "Navbar item with label 开放 API"

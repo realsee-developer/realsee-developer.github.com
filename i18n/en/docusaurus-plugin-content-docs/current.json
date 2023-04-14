@@ -103,10 +103,6 @@
     "message": "jsBridge API Documentation",
     "description": "The label for link jsBridge API 文档 in sidebar 容器集成, linking to https://unpkg.com/@realsee/jsbridge-x/docs/index.html"
   },
-  "sidebar.空间采集.category.伽罗华采集": {
-    "message": "Galois collection",
-    "description": "The label for category 伽罗华采集 in sidebar 空间采集"
-  },
   "sidebar.如视 API.category.鉴权": {
     "message": "authentication",
     "description": "The label for category 鉴权 in sidebar 如视 API"

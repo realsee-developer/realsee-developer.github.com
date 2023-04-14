@@ -15,10 +15,6 @@
     "message": "container integration",
     "description": "Navbar item with label 容器集成"
   },
-  "item.label.空间采集": {
-    "message": "space acquisition",
-    "description": "Navbar item with label 空间采集"
-  },
   "item.label.开放 API": {
     "message": "Open API",
     "description": "Navbar item with label 开放 API"

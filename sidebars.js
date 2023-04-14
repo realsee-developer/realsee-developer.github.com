@@ -14,21 +14,6 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 
 const collectSidebar = {
-  '空间采集': [
-    'collect/intro',
-    {
-      type: 'category',
-      label: '伽罗华采集',
-      collapsed: false,
-      items: [
-        "collect/galois/Android",
-        // "webview/app/",
-        // "webview/app/download",
-        // "webview/app/demo",
-        // "webview/app/show-android",
-        // "webview/app/show-ios",
-      ]
-    },
     // {
     //   type: 'category',
     //   label: '"桥" 协议',

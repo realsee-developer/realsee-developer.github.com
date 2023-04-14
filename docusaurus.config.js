@@ -128,12 +128,6 @@ const config = {
             label: "容器集成",
           },
           {
-            type: "doc",
-            label: "空间采集",
-            docId: "collect/intro",
-            position: "left",
-          },
-          {
             to: "/open/api/",
             position: "left",
             label: "开放 API",
@@ -157,10 +151,6 @@ const config = {
           {
             title: "开发手册",
             items: [
-              {
-                label: "空间采集",
-                to: "/docs/collect/intro",
-              },
               {
                 label: "三维空间",
                 to: "/docs/front/3d-space/intro",
