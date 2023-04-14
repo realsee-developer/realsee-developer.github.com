@@ -32,7 +32,6 @@ const collectSidebar = {
     //     }
     //   ]
     // },
-  ]
 }
 
 const spaceSidebar = {
