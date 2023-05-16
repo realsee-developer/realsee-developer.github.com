@@ -18,7 +18,7 @@ Tap **to turn on brush: paintbrush_selector:** button, to draw
 import {PlaygroundCard} from '@site/src/components/Playground';
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PaintBrush/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/PaintBrush/index.html"></iframe>
 </div>
 ```
 

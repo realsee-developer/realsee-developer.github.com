@@ -30,7 +30,7 @@ With this plug-in, you can display a more detailed two-dimensional floor plan in
 ## Example effect
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/MapviewFloorplanPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/MapviewFloorplanPlugin/index.html"></iframe>
 </div>
 
 ## Install reference

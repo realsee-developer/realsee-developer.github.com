@@ -13,7 +13,7 @@ CruisePlugin provides the ability to roaming preview by path in a panorama mode.
 Drag VR to rotate the path guide effect and click "Start roaming" to preview the current path.
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/CruisePlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/CruisePlugin/index.html"></iframe>
 </div>
 
 ## Install reference

@@ -14,7 +14,7 @@ const config = {
   title: "如视・开发手册",
   url: isDeveloper
     ? "https://open-platform.realsee.com"
-    : "https://realsee.js.org",
+    : "https://realsee-developer.github.io",
   baseUrl: isDeveloper ? "/developer/" : "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",

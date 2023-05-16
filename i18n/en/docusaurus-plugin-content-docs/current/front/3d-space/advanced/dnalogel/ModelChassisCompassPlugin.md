@@ -18,7 +18,7 @@ Click the**Space Overview**button to view the model chassis compass in the space
 
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelChassisCompassPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/ModelChassisCompassPlugin/index.html"></iframe>
 </div>
 ```
 

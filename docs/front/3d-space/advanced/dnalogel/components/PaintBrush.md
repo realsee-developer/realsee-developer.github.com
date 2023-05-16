@@ -18,7 +18,7 @@ title: 添加画笔功能
 import {PlaygroundCard} from '@site/src/components/Playground';
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PaintBrush/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/PaintBrush/index.html"></iframe>
 </div>
 ```
 

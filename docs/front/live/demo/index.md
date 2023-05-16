@@ -20,7 +20,7 @@ title: DEMO 体验
 
 | 主持人角色                                                  | 观众角色                                                      |
 | ----------------------------------------------------------- | ------------------------------------------------------------- |
-| https://realsee.js.org/live-demo/index.html?userRole=anchor | https://realsee.js.org/live-demo/index.html?userRole=audience |
+| https://realsee-developer.github.io/live-demo/index.html?userRole=anchor | https://realsee-developer.github.io/live-demo/index.html?userRole=audience |
 
 ### 微信小程序体验
 

@@ -20,7 +20,7 @@ title: DMO Experience
 
 | Moderator Roles                                             | Visitor Roles                                                 |
 | ----------------------------------------------------------- | ------------------------------------------------------------- |
-| https://realsee.js.org/live-demo/index.html?userRole=anchor | https://realsee.js.org/live-demo/index.html?userRole=audience |
+| https://realsee-developer.github.io/live-demo/index.html?userRole=anchor | https://realsee-developer.github.io/live-demo/index.html?userRole=audience |
 
 ### Microcredit applet experience
 

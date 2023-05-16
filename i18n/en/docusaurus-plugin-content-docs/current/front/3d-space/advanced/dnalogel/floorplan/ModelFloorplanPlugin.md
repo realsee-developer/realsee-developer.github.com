@@ -25,7 +25,7 @@ With this plugin, you can display more detailed two-dimensional household graphs
 ## Example effect
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelFloorplanPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/ModelFloorplanPlugin/index.html"></iframe>
 </div>
 
 ## Install reference

@@ -68,6 +68,6 @@ five.plugins.PluginName.dispose()
 ## 效果预览
 
 我们为每个插件书写了简单的效果示例，您可点击预览：
-[@realsee/dnalogel showcase](https://realsee.js.org/dnalogel/)
+[@realsee/dnalogel showcase](https://realsee-developer.github.io/dnalogel/)
 
 

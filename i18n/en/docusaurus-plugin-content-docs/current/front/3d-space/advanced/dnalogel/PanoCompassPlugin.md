@@ -13,7 +13,7 @@ PanoCompassPlugin provides the ability to render directions in a panorama mode.
 Drag VR to make the view visible on the ground.
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoCompassPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/PanoCompassPlugin/index.html"></iframe>
 </div>
 
 ## Install reference

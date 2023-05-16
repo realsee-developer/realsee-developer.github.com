@@ -9,7 +9,7 @@ title: 模型"小窗"
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelViewPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/ModelViewPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用

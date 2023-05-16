@@ -23,7 +23,7 @@ Details below：
 ## Example effect
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoRulerPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/PanoRulerPlugin/index.html"></iframe>
 </div>
 
 ## Install reference

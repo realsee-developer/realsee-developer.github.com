@@ -24,7 +24,7 @@ Click the**Overview**button to view the house label effect in the space overview
 import {PlaygroundCard} from '@site/src/components/Playground';
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelRoomLabelPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/ModelRoomLabelPlugin/index.html"></iframe>
 </div>
 
 <PlaygroundCard

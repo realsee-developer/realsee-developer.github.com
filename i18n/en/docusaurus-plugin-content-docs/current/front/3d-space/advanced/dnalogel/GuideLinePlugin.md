@@ -13,7 +13,7 @@ GuideLinePlugin provides the ability to render action paths in a panorama mode.
 Drag VR, rotate the angle to see the path bootstrap effect.
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/GuideLinePlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/GuideLinePlugin/index.html"></iframe>
 </div>
 
 ## Install reference

@@ -11,7 +11,7 @@ title: 📦 全景户型雷达图
 
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoFloorplanRadarPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/PanoFloorplanRadarPlugin/index.html"></iframe>
 </div>
 
 <PlaygroundCard

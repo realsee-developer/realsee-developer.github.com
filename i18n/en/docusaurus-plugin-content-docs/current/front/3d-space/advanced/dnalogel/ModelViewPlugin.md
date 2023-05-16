@@ -9,7 +9,7 @@ The model "Small Window" renders **Five** 's**Space Overview Mode** `Five.Mode.F
 ## Example effect
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelViewPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/ModelViewPlugin/index.html"></iframe>
 </div>
 
 ## Install reference

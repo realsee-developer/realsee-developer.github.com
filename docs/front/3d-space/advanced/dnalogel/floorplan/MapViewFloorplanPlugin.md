@@ -30,7 +30,7 @@ title: 📦 大空间模型户型图
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/MapviewFloorplanPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/MapviewFloorplanPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用

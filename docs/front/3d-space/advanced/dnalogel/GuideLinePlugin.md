@@ -13,7 +13,7 @@ GuideLinePlugin 提供在全景模态下渲染出行动路径的能力。
 拖动 VR ，旋转视角即可看到路径引导效果。
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/GuideLinePlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/GuideLinePlugin/index.html"></iframe>
 </div>
 
 ## 安装引用

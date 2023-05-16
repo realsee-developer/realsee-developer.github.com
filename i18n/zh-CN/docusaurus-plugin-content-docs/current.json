@@ -85,7 +85,7 @@
   },
   "sidebar.空间导览.link.Vreo API 文档": {
     "message": "Vreo API 文档",
-    "description": "The label for link Vreo API 文档 in sidebar 空间导览, linking to https://realsee.js.org/vreo/index.html"
+    "description": "The label for link Vreo API 文档 in sidebar 空间导览, linking to https://realsee-developer.github.io/vreo/index.html"
   },
   "sidebar.容器集成.category.客户端容器": {
     "message": "客户端容器",

@@ -300,7 +300,7 @@ const vreoSidebar = {
     {
       type: 'link',
       label: 'Vreo API 文档',
-      href: 'https://realsee.js.org/vreo/index.html'
+      href: 'https://realsee-developer.github.io/vreo/index.html'
     }
   ]
 }

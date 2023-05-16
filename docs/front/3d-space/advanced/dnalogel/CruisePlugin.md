@@ -13,7 +13,7 @@ CruisePlugin 提供在全景模态下根据路径进行漫游预览的能力。
 拖动 VR ，旋转视角即可看到路径引导效果，点击“开始漫游”，即可根据当前路径进行漫游预览。
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/CruisePlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/CruisePlugin/index.html"></iframe>
 </div>
 
 ## 安装引用

@@ -18,7 +18,7 @@ Click the**space overview**button to view the model entrance door in the space o
 
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelEntryDoorGuidePlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/ModelEntryDoorGuidePlugin/index.html"></iframe>
 </div>
 ```
 

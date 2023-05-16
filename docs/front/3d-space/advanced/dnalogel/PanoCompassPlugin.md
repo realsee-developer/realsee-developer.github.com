@@ -13,7 +13,7 @@ PanoCompassPlugin 提供在全景模态下渲染出方向指向盘的能力。
 拖动 VR ，使视角朝向地面可看到效果。
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoCompassPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/PanoCompassPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用

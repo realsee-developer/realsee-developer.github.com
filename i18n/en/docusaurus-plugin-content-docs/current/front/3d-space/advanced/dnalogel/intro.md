@@ -66,6 +66,6 @@ You can view data acquisition and related open API via [open API](https://open-p
 
 ## Effect Preview
 
-We wrote a simple example of effect for each plugin. You can click on preview： [@realsee/dnalogel showcase](https://realsee.js.org/dnalogel/)
+We wrote a simple example of effect for each plugin. You can click on preview： [@realsee/dnalogel showcase](https://realsee-developer.github.io/dnalogel/)
 
 

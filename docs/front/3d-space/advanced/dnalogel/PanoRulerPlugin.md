@@ -24,7 +24,7 @@ title: 添加全景标尺🌟️
 ## 示例效果
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/PanoRulerPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/PanoRulerPlugin/index.html"></iframe>
 </div>
 
 ## 安装引用

@@ -13,7 +13,7 @@ Tap**to view model**button to see the home map display in subview model status.
 
 ```mdx-code-block
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/TopviewFloorplanPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/TopviewFloorplanPlugin/index.html"></iframe>
 </div>
 ```
 

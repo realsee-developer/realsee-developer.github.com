@@ -24,7 +24,7 @@ title: 模型分间标签
 import {PlaygroundCard} from '@site/src/components/Playground';
 
 <div className="docs-vr-normal">
-  <iframe className="docs-vr-iframe" src="https://realsee.js.org/dnalogel/src/ModelRoomLabelPlugin/index.html"></iframe>
+  <iframe className="docs-vr-iframe" src="https://realsee-developer.github.io/dnalogel/src/ModelRoomLabelPlugin/index.html"></iframe>
 </div>
 
 <PlaygroundCard
