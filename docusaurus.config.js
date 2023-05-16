@@ -7,7 +7,6 @@ const isDeveloper = env.build_target === DEVELOPER_PLATFORM;
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-const VersionsArchived = require("./versionsArchived.json");
 const webpackPlugin = require("./docusaurus-plugins/webpack-plugin");
 
 /** @type {import('@docusaurus/types').Config} */
