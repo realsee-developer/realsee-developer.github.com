@@ -8,7 +8,7 @@ import {
   useFiveEventCallback,
 } from "@realsee/five/react";
 
-import work from "@realsee/open-works/virtual/81980RNawnbCVaLz0a/work.json";
+import work from "@realsee/open-works/virtual/816lPVZQkQDF5XOpPo/work.json";
 
 import { ResponsiveFiveCanvas } from "../../ResponsiveFiveCanvas";
 import { Rotation } from "@realsee/dnalogel/plugins/CameraMovementPlugin/typing";
