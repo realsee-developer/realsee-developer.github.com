@@ -4,8 +4,8 @@
   <ShortName>如视・开发手册</ShortName>
   <Description>Search 如视・开发手册</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://realsee.js.org/en/realsee.com/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://realsee.js.org/en/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://realsee.js.org/en/opensearch.xml" />
-  <moz:SearchForm>https://realsee.js.org/en/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://realsee-developer.github.io/en/realsee.com/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://realsee-developer.github.io/en/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://realsee-developer.github.io/en/opensearch.xml" />
+  <moz:SearchForm>https://realsee-developer.github.io/en/</moz:SearchForm>
 </OpenSearchDescription>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>如视・开发手册 Blog</title>
-        <link>https://realsee.js.org/blog</link>
+        <link>https://realsee-developer.github.io/blog</link>
         <description>如视・开发手册 Blog</description>
         <lastBuildDate>Wed, 23 Feb 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,7 +10,7 @@
         <language>zh-CN</language>
         <item>
             <title><![CDATA[如视三维空间能力快速 "尝鲜"]]></title>
-            <link>https://realsee.js.org/blog/quick-start-with-api</link>
+            <link>https://realsee-developer.github.io/blog/quick-start-with-api</link>
             <guid>quick-start-with-api</guid>
             <pubDate>Wed, 23 Feb 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[个人尝鲜]]></description>

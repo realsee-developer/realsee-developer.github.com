@@ -14,7 +14,7 @@ info:
 
     **Server Engineer** (aka backend/server engineer, including NodeJS Stack).
 
-    So the current documentation is in the form of the **API Explorer** . Client and JavaScript SDK please [**walks here**](https://realsee.js.org/docs/front/3d-space/intro).
+    So the current documentation is in the form of the **API Explorer** . Client and JavaScript SDK please [**walks here**](https://realsee-developer.github.io/docs/front/3d-space/intro).
 
     # Get started
 
@@ -120,7 +120,7 @@ tags:
   - name: core entity
     externalDocs:
       description: Find out more
-      url: https://realsee.js.org
+      url: https://realsee-developer.github.io
   - name: extended entity
     description: Floor plan, cover image.
   - name: Live service
@@ -276,7 +276,7 @@ paths:
       description: |
         > The basic metadata is provided to the rendering SDK, and the basic VR roaming function can be easily completed.
 
-        corresponds to the front-end quick start [**move here**](https://realsee.js.org/docs/front/3d-space/intro), `server engineer` running through DEMO **is not difficult* *.
+        corresponds to the front-end quick start [**move here**](https://realsee-developer.github.io/docs/front/3d-space/intro), `server engineer` running through DEMO **is not difficult* *.
 
         The current API has many data fields, and it is almost unnecessary to understand **direct transparent transmission**to the SDK.
       parameters:
@@ -534,7 +534,7 @@ paths:
         - VR roaming synchronization
         - VR voice chat room
 
-        corresponds to the front-end development manual [**Please move here**](https://realsee.js.org/docs/front/3d-space/intro).
+        corresponds to the front-end development manual [**Please move here**](https://realsee-developer.github.io/docs/front/3d-space/intro).
 
         #### Description of request fields
         ##### member (data structure embedded in `members` field)

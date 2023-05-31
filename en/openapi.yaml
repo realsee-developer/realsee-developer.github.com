@@ -14,7 +14,7 @@ info:
     ## 为谁准备
     **服务端工程师**(又称后端/服务器工程师，包括 NodeJS Stack)。
 
-    因此当前文档为 **API Explorer** 的形式。客户端及 JavaScript SDK 请[**移步此处**](https://realsee.js.org/docs/front/3d-space/intro) 。
+    因此当前文档为 **API Explorer** 的形式。客户端及 JavaScript SDK 请[**移步此处**](https://realsee-developer.github.io/docs/front/3d-space/intro) 。
 
     # 快速开始
 
@@ -121,7 +121,7 @@ tags:
   - name: 核心实体
     externalDocs:
       description: Find out more
-      url: https://realsee.js.org
+      url: https://realsee-developer.github.io
   - name: 扩展实体
     description: 平面图、封面图。
   - name: 直播服务
@@ -279,7 +279,7 @@ paths:
       description: |
         > 基础元数据提供至渲染SDK，即可轻松完成基础VR漫游功能。
 
-        对应前端快速上手[**移步至此**](https://realsee.js.org/docs/front/3d-space/intro)，`服务端工程师`跑通 DEMO **亦并非难事**。
+        对应前端快速上手[**移步至此**](https://realsee-developer.github.io/docs/front/3d-space/intro)，`服务端工程师`跑通 DEMO **亦并非难事**。
 
         当前 API 数据字段较多，且几乎无需理解**直接透传**至 SDK 即可。
       parameters:
@@ -534,7 +534,7 @@ paths:
         - VR漫游同步
         - VR语音聊天室
 
-        对应前端开发手册[**请移步至此**](https://realsee.js.org/docs/front/3d-space/intro) 。
+        对应前端开发手册[**请移步至此**](https://realsee-developer.github.io/docs/front/3d-space/intro) 。
 
         #### 请求字段说明
         ##### member(`members`字段内嵌的数据结构)
