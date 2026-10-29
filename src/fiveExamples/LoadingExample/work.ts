@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 export const work1 = {
   "_signature": "QMXnq9dpIXThTwkIIdL8SFIxqxy00QswlV/p/nJ1LaLmtLIRQQo0R3zWSzGRrB7VCHnYxPxwUvr55iTZ7L/pDeNHSdcSNF9/JCSRHIeN/IwcQ1KRjnGQ+CZP2BoJlboXAOp5I5wH6ezOhEBz/HqnX2Lf3qja+2auHnXnslV0IA0=",
   "allow_hosts": [

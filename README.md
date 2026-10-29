@@ -29,3 +29,8 @@ npm i --legacy-peer-deps
 ```bash
 npm run start
 ```
+
+
+## Example source-code license
+
+The Realsee-authored example code in `src/fiveExamples/`, `src/examples/`, `src/vr/`, and shared example components in `src/components/` is licensed under PolyForm-Noncommercial-1.0.0. Each directory includes the license and scope notice. Documentation, service agreements, SDK binaries and assets retain their separate terms.

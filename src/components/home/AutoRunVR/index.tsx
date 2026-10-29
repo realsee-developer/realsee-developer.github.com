@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 import * as React from "react";
 // import { Five, FiveInitArgs, parseWork } from '@realsee/five'
 import { Five, FiveInitArgs, parseWork } from "@realsee/five";

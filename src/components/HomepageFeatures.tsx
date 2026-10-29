@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 import React from "react";
 import Translate, { translate } from "@docusaurus/Translate";
 import "./HomepageFeatures.css";
